@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Compare Results" />
+<meta name="DC.Relation" scheme="URI" content="GUID-B85B5093-366C-4785-B784-D705E4D7186D.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-2D6F95DF-D6FC-4202-9B57-EC26CD55C35E" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Compare Results</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-2D6F95DF-D6FC-4202-9B57-EC26CD55C35E">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier for Systems</em></p>
+
+
+<h1 class="topictitle1"> Compare Results</h1>
+<div><p><img height="32" src="GUID-AE4B0E82-637D-4E88-949B-A1F6CFB43219-low.gif" width="32" />
+      Intel&reg; VTune&#8482; Amplifier provides a comparison mechanism that helps identify
+      performance improvements or degradation on subsequent analysis runs. Typically
+      you would make a change to optimize the code and run a second analysis to
+      determine the degree to which the optimization improved application
+      performance. Rather than optimizing the 
+      <samp class="codeph">tachyon</samp> sample code, you can run a second Basic Hotspots
+      Analysis on the 
+      <samp class="codeph">tachyon</samp> package running on a single thread to reveal a
+      different analysis result. 
+    </p>
+<div class="section" id="GUID-97118F8F-EEC8-4733-9DA7-E41692251500"><h2 class="sectiontitle">Run Basic Hotspots Analysis</h2><ol id="GUID-DF965CE5-1368-45E6-86FB-55D8D24C39CE"><li><p>Run the Basic Hotspots analysis again on the same Android* device.
+            
+          </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>Consider removing the option to automatically stop collection
+              after a certain interval and stopping the collection manually to allow the
+              application to render the image fully. To do this, switch to the 
+              <strong>Analysis Target</strong> tab and uncheck the 
+              <strong>Automatically stop collection after (sec)</strong> option. 
+            </p>
+</div>
+</li>
+<li><p>When the application launches, tap the top of the device screen
+            and select 
+            <strong>1 THREAD</strong> to run the application on a single thread. 
+          </p>
+<p><img src="GUID-30292FB3-A4FE-4F9F-ADB4-9F8BEFB8E1D1-low.png" width="600" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-4022512E-05EC-49F8-90AC-D0349239E840"><h2 class="sectiontitle">Review the Results</h2><p>In the single-thread version of the application, the hotspots remain
+        the same, but the 
+        <strong>CPU Usage Histogram</strong> shows that the sample application ran on one
+        or two logical CPUs rather than three or four when run on multiple threads. 
+      </p>
+<p><img src="GUID-81751125-FBD9-4D48-AAD0-CFE3A5564C01-low.png" width="400" /></p>
+<p>Exploring the 
+        <strong>Bottom-up</strong> tab shows that the 
+        <samp class="codeph">grid_intersect</samp> and 
+        <samp class="codeph">sphere_intersect</samp> functions spent the most time with
+        Poor CPU utilization (red 
+        <img src="GUID-425A0C44-AB03-459A-964D-375ED4774B47-low.jpg" /> bars). 
+      </p>
+<p><img src="GUID-7826F34D-C6B4-4B1B-ACC6-4F85B6CE991F-low.png" width="600" /></p>
+</div>
+<div class="section" id="GUID-2DA715F3-F4AE-46B2-8630-08D7C13037FF"><h2 class="sectiontitle">Compare to Previous Result</h2><p> Compare the new result run on a single thread with the original
+        result run on multiple threads. 
+      </p>
+<ol id="GUID-36E8F9A5-DE92-4FF2-B5CA-1D9B82BABD7E"><li><p>Close the analysis result tabs if they are open. 
+          </p>
+</li>
+<li><p>Click the 
+            <strong>Compare Results</strong> button 
+            <img src="GUID-E632A67E-51CD-4676-B252-0F411DF5A068-low.gif" /> on the toolbar. 
+          </p>
+</li>
+<li><p>Specify the results you want to compare. 
+          </p>
+<p><img src="GUID-B0A5BE65-E6D2-4B9F-8DDA-DABB838B7E27-low.png" width="600" /></p>
+</li>
+<li><p>Click 
+            <strong>Compare</strong>. 
+          </p>
+<p>A 
+            <strong>Summary</strong> window opens that provides the statistics for the
+            differences between the collected results. 
+          </p>
+</li>
+</ol>
+<p>Examine the data on the 
+        <strong>Summary</strong> window to see the differences in hotspot and CPU usage
+        between runs. The list of 
+        <strong>Top Hotspots</strong> shows the differences in CPU time for the top
+        functions for each result. The first number is for the first run using the
+        automatic number of threads. The second number is for the second collection
+        using a single thread. The 
+        <strong>Top Hotspots by Difference</strong> list shows the hotspots that had the
+        greatest performance difference between runs. 
+      </p>
+<p><img src="GUID-C24CD868-EF4C-4F53-A984-5FDE7F4DE64F-low.png" width="400" /></p>
+<p>In this example, the first analysis result was collected when the
+        application was using multiple threads and the preset 25 second elapsed time
+        allowed the application to fully render the image twice. Allowing the image to
+        render twice resulted in a higher CPU time for the functions. In the second
+        analysis result the image only rendered once even though the analysis result
+        had a longer elapsed time. When analyzing your own application, you would
+        typically begin by making code changes to improve the most CPU-intensive
+        functions and therefore would hope that the difference between results would
+        show performance improvement. 
+      </p>
+<p>In this example, the 
+        <strong>CPU Usage Histogram</strong> shows that the initial analysis (darker
+        blue) spent the most time running with three or four logical CPUs and the
+        second analysis that was run on a single thread (lighter blue) spent the most
+        time running on two logical CPUs. Switch to the 
+        <strong>Bottom-up</strong> window to view details about the CPU usage of each
+        function. 
+      </p>
+<p><img src="GUID-DEE083AC-2790-4ED4-8F69-27881F46C1EA-low.png" /></p>
+<p>When making changes to your own application, opening a comparison of
+        two results can help identify areas that had performance differences. Evaluate
+        whether your change impacted the highest hotspot and ensure that it did not
+        cause a performance degradation elsewhere in the application. From there, you
+        can begin to reduce other hotspots until your application is fully optimized. 
+      </p>
+</div>
+<div class="section" id="GUID-13E72EF9-DB83-4098-9D93-CC3AAD2A3B49"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-2E495C7F-60FC-41D4-9987-A8BDF93BF1CE.html#GUID-2E495C7F-60FC-41D4-9987-A8BDF93BF1CE">Summary</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-B85B5093-366C-4785-B784-D705E4D7186D.html">Finding Hotspots</a></div>
+</div>
+<div></div>
+</body>
+</html>

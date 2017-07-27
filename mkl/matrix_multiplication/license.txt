@@ -1,0 +1,10 @@
+Matrix Multiplication Sample
+
+License Information Follows
+---------------------------
+* dgemm_example.c, dgemm_threading_effect_example.c, dgemm_with_timing.c, matrix_multiplication.c
+* readme.htm, Makefile, build.bat, build.sh
+
+Copyright 2011-2016 Intel Corporation
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/  

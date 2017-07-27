@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Build Application and Create New Project" />
+<meta name="DC.subject" content="Projects" />
+<meta name="keywords" content="Projects" />
+<meta name="DC.Relation" scheme="URI" content="GUID-B85B5093-366C-4785-B784-D705E4D7186D.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-AB1C1D4B-4901-4A78-9F06-5DE8EB989678" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Build Application and Create New Project</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-AB1C1D4B-4901-4A78-9F06-5DE8EB989678">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier for Systems</em></p>
+
+
+<h1 class="topictitle1">Build Application and Create New
+    Project</h1>
+<div><p><img height="32" src="GUID-AE4B0E82-637D-4E88-949B-A1F6CFB43219-low.gif" width="32" />
+      Follow these steps before analyzing your sample 
+      <samp class="codeph">tachyon</samp> application target for hotspots. 
+    </p>
+<div class="section" id="GUID-37C000BA-3A70-4AF0-9060-73149A88DF71"><h2 class="sectiontitle">Get Software Tools</h2><p>If you do not have them already, get and install these software tools:
+        
+      </p>
+<ul id="GUID-3A53AA7A-D4FD-4596-8802-1325806FFE3B"><li><p> Android* SDK and NDK 
+          </p>
+</li>
+<li><p>Intel&reg; VTune&#8482; Amplifier for Systems 
+          </p>
+</li>
+<li><p>Eclipse* or other development environment (optional) 
+          </p>
+<p>or 
+          </p>
+</li>
+<li><p>Apache Ant* (to compile outside of Eclipse or other development
+            environment) 
+          </p>
+</li>
+</ul>
+<p>Optionally, update your PATH environment variable to include the
+        location of the Android SDK 
+        <samp class="codeph">platform-tools</samp>, 
+        <samp class="codeph">tools</samp>, and 
+        <samp class="codeph">ndk</samp> directories and the location of your Apache Ant 
+        <samp class="codeph">bin</samp> directory, if applicable. 
+      </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>The following steps use Eclipse Mars.1 Release (4.5.1) and Apache
+          Ant 1.9.6. Other development environments may require alternate steps. 
+        </p>
+</div>
+</div>
+<div class="section" id="GUID-945E4589-2B78-4C52-971F-A66DEA851FA0"><h2 class="sectiontitle">Build the Application</h2><ol id="GUID-ADEB3CEF-7013-4F1C-AF39-25856BA7BB30"><li><p>Extract the 
+            <span class="filepath">/opt/intel/vtune_amplifier_<var>&lt;version&gt;</var>_for_systems/samples/en/C++/tachyon_vtune_amp_xe.tar.gz</span>
+            file to a writeable location on your host system. This file contains the 
+            <samp class="codeph">tachyon\android</samp> directory, which includes the
+            sample application source files used in this tutorial. 
+          </p>
+</li>
+<li><p>Specify the location of your Android NDK and SDK directories. 
+          </p>
+<ol type="a" id="GUID-AFAF976C-808A-454F-8FE6-02698C2F3A5D"><li><p>Navigate to the 
+                <span class="filepath">tachyon\android</span> directory and open the 
+                <samp class="codeph">local.properties</samp> file with a text editor. 
+              </p>
+</li>
+<li><p>Add the location of your Android SDK and Android NDK
+                directories. For example: 
+              </p>
+<pre>sdk.dir=<span>/home/uid/Android/Sdk</span>
+ndk.dir=<span>/opt/android/android-ndk-r10e</span></pre></li>
+<li><p>Save and close the file. 
+              </p>
+</li>
+</ol>
+</li>
+<li><p>Compile the C++ code and create the binaries. 
+          </p>
+<ol type="a" id="GUID-D454E5F8-FDD6-4ADE-87EA-AF99FE1B4182"><li><p>Open a command prompt and navigate to the 
+                <samp class="codeph">tachyon\android</samp> directory. 
+              </p>
+</li>
+<li><p>Run the following command: 
+                <samp class="codeph">ndk-build</samp></p>
+</li>
+</ol>
+</li>
+<li><p>Build the application 
+            <samp class="codeph">.apk</samp> file. 
+          </p>
+<ul id="GUID-9109BCB1-A369-4284-9C30-07161E2DB912"><li><p>Using Eclipse: 
+              </p>
+<ol type="a" id="GUID-5EFAF06C-1906-461E-B05E-FFF8ECFBD40C"><li><p>Open the 
+                    <span class="filepath">Tachyon</span> project as an 
+                    <strong>Android Project from Existing Code</strong> in Eclipse. 
+                  </p>
+</li>
+<li><p> Click 
+                    <strong>Run</strong>. 
+                  </p>
+</li>
+<li><p>Select your Android device from the 
+                    <strong>Choose a running Android device list</strong> and click 
+                    <strong>OK</strong>. 
+                  </p>
+<p>The 
+                    <span class="filepath">Tachyon.apk</span> file is built in the 
+                    <span class="filepath">tachyon\android\bin</span> directory and
+                    installed on the device. 
+                  </p>
+</li>
+<li><p>Exit Eclipse. 
+                  </p>
+</li>
+</ol>
+</li>
+<li><p>Using a command prompt and Apache Ant: 
+              </p>
+<ol type="a" id="GUID-82CE2BBB-45E4-42AC-8739-E8F5D295D277"><li><p>Run the following command from the 
+                    <span class="filepath">tachyon\android</span> directory: 
+                    <samp class="codeph">ant clean</samp></p>
+</li>
+<li><p>Run the following command to create the 
+                    <samp class="codeph">.apk</samp> file in the 
+                    <span class="filepath">tachyon\android\bin</span> directory: 
+                    <samp class="codeph">ant debug</samp></p>
+</li>
+<li><p>Install the 
+                    <samp class="codeph">Tachyon-debug.apk</samp> file on the Android
+                    device using the following 
+                    <samp class="codeph">adb</samp> command: 
+                  </p>
+<p><pre>adb install bin\Tachyon-debug.apk</pre>You can confirm that the package has installed by either running 
+                    <samp class="codeph">Tachyon sample</samp> on the device, or by
+                    listing out the installed packages: 
+                  </p>
+<p><pre>adb shell pm list packages<span> | grep tachyon</span></pre></p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-989DA7CC-2AE8-47AA-811C-7A73DF11743D"><h2 class="sectiontitle">Create a Project</h2><ol id="GUID-51D464EC-3728-4EAF-B3A7-ED8434DDA198"><li><p>From the 
+            <samp class="codeph">&lt;install_dir&gt;/bin32</samp> directory (for IA-32
+            architecture) or from the 
+            <samp class="codeph">&lt;install_dir&gt;/bin64</samp> directory (for Intel 64
+            architecture), run the 
+            <samp class="codeph">amplxe-gui</samp> script to launch the VTune Amplifier
+            GUI. 
+          </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> For the VTune Amplifier for Systems, the default 
+		<samp class="codeph">&lt;<em>install_dir</em>&gt;</samp> is 
+		<span>:</span><p><ul id="d46e147"><li>For super-users: 
+			 <samp class="codeph">/opt/intel/system_studio_<em>version</em>/vtune_amplifier_for_systems</samp></li>
+<li>For ordinary users: 
+			 <samp class="codeph">$HOME/intel/system_studio_<em>version</em>/vtune_amplifier_for_systems</samp></li>
+</ul>
+</p>
+</div>
+</li>
+<li><p>Create a new project via 
+            <strong>New &gt; Project...</strong> or using the new project action 
+            <img src="GUID-5E3034B1-5931-4B62-A566-AA8EDF351871-low.gif" />
+            from the toolbar. The 
+            <strong>Create a Project</strong> dialog box opens. 
+          </p>
+</li>
+<li><p>Specify a project name such as 
+            <samp class="codeph">tachyon</samp> that will be used as the project directory
+            name. Click 
+            <strong>Create Project</strong>. 
+          </p>
+<p>VTune Amplifier creates the 
+            <samp class="codeph">tachyon</samp> project directory under the 
+            <samp class="codeph">$HOME/projects/</samp> directory or the
+            location you specified and opens the 
+            <strong>New Amplifier Result</strong> page with the 
+            <b class="uicontrol">Analysis Target</b> tab active. 
+          </p>
+</li>
+<li><p>In the 
+            <b class="uicontrol">Analysis Target</b> tab, specify your target as
+            follows: 
+          </p>
+<p><img height="300" src="GUID-56BC1930-40AB-44F2-ABBF-460C8D6155C6-low.png" width="700" /></p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-BE94D038-97D4-4C4A-845B-4DA766DF1E99" frame="border" border="1" cellspacing="0" rules="all"><tbody><tr><td class="cellrowborder" valign="top" width="NaN%"><img src="GUID-FF128D0D-105A-4263-AF4C-5088CED6CA95-low.jpg" /></td>
+<td class="cellrowborder" valign="top" width="NaN%"><p>Target system: 
+                      <strong>Accessible Targets &gt; Android device (ADB)</strong></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%"><img src="GUID-4AC660BC-442D-49CC-AF63-D9192BCD9F5B-low.jpg" /></td>
+<td class="cellrowborder" valign="top" width="NaN%"><p>Target type: 
+                      <strong>Launch Android Package 
+                      </strong></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%"><img src="GUID-547F768D-2ED7-4C36-B24F-E5C390679849-low.jpg" /></td>
+<td class="cellrowborder" valign="top" width="NaN%"><p>Via ADB on device: Select device from drop-down list. In
+                      the example, the Android device is identified as INV144600349. 
+                    </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%"><img src="GUID-D31D67B1-D45E-45EB-9FFF-A810085AF78B-low.jpg" /></td>
+<td class="cellrowborder" valign="top" width="NaN%"><p>Package name: Either click 
+                      <strong>Browse</strong> and select the package named 
+                      <samp class="codeph">com.intel.tbb.example.tachyon</samp> from the
+                      list, or enter it directly as the 
+                      <strong>Package Name</strong>. 
+                    </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%"><img src="GUID-1EF96755-9638-4A85-9FB6-809CDA7D0D89-low.jpg" /></td>
+<td class="cellrowborder" valign="top" width="NaN%"><p>Select 
+                      <strong>Automatically stop collection after (sec)</strong> to a
+                      value in seconds. The sample shows 25. You can also choose to click 
+                      <strong>Stop</strong> after a single iteration of the 
+                      <samp class="codeph">tachyon</samp> application. You will see a 3-D
+                      fractal image appear, blank out, and start to reappear again. 
+                    </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%"><img src="GUID-2FDBEEE1-B874-45A1-B56A-95EEC9DF2067-low.jpg" /></td>
+<td class="cellrowborder" valign="top" width="NaN%"><p>[Optional] Select 
+                      <strong>Analyze unplugged device</strong> to run the analysis while
+                      the device is disconnected from the host system. Data collection begins when
+                      the device is disconnected and the results are finalized and displayed in VTune
+                      Amplifier after the device is connected again. 
+                    </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><p>Click the 
+            <b class="uicontrol">Binary/Symbol Search</b> button, add the
+            directories listed below for the binary with symbols to the search paths, and
+            click 
+            <b class="uicontrol">OK</b>. 
+          </p>
+<p>The symbols are created when Android applications are built, but
+            are stripped off before you place the package on the device. 
+          </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>Use the 
+              <samp class="codeph">x86</samp> directory when running on a 32-bit Android
+              device and the 
+              <samp class="codeph">x86_64</samp> directory when running on a 64-bit
+              Android device. 
+            </p>
+</div>
+<p>Add the following directories to see the relevant symbol
+            information: 
+          </p>
+<ul id="GUID-31FFF884-7801-41FC-97B5-3E2F2DA364C1"><li><p><span class="filepath">\tachyon\android\obj\local\<var>&lt;x86 or
+                    x86_64&gt;</var></span></p>
+</li>
+<li><p><span class="filepath">\tachyon\android\obj\local\<var>&lt;x86 or
+                    x86_64&gt;</var>\objs-debug\abi\jni</span></p>
+</li>
+<li><p><span class="filepath">\tachyon\android\obj\local\<var>&lt;x86 or
+                    x86_64&gt;</var>\objs-debug\jni-engine\jni</span></p>
+</li>
+<li><p><span class="filepath">\tachyon\android\obj\local\<var>&lt;x86 or
+                    x86_64&gt;</var>\objs-debug\jni-engine\src\tachyon_src</span></p>
+</li>
+<li><p><span class="filepath">\tachyon\android\obj\local\<var>&lt;x86 or
+                    x86_64&gt;</var>\objs-debug\jni-engine\src\tbb\common\gui</span></p>
+</li>
+</ul>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>Only the symbol information for functions called by the 
+              <samp class="codeph">tachyon</samp> sample application are included in this
+              list. As a result, any functions called by operations other than those in the 
+              <samp class="codeph">tachyon</samp> sample, including functions called by
+              the Android operating system, will not be mapped in VTune Amplifier. These
+              functions will appear as 
+              <samp class="codeph">funct@&lt;value&gt;</samp> rather than with the
+              function name and the call stack information will not be available. 
+            </p>
+</div>
+</li>
+<li><p>Click the 
+            <b class="uicontrol">Source Search</b> button, add the directory for
+            the binary with symbols to the search paths, and click 
+            <strong>OK</strong>. 
+          </p>
+<p>Add the following directories to see the relevant search
+            information: 
+          </p>
+<ul id="GUID-A7F170FB-F8E7-45FE-927E-1C61D76DD5F1"><li><p><span class="filepath">\tachyon\android\src\tachyon_src</span></p>
+</li>
+<li><p><span class="filepath">\tachyon\android\src\tachyon_src\gui</span></p>
+</li>
+<li><p><span class="filepath">\tachyon\android\src\tachyon_src\tbb\common\gui</span></p>
+</li>
+<li><p><span class="filepath">\tachyon\android\src\tachyon_src\tbb\src</span></p>
+</li>
+<li><p><span class="filepath">\tachyon\android\src\tbb\common\gui</span></p>
+</li>
+</ul>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>Only the source information for functions called by the 
+              <samp class="codeph">tachyon</samp> sample application are included in this
+              list. As a result, any functions called by operations other than those in the 
+              <samp class="codeph">tachyon</samp> sample, including functions called by
+              the Android operating system, will not be mapped in VTune Amplifier. These
+              functions will appear as 
+              <samp class="codeph">funct@&lt;value&gt;</samp> rather than with the
+              function name and the call stack information will not be available. 
+            </p>
+</div>
+</li>
+<li><p>Click 
+            <strong>Choose Analysis</strong> to apply the settings and switch to the 
+            <b class="uicontrol">Analysis Type</b> tab. 
+          </p>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-13E72EF9-DB83-4098-9D93-CC3AAD2A3B49"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-3AAE9BB0-19A3-4756-A82D-5B31C9B1466C.html#GUID-3AAE9BB0-19A3-4756-A82D-5B31C9B1466C">Run Basic Hotspots Analysis</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-B85B5093-366C-4785-B784-D705E4D7186D.html">Finding Hotspots</a></div>
+</div>
+<div></div>
+</body>
+</html>

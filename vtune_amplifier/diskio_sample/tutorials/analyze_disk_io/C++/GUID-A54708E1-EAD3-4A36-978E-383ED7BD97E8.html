@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Tutorial: Analyzing Disk Input/Output Waits - C++ Sample Code" />
+<meta name="DC.Relation" scheme="URI" content="GUID-667008D9-1F25-4B94-9573-A1D855E7D9FC.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-D2009DFB-FDD0-41CC-B9CD-D273822AB964.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-3B2AF07D-354E-46E1-8D52-1CD085196368.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-A54708E1-EAD3-4A36-978E-383ED7BD97E8" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Tutorial: Analyzing Disk Input/Output Waits - C++ Sample Code</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-A54708E1-EAD3-4A36-978E-383ED7BD97E8">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+<h1 class="topictitle1"><img src="GUID-59DFA90A-7EFE-471F-87B3-6B240755CE73-low.png" /> Tutorial:
+	 Analyzing Disk Input/Output Waits - C++ Sample Code</h1>
+<div><p><strong>Intel&reg; VTune&#8482; Amplifier for Linux* OS</strong></p>
+<p id="GUID-55ED7C8B-907B-466F-8F79-DC6A12222A06"><a class="underlined" href="GUID-667008D9-1F25-4B94-9573-A1D855E7D9FC.html#GUID-667008D9-1F25-4B94-9573-A1D855E7D9FC">Legal Information</a></p>
+<p id="GUID-1687244B-3EC2-41EC-A608-BB0D40D14699"><br /><br /></p>
+<p>Discover how to use the 
+		<strong>Disk Input/Output</strong> analysis type of the 
+		<span>Intel&reg; VTune&#8482; Amplifier</span>
+		to analyze an I/O bound application and explore options to optimize work with
+		I/O devices. 
+	 </p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-90830C46-08BF-4A95-A9F9-2465BA185207" frame="border" border="1" cellspacing="0" rules="all"><tbody><tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>About This Tutorial</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><p>This tutorial uses the sample 
+					 <samp class="codeph">diskio</samp> application and guides you through
+					 basic workflow steps required to analyze the code for I/O waits. 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>Estimated Duration</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><p>10-15 minutes. 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>Learning Objectives</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><p>After you complete this tutorial, you
+					 should be able to: 
+				  <ul id="GUID-211B4EDC-3D3C-4E43-822F-8C4719BE529B"><li><p>Configure your application for Disk Input and Output
+						  analysis. 
+						</p>
+</li>
+<li><p>Run the Disk Input and Output analysis. 
+						</p>
+</li>
+<li><p>Understand basic Disk I/O metrics provided by the VTune
+						  Amplifier. 
+						</p>
+</li>
+<li><p>Identify I/O waits issues and their cause using the VTune
+						  Amplfiier. 
+						</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>More Resources</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><ul id="GUID-2C08DE64-1453-4243-97AD-836C88A3D602"><li><p>Intel VTune Amplifier tutorials (HTML, PDF): 
+						  <a href="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials" target="_blank">https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials</a></p>
+</li>
+<li><p>Intel VTune Amplifier support page: 
+						  <a href="https://software.intel.com/en-us/intel-vtune-amplifier-xe-support" target="_blank">https://software.intel.com/en-us/intel-vtune-amplifier-xe-support</a></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a class="start" href="GUID-3B2AF07D-354E-46E1-8D52-1CD085196368.html#GUID-3B2AF07D-354E-46E1-8D52-1CD085196368">Start Here</a></p>
+</div>
+<div></div>
+</body>
+</html>

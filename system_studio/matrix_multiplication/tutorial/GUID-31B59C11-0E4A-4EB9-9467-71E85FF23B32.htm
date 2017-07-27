@@ -1,0 +1,122 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Building and Running the Sample from the Command Line on the Host">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.subject" content="Enter index keyword">
+<meta name="keywords" content="Enter index keyword">
+<meta name="DC.Relation" scheme="URI" content="GUID-064FA951-6166-417B-AA3B-9ECA87C613BC.htm">
+<meta name="prodname" content="">
+<meta name="version" content="XX.XX">
+<meta name="series" content="Tutorial: Using Intel&reg; System Studio Components for Matrix Multiplication Computation">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-31B59C11-0E4A-4EB9-9467-71E85FF23B32">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Building and Running the Sample from the Command Line on the Host</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-31B59C11-0E4A-4EB9-9467-71E85FF23B32">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Tutorial: Using Intel&reg; System Studio Components for Matrix Multiplication Computation</em></p>
+
+
+ 
+  <h1 class="topictitle1">Building and Running the Sample from the
+	 Command Line on the Host</h1>
+ 
+  <!-- 
+  --> 
+   
+  <div><p class="shortdesc"> 
+  </p>
+ 
+	 <p>Open a terminal and run below script: 
+	 </p>
+ 
+	 <p><samp class="codeph">source &lt;installdir&gt;/bin/compilervars.sh (arch) 
+		</samp> 
+	 </p>
+ 
+	 <p>where 
+		<samp class="codeph">(arch)</samp> is one of the following: 
+	 </p>
+ 
+	 <p>ia32 : setup for IA-32 architecture 
+	 </p>
+ 
+	 <p>intel64 : setup for Intel&reg; 64 architecture 
+	 </p>
+ 
+	 <p>You must choose one of {ia32,intel64} depending on the target
+		architecture to be used. Environment setup needs only be performed once per
+		shell window to be used. 
+	 </p>
+ 
+	 <p>Use the following instructions to build the sample from command line: 
+	 </p>
+ 
+	 <p><strong>ISS_01_compiler_matrix_multiply</strong>: 
+	 </p>
+ 
+	 <p> 
+		<pre>&gt;icpc -O2  -c  -o compiler_sample.o  compiler_sample.cpp
+&gt;icpc  -o  ISS_01_compiler_matrix_multiply  compiler_sample.o
+&gt;./ ISS_01_compiler_matrix_multiply
+</pre> 
+	 </p>
+ 
+	 <p><strong>ISS_02_cilk_matrix_multiply 
+		</strong> 
+	 </p>
+ 
+	 <p> 
+		<pre>&gt;&gt;icpc  -O2   -c  -o cilk_sample.o  cilk_sample.cpp
+&gt;icpc   -o   ISS_02_cilk_matrix_multiply  cilk_sample.o
+&gt;./ ISS_02_cilk_matrix_multiply
+</pre> 
+	 </p>
+ 
+	 <p><strong>ISS_03_mkl_matrix_multiply</strong> 
+	 </p>
+ 
+	 <p> 
+		<pre>&gt;&gt;icpc  -O2   -mkl=parallel  -c   -o mkl_sample.o  mkl_sample.cpp
+&gt;icpc  -mkl=parallel  -o  ISS_03_mkl_matrix_multiply  mkl_sample.o
+&gt;./ ISS_03_mkl_matrix_multiply
+</pre> 
+	 </p>
+ 
+	 <p> 
+		<a href="GUID-DA2C2D53-6FD3-445F-AE0F-CAA4B49D485E.htm#GUID-DA2C2D53-6FD3-445F-AE0F-CAA4B49D485E"> 
+		  <img class="border(0)" style="border-style: none" src="GUID-D559B52A-D750-4806-B61A-D6AE22D74A57-low.jpg" alt="Previous"> 
+		</a> 
+		<a href="GUID-613B8414-045A-44DA-BE50-083CB454ED68.htm#GUID-613B8414-045A-44DA-BE50-083CB454ED68"> 
+		  <img class="border(0)" style="border-style: none" src="GUID-DFA64F74-887E-4B10-A90E-CDEA3FF6841B-low.jpg" alt="Next"> 
+		</a> 
+	 </p>
+ 
+  </div>
+ 
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-064FA951-6166-417B-AA3B-9ECA87C613BC.htm">Tutorial: Using Intel&reg; System Studio Components for Matrix Multiplication Computation</a></div>
+</div>
+<div></div>
+
+</body>
+</html>

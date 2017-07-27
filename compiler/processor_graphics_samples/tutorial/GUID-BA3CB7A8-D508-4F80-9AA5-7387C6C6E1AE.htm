@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Building the Source Code">
+<meta name="DC.Relation" scheme="URI" content="GUID-08A02E1B-9BA2-4127-A95B-1C0E1F0B127B.htm">
+<meta name="DC.Relation" scheme="URI" content="http://www.intel.com/software/products/softwaredocs_feedback">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-BA3CB7A8-D508-4F80-9AA5-7387C6C6E1AE">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Building the Source Code</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-BA3CB7A8-D508-4F80-9AA5-7387C6C6E1AE">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+ 
+  <h1 class="topictitle1">Building the Source Code</h1>
+
+  
+  <div> 
+    <p> In this step, you will compile the source code into an application that
+      runs on both the host and the target. After you compile and run the
+      application, examine the output. 
+    </p>
+ 
+    <ol id="GUID-E84A1625-481E-472A-899E-33C8ECFDF394"> 
+      <li>
+        <p>Go to the 
+          <span class="filepath">crossfade_sample</span> folder.
+        </p>
+
+      </li>
+
+      <li> 
+        <p> Run the command 
+          <samp class="codeph">make clean</samp> to make sure the directory is clean for a
+          fresh build. 
+        </p>
+ 
+      </li>
+ 
+      <li> 
+        <p> Run 
+          <samp class="codeph">make</samp> to build all the utility modules and the sample
+          
+          <span class="filepath">CrossFade</span>. 
+        </p>
+ 
+        <p> The progress of the 
+          <samp class="codeph">make</samp> command should look something like the
+          following: 
+        </p>
+ 
+        <pre>$&gt;make
+icpc -c  -O2 -I ../shared/src -MMD -qoffload_arch=broadwell:visa3.1 -o src/Properties.o ../shared/src/Properties.cpp
+icpc -c  -O2 -I ../shared/src -MMD -qoffload_arch=broadwell:visa3.1 -o src/PerfTimer.o ../shared/src/PerfTimer.cpp
+icpc -c  -O2 -I ../shared/src -MMD -qoffload_arch=broadwell:visa3.1 -o src/main.o ../shared/src/main.cpp
+icpc -c  -O2 -I ../shared/src -MMD -qoffload_arch=broadwell:visa3.1 -o src/Util.o ../shared/src/Util.cpp
+icpc -c  -O2 -I ../shared/src -MMD -qoffload_arch=broadwell:visa3.1 -o src/CrossFade.o src/CrossFade.cpp
+icpc release/Properties.o release/PerfTimer.o release/main.o release/Util.o release/CrossFade.o -lrt -O2 -ipo -qoffload_arch=broadwell:visa3.1 -o release/crossfade
+$&gt;</pre> 
+      </li>
+ 
+      <li> 
+        <p> Run the CrossFade application by invoking the application with the
+          properties configuration file, as follows: 
+        </p>
+ 
+        <pre>$&gt;release/CrossFade src/crossfade.prop
+
+Workloads available:
+ CrossFade
+ CrossFade_ints
+
+This program is built with __INTEL_OFFLOAD,
+so it will execute with offload to Intel graphics or not depending on "exec" mode (cpu|offload).
+
+executing workload: CrossFade
+
+&lt;config&gt;
+ exec = offload
+ cpu_share = 0
+ validate = true
+&lt;/config&gt;
+
+exec mode is offload
+
+…
+
+passed</pre> 
+        <p>The following message should appear: 
+        </p>
+ 
+        <pre>This program is built with __INTEL_OFFLOAD</pre> 
+        <p> This statement indicates that the sample code was compiled into an
+          application that runs both on the host and the target. 
+        </p>
+ 
+      </li>
+ 
+    </ol>
+ 
+    <p> Note the best time per iteration, which is displayed at the end of the
+      output. You will compare this time to the best time per iteration of the
+      application when built to run on just the host. 
+    </p>
+ 
+    <p>In the next step, you will look at the source code to learn how to
+      define which code section should run on the target and how the offload session
+      is organized. 
+    </p>
+ 
+    <p><a href="GUID-ADD93804-4661-434E-AC83-B391B44EA711.htm"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="Open the Building the OpenMP Version topic"></a> 
+    </p>
+ 
+  </div>
+ 
+  
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-08A02E1B-9BA2-4127-A95B-1C0E1F0B127B.htm">Tutorial: Linux* Version</a></div>
+</div>
+<div></div> 
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; UTF-8">
+	<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+	::selection {
+		background: #b7ffb7;
+	}
+	::-moz-selection {
+		background: #b7ffb7;
+	}
+
+	body {
+		font-family: "Intel Clear", Arial, Helvetica, sans-serif;
+		font-size: 16px;
+		width: 800px;
+		margin: 0 auto;
+	}
+	#banner {
+		/* Div for banner */
+		float:left;
+		margin: 0px;
+		margin-bottom: 10px;
+		width: 100%;
+		background-color: #0071C5;
+		z-index: 0;
+	}
+	#banner .logo {
+		/* Apply to logo in banner. Add as class to image tag. */
+		float: left;
+		margin-right: 20px;
+		margin-left: 20px;
+		margin-top: 15px;
+		padding-bottom: 5px;
+	}
+	h1 {
+		text-align: center;
+		font-size: 36px;
+	}
+	h1.title {
+		/* Add as class to H1 in banner */
+		font-family: "Intel Clear", Verdana, Arial, sans-serif;
+		font-weight:normal;
+		color: #FFFFFF;
+		font-size: 170%;
+		margin-right: 40px;
+		margin-left: 40px;
+		padding-right: 20px;
+		text-indent: 20px;
+	}
+	.h3-alike {
+		display:inline;
+		font-size: 1.17em;
+		font-weight: bold;
+		color: #0071C5;
+	}
+	h3 {
+		font-size: 1.17em;
+		font-weight: bold;
+		color: #0071C5;
+	}
+	pre {
+		font-family: "Consolas", Monaco, monospace;
+		font-size:small;
+		background: #fafafa;
+		margin: 0;
+        padding-left:20px;
+	}
+	#footer {
+		font-size: small;
+	}
+	code {
+		font-family: "Consolas", Monaco, monospace;
+	}
+    .code-block
+    {
+        padding-left:20px;
+    }
+	.changes {
+		margin: 1em 0;
+	}
+	.changes input:active {
+		position: relative;
+		top: 1px;
+	}
+	.changes input:hover:after {
+		padding-left: 16px;
+		font-size: 10px;
+		content: 'More';
+	}
+	.changes input:checked:hover:after {
+		content: 'Less';
+	}
+	.changes input + .show-hide {
+		display: none;
+	}
+	.changes input:checked + .show-hide {
+		display: block;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0.5em 0 0.5em 2.5em;
+	}
+	ul li {
+		margin-bottom: 3px;
+	}
+	ul li:last-child {
+		margin-bottom: 0;
+	}
+	.disc {
+		list-style-type:disc
+	}
+	.circ {
+		list-style-type:circ
+	}
+	
+	.single {
+		padding: 0 0.5em;
+	}
+	.specs {
+		border-collapse:collapse;
+	}
+	.specs td, .specs th {
+		font-size: 14px;
+	}
+	.specs td {
+		border: 1px solid black;
+	}
+	.specs td td, .specs td th {
+		border: none;
+	}
+	.specs	td, .specs td td, .specs td th {
+		padding: 0 0.2em 0.2em;
+		text-align: center;
+	}
+	.specs td tr:last-child td, 
+	.specs td tr:last-child th {
+		padding: 0 0.2em;
+	}
+	.serial-time {
+	}
+	.modified-time {
+	width: 6.5em;
+	}
+	.compiler {
+	}
+	.comp-opt {
+	}
+	.sys-specs {
+		width: 18em;
+	}
+	</style>
+    <title>Samples and Tutorials for Intel&reg; System Studio 2017</title>
+</head>
+<body>
+    <div id="banner">
+    <img class="logo" src="data:image/png;base64,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
+	9Or1LzUmVVz+HJXDAAAAAElFTkSuQmCC">
+
+    <h1 class="title">Samples and Tutorials for Intel&reg; System Studio 2017</h1>
+</div>
+
+<div id="contentblock"> 
+<p>The samples and tutorial available in this directory are designed to illustrate the use of features in the following development tools. 
+
+<p>All samples include a &quot;<strong>readme.html</strong>&quot; file with important information on building and running the sample.</p>
+
+<table style="width:100%">
+    <tr>
+        <th style="width:30%">Product</th>
+        <th>Samples</th>
+    </tr>
+    <tr>
+        <td>Intel&reg; System Studio</td>
+        <td>
+        	<ul>
+                <li><a href="system_studio/matrix_multiplication/readme.html">Using Intel&reg; System Studio Components for Matrix Multiplication Computation</a></li>
+        	</ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Intel&reg; C++ Compiler for Linux*</td>
+        <td>
+            <ul>
+                <li><a href="compiler/hello_world/readme.html">Hello World</a></li>
+                <li><a href="compiler/Averagingfilter_SDLT_samples/readme.html">Averagingfilter_SDLT</a></li>
+                <li><a href="compiler/cilk_samples/readme.html">Cilk Samples</a></li>
+                <li><a href="compiler/interprocedural_optimization_samples/readme.html">IPO sample</a></li>
+                <li><a href="compiler/intrinsic_samples/readme.html">Intrinsics</a></li>
+                <li><a href="compiler/optimize_samples/readme.html">Compiler Optimization Levels</a></li>
+                <li><a href="compiler/processor_graphics_samples/readme.html">Intel&reg; Graphics Technology Samples</a></li>
+                <li><a href="compiler/profileguided_optimization_samples/readme.html">PGO optimization</a></li>
+                <li><a href="compiler/tachyon_samples/readme.html">Threading Your Application - Tachyon</a></li>
+                <li><a href="compiler/vec_samples/readme.html">Auto-Vectorization Sample</a></li>
+            </ul>
+        </td>
+    </tr> 
+
+    <tr>
+        <td>Intel enhanced GDB*</td>
+        <td>
+            <ul>
+                <li><a href="gdb/ReverseDebugging/readme.html">GDB* Reverse Debugging Sample</a></li>
+            </ul>
+        </td>
+    </tr> 
+
+    
+    <tr>
+        <td>Intel&reg; Integrated Performance Primitives (Intel&reg; IPP) for Linux*</td>
+        <td>
+            <ul>
+                <li><a href="ipp/ipp_blur_rotate_sample/readme.html">Tutorial: Blurring and Rotation Sample</a></li>
+            </ul>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Intel&reg; System Debugger</td>
+        <td>
+            <ul>
+                <li><a href="system_debugger/basic_debugging_sample/readme.html">Tutorial: Basic steps of debugging an application with the Intel&reg; System Debugger</a></li>
+            </ul>
+        </td>        
+    </tr>
+
+    <tr>
+        <td>Intel&reg; Math Kernel Library (Intel&reg; MKL) for Linux*</td>
+        <td>
+            <ul>
+                <li><a href="mkl/matrix_multiplication/readme.html">Tutorial: Matrix Multiplication (C Language)</a></li>
+            </ul>
+        </td>        
+    </tr>
+
+    <tr>
+        <td>Intel&reg; Threading Building Blocks (Intel&reg; TBB) for Linux*</td>
+        <td>
+            <ul>
+                <li><a href="tbb/index.html">Intel&reg; TBB - example usages</a></li>
+            </ul>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Intel&reg; VTune Amplifier for Linux*</td>
+        <td>
+            <ul>
+                <li><a href="vtune_amplifier/matrix_sample/readme.html">Matrix Multiplication Sample</a></li>
+                <li><a href="vtune_amplifier/tachyon_sample_linux/readme.html">Intel&reg; Threading Building Blocks Tachyon Sample for Linux* targets</a></li>
+                <li><a href="vtune_amplifier/tachyon_sample_android/readme.htm">Intel&reg; Threading Building Blocks Tachyon Sample for Android* targets</a></li>
+                <li><a href="vtune_amplifier/jitprofiling_sample/readme.html">JIT Profiling Sample</a></li>
+			</ul>
+        </td>
+    </tr>
+
+</table>
+<p> </p>
+<div id="footer">
+Intel and the Intel logo are trademarks of Intel Corporation in the U.S. and/or other countries<br>
+* Other names and brands may be claimed as the property of others <br>
+Copyright &copy; 2016 Intel Corporation. All Rights Reserved<br>
+</div>
+</body>
+</html>

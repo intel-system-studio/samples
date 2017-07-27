@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Analyze I/O Data in the Synchronous User Buffer Mode" />
+<meta name="DC.Relation" scheme="URI" content="GUID-3B2AF07D-354E-46E1-8D52-1CD085196368.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-479FC274-6388-449D-8071-501125B38C9D" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Analyze I/O Data in the Synchronous User Buffer Mode</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-479FC274-6388-449D-8071-501125B38C9D">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Analyze I/O Data in the Synchronous User Buffer
+	 Mode</h1>
+<div><p><img src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" /> You identified that
+		in the mixed system file cache and user buffer mode the application runs faster
+		and takes much less CPU Time but creates a big I/O queue and locates all I/O
+		waits at the end of the application execution. To investigate further
+		optimization options, run the 
+		<samp class="codeph">diskio</samp> application in the user buffer mode. 
+	 </p>
+<p>Configure a new data collection for the existing 
+		<samp class="codeph">diskio</samp> project as follows: 
+	 </p>
+<ol id="GUID-BB6F4220-9B35-4AF3-80EC-A1EE99A5CF84"><li id="GUID-BD580B0B-5B9C-4D4D-A346-9ECB0E7BFDF4"><p id="GUID-91E0FD64-2D07-4A25-9FFE-C03F083659BC">Click the 
+			 <img src="GUID-D252800A-0917-41A4-A19E-4260C43540E9-low.gif" /><strong id="GUID-37D99CB9-ED68-44E4-A72B-E34FDE170110">Configure
+				Project</strong> button on the toolbar. 
+		  </p>
+<p id="GUID-174140EA-53D3-4DF3-AD40-38678FD6EC60">The 
+			 <strong id="GUID-8C84B47A-D08F-4441-9BD4-681695B3FA62">Choose Target and
+				Analysis Type</strong> window opens with the 
+			 <strong>Analysis Target</strong> tab active. 
+		  </p>
+</li>
+<li id="GUID-826770F8-377B-4E07-9A91-F149CFBA8472"><p id="GUID-A3F01FCB-817B-4CF3-AA51-1E3A62C0D376">
+			 In the 
+			 <strong>Application parameters</strong> field, specify 
+			 <samp class="codeph">-f out.txt -m s</samp>, where 
+			 <samp class="codeph">s</samp> is the synchronous user buffer mode. 
+		  </p>
+<p><img height="229" src="GUID-DDFB0BBD-B431-426C-9F7B-D8867B1DDF0A-low.png" width="565" /></p>
+<p id="GUID-8FD115FA-3CED-4EE5-9D03-23518F81622F">In this mode the 
+			 <samp class="codeph">diskio</samp> application will write records (16 Byte) into
+			 the user buffer (1024 records) and then writes the buffer directly to the I/O
+			 device without relying on the system file cache. 
+		  </p>
+</li>
+<li><p>Click the 
+			 <strong>Choose Analysis</strong> button on the right. 
+		  </p>
+<p>The Analysis Type tab opens. The 
+			 <strong>Disk Input and Output</strong> analysis is pre-selected. 
+		  </p>
+</li>
+<li id="GUID-306041E9-D88E-44DD-9B1D-2741A6B42A7F"><p id="GUID-8AB54099-EF36-4369-9DFF-48649B925659">Click the 
+			 <strong id="GUID-A05AFD17-24AE-489E-AC55-AD2F23E8B33D">Start</strong> button on
+			 the right. 
+		  </p>
+</li>
+</ol>
+<p>VTune Amplifier collects data and opens the result in the Disk Input and
+		Output viewpoint with the 
+		<strong>Summary</strong> window active by default. The metrics summary shows that
+		the application Elapsed time and I/O Wait Time have reduced slightly in
+		comparison with the combined system cache and user buffer mode: 
+	 </p>
+<p><img height="184" src="GUID-B9B96AE8-96B1-4B8B-BAAF-2B9B18E0DAC5-low.png" width="292" /></p>
+<p>Switch to the 
+		<strong>Platform</strong> window to view the changes in the metrics distribution on
+		the timeline: 
+	 </p>
+<p><img height="346" src="GUID-1F5FBE9A-3CC9-4BE0-9F2D-AB94E6BB4F85-low.png" width="612" /></p>
+<p>The CPU Time values for the 
+		<samp class="codeph">diskio</samp> thread in the 
+		<strong>Thread</strong> area are not high, which means that putting data into the
+		buffer does not take much time. I/O queue depth is equal to 1 and the I/O
+		device is loaded evenly since the data is written to the disk directly. You may
+		select an area on the timeline and use the context menu options to zoom in and
+		view parallel I/O Waits and user API tasks: 
+	 </p>
+<p><img height="208" src="GUID-4F732189-52C5-45E2-91F4-FF19410ECBD6-low.png" width="605" /></p>
+<p>I/O Waits distributed all over the application execution time clearly
+		indicate that the main issue now is waiting for the IO operations submitted
+		directly to the I/O device. Explore whether using two buffers and submitting
+		the data asynchronously to the disk can help get rid of I/O Waits on the user
+		thread. 
+	 </p>
+<div class="section" id="GUID-FCD90FD0-4A19-473D-A2B0-7DBCF16A69D7"><h2 class="sectiontitle">Recap</h2><p id="RECAP_S">You ran the Disk Input and Output analysis for the sample
+		  application in the synchronous user buffer mode and identified that though in
+		  this mode the Elapsed Time and I/O Wait time have decreased a little and the
+		  I/O queue is low, there are still I/O Waits on the user thread that could be
+		  avoided. 
+		</p>
+</div>
+<div class="section" id="GUID-67EEA187-F5AA-4CC5-9224-52AA0E957CB6"><h2 class="sectiontitle">Key Terms </h2><ul id="GUID-2660EF7B-2779-4B45-B735-8B42BE15B530"><li><p><a href="GUID-A2E96D11-0086-4A5F-8B2D-5736FDCD2889.html#GUID-1B5043B8-253D-4758-A765-3CDCD11AD26C">viewpoint</a></p>
+</li>
+<li><p><a href="GUID-A2E96D11-0086-4A5F-8B2D-5736FDCD2889.html#IO_TIME">I/O
+				  Wait Time</a></p>
+</li>
+<li><p><a href="GUID-A2E96D11-0086-4A5F-8B2D-5736FDCD2889.html#CPU_TIME">CPU
+				  Time</a></p>
+</li>
+<li><p><a href="GUID-A2E96D11-0086-4A5F-8B2D-5736FDCD2889.html#QUEUE">I/O
+				  Queue Depth</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="GUID-03E5A245-AA13-436C-AECF-8E938E12BFB2"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-75792C88-E171-4CF5-A2BE-81CEDD73DD04.html">Analyze I/O Data in the
+			 Asynchronous User Buffer Mode</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-3B2AF07D-354E-46E1-8D52-1CD085196368.html">Analyzing Disk Input and Output Waits</a></div>
+</div>
+<div></div>
+</body>
+</html>

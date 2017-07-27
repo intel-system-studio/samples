@@ -1,0 +1,119 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Building the Sample with Eclipse* IDE on the Host and Executing it on a Target">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.subject" content="Enter index keyword">
+<meta name="keywords" content="Enter index keyword">
+<meta name="DC.Relation" scheme="URI" content="GUID-064FA951-6166-417B-AA3B-9ECA87C613BC.htm">
+<meta name="prodname" content="">
+<meta name="version" content="XX.XX">
+<meta name="series" content="Tutorial: Using Intel&reg; System Studio Components for Matrix Multiplication Computation">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-613B8414-045A-44DA-BE50-083CB454ED68">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Building the Sample with Eclipse* IDE on the Host and Executing it on a Target</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-613B8414-045A-44DA-BE50-083CB454ED68">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Tutorial: Using Intel&reg; System Studio Components for Matrix Multiplication Computation</em></p>
+
+
+ 
+  <h1 class="topictitle1">Building the Sample with Eclipse* IDE on the
+	 Host and Executing it on a Target</h1>
+ 
+  <!-- 
+  --> 
+   
+  <div><p class="shortdesc"> 
+  </p>
+ 
+	 <p> In this sample, Yocto Project* is used as the target
+		operating system. Refer to 
+		<a href="https://software.intel.com/en-us/articles/intel-system-studio-system-requirements" target="_blank">Intel&reg; System Studio System Requirements</a>
+		to know more about supported operating systems. 
+	 </p>
+ 
+	 <p><strong>Step-1</strong>. On the Host Linux system, run the following command: 
+	 </p>
+ 
+	 <p> 
+		<pre>&gt; source /opt/poky/1.7/environment-setup-i586-poky-linux
+&gt; ./eclipse
+</pre> 
+	 </p>
+ 
+	 <p>Another option is to configure the script in 
+		<samp class="codeph">~/.bashrc</samp> (or<samp class="codeph"> /etc/profile</samp>) files, this
+		will set up the Yocto toolchain in environment variables. 
+	 </p>
+ 
+	 <p><strong>Step-2</strong>. Create project with existing source code and Intel&reg;
+		System Studio as the Toolchains as described in 
+		<a href="GUID-2A56A147-89BA-48E6-B53D-1AC9539B1E8B.xml#GUID-2A56A147-89BA-48E6-B53D-1AC9539B1E8B">before</a>. 
+	 </p>
+
+	 <p><strong>Step-3</strong>. Configure it to build for Yocto target:
+	 </p>
+
+	 <p>Click 
+		<strong>Project-&gt;Properties</strong> and find 
+		<strong>C/C++ Build-&gt;Settings</strong>, and configure as shown below: 
+		<img src="GUID-3E835BCA-F278-429A-AB56-E648372CC4EC-low.png">
+	 </p>
+
+	 <p><strong>Step-4 
+		</strong>. Configure the toolchain (example: 32bit or 64bit targets) in the
+		Intel&reg; C++ Compiler tab as shown below, select the [x86] toolchain and click 
+		<strong>Use Selected</strong> as build it for Yocto 32bit, you may use [x86_64] if
+		you are targeting for 64bit Yocto: 
+		<img src="GUID-4CD7C78C-C41E-4E98-BA46-40A0CAA2BE03-low.png">
+	 </p>
+ 
+	 <p><strong>Step-5</strong>. Click 
+		<strong>Project-&gt;Build Project</strong> to build the project and generate the
+		output in the Console window: 
+		<img src="GUID-5A9A9624-F37A-4DB9-8100-5224973F063D-low.png">
+	 </p>
+
+	 <p><strong>Step-6</strong>. To run this sample code on the target system, copy the
+		generated binary onto the target with 
+		<samp class="codeph">ssh/scp</samp>. 
+		<div class="Note"><h3 class="NoteTipHead">Note</h3>You can also set up SSH/SCP in Eclipse to run on remote target,
+		  explore it by yourself from Eclipse documents. 
+		</div>
+	 </p>
+
+	 <p> 
+		<a href="GUID-31B59C11-0E4A-4EB9-9467-71E85FF23B32.htm#GUID-31B59C11-0E4A-4EB9-9467-71E85FF23B32"> 
+		  <img class="border(0)" style="border-style: none" src="GUID-D559B52A-D750-4806-B61A-D6AE22D74A57-low.jpg" alt="Previous"> 
+		</a> 
+	 </p>
+ 
+  </div>
+ 
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-064FA951-6166-417B-AA3B-9ECA87C613BC.htm">Tutorial: Using Intel&reg; System Studio Components for Matrix Multiplication Computation</a></div>
+</div>
+<div></div>
+
+</body>
+</html>

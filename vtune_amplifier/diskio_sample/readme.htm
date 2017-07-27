@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Intel® VTune™ Amplifier Disk I/O Sample"/>
+<meta name="prodname" content="VTune Amplifier"/>
+<meta name="version" content="2017"/>
+<meta name="series" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="readme"/>
+<meta name="DC.Language" content="en-US"/>
+<link rel="stylesheet" type="text/css" href="resources/intel_gsp_styles.css"/>
+<title>Intel® VTune™ Amplifier Disk I/O Sample</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"/>
+<!-- BEGIN SCRIPTS FOR EXPAND/COLLAPSE FUNCTIONALITY -->
+<script src="resources/jquery-1.11.1.min.js"><!----></script>
+<script src="resources/hide-show.js"><!----></script>
+<!-- END SCRIPTS FOR EXPAND/COLLAPSE FUNCTIONALITY -->
+<!-- Prism script to support syntax highlighting-->
+<script src="resources/prism/prism.js"><!----></script>
+
+<!-- prism.css stylesheet to support syntax highlighting-->
+<link href="resources/prism/prism.css" rel="stylesheet"/>
+</head>
+<body class="titlepage" id="readme"><a name="readme"><!-- --></a>
+
+
+<div id="banner">
+<div id="bannerblock">
+<img src="resources/intel_logo.png" class="intellogo" alt="Intel logo"/>
+<!--No product image to be included-->
+<h1 class="title">Intel® VTune™ Amplifier Disk I/O Sample</h1>
+</div>
+</div>
+<div id="contentblock">
+<div id="mainmenu"><h3>Contents</h3><p><a class="mainmenulinks" href="#GUID-4E1826D8-7999-4E43-ACAC-3A074D6C8001"/></p>
+<p><a class="mainmenulinks" href="#GUID-C9E00BA2-CC4D-45A5-938B-517A6822074E">System Requirements</a></p>
+<p><a class="mainmenulinks" href="#GUID-105FAF0C-5E28-4451-98D9-2E241B90C27E">Build Instructions</a></p>
+<p><a class="mainmenulinks" href="#GUID-F4DFF4C5-ABC5-4784-98C4-B1EA9241E4AD">Usage Instructions</a></p>
+<p><a class="mainmenulinks" href="#GUID-F32343C3-3E09-4C02-AEE5-9AAB046D89F8">Related Tutorials</a></p>
+<p><a class="mainmenulinks" href="#GUID-1DFA2935-87C1-4F00-A5C9-B8BA2C9D736A"> Legal Information</a></p>
+</div>
+<div id="GUID-4E1826D8-7999-4E43-ACAC-3A074D6C8001"><p> The <strong>diskio</strong> sample works with the I/O device using the system file cache and user buffer. Use this sample with the Disk Input and Output analysis of the VTune Amplifier to analyze such typical performance issues of the I/O bound application as I/O Waits on a user thread and long I/O queues. </p>
+</div>
+<div id="GUID-C9E00BA2-CC4D-45A5-938B-517A6822074E">
+<h2><a name="GUID-C9E00BA2-CC4D-45A5-938B-517A6822074E"><!-- --></a>System Requirements</h2>
+<p><a name="UL_DC7FE81187574F1289601C0D0732D3FA"><!-- --></a>
+<ul id="UL_DC7FE81187574F1289601C0D0732D3FA"><li id="LI_809948E2D5AF4D419D22103ED293E969"><a name="LI_809948E2D5AF4D419D22103ED293E969"><!-- --></a>
+Hardware: <a name="UL_403CC6FD96A342089045CBB7E90EED96"><!-- --></a>
+<ul id="UL_403CC6FD96A342089045CBB7E90EED96"><li id="LI_DE0861F0E56D4991B01ED54E7C4E63A9"><a name="LI_DE0861F0E56D4991B01ED54E7C4E63A9"><!-- --></a>
+For the most up to date hardware requirements, see the Intel® VTune™ Amplifier <a href="https://software.intel.com/en-us/articles/intel-vtune-amplifier-xe-release-notes" target="_blank"> release notes</a>. </li>
+</ul>
+</li>
+<li id="LI_4716607DF3FB4271B6D8156741649345"><a name="LI_4716607DF3FB4271B6D8156741649345"><!-- --></a>
+Software: <a name="UL_9ECAF7BF126E48F99E998D769581BF84"><!-- --></a>
+<ul id="UL_9ECAF7BF126E48F99E998D769581BF84"><li id="LI_64180445115C46E083E5C3696684BFD4"><a name="LI_64180445115C46E083E5C3696684BFD4"><!-- --></a>
+ GNU* GCC 4.5 (or newer) </li>
+</ul>
+</li>
+</ul>
+</p>
+</div>
+<div id="GUID-105FAF0C-5E28-4451-98D9-2E241B90C27E">
+<h2><a name="GUID-105FAF0C-5E28-4451-98D9-2E241B90C27E"><!-- --></a>Build Instructions</h2>
+<p>To compile, navigate to the root folder and execute <samp class="codeph">make</samp>. </p>
+</div>
+<div id="GUID-F4DFF4C5-ABC5-4784-98C4-B1EA9241E4AD">
+<h2><a name="GUID-F4DFF4C5-ABC5-4784-98C4-B1EA9241E4AD"><!-- --></a>Usage Instructions</h2>
+<p>To run the <strong>diskio</strong> sample, enter: </p>
+<p><samp class="codeph">$ time ./diskio -f &lt;<em>outputfile</em>&gt; -m &lt;c|b|s|a&gt;</samp></p>
+<p>where <samp class="codeph"><em>outputfile</em></samp> is an output file with the records created by the diskio application; the <samp class="codeph">-m</samp> option supports the following operation modes for the output file: </p>
+<a name="GUID-13EA1090-7E10-4E64-88ED-2A1AEF9D56A0"><!-- --></a>
+<ul id="GUID-13EA1090-7E10-4E64-88ED-2A1AEF9D56A0"><li><p><samp class="codeph">c</samp> - writes data (16 bytes) asynchronously to the output file using the system file cache; </p>
+</li>
+<li><p><samp class="codeph">b</samp> - writes data (16 bytes) to the user buffer (1024 records) and then writes the buffer to a file using the system file cache; </p>
+</li>
+<li><p><samp class="codeph"> s</samp> - writes data (16 bytes) synchronously to the user buffer (1024 records) and writes the buffer directly to the I/O device without using the system file cache; </p>
+</li>
+<li><p><samp class="codeph"> a</samp> - writes data (16 bytes) to the user buffers and asynchronously submits them to the disk. </p>
+</li>
+</ul>
+</div>
+<div id="GUID-F32343C3-3E09-4C02-AEE5-9AAB046D89F8">
+<h2><a name="GUID-F32343C3-3E09-4C02-AEE5-9AAB046D89F8"><!-- --></a>Related Tutorials</h2>
+<p>The <strong>diskio</strong> sample for the VTune Amplifier is accompanied by the following tutorial: </p>
+<p><a name="GUID-F1D49758-605E-4F35-80C8-D619249F81B4"><!-- --></a>
+<ul id="GUID-F1D49758-605E-4F35-80C8-D619249F81B4"><li id="LI_DF6BE53297554261B15C8FCE0824B6DA"><a name="LI_DF6BE53297554261B15C8FCE0824B6DA"><!-- --></a>
+<p><a href="./tutorials/analyze_disk_io/C++/index.htm" target="_blank">Analyzing Disk Input/Output Waits</a>: Identify and analyze input/output waits in your application. </p>
+</li>
+</ul>
+</p>
+</div>
+<div id="GUID-1DFA2935-87C1-4F00-A5C9-B8BA2C9D736A">
+<h2><a name="GUID-1DFA2935-87C1-4F00-A5C9-B8BA2C9D736A"><!-- --></a> Legal Information</h2>
+<p>Intel, the Intel logo, VTune and Xeon Phi are trademarks of Intel Corporation in the U.S. and/or other countries. </p>
+<p>* Other names and brands may be claimed as the property of others. </p>
+<p>Microsoft, Windows, and the Windows logo are trademarks, or registered trademarks of Microsoft Corporation in the United States and/or other countries. </p>
+<p>OpenCL and the OpenCL logo are trademarks of Apple Inc. used by permission from Khronos. </p>
+<p>© 2016, Intel Corporation </p>
+</div>
+</div>
+
+</body>
+</html>

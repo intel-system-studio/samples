@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Running the Demo Application">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Relation" scheme="URI" content="GUID-28AA7FB2-F9EA-4A75-909B-8BDB9E2D0A5E.htm">
+<meta name="prodname" content="">
+<meta name="version" content="2017">
+<meta name="series" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-32893C3A-561D-43F8-8C62-B5526BC9316A">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Running the Demo Application</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-32893C3A-561D-43F8-8C62-B5526BC9316A">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+ 
+  <h1 class="topictitle1">Running the Demo Application</h1>
+ 
+  <!-- 
+  --> 
+   
+  <div><p class="shortdesc"> 
+  </p>
+ 
+	 
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-6434FE15-3783-4B7A-9B60-5B25ADE5ECBA" width="100%" frame="border" border="1" cellspacing="0" rules="all"> 
+		   
+		   
+		  <tbody> 
+			 <tr> 
+				<td class="cellrowborder" valign="top" width="20%"> 
+				  <p> 
+					 <strong>Step 1: Set a line breakpoint</strong> 
+				  </p>
+ 
+				</td>
+ 
+				<td class="cellrowborder" valign="top" width="80%"> 
+				  <p>The easiest way to set a breakpoint is double-clicking one of
+					 the blue dots in the 
+					 <b class="uicontrol">Source</b> view. The blue dots indicate
+					 lines that contain executable code and therefore can be used to set
+					 breakpoints. 
+				  </p>
+ 
+				  <ol id="GUID-EF119491-12BE-4DC0-B741-F526629EFE66"> 
+					 <li>Double-click the blue dot at line 179 in the 
+						<b class="uicontrol">Source</b> view. 
+						<p><img src="GUID-BD50A384-1B64-4A27-8A73-6B2C6B897AB4-low.png"> 
+						</p>
+ 
+						<p>The blue dot transforms into a breakpoint icon and a
+						  message is printed in the 
+						  <b class="uicontrol">Console</b> view, describing the
+						  breakpoint. 
+						</p>
+ 
+					 </li>
+ 
+				  </ol>
+ 
+				</td>
+ 
+			 </tr>
+ 
+			 <tr> 
+				<td class="cellrowborder" valign="top" width="20%"> 
+				  <p> 
+					 <strong>Step 2: Run the application</strong> 
+				  </p>
+ 
+				</td>
+ 
+				<td class="cellrowborder" valign="top" width="80%"> 
+				  <p> Click the 
+					 <img src="GUID-17C2D22B-904D-4620-A239-0F2D600F436E-low.gif"> Run
+					 button in the toolbar. 
+				  </p>
+ 
+				  <p> The program stops at the breakpoint and the program counter,
+					 iconized by a yellow arrow in the Source view, is set to line 179. The executed
+					 line is highlighted with a blue background color. The graphics console of the
+					 simulated target displays the string programmed with line 167 of the
+					 application: 
+				  </p>
+ 
+				  <p><img src="GUID-A20E171F-9776-4D7D-A0E5-4CFF9A4089B4-low.png">
+					 
+				  </p>
+ 
+				  <p>To prepare the next step, double-click the breakpoint icon at
+					 line 179 to remove the breakpoint there. 
+				  </p>
+ 
+				</td>
+ 
+			 </tr>
+ 
+			 <tr> 
+				<td class="cellrowborder" valign="top" width="20%"> 
+				  <p> 
+					 <strong>Step 3: Evaluate variables of a specific function</strong> 
+				  </p>
+ 
+				</td>
+ 
+				<td class="cellrowborder" valign="top" width="80%"> 
+				  <ol id="GUID-76A2ECEA-79BF-4842-AFED-A0CDFE0D9D76"> 
+					 <li>Set another breakpoint at the function 
+						<samp class="codeph">screen_write_hex(unsigned int)</samp>: 
+						<ol type="a" id="GUID-D7E303EF-1498-4E82-81CF-8A8EFAF3E4B9"> 
+						  <li>Select 
+							 <b class="uicontrol">Debug 
+								</b> &gt; <b class="uicontrol">Create
+								  Breakpoint...</b> 
+							 <p>The 
+								<b class="uicontrol">Create Breakpoint</b> dialog box is
+								opened. 
+							 </p>
+ 
+						  </li>
+ 
+						  <li>Click 
+							 <b class="uicontrol">Browse</b>. 
+							 <p> The 
+								<b class="uicontrol">Symbol Browser</b> is opened where
+								you can select an expression to determine the breakpoint location. 
+							 </p>
+ 
+							 <p><img src="GUID-704B289A-4E39-4E69-B32D-4D9D3C9390BB-low.png">
+								
+							 </p>
+ 
+						  </li>
+ 
+						  <li>Select the function 
+							 <samp class="codeph">screen_write_hex(unsigned int)</samp> and click
+							 
+							 <b class="uicontrol">OK</b>. 
+							 <p> The 
+								<b class="uicontrol">Symbol Browser</b> is closed and the
+								symbol appears in the 
+								<b class="uicontrol">Location:</b> field of the 
+								<b class="uicontrol">Create Breakpoint</b> dialog box. 
+							 </p>
+ 
+						  </li>
+ 
+						  <li>Click 
+							 <b class="uicontrol">OK</b> in the 
+							 <b class="uicontrol">Create Breakpoint</b> dialog box. 
+							 <p>The breakpoint is set. 
+							 </p>
+ 
+						  </li>
+ 
+						</ol>
+ 
+					 </li>
+ 
+					 <li>Click the 
+						<img src="GUID-17C2D22B-904D-4620-A239-0F2D600F436E-low.gif"> Run
+						button. 
+						<p>The program runs and stops at the breakpoint. 
+						</p>
+ 
+					 </li>
+ 
+					 <li>Select 
+						<b class="uicontrol">View</b> &gt; <b class="uicontrol">Locals</b>.
+						
+						<p>The 
+						  <b class="uicontrol">Locals</b> view is opened where you can
+						  observe the local variables of the function. 
+						</p>
+ 
+					 </li>
+ 
+					 <li>Click the 
+						<img src="GUID-037B5A80-D8C1-4901-8221-0EEBA07E3A6E-low.jpg"> 
+						<b class="uicontrol">Step</b> button several times. 
+						<p>The debugger steps line by line through the function. You
+						  can observe how the values of the local variables change while the program is
+						  executed. 
+						</p>
+ 
+					 </li>
+ 
+				  </ol>
+ 
+				</td>
+ 
+			 </tr>
+ 
+			 <tr> 
+				<td class="cellrowborder" valign="top" width="20%"> 
+				  <p> 
+					 <strong>Step 4: Explore the debugger</strong> 
+				  </p>
+ 
+				</td>
+ 
+				<td class="cellrowborder" valign="top" width="80%"> 
+				  <p>To discover and explore more features of the Intel&reg; System
+					 Debugger, check out the following: 
+				  </p>
+ 
+				  <ol id="GUID-D5BAC2E6-7376-4626-AA28-32108F342BF4"> 
+					 <li> Click the 
+						<img src="GUID-D5A288F2-CB1A-411F-8F20-F04EA9389E16-low.gif"> 
+						<b class="uicontrol">Source Files</b> button to open the 
+						<b class="uicontrol">Source Files</b> view where you can find
+						all the sources used to build up your application. 
+					 </li>
+ 
+					 <li>Click the 
+						<img src="GUID-12BA50D0-21A5-4F58-B564-44F35E58D81A-low.png"> 
+						<b class="uicontrol">PCI</b> button to open the<b class="uicontrol"> PCI
+						  Tool</b> dialog box and click the 
+						<b class="uicontrol">Scan</b> button to fill the dialog with
+						actual data. 
+					 </li>
+ 
+					 <li> Click the 
+						<img src="GUID-ECB512F8-941E-4E46-9D90-0881A4B46392-low.jpg"> 
+						<b class="uicontrol">GDT</b> button to open the 
+						<b class="uicontrol">GDT</b> view, which shows you the current
+						Global Descriptor Table used by the processor. Right-click an entry and choose 
+						<b class="uicontrol">Modify…</b> 
+						<p>The 
+						  <b class="uicontrol">Modify Descriptor</b> dialog box is
+						  displayed, showing in detail the setup of the related GDT descriptor. 
+						</p>
+ 
+					 </li>
+ 
+					 <li> Click the 
+						<img src="GUID-66469675-1005-452F-AF88-EDB4D9200B10-low.jpg"> 
+						<b class="uicontrol">Assembler</b> button to open the 
+						<b class="uicontrol">Assembler</b> view where the current
+						disassembled code is displayed. 
+					 </li>
+ 
+					 <li> Click the 
+						<img src="GUID-3591AFE7-B5C5-4173-8295-4448D2FBE946-low.jpg"> 
+						<b class="uicontrol">Callstack</b> button to open the 
+						<b class="uicontrol">Callstack</b> view showing the list of
+						function calls. 
+					 </li>
+ 
+					 <li>Click the 
+						<img src="GUID-02EBB40F-5F31-4386-A110-0BE54CCF799C-low.jpg"> 
+						<b class="uicontrol">Memory</b> button to open the 
+						<b class="uicontrol">Memory</b> view. 
+					 </li>
+ 
+					 <li> Click the 
+						<img src="GUID-F850CE7B-A909-448D-A930-37AD9B2FD8FB-low.jpg"> 
+						<b class="uicontrol">Paging</b> button to open the 
+						<b class="uicontrol">Paging</b> view. Right-click and select 
+						<b class="uicontrol">Translate Address</b> from the pop-up
+						menu. 
+						<p>The 
+						  <b class="uicontrol">Address Translation</b> dialog box is
+						  opened. Type 
+						  <samp class="codeph">start_kernel</samp> in the 
+						  <b class="uicontrol">Address/Symbolname</b> field and click 
+						  <b class="uicontrol">OK</b> to display the address
+						  calculation steps for the given symbol. 
+						</p>
+ 
+					 </li>
+ 
+					 <li> Select 
+						<b class="uicontrol">View</b> &gt; <b class="uicontrol">System
+							 Registers</b> &gt; <b class="uicontrol">Processor Specific
+							 Registers</b> to open the Processor Specific Registers
+						window. Expand the 
+						<samp class="codeph">64-Bit</samp> entry by clicking the arrow.
+						Double-click the 
+						<samp class="codeph">RFL</samp> entry to open the 
+						<b class="uicontrol">Modify Register</b> dialog. 
+						<p>The values of the bits of this register together with
+						  their descriptions are displayed. You can edit the values by clicking on the
+						  related bit field. Use this feature with care, since this might have
+						  unpredictable results. 
+						</p>
+ 
+					 </li>
+ 
+				  </ol>
+ 
+				</td>
+ 
+			 </tr>
+ 
+			 <tr> 
+				<td class="cellrowborder" valign="top" width="20%"> 
+				  <p> 
+					 <strong>Step 5: Customize the demo application</strong> 
+				  </p>
+ 
+				</td>
+ 
+				<td class="cellrowborder" valign="top" width="80%"> 
+				  <p>To build the demo application, you need either the GNU*
+					 Compiler (<samp class="codeph">gcc</samp>) or the Intel&reg; C++ Compiler (<samp class="codeph">icc</samp>)
+					 on a Linux* build machine. 
+				  </p>
+ 
+				  <ol id="GUID-5C2D6B41-7343-4E40-B630-916C1DAB367A"> 
+					 <li>Locate the demo code at 
+						<samp class="codeph">&lt;<var>install-dir</var>&gt;/system_debugger_<var>&lt;version&gt;</var>/simics/xdb_sample</samp>,
+						
+						<p>with 
+						  <span class="filepath"><var>&lt;install-dir&gt;</var></span>
+						  being the root directory of your Intel&reg; System Studio or Intel&reg; System Debugger
+						  installation. 
+						</p>
+ 
+					 </li>
+ 
+					 <li> Copy the contents of this folder to a location on your
+						Linux* build machine where you can modify the related source files. 
+					 </li>
+ 
+					 <li>Change the related lines in the 
+						<samp class="codeph">Makefile</samp> to select the compiler you want to
+						use. 
+					 </li>
+ 
+					 <li>Open a shell and type 
+						<samp class="codeph">make</samp> to build. 
+					 </li>
+ 
+					 <li>Copy the changed sources and the generated binary 
+						<samp class="codeph">sample_os.bin</samp> back to the original location
+						and restart the demo as descibed in 
+						<a href="GUID-E85B5F19-DBB4-4DF7-9400-B6B6408F1BB1.htm">Launching the Demo Application</a>.
+						
+					 </li>
+ 
+				  </ol>
+ 
+				</td>
+ 
+			 </tr>
+ 
+		  </tbody>
+ 
+		</table>
+</div>
+ 
+  </div>
+ 
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-28AA7FB2-F9EA-4A75-909B-8BDB9E2D0A5E.htm">Debugging with the Intel&reg; System Debugger - Tutorial</a></div>
+</div>
+<div></div>
+
+</body>
+</html>

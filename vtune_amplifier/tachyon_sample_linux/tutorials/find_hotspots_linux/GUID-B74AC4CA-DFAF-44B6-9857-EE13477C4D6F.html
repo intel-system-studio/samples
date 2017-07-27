@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Run Advanced Hotspot Analysis" />
+<meta name="DC.subject" content="Hotspot Analysis, Run Advanced" />
+<meta name="keywords" content="Hotspot Analysis, Run Advanced" />
+<meta name="DC.Relation" scheme="URI" content="GUID-50355842-AFD0-4A40-9CC1-65DAC1A6558F.html" />
+<meta name="prodname" content="Intel&reg; VTune&#8482; Amplifier for Systems" />
+<meta name="version" content="VTune Amplifier for Systems" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-B74AC4CA-DFAF-44B6-9857-EE13477C4D6F" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Run Advanced Hotspot Analysis</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-B74AC4CA-DFAF-44B6-9857-EE13477C4D6F">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Enabling Performance Collection on an Embedded Linux* System</em></p>
+
+
+<h1 class="topictitle1">Run Advanced Hotspot Analysis</h1>
+<div><p> The following steps show you how to launch the
+      Intel&reg; VTune&#8482; Amplifier for Systems GUI and create a new project. 
+    </p>
+<ol id="GUID-F91EBB1C-5F84-4623-8B03-263E8E8CF0D6"><li><p>Run 
+          <samp class="codeph">amplxe-gui</samp>. Refer to the steps in 
+          <a href="GUID-D2009DFB-FDD0-41CC-B9CD-D273822AB964.html">Navigation Quick Start</a>
+          to set the appropriate environment variables if you have not already done so. 
+        </p>
+</li>
+<li><p>Click 
+          <strong>New Project</strong> and enter an identifying project name such as 
+          <samp class="codeph">tachyon1</samp> so that you can distinguish this project
+          from other projects. Keep or change the default project file 
+          <samp class="codeph">Location:</samp> and click 
+          <strong>Create Project</strong>. 
+        </p>
+<p><img src="GUID-16FBCCDE-9585-426B-ABCB-BED331E9F5B1-low.png" /></p>
+</li>
+<li><p>Set up the analysis target. 
+        </p>
+<p><img src="GUID-D946C35F-E563-4036-B7FA-D3B788AD5AF7-low.png" /></p>
+<ol type="a" id="GUID-A79F2C8D-D4D2-4A2E-8598-01450928C814"><li><p>Select 
+              <strong>remote Linux (SSH)</strong> for the target system. 
+            </p>
+</li>
+<li><p>Specify the user name and the host name or IP address of the
+              remote system you are profiling via SSH. 
+            </p>
+</li>
+<li><p>Enter the full path for the target binary in the 
+              <strong>Application</strong> field. In this example the path is 
+              <samp class="codeph">/home/root/tachyon_find_hotspots</samp>. 
+            </p>
+</li>
+<li><p>Enter any the path to the data file in the 
+              <strong>Application parameters</strong> field. In this example, the path is
+              
+              <samp class="codeph">/home/root/dat/balls.dat</samp>. 
+            </p>
+</li>
+<li><p>Select 
+              <strong>Automatically stop collection after (sec)</strong> and enter 
+              <samp class="codeph">15</samp>. 
+            </p>
+</li>
+</ol>
+<p>When collecting data remotely, the VTune Amplifier looks for the
+          collectors on the target device in its default location: 
+          <samp class="codeph">/opt/intel/vtune_amplifier_201x_for_systems.&lt;package_num&gt;</samp>.
+          It also temporary stores performance results on the target system in the 
+          <samp class="codeph">/tmp</samp> directory. If you followed the steps detailed
+          in 
+          <a href="GUID-54A912A5-8F6A-415D-AC8B-6988B9C59623.html">Prepare Your Target Device and
+            Install Intel VTune Amplifier Drivers</a>, then the collectors were
+          installed in the default location. If you installed the target package to a
+          different location and need to specify another temporary directory, make sure
+          to configure your settings from the 
+          <strong>Analysis Target</strong> tab for your project. 
+        </p>
+<p><ul id="GUID-11A2E5D5-7D7E-499B-8D8A-D63196533BEE"><li>Use the 
+            <strong>VTune Amplifier installation directory on the remote system</strong>
+            option to specify the path to the VTune Amplifier on the remote system. If
+            default location is used, the path is provided automatically. 
+          </li>
+<li> Use the 
+            <strong>Temporary directory on the remote system</strong> option to specify a
+            non-default temporary directory. 
+          </li>
+<li><p>Alternatively, use the 
+              <samp class="codeph">-target-install-dir</samp> and 
+              <samp class="codeph">-target-temp-dir</samp> options from the command line. 
+            </p>
+</li>
+</ul>
+</p>
+</li>
+<li><p>Click 
+          <strong>Choose Analysis</strong> to switch to the 
+          <strong>Analysis Type</strong> tab. 
+        </p>
+</li>
+<li><p>Select the 
+          <strong>Advanced Hotspots</strong> analysis type. You will notice communication
+          with the remote system before the 
+          <strong>Analysis Type</strong> screen appears. 
+        </p>
+<p><img src="GUID-E7EFEFA3-06BA-4565-9910-524C78D879B0-low.png" /></p>
+</li>
+<li><p>Click the 
+          <strong>Start</strong> button to launch the Advanced Hotspots Analysis session.
+          
+        </p>
+</li>
+</ol>
+<p>The VTune Amplifier sets up the password-less SSH connection to your
+      target device and launches the target application. It collects Advanced
+      Hotspots data with default settings, and then copies those results back to the
+      host. 
+    </p>
+<div class="section" id="GUID-1D653D37-33FA-4354-8E05-DF4093CA5FAC"><strong>Next step: 
+      </strong><a href="GUID-23801BC8-2ED5-4A3E-8EFE-32625B1E6EC7.html#GUID-23801BC8-2ED5-4A3E-8EFE-32625B1E6EC7">View
+        Your Results</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-50355842-AFD0-4A40-9CC1-65DAC1A6558F.html">Enabling Collection on a Remote Embedded Device</a></div>
+</div>
+<div></div>
+</body>
+</html>

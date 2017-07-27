@@ -1,0 +1,67 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Establishing a Performance Baseline">
+<meta name="DC.Relation" scheme="URI" content="GUID-5802FE1F-A872-4B07-9816-EA3D42046146.htm">
+<meta name="DC.Relation" scheme="URI" content="http://www.intel.com/software/products/softwaredocs_feedback">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-DBB46A79-6B28-4E68-B6A8-162D55A26EC8">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Establishing a Performance Baseline</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-DBB46A79-6B28-4E68-B6A8-162D55A26EC8">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+ 
+  <h1 class="topictitle1">Establishing a Performance Baseline</h1>
+ 
+  <div> 
+    <div class="section" id="GUID-CFB47CB5-C32B-4A36-980E-C3DC4FFC649E"> 
+      <p>To set a performance baseline for the improvements
+        that follow in this tutorial, compile your sources from the 
+        <span class="filepath">src</span> directory with these compiler options: 
+      </p>
+ 
+    </div>
+ 
+    <div class="section" id="GUID-FC7AEF66-D77E-42D6-81C9-E1E97B5144D3"> 
+      <p><samp class="codeph">icc -O1 -std=c99 Multiply.c Driver.c -o
+          MatVector</samp> 
+        </p>
+ 
+      <p>Execute 
+        <span class="filepath">MatVector</span> and
+        record the execution time reported in the output. This is the baseline against
+        which subsequent improvements will be measured. 
+      </p>
+ 
+      <p>This example uses a
+        variable length array (VLA), and therefore, must be compiled with the 
+      <span class="option">-std=c99</span> option. 
+      </p>
+ 
+    </div>
+ 
+    <p><a href="GUID-92680CAC-9375-4AE9-9B30-BDDB73792AF8.htm"><img class="border(0)" style="border-style: none" src="GUID-7F3B04BE-CA31-4F1C-B7C4-88C93723B324-low.jpg" alt="Next: Generating a Vectorization Report"></a> 
+    </p>
+ 
+  </div>
+ 
+  
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-5802FE1F-A872-4B07-9816-EA3D42046146.htm">Tutorial: Linux* and OS X* Version</a></div>
+</div>
+<div></div> 
+
+</body>
+</html>

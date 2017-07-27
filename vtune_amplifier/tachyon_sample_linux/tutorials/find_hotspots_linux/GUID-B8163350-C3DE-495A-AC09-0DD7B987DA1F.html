@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Tutorial: Enabling Performance Collection on an Embedded Linux* System (Linux Host)" />
+<meta name="DC.Relation" scheme="URI" content="GUID-DE1DFDF1-02B6-4CAF-A912-9B63BAF239F6.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-D2009DFB-FDD0-41CC-B9CD-D273822AB964.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-50355842-AFD0-4A40-9CC1-65DAC1A6558F.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-58E89532-9AAD-4CE5-90B8-1843E08E081F.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-9C656E9B-B7CD-4497-A47D-C669B4D64C11.html" />
+<meta name="prodname" content="Intel&reg; VTune&#8482; Amplifier for Systems" />
+<meta name="version" content="VTune Amplifier for Systems" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-B8163350-C3DE-495A-AC09-0DD7B987DA1F" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Tutorial: Enabling Performance Collection on an Embedded Linux* System (Linux Host)</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-B8163350-C3DE-495A-AC09-0DD7B987DA1F">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+<h1 class="topictitle1"><img src="GUID-59DFA90A-7EFE-471F-87B3-6B240755CE73-low.png" /> Tutorial: Enabling
+    Performance Collection on an Embedded Linux* System 
+    <span> (Linux Host)</span></h1>
+<div><p><strong>Intel&reg; VTune&#8482; Amplifier for Systems 
+        <span>(Linux Host)</span></strong></p>
+<p><strong>C++ Sample Application Code</strong></p>
+<p id="GUID-55ED7C8B-907B-466F-8F79-DC6A12222A06"><a class="underlined" href="GUID-DE1DFDF1-02B6-4CAF-A912-9B63BAF239F6.html#GUID-DE1DFDF1-02B6-4CAF-A912-9B63BAF239F6">Legal Information</a></p>
+<p> Discover how to set up your embedded device for performance analysis
+      using Intel&reg; VTune&#8482; Amplifier for Systems. After setting up your operating
+      system and installing sampling drivers, run a performance analysis to
+      understand where your embedded application is spending time by identifying 
+      <dfn class="term">hotspots</dfn> - the most time-consuming program units. Advanced
+      Hotspots Analysis is useful to analyze the performance of both serial and
+      parallel applications. The Intel VTune Amplifier for Systems supports analysis
+      of remote Linux* applications running on regular or embedded Linux systems, but
+      this tutorial will focus on embedded platforms with Yocto Project*. 
+    </p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-90830C46-08BF-4A95-A9F9-2465BA185207" frame="border" border="1" cellspacing="0" rules="all"><tbody><tr><td class="cellrowborder" valign="top" width="23.4192037470726%"><p><strong>About This Tutorial</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="76.58079625292741%"><p>This tutorial uses the sample 
+                <samp class="codeph">tachyon</samp> and guides you through the basic steps
+                required to set up remote collection of performance data on a Linux target and
+                use the VTune Amplifier GUI to analyze the code for hotspots. 
+              </p>
+<p>This tutorial focuses on setting up the Yocto Project 2.1
+                environment on a target device. Review the system requirements for building
+                Yocto Project before beginning this tutorial. Requirements are available from
+                the Yocto Project Quick start, which can be found from www.yoctoproject.org. If
+                you are using an environment other than Yocto Project on your target system,
+                you will need to provide your own sample application, kernel version, and
+                kernel source directory. 
+              </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.4192037470726%"><p><strong>Estimated Duration</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="76.58079625292741%"><p><ul id="GUID-91EF2826-A124-4A0B-A0D2-17CB18939963"><li>35 minutes: Preparing your host and target device for use 
+                </li>
+<li>60 minutes: Build the Yocto Project kernel (no user action
+                  required during this time) 
+                </li>
+<li>15 minutes: Preparing your sample application and analyzing
+                  it 
+                </li>
+</ul>
+</p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>Actual time will vary because a build of the Yocto Project
+                  kernel is required. 
+                </p>
+</div>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.4192037470726%"><p><strong>Learning Objectives</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="76.58079625292741%"><p>After you complete this tutorial, you will
+                be able to: 
+              <ul id="GUID-211B4EDC-3D3C-4E43-822F-8C4719BE529B"><li><a href="GUID-54A912A5-8F6A-415D-AC8B-6988B9C59623.html#GUID-54A912A5-8F6A-415D-AC8B-6988B9C59623">Configure
+                    the Yocto Project kernel for your embedded device</a></li>
+<li><a href="GUID-7CEA64CC-2010-4263-8C0A-31A81AE2D73A.html">Add the sampling drivers and
+                    build the Yocto Project operating system</a></li>
+<li><a href="GUID-8FD55FF4-EB04-4ACC-9868-3E5DE6461CFB.html">Load the drivers onto the
+                    embedded device and configure SSH access</a></li>
+<li><a href="GUID-B65A32B8-F2FC-4F32-AE44-5FFC84C1DC82.html#GUID-B65A32B8-F2FC-4F32-AE44-5FFC84C1DC82">Prepare your sample application, 
+                    <samp class="codeph">tachyon</samp></a></li>
+<li><a href="GUID-B74AC4CA-DFAF-44B6-9857-EE13477C4D6F.html#GUID-B74AC4CA-DFAF-44B6-9857-EE13477C4D6F">Run
+                    an Advanced Hotspot Analysis</a></li>
+<li><a href="GUID-23801BC8-2ED5-4A3E-8EFE-32625B1E6EC7.html#GUID-23801BC8-2ED5-4A3E-8EFE-32625B1E6EC7">View
+                    your results in Intel VTune Amplifier for Systems</a></li>
+</ul>
+</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="23.4192037470726%"><p><strong>More Resources</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="76.58079625292741%"><p><ul id="GUID-855D5CAE-5D4C-4573-B58E-9A9CD998728C"><li><p>The Intel Developer Zone is a site devoted to software
+                    development tools, resources, forums, blogs, and knowledge bases, see 
+                    <a href="http://software.intel.com" target="_blank">http://software.intel.com</a></p>
+</li>
+<li>The Intel Software Documentation Library is part of the
+                  Intel Developer Zone and is an online collection of Release Notes, User and
+                  Reference Guides, White Papers, Help, and Tutorials for Intel software
+                  products, 
+                  <a href="http://software.intel.com/en-us/intel-software-technical-documentation" target="_blank">http://software.intel.com/en-us/intel-software-technical-documentation</a></li>
+<li>For troubleshooting the creation and installation of the 
+                  <samp class="codeph">sep</samp> drivers, see 
+                  <a href="http://software.intel.com/en-us/articles/troubleshooting-issues-with-sep-in-the-embedded-tool-suite-intel-system-studio" target="_blank">http://software.intel.com/en-us/articles/troubleshooting-issues-with-sep-in-the-embedded-tool-suite-intel-system-studio</a></li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><u><a class="start" href="GUID-50355842-AFD0-4A40-9CC1-65DAC1A6558F.html#GUID-50355842-AFD0-4A40-9CC1-65DAC1A6558F">Start Here</a></u></p>
+<p><br /><br /></p>
+</div>
+<div></div>
+</body>
+</html>

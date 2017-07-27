@@ -1,0 +1,15 @@
+Intel(R) Threading Building Blocks. Fgbzip2 sample
+
+License Information Follows
+---------------------------
+* msvs/*.*
+* xcode/*.*
+* *.*
+
+Copyright 2016 Intel Corporation
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
+
+The "libbzip2" sources for this sample:
+Copyright (c) 1996-2010 Julian R Seward. All rights reserved.
+license: http://www.bzip.org/

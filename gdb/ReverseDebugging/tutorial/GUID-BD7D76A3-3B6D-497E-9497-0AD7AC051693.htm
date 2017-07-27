@@ -1,0 +1,426 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Getting Started">
+<meta name="DC.Relation" scheme="URI" content="GUID-F5D65373-A557-4AAD-AD5A-5415EE8407E4.htm">
+<meta name="prodname" content="">
+<meta name="version" content="2017">
+<meta name="series" content="Reverse debugging with the GNU* Project Debugger for Intel&reg; Architecture">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-BD7D76A3-3B6D-497E-9497-0AD7AC051693">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Getting Started</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-BD7D76A3-3B6D-497E-9497-0AD7AC051693">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Reverse debugging with the GNU* Project Debugger for Intel&reg; Architecture</em></p>
+
+
+ 
+  <h1 class="topictitle1">Getting Started</h1>
+ 
+   
+  <div> 
+	 <p> For prerequisites and installation see the 
+		<a href="https://software.intel.com/en-us/articles/intel-system-studio-release-notes" target="_blank">GNU* Project Debugger Release Notes</a>. 
+	 </p>
+ 
+	 <div class="section" id="GUID-B22AE4A1-F640-4980-82E3-393B8B338A6C"><h2 class="sectiontitle">Starting the Example in Eclipse*</h2> 
+		 
+		<ol id="GUID-18C55F07-7CFC-4ADB-B20A-CEC7BF2BEFCD"> 
+		  <li>Start the preconfigured Eclipse* IDE from:
+      
+         <p>
+         <span class="filepath">
+            &lt;<var>install-dir</var>&gt;/eclipse_&lt;<var>version</var>&gt;
+          </span>
+        </p>
+
+        <p>
+          (For example: <span class="filepath">opt/intel/eclipse_mars</span>)
+        </p>
+
+			 <p>When you start Eclipse* with Intel&reg; System Studio for the first
+				time, the welcome screen appears, providing an overview of Intel&reg; System Studio
+				components and a list of links to further information. These links are also
+				available in the Intel&reg; System Studio Menu in the Eclipse* menu bar. 
+			 </p>
+ 
+			
+		  </li>
+ 
+		  <li>Scroll to section 
+			 <b class="uicontrol">Debuggers and
+				  Analyzers</b> &gt; <b class="uicontrol">Intel&reg; Enhanced GDB Application
+				  Debugger</b> and click 
+			 <b class="uicontrol">Samples</b>. 
+			 <p>The internal browser window opens the web page for the Application
+				Debuggers samples inside Eclipse*. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li>Go to 
+			 <b class="uicontrol">GDB Reverse Debugging Sample</b> and click 
+			 <b class="uicontrol">Download Now</b>. 
+		  </li>
+ 
+		  <li>Click 
+			 <b class="uicontrol">Import Project</b> to import the demo project
+			 directly into your Eclipse* workspace. 
+		  </li>
+ 
+		  <li>Alternatively you can save the project to your local system and
+			 import it into Eclipse* manually: 
+			 <ol type="a" id="GUID-524EB60B-4BDD-41E1-AE7B-37EB405CAD69"> 
+				<li>Go to 
+				  <b class="uicontrol">File</b> &gt; <b class="uicontrol">Import</b> &gt; <b class="uicontrol">General</b> &gt; <b class="uicontrol">Existing
+						Projects Into Workspace</b>. 
+				</li>
+ 
+				<li>Browse for the demo project file 
+				  <span class="filepath">GDB_ReverseDebuggingSample.tgz</span>. 
+				</li>
+ 
+				<li>Click 
+				  <b class="uicontrol">Finish</b> to import the demo project into
+				  your workspace. 
+				</li>
+ 
+			 </ol>
+ 
+		  </li>
+ 
+		  <li>Select 
+			 <b class="uicontrol">Window</b> &gt; <b class="uicontrol">Show
+				  View</b> &gt; <b class="uicontrol">Project Explorer</b> to open the 
+			 <b class="uicontrol">Project Explorer view.</b> 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+	 <div class="section" id="GUID-6548C066-2745-45F8-8C5D-F6ADAEFD3106"><h2 class="sectiontitle">Enabling Reverse Debugging Tool Bar Items</h2> 
+		 
+		<p>Select 
+		  <b class="uicontrol">Window</b> &gt; <b class="uicontrol">Perspective</b> &gt; <b class="uicontrol">Customize
+				Perspective...</b>. 
+		</p>
+ 
+		<p> Switch to the tab 
+		  <b class="uicontrol">Action Set Availability</b> and check 
+		  <b class="uicontrol">Reverse Debugging</b> in the 
+		  <b class="uicontrol">Available Action Sets</b> column. 
+		</p>
+ 
+	 </div>
+ 
+	 <div class="section" id="GUID-2F261568-E5FC-41A4-A41C-23B62F6F8656"><h2 class="sectiontitle"> Building and Launching the Application for Execution on the Host
+		  System (Native)</h2> 
+		 
+		<p><strong>To build the application:</strong> 
+		</p>
+ 
+		<ol id="GUID-525BA0D1-18F4-41FE-88E0-8794C99F5C0A"> 
+		  <li>Go to 
+			 <b class="uicontrol">Project</b> &gt; <b class="uicontrol">Properties</b> &gt; <b class="uicontrol">C/C++ Build</b> &gt; <b class="uicontrol">Tool Chain Editor</b> &gt; <b class="uicontrol">Current toolchain</b> and choose the Intel&reg; System Studio toolchain. 
+		  </li>
+ 
+		  <li>Select 
+			 <b class="uicontrol">Project</b> &gt; <b class="uicontrol">Build Configurations</b> &gt; <b class="uicontrol">Set Active</b> &gt; <b class="uicontrol">1 Debug</b> and set the 
+			 <b class="uicontrol">Debug</b> configuration as the active
+			 configuration. 
+		  </li>
+ 
+		  <li>Select 
+			 <b class="uicontrol">Project</b> &gt; <b class="uicontrol">Build All</b> to build the application. 
+			 <p>You can ignore warnings about unused functions. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+		<p><strong>To create a debug launch configuration:</strong> 
+		</p>
+ 
+		<ol id="GUID-E7941874-B6DC-4D5A-9BCA-DA4AEE930AF3"> 
+		  <li> 
+			 <p>Select 
+				<b class="uicontrol">Run</b> &gt; <b class="uicontrol">Debug Configurations...</b>. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Double-click 
+				<b class="uicontrol">C/C++ Application</b> and select 
+				<b class="uicontrol">GDB_ReverseDebuggingSample Debug</b>. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li>Switch to the 
+			 <b class="uicontrol">Debugger</b> tab. 
+		  </li>
+ 
+		  <li>Click 
+			 <b class="uicontrol">Select Other</b> to select the launcher 
+			 <b class="uicontrol">GDB-IA (DSF) Create Process Launcher</b>. 
+			 <p>The launcher automatically sets the provided GDB. The text field
+				GDB debugger should list 
+				<samp class="codeph">gdb-ia</samp>. 
+			 </p>
+ 
+			 <p><img src="GUID-4009697B-3A7D-4A0B-ADF8-3ECAD8749987-low.png">
+				
+			 </p>
+ 
+		  </li>
+ 
+		  <li>On the tab 
+			 <strong>Main</strong> of the 
+			 <b class="uicontrol">Debugger Options</b>, check<b class="uicontrol"> Enable
+				Reverse Debugging at startup</b>. 
+		  </li>
+ 
+		  <li>Select a recording method from the dropdown menu that is
+			 appropriate for your system. See the 
+			 <a href="https://software.intel.com/en-us/articles/intel-system-studio-release-notes" target="_blank">Release Notes</a> for more information. 
+		  </li>
+ 
+		  <li>Click 
+			 <strong>Apply</strong> to save your debug launch configuration. 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+	 <p><strong>To launch the application:</strong> 
+	 </p>
+ 
+	 <ol id="GUID-0AA561F2-13F5-4F18-B9FC-99BB78F22710"> 
+		<li>Select 
+		  <b class="uicontrol">Run</b> &gt; <b class="uicontrol">Run
+				Configurations</b> &gt; <b class="uicontrol">C/C++
+				Application</b> &gt; <b class="uicontrol">GDB_ReverseDebuggingSample
+				Debug</b> &gt; <b class="uicontrol">Main</b>. 
+		</li>
+ 
+		<li>Click 
+		  <b class="uicontrol">Debug</b>. 
+		</li>
+ 
+	 </ol>
+ 
+	 <div class="section" id="GUID-F336B58D-2334-4127-A25E-5D036E9E9EA9"><h2 class="sectiontitle">Building and Launching the Application for Execution on the Target
+		  System (Remote)</h2> 
+		 
+		<p><strong>Prerequisites: 
+		  </strong> 
+		</p>
+ 
+		<p>To perform remote debugging on the target system, make sure you
+		  install and enable the remote debug agent, 
+		  <samp class="codeph">gdbserver</samp>, on the target. For more information refer
+		  to the getting started guide for 
+		  <a href="https://software.intel.com/en-us/iss-2017-get-started-with-debugging-linux" target="_blank">Linux* host</a> or to the 
+		  <a href="https://software.intel.com/en-us/articles/intel-system-studio-release-notes" target="_blank">Release Notes</a>. 
+		</p>
+ 
+		<p><strong>To build the application:</strong> 
+		</p>
+ 
+		<ol id="GUID-45D6AA0F-F80E-4C0F-8227-A65962919F63"> 
+		  <li>Go to 
+			 <b class="uicontrol">Project</b> &gt; <b class="uicontrol">Properties</b> &gt; <b class="uicontrol">C/C++ Build</b> &gt; <b class="uicontrol">Tool Chain Editor</b> &gt; <b class="uicontrol">Current toolchain</b> and choose the Intel&reg; System Studio toolchain. 
+		  </li>
+ 
+		  <li>Select 
+			 <b class="uicontrol">Project</b> &gt; <b class="uicontrol">Build Configurations</b> &gt; <b class="uicontrol">Set Active</b> &gt; <b class="uicontrol">1 Debug</b> and set the 
+			 <b class="uicontrol">Debug</b> configuration as the active
+			 configuration. 
+		  </li>
+ 
+		  <li>Select 
+			 <b class="uicontrol">Project Properties</b> &gt; <b class="uicontrol">C/C++ Build &gt; Settings</b> and set the GNU_PREFIX and SYSROOT: 
+			 <ul id="GUID-9B2A6885-3AB2-4880-89D3-CFC97E5AA8EE"> 
+				<li>For Wind River* Linux*: 
+				  <samp class="codeph">set SYSROOT=&lt;WRL6_path&gt;/qemux86-64set
+					 GNU_PREFIX=x86_64-wrs-linux-</samp> 
+				</li>
+ 
+				<li>For Yocto Linux*: 
+				  <samp class="codeph">set
+					 SYSROOT=&lt;YL_path&gt;/sysroots/core2-32-poky-linuxset
+					 GNU_PREFIX=i586-poky-linux-</samp> 
+				</li>
+ 
+			 </ul>
+ 
+		  </li>
+ 
+		  <li>Select 
+			 <b class="uicontrol">Project Properties</b> &gt; <b class="uicontrol">C/C++ Build</b> &gt; <b class="uicontrol">Environment</b> and update the path in the build environment: 
+			 <ul id="GUID-8DEC4756-0BA8-41F9-9E68-0AE2A3C5F7A2"> 
+				<li>Wind River* Linux*: Append the following to the PATH
+				  environment variable: 
+				  <samp class="codeph">&lt;WRL6_path&gt;/x86_64-linux/usr/bin/x86_64-wrs-linux;</samp>
+				  
+				</li>
+ 
+				<li>Yocto Linux* append the following to the PATH environment
+				  variable: 
+				  <samp class="codeph">&lt;YL_path&gt;/sysroots/core2-32-poky-linux/i586-poky-linux;</samp>
+				  
+				</li>
+ 
+			 </ul>
+ 
+		  </li>
+ 
+		  <li>Select 
+			 <b class="uicontrol">Project</b> &gt; <b class="uicontrol">Build All</b> to build the application. 
+			 <p>You can ignore warnings about unused functions. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+		<p><strong>To create a debug launch configuration:</strong> 
+		</p>
+ 
+		<ol id="GUID-DE6096E0-FFBE-4054-98C5-D6296DD70F3F"> 
+		  <li> 
+			 <p>Select 
+				<b class="uicontrol">Run</b> &gt; <b class="uicontrol">Debug Configurations...</b>. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Double-click 
+				<b class="uicontrol">C/C++ Remote Application</b> and select 
+				<b class="uicontrol">GDB_ReverseDebuggingSample Debug</b>. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li>The tab<b class="uicontrol"> Main</b> of the debug configuration
+			 should already contain the correct entries in the 
+			 <b class="uicontrol">Project</b> and 
+			 <b class="uicontrol">C/C++ Application</b> fields. If not, use the
+			 respective 
+			 <b class="uicontrol">Browse</b> buttons to browse for and fill in the
+			 appropriate information. 
+			 <p><img src="GUID-0168C7A2-3937-4F92-8F10-5D8E7FEC471F-low.png">
+				
+			 </p>
+ 
+		  </li>
+ 
+		  <li>Switch to the 
+			 <b class="uicontrol">Debugger</b> tab. 
+		  </li>
+ 
+		  <li>Click 
+			 <b class="uicontrol">Select Other</b> to select the launcher 
+			 <b class="uicontrol">GDB-IA (DSF) Manual Remote Debugging Launcher</b>.
+			 
+			 <p>The launcher automatically sets the provided GDB. The text field
+				GDB debugger should list 
+				<samp class="codeph">gdb-ia</samp>. 
+			 </p>
+ 
+			 <p><img src="GUID-41E2A1AC-9A34-4233-813E-60CDE5EBF0CE-low.png"> 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> Select a recording method from the dropdown menu that is
+			 appropriate for your system. See the 
+			 <a href="https://software.intel.com/en-us/articles/intel-system-studio-release-notes" target="_blank">Release Notes</a> for more information. 
+		  </li>
+ 
+		  <li> 
+			 <p>On the tab 
+				<strong>Connection</strong> of the 
+				<b class="uicontrol">Debugger Options</b>, enter the target host name
+				/IP address and port number to be used for the debug session. A loop back
+				connection on a standard Linux* system is used for this tutorial, so the host
+				name will be "localhost". Choose a port number that is not used by other
+				services, such as 2345. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li>To use a remote system running an OS that is supported by Intel&reg;
+			 System Studio, for example Wind River* Linux or Yocto* Linux, switch to the tab
+			 
+			 <strong>Shared Libraries</strong> of the 
+			 <b class="uicontrol">Debugger Options</b> and click 
+			 <b class="uicontrol">Add...</b> to add the path to the target shared
+			 objects of the SYSROOT to the debug launch configuration. Note that the number
+			 of directories and the location that need to be added may vary for different
+			 target operating systems. 
+		  </li>
+ 
+		  <li>Click 
+			 <strong>Apply</strong> to save your debug launch configuration. 
+		  </li>
+ 
+		</ol>
+ 
+		<p><strong>To launch the application:</strong> 
+		</p>
+ 
+		<ol id="GUID-3BBBF0BC-D79A-4F59-827E-ADE5A8B7AFDF"> 
+		  <li>Select 
+			 <b class="uicontrol">Run</b> &gt; <b class="uicontrol">Run
+				  Configurations</b> &gt; <b class="uicontrol">GDB_ReverseDebuggingSample
+				  Debug</b> &gt; <b class="uicontrol">C/C++ Remote
+				  Application</b> &gt; <b class="uicontrol">Main</b>. 
+		  </li>
+ 
+		  <li>Click 
+			 <b class="uicontrol">Debug</b>. 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+	 <p> See the next section, 
+		<a href="GUID-4C18BB4B-E552-4557-BF35-20E80AD0E141.htm">Reverse Debugging of a Corrupted Callstack</a>,
+		to learn how to apply reverse debugging and collect data for the 
+		<b class="uicontrol">Function Call History</b> View. 
+	 </p>
+ 
+  </div>
+ 
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-F5D65373-A557-4AAD-AD5A-5415EE8407E4.htm">Reverse Debugging with the GNU* Project Debugger for Intel&reg; Architecture</a></div>
+</div>
+<div></div>
+
+</body>
+</html>

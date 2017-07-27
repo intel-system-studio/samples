@@ -1,0 +1,282 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Reverse Debugging of a Corrupted Callstack">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Relation" scheme="URI" content="GUID-F5D65373-A557-4AAD-AD5A-5415EE8407E4.htm">
+<meta name="prodname" content="">
+<meta name="version" content="2017">
+<meta name="series" content="Reverse debugging with the GNU* Project Debugger for Intel&reg; Architecture">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-4C18BB4B-E552-4557-BF35-20E80AD0E141">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Reverse Debugging of a Corrupted Callstack</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-4C18BB4B-E552-4557-BF35-20E80AD0E141">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Reverse debugging with the GNU* Project Debugger for Intel&reg; Architecture</em></p>
+
+
+ 
+  <h1 class="topictitle1">Reverse Debugging of a Corrupted
+	 Callstack</h1>
+ 
+  <!-- 
+  --> 
+   
+  <div><p class="shortdesc"> 
+  </p>
+ 
+	 <p>Running the example application will provoke a crash leaving a corrupted
+		callstack. This type of crash, where normal frame unwinding fails, is a typical
+		use case for using recorded application execution flow to find the root cause
+		of the crash. The 
+		<b class="uicontrol">Function Call History</b> view provides for quick
+		access to the execution trace that led to the crash of the application. It
+		allows to jump to the source code of each entry in the execution trace to form
+		an overview of the program flow. In conjunction with reverse stepping at source
+		or instruction level, it can be a powerful tool to find and fix defects in your
+		application: 
+	 </p>
+ 
+	 <ol id="GUID-29913AF4-7F96-43E3-A86B-7BB718AC3A10"> 
+		<li>If you did not already launch the application, launch it as described
+		  in 
+		  <a href="GUID-BD7D76A3-3B6D-497E-9497-0AD7AC051693.htm">Getting Started - GDB reverse
+			 debug tutorial</a>. 
+		  <p> Confirm the dialog box 
+			 <b class="uicontrol">Confirm Perspective Switch</b> with 
+			 <b class="uicontrol">Yes</b>. The application runs and stops at 
+			 <samp class="codeph">main</samp>. 
+		  </p>
+ 
+		</li>
+ 
+		<li>Select 
+		  <b class="uicontrol">Run</b> &gt; <b class="uicontrol">Resume</b>.
+		  
+		  <p>The application crashes, caused by a segmentation fault. The
+			 callstack is corrupted and it is not possible to switch to previous frames to
+			 analyze the cause of the crash. 
+		  </p>
+ 
+		</li>
+ 
+		<li>If the disassembly view is not already visible, select 
+		  <b class="uicontrol">Window</b> &gt; <b class="uicontrol">Show View</b> &gt; <b class="uicontrol">Disassembly</b> 
+		  <p>Since the stack is corrupted, all attempts to show disassembly fail,
+			 because the correct addresses of the current location cannot be resolved. The 
+			 <b class="uicontrol">Disassembly</b> view displays related error
+			 messages. 
+		  </p>
+ 
+		  <p><img src="GUID-95A7A281-5DFC-4BEE-A8E9-7AF5D9B4BDCB-low.png">
+			 
+		  </p>
+ 
+		</li>
+ 
+	 
+		<li>Select 
+		  <b class="uicontrol">Window</b> &gt; <b class="uicontrol">Show View</b> &gt; <b class="uicontrol">Function Call History</b>. 
+		  <p> The 
+			 <b class="uicontrol">Function Call History</b> view is opened
+			 displaying the call sequence that led up to the crash. Clicking an entry
+			 displays the function call in the related source view. Looking at the recorded
+			 function call history does not provide obvious information about the root cause
+			 of the crash. So the next step is restoring the callstack and reverse-stepping
+			 in the recorded execution flow. 
+		  </p>
+ 
+		  <p><img src="GUID-D8C9455F-775A-4A48-BAD3-E6EBC8CA7A0D-low.png">
+			 
+		  </p>
+ 
+		</li>
+ 
+		<li>Select 
+		  <b class="uicontrol"> Run 
+			 </b> &gt; <b class="uicontrol">Instruction Stepping Mode</b>. 
+		</li>
+ 
+		<li>Select 
+		  <b class="uicontrol"> Run 
+			 </b> &gt; <b class="uicontrol">Reverse Step Into</b>. 
+		  <p>The callstack is restored and the disassembly of the program is
+			 displayed. The current instruction pointer points to an instruction 
+			 <samp class="codeph">retq</samp>. This suggests that executing this instruction
+			 has caused the segmentation fault. 
+		  </p>
+ 
+		</li>
+ 
+		<li> Look at the disassembly of 
+		  <samp class="codeph">fun_B</samp>. 
+		  <p><img src="GUID-CF490A83-5FE4-4CB9-BAAC-BFAAAEDB08C5-low.png">
+			 
+		  </p>
+ 
+		  <p>You will notice that the disassembly does not give any hint about
+			 the root cause of the segmentation fault. 
+		  </p>
+ 
+		</li>
+ 
+		<li>To go back in the code a little further, select 
+		  <b class="uicontrol">Run</b> &gt; <b class="uicontrol">Instruction Stepping Mode</b> to disable it. 
+		  <p>This enables reverse stepping over all source lines of 
+			 <samp class="codeph">fun_B</samp> before the function is called. 
+		  </p>
+ 
+		</li>
+ 
+		<li>Click the 
+		  <b class="uicontrol">Reverse Step Into</b> button until you reach line 78
+		  in function 
+		  <samp class="codeph">do_crash</samp>. 
+		</li>
+ 
+		<li>Select 
+		  <b class="uicontrol">Run</b> &gt; <b class="uicontrol">Instruction Stepping Mode</b> to enable it again. 
+		</li>
+ 
+		<li>Click the 
+		  <b class="uicontrol">Step Into</b> button until the instruction 
+		  <samp class="codeph">callq</samp> is executed. 
+		</li>
+ 
+		<li> Look at the disassembly. 
+		  <p><img src="GUID-31722DD1-3524-4ADF-B6DF-9D2A68B02E34-low.png">
+			 
+		  </p>
+ 
+		  <p>You will notice that the execution of 
+			 <samp class="codeph">fun_B</samp> starts executing at the second instruction 
+			 <samp class="codeph">mov</samp> and not, as expected, at the first instruction 
+			 <samp class="codeph">push</samp>. So, something must have changed the address
+			 that is used by the 
+			 <samp class="codeph">callq</samp> instruction to invoke 
+			 <samp class="codeph">fun_B</samp>. 
+		  </p>
+ 
+		</li>
+ 
+		<li>Look at the 
+		  <b class="uicontrol">Function Call History</b> view. 
+		  <p>You can see that 
+			 <samp class="codeph">fun_B</samp> was called by the function 
+			 <samp class="codeph">do_crash</samp>. 
+		  </p>
+ 
+		  <p><img src="GUID-F7E9F333-49E4-4187-8CF3-187A6A335451-low.png">
+			 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p>Click 
+			 <samp class="codeph">do_crash() at stack.c:77</samp> in the 
+			 <b class="uicontrol">Function Call History</b> view. 
+		  </p>
+ 
+		  <p>The source view displays the function 
+			 <samp class="codeph">do_crash</samp>, declaring two function pointers, 
+			 <samp class="codeph">comp</samp> and 
+			 <samp class="codeph">mask</samp>, which are initialized from an array of
+			 function pointers. Looking at the declaration of the array further up in the
+			 source file, you can find that 
+			 <samp class="codeph">comp</samp> is pointing to 
+			 <samp class="codeph">fun_B</samp>, and 
+			 <samp class="codeph">mask</samp> is pointing to 
+			 <samp class="codeph">fun_A</samp>. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p>Go back to 
+			 <samp class="codeph">do_crash() at stack.c:77</samp> by clicking the respective
+			 entry in the 
+			 <b class="uicontrol">Function Call History</b> view. 
+		  </p>
+ 
+		  <p>You can see that 
+			 <samp class="codeph">mask(&amp;arg)</samp> is actually a call to 
+			 <samp class="codeph">fun_A</samp>, which is called with an argument of type 
+			 <samp class="codeph">B_arg</samp>. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p>Look at the declaration of 
+			 <samp class="codeph">fun_A</samp> further up in the source file by clicking on
+			 the entry 
+			 <samp class="codeph">fun_A() at stack.c:39 
+			 </samp>in the 
+			 <b class="uicontrol">Function Call History</b> view. 
+		  </p>
+ 
+		  <p><img src="GUID-28146077-3067-4FD9-9131-4A9DFCB04DFD-low.png">
+			 
+		  </p>
+ 
+		  <p>You can see that 
+			 <samp class="codeph">fun_A</samp> takes a 
+			 <samp class="codeph">void*</samp> argument and casts it to 
+			 <samp class="codeph">A_arg*</samp>. 
+			 <samp class="codeph">A_arg</samp> is declared right above 
+			 <samp class="codeph">fun_A</samp>. It is a structure of three long variables.
+			 The function 
+			 <samp class="codeph">fun_A</samp> is to increment the third member, 
+			 <samp class="codeph">count</samp>, by one, later in the code. However, the
+			 parameter passed to 
+			 <samp class="codeph">fun_A</samp> is of type 
+			 <samp class="codeph">B_arg</samp>, as revealed in the previous step. So the
+			 increment of 
+			 <samp class="codeph">count</samp> writes beyond the memory that was allocated
+			 for the parameter passed to 
+			 <samp class="codeph">fun_A</samp>. This provokes a buffer overrun. As a result,
+			 the start address of 
+			 <samp class="codeph">fun_B</samp>, alias 
+			 <samp class="codeph">comp</samp>, is incremented by one. When executing the 
+			 <samp class="codeph">callq</samp>, the 
+			 <samp class="codeph">push</samp> instruction of the function prologue is not
+			 executed. When the function ends, the 
+			 <samp class="codeph">pop</samp> instruction in the epilogue is executed,
+			 although the corresponding 
+			 <samp class="codeph">push</samp> was not. This corrupts the stack and causes the
+			 segmentation fault. 
+		  </p>
+ 
+		</li>
+ 
+	 </ol>
+ 
+  </div>
+ 
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-F5D65373-A557-4AAD-AD5A-5415EE8407E4.htm">Reverse Debugging with the GNU* Project Debugger for Intel&reg; Architecture</a></div>
+</div>
+<div></div>
+
+</body>
+</html>

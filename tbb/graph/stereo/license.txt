@@ -1,0 +1,15 @@
+Intel(R) Threading Building Blocks. Stereo sample
+
+License Information Follows
+---------------------------
+* msvs/*.*
+* xcode/*.*
+* *.*
+
+Copyright 2016 Intel Corporation
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
+
+Third party software "LodePNG" version 20160409 is used in this sample:
+Copyright (c) 2005-2016 Lode Vandevenne. All rights reserved.
+license: http://lodev.org/lodepng/

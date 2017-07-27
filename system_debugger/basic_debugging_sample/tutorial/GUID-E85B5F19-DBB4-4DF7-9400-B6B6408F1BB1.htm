@@ -1,0 +1,163 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Launching the Demo Application">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.Relation" scheme="URI" content="GUID-28AA7FB2-F9EA-4A75-909B-8BDB9E2D0A5E.htm">
+<meta name="prodname" content="">
+<meta name="version" content="2017">
+<meta name="series" content="">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-E85B5F19-DBB4-4DF7-9400-B6B6408F1BB1">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Launching the Demo Application</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-E85B5F19-DBB4-4DF7-9400-B6B6408F1BB1">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+ 
+  <h1 class="topictitle1">Launching the Demo Application</h1>
+ 
+  <!-- 
+  --> 
+   
+  <div><p class="shortdesc"> 
+  </p>
+ 
+	 <a name="OL_A560878CE9BC48868DAB77DF0CA7E32E"><!-- --></a><ol id="OL_A560878CE9BC48868DAB77DF0CA7E32E"> 
+		<li id="LI_A7F9C40208A347FC9724313E025F1EE2"><a name="LI_A7F9C40208A347FC9724313E025F1EE2"><!-- --></a>Launch the Intel&reg; System
+		  Debugger as follows: 
+		  <a name="UL_19B1DCDC9C114F57B34C97CE8D14C700"><!-- --></a><ul id="UL_19B1DCDC9C114F57B34C97CE8D14C700"> 
+			 <li id="LI_B80F5A9064A7446CAF6C6B40C4BDB371"><a name="LI_B80F5A9064A7446CAF6C6B40C4BDB371"><!-- --></a><strong>For Linux*</strong>: Run
+				the script 
+				<span class="filepath">&lt;<var>install-dir</var>&gt;/system_debugger_<var>&lt;version&gt;</var>/simics/xdb_sample/xdb.sh</span>
+				
+				<p>with 
+				  <span class="filepath"><var>&lt;install-dir&gt;</var></span> being
+				  the root directory of your Intel&reg; System Studio or Intel&reg; System Debugger
+				  installation. 
+				</p>
+ 
+			 </li>
+ 
+			 <li id="LI_FCE07CEC4949430DBFAF0D00B32F7818"><a name="LI_FCE07CEC4949430DBFAF0D00B32F7818"><!-- --></a><strong>For Windows*</strong>:
+				Click 
+				<b class="uicontrol">System Debugger (Debug)</b> on your Start page. 
+			 </li>
+ 
+		  </ul>
+ 
+		</li>
+ 
+		<li>Connect to the target:
+		  <ol type="a" id="GUID-EB8FE33F-9169-469F-A341-1C035D12ADCD">
+			 <li>Select 
+				<b class="uicontrol">File</b> &gt; <b class="uicontrol">Connect
+					 ...</b> from the menu bar.
+			 </li>
+
+			 <li>In the 
+				<b class="uicontrol">Connect To Target</b> dialog box, choose 
+				<samp class="codeph">Simics</samp> as hardware probe and 
+				<samp class="codeph">Simics Simulation Target (Demo mode)</samp> as target
+				platform. 
+				<p><img src="GUID-2263A791-E1D5-4308-81AA-4E05A81F4D45-low.png"> 
+				</p>
+ 
+			 </li>
+
+			 <li>Click 
+				<b class="uicontrol">Connect</b>.
+			 </li>
+
+		  </ol>
+
+		</li>
+
+		<li id="LI_7DE835575674433D805D770573D0422A"><a name="LI_7DE835575674433D805D770573D0422A"><!-- --></a> If you start the demo for
+		  the first time, a dialog box might display, asking for help on improvements.
+		  Make your selection and click 
+		  <b class="uicontrol">OK</b>. 
+		</li>
+ 
+	 </ol>
+ 
+	 <div class="Note"><h3 class="NoteTipHead">Note</h3>
+		<p>On Windows* systems, depending on your security settings, a Windows
+		  Security Alert dialog box might display, informing you about the Windows*
+		  firewall blocking some features of the demo application. Select your
+		  appropriate settings and click 
+		  <b class="uicontrol">Allow access</b>. Windows* saves this setting so
+		  that the dialog box will not display when you launch the application for
+		  further sessions.
+		</p>
+
+	 </div>
+	 <p>During the demo application launch, several other, simulation related
+		windows are displayed which belong to the shell starting the simulation process
+		and to the simulated graphics and serial consoles. You can ignore these windows
+		for this tutorial. 
+	 </p>
+ 
+	 <p> When the startup is complete, the Intel&reg; System Debugger opens in
+		default view. The debugger downloads the program code to the target (the
+		simulation engine) and stops the execution of the demo application at its entry
+		point. 
+	 </p>
+ 
+	 <p><img src="GUID-26D4BB61-8409-462B-965F-429885AC9273-low.png">
+		
+	 </p>
+ 
+	 <p>The 
+		<b class="uicontrol">Source</b> view and the 
+		<b class="uicontrol">Console</b> view are visible, providing the actual
+		active source code and a display of the ongoing activities of the debugger. 
+	 </p>
+ 
+	 <p>The 
+		<b class="uicontrol">Console</b> view acts like a command line where you
+		can enter Intel&reg; System Debugger commands. It also displays any kind of
+		informational, warning or error messages that provide further information about
+		ongoing debugger activities. 
+	 </p>
+ 
+	 <p> 
+		<div class="Note"><h3 class="NoteTipHead">Tip</h3>Check the
+		  contents of the 
+		  <b class="uicontrol">Console</b> view whenever problems occur. Note that
+		  the console might not be visible by default. 
+		</div> 
+	 </p>
+ 
+	 <p>The debugger is now ready to run the sample application as described in
+		the following sections. 
+	 </p>
+ 
+  </div>
+ 
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-28AA7FB2-F9EA-4A75-909B-8BDB9E2D0A5E.htm">Debugging with the Intel&reg; System Debugger - Tutorial</a></div>
+</div>
+<div></div>
+
+</body>
+</html>

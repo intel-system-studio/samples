@@ -1,0 +1,10 @@
+Intel(R) Integrated Performance Primitives Image Blurring and Rotation Sample
+
+License Information Follows
+---------------------------
+* src\*.* 
+* readme.html, Makefile_*
+
+Copyright 2016 Intel Corporation
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/  

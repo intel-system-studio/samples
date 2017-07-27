@@ -1,0 +1,11 @@
+Intel(R) Processor Graphics Sample - NBody
+
+License Information Follows
+---------------------------
+* src\NBody.cpp src\*.prop
+* ..\shared\src\*.h, ..\shared\src\*.cpp
+* readme.html, Build.bat, Makefile
+
+Copyright 2016 Intel Corporation
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/

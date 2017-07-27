@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Introduction">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.subject" content="Enter index keyword">
+<meta name="keywords" content="Enter index keyword">
+<meta name="DC.Relation" scheme="URI" content="GUID-064FA951-6166-417B-AA3B-9ECA87C613BC.htm">
+<meta name="prodname" content="">
+<meta name="version" content="XX.XX">
+<meta name="series" content="Tutorial: Using Intel&reg; System Studio Components for Matrix Multiplication Computation">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-2A56A147-89BA-48E6-B53D-1AC9539B1E8B">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Introduction</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-2A56A147-89BA-48E6-B53D-1AC9539B1E8B">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Tutorial: Using Intel&reg; System Studio Components for Matrix Multiplication Computation</em></p>
+
+
+ 
+  <h1 class="topictitle1">Introduction</h1>
+ 
+  <!-- 
+  --> 
+   
+  <div><p class="shortdesc"> 
+  </p>
+ 
+	 <p>The Intel&reg; System Studio is a comprehensive and
+		integrated tool suite that provides developers with advanced system tools and
+		technologies to help accelerate the delivery of the next generation power
+		efficient, high performance, and reliable embedded and mobile devices. It
+		allows you to build, optimize, debug, tune, and deploy 32-and 64-bit C and C++
+		system and application code on Windows* and Linux* host platforms for running
+		on Linux*, Android*, and Windows* targets. 
+	 </p>
+ 
+	 <p>The Matrix Multiplication example supplied with the
+		package illustrates how the Intel&reg; System Studio components - Intel&reg; Compiler
+		for Systems, Intel&reg; Math Kernel Library, and Intel&reg; VTune&#8482; Amplifier for
+		Systems - can be used together for optimizing and analyzing the sample code. 
+	 </p>
+ 
+	 <div class="section" id="GUID-F90ACB47-D644-4C27-8025-5E9CD4077D51"> 
+		<p>The sample computes the matrix product using a
+		  triple nested loop. 
+		</p>
+<img src="GUID-36BD7FB7-649F-4B14-8A6F-6D5E75840DAA-low.png"> 
+		<p>Where: 
+		</p>
+ 
+		<p><strong>ISS_01_compiler_mtarix_multiply</strong> (Folder) – Simple C++
+		  implementation of computation of matrix product. 
+		</p>
+ 
+		<p><strong>ISS_02_cilk_matrix_multiply</strong> (Folder) – a matrix multiplication
+		  sample code, which is threaded using the Intel&reg; Cilk&#8482; Plus technology 
+		</p>
+ 
+		<p><strong>ISS_03_mkl_matrix_multiply</strong> (Folder) – a matrix multiplication
+		  sample code with optimized Intel&reg; Math Kernel Library functions. 
+		</p>
+ 
+		<p>To run the Matrix Multiplication sample, take the following steps:
+		</p>
+
+		<ol id="GUID-8E2EA52A-A1BC-4C8E-9940-CC7D3FDB28D5">
+		  <li>Open Eclipse* Project Workspace of the sample code by importing the
+			 project: 
+			 <img src="GUID-F54CD227-D0C6-40BC-B1A4-46A4235F4DA1-low.png">
+		  </li>
+
+		  <li>Select 
+			 <strong>Existing Projects into Workspace</strong> from the 
+			 <strong>General</strong> category, click 
+			 <strong>Next</strong>: 
+			 <img src="GUID-8CF51344-F60B-41FB-ABE4-D02B3BFE2505-low.png">
+		  </li>
+
+		  <li>Select 
+			 <strong>Root Directory</strong> and click the 
+			 <strong>Browse</strong> button: 
+			 <img src="GUID-2B474257-C4BC-4E13-95A1-B0F0AD7FF374-low.png"> 
+		  </li>
+
+		  <li>Navigate to the 
+			 <samp class="codeph">system_studio_sample_matrix_multiply</samp> folder, click 
+			 <strong>OK</strong>: 
+			 <img src="GUID-6C0EA4C1-B993-44DC-A8B7-0613A7FF33FA-low.png">
+		  </li>
+
+		  <li>It will take into final selection of root directory with projects.
+			 Make sure that 
+			 <strong>ISS_01_compiler_matrix_multiply</strong>, 
+			 <strong>ISS_02_cilk_matrix_multiply</strong>, and 
+			 <strong>ISS_03_mkl_matrix_multiply</strong> projects are selected: 
+			 <img src="GUID-880809B8-C550-4989-BAE9-7BF92A4AA7A0-low.png">
+		  </li>
+
+		  <li> Eclipse* Project workspace are ready as shown below, sample codes
+			 are ready to build: 
+			 <img src="GUID-16BC2E80-F8A1-4584-9054-A8825183E22A-low.png">
+		  </li>
+ 
+		</ol>
+
+	 </div>
+ 
+	 <div class="section" id="GUID-1550CD7E-AB86-4D50-A319-1F9B991150D8"><h2 class="sectiontitle">Terminology</h2> 
+		 
+		<p>This tutorial discusses 
+		  <strong>Host</strong> and 
+		  <strong>Target 
+		  </strong>systems. The 
+		  <strong>Host</strong> system is the Linux* or Windows* desktop computer that you
+		  use for compiling the sample. The 
+		  <strong>Target</strong> system is an x86-based hardware, on which the sample will
+		  be running. 
+		</p>
+ 
+		<p> 
+		  <a href="GUID-FC8A774C-6FE9-4977-9989-7146EFB4506E.htm#GUID-FC8A774C-6FE9-4977-9989-7146EFB4506E"> 
+			 <img class="border(0)" style="border-style: none" src="GUID-D559B52A-D750-4806-B61A-D6AE22D74A57-low.jpg" alt="Previous"> 
+		  </a> 
+		  <a href="GUID-FBF3BFE0-1AE9-4252-86DA-3C9A4F8A4728.htm#GUID-FBF3BFE0-1AE9-4252-86DA-3C9A4F8A4728"> 
+			 <img class="border(0)" style="border-style: none" src="GUID-DFA64F74-887E-4B10-A90E-CDEA3FF6841B-low.jpg" alt="Next"> 
+		  </a> 
+		</p>
+ 
+	 </div>
+ 
+  </div>
+ 
+  
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-064FA951-6166-417B-AA3B-9ECA87C613BC.htm">Tutorial: Using Intel&reg; System Studio Components for Matrix Multiplication Computation</a></div>
+</div>
+<div></div> 
+
+</body>
+</html>

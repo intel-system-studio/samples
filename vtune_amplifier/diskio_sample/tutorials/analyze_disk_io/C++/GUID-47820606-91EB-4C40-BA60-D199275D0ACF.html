@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Analyze I/O Data in the System Cache Mode" />
+<meta name="DC.Relation" scheme="URI" content="GUID-3B2AF07D-354E-46E1-8D52-1CD085196368.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-47820606-91EB-4C40-BA60-D199275D0ACF" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Analyze I/O Data in the System Cache Mode</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-47820606-91EB-4C40-BA60-D199275D0ACF">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Analyze I/O Data in the System Cache
+	 Mode</h1>
+<div><p><img src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" /> You ran the sample 
+		<samp class="codeph">diskio</samp> application in the system cache mode enabled with
+		the option 
+		<samp class="codeph">-m c</samp>. In this mode, the application asynchronously
+		writes records (16 Byte) to the output file, relying on system file cache. 
+	 </p>
+<p>When the 
+		<strong>Disk Input and Output</strong> analysis is complete, the Intel&reg; VTune&#8482;
+		Amplifier opens the result in the Disk Input and Output viewpoint. 
+	 </p>
+<p>For the analysis of the input/output-bound applications, the metrics
+		summary at the top of the 
+		<strong>Summary</strong> window includes the 
+		<strong>I/O Wait Time</strong> metric that shows the amount of time when threads
+		were in the I/O Wait state while there were idle cores on the system. For the 
+		<samp class="codeph">diskio</samp> application in the system file cache mode, the
+		I/O Wait time is very small, which typically means that the application is not
+		I/O-bound. 
+	 </p>
+<p><img height="183" src="GUID-34FD0319-2088-484B-9D4D-5B2F0A0571F0-low.png" width="300" /></p>
+<p>You see that the sample application spent most of the time executing on
+		the CPU with the CPU Time equal to 80.537 seconds. 
+	 </p>
+<p>To better understand the reason for the high CPU Time, switch to the 
+		<strong>Platform</strong> window: 
+	 </p>
+<p><img height="339" src="GUID-CA6B0767-6054-4CF9-8468-B10E4B14D2CB-low.png" width="605" alt="Disk Input and Output Viewpoint: Platform Window" /></p>
+<p>The 
+		<samp class="codeph">diskio</samp> thread shows the intensive usage of the CPU time
+		(brown graph) and I/O API calls (tasks in purple). Since disk I/O operations
+		are executed in parallel with CPU operations, the I/O overhead is small and
+		mostly affects the last part of application execution when the rest of I/O
+		operations are waited. The data processing in the system file cache starts only
+		when the number of data in the cache grows big (see the peaks in the I/O
+		Queue). 
+	 </p>
+<p>To minimize the CPU usage and effectively use the I/O device, consider
+		running the application in a mode combining the usage of the system cache and
+		user buffer. 
+	 </p>
+<div class="section" id="GUID-A686F7C3-3BB9-4103-9A06-C026FEF3799C"><h2 class="sectiontitle">Recap</h2><p id="RECAP_C">You ran the Disk Input and Output analysis for the sample
+		  application interacting with the I/O device via system file cache and
+		  identified that in this mode the application has a high CPU Time overhead and
+		  does not use the I/O device effectively. 
+		</p>
+</div>
+<div class="section" id="GUID-67EEA187-F5AA-4CC5-9224-52AA0E957CB6"><h2 class="sectiontitle">Key Terms </h2><ul id="GUID-2660EF7B-2779-4B45-B735-8B42BE15B530"><li><p><a href="GUID-A2E96D11-0086-4A5F-8B2D-5736FDCD2889.html#GUID-1B5043B8-253D-4758-A765-3CDCD11AD26C">viewpoint</a></p>
+</li>
+<li><p><a href="GUID-A2E96D11-0086-4A5F-8B2D-5736FDCD2889.html#IO_TIME">I/O
+				  Wait Time</a></p>
+</li>
+<li><p><a href="GUID-A2E96D11-0086-4A5F-8B2D-5736FDCD2889.html#CPU_TIME">CPU
+				  Time</a></p>
+</li>
+<li><p id="GUID-BD75EB2E-2ACB-497A-A8D0-BB8E7041B2C7"><a href="GUID-A2E96D11-0086-4A5F-8B2D-5736FDCD2889.html#QUEUE">I/O
+				  Queue Depth</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="GUID-03E5A245-AA13-436C-AECF-8E938E12BFB2"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-719E2E6E-F030-436D-AD8E-C6A5997E9C4B.html">Analyze I/O Data in the System
+			 Cache and User Buffer Mode</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-3B2AF07D-354E-46E1-8D52-1CD085196368.html">Analyzing Disk Input and Output Waits</a></div>
+</div>
+<div></div>
+</body>
+</html>

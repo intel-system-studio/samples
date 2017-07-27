@@ -1,0 +1,108 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Overview">
+<meta name="DC.Relation" scheme="URI" content="GUID-F5D65373-A557-4AAD-AD5A-5415EE8407E4.htm">
+<meta name="prodname" content="">
+<meta name="version" content="2017">
+<meta name="series" content="Reverse debugging with the GNU* Project Debugger for Intel&reg; Architecture">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-BF07A8A7-9BA6-4059-BC23-67BB8FEA2100">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Overview</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-BF07A8A7-9BA6-4059-BC23-67BB8FEA2100">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Reverse debugging with the GNU* Project Debugger for Intel&reg; Architecture</em></p>
+
+
+
+	<h1 class="topictitle1">Overview</h1>
+
+	
+	<div>
+		<p>The Intel&reg; Processor Trace (Intel&reg; PT) and branch trace are execution tracing features that capture information about software execution on each hardware thread using dedicated hardware facilities and makes it reproducible at a later state. The recorded execution trace can be used by a debugger to reconstruct the exact program flow that led to the current location, such as a crash site, a breakpoint, a watchpoint, or the instruction following a function call. The feature also enables navigating in the function call history by reverse debugging . This is very useful for debugging stack corruptions, which are usually hard to debug with normal frame unwinding. </p>
+
+		<p>This tutorial demonstrates how you can debug a stack corruption with the Function Call History, a plugin for Eclipse* IDE, that makes use of the Intel&reg; PT and branch trace and enables the GNU* project debugger to use the recorded execution trace data for reverse debugging. </p>
+
+		
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-B3CFBF1E-525F-4CD6-B4C6-0C304B9A92FB" frame="border" border="1" cellspacing="0" rules="all">
+				
+				
+				<tbody>
+					<tr>
+						<td class="cellrowborder" valign="top" width="23.4192037470726%"><p> <strong>About This Tutorial</strong> </p>
+</td>
+
+						<td class="cellrowborder" valign="top" width="76.58079625292741%"><p>This tutorial uses the sample <span class="filepath">GDB_ReverseDebuggingSample.tgz</span> and guides you through basic steps of reverse debugging with Function Call History in Eclipse*. </p>
+</td>
+
+					</tr>
+
+					<tr>
+						<td class="cellrowborder" valign="top" width="23.4192037470726%"><p> <strong>Estimated Duration</strong> </p>
+</td>
+
+						<td class="cellrowborder" valign="top" width="76.58079625292741%"><p> 15 minutes. </p>
+</td>
+
+					</tr>
+
+					<tr>
+						<td class="cellrowborder" valign="top" width="23.4192037470726%"><p> <strong>Learning Objectives</strong> </p>
+</td>
+
+						<td class="cellrowborder" valign="top" width="76.58079625292741%"><p>After completing this tutorial, you should be able to:<ul id="GUID-74C22157-195E-414B-8278-9E31ACB5AFC5">
+							<li> Enable Eclipse* for execution trace recording and reverse debugging with the Function Call History plug-in. </li>
+
+							<li> Perform reverse stepping into instruction steps or over called functions. </li>
+
+							<li>Use the Function Call History window to examine the program flow and display function calls in the related source view. </li>
+
+						</ul>
+ </p>
+</td>
+
+					</tr>
+
+					<tr>
+						<td class="cellrowborder" valign="top" width="23.4192037470726%"><p> <strong>More Resources</strong> </p>
+</td>
+
+						<td class="cellrowborder" valign="top" width="76.58079625292741%"><p> <a href="https://software.intel.com/en-us/gdb-2017-user-guide" target="_blank">GDB Manual</a> </p>
+</td>
+
+					</tr>
+
+				</tbody>
+
+			</table>
+</div>
+
+		<p><a href="GUID-BD7D76A3-3B6D-497E-9497-0AD7AC051693.htm"> Start Here</a> </p>
+
+	</div>
+
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-F5D65373-A557-4AAD-AD5A-5415EE8407E4.htm">Reverse Debugging with the GNU* Project Debugger for Intel&reg; Architecture</a></div>
+</div>
+<div></div>
+
+</body>
+</html>

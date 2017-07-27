@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Finding Hotspots" />
+<meta name="abstract" content="" />
+<meta name="description" content="" />
+<meta name="DC.subject" content="Hotspots, Finding" />
+<meta name="keywords" content="Hotspots, Finding" />
+<meta name="DC.Relation" scheme="URI" content="GUID-40ADA81F-BCE6-4C84-BD0E-DF4AC27757DC.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-C92174A6-EDE2-4A46-8208-604523E17832.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-AB1C1D4B-4901-4A78-9F06-5DE8EB989678.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-3AAE9BB0-19A3-4756-A82D-5B31C9B1466C.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-600E7FC6-8A21-489C-AB79-FA8C75AC7623.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-2D6F95DF-D6FC-4202-9B57-EC26CD55C35E.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-B85B5093-366C-4785-B784-D705E4D7186D" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Finding Hotspots</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="parent-no-rel-links" id="GUID-B85B5093-366C-4785-B784-D705E4D7186D">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier for Systems</em></p>
+
+
+<h1 class="topictitle1">Finding Hotspots</h1>
+<!----><div><p class="shortdesc"></p>
+<p><img height="32" src="GUID-AE4B0E82-637D-4E88-949B-A1F6CFB43219-low.gif" width="32" />
+      You can use the Intel&reg; VTune&#8482; Amplifier for Systems installed on your Linux*
+      host to identify and analyze hotspot functions in your serial or parallel
+      Android* application by performing a series of steps in a workflow. This
+      tutorial guides you through these workflow steps while using a sample
+      ray-tracer application named 
+      <samp class="codeph">tachyon</samp>. 
+    </p>
+<p>VTune Amplifier for Systems supports this remote usage mode, using the
+      VTune Amplifier target package and ADB communication: 
+    </p>
+<p><img src="GUID-4E432C12-6862-45F6-B6A7-6A99BC3F52C7-low.png" /></p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-D302FEFA-2E46-4F27-BF3D-F3C7BADAC5D8" frame="border" border="1" cellspacing="0" rules="all"><tbody><tr><td class="cellrowborder" valign="top" width="3.825554705432287%">1 
+            </td>
+<td class="cellrowborder" valign="top" width="23.221117061973988%"><p><a href="GUID-C92174A6-EDE2-4A46-8208-604523E17832.html#GUID-C92174A6-EDE2-4A46-8208-604523E17832">Setup
+                  the Android System 
+                </a></p>
+</td>
+<td class="cellrowborder" valign="top" width="72.95332823259373%"><ol id="GUID-A1EECBF0-A6BE-44E9-91C4-9ADC8103962C"><li><p>Configure your Android device for analysis. 
+                  </p>
+</li>
+<li><p>Gain 
+                    <samp class="codeph">adb</samp> access through a USB connection, WiFi,
+                    or TCP/IP. 
+                  </p>
+</li>
+</ol>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="3.825554705432287%">2 
+            </td>
+<td class="cellrowborder" valign="top" width="23.221117061973988%"><p><a href="GUID-AB1C1D4B-4901-4A78-9F06-5DE8EB989678.html#GUID-AB1C1D4B-4901-4A78-9F06-5DE8EB989678">Build the Application and Create a New
+                  Project</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="72.95332823259373%"><ol id="GUID-5A317A17-9476-4D64-816D-29FFF8F9856F"><li><p>Prepare your Android application for analysis. 
+                  </p>
+</li>
+<li><p>Specify your analysis target and remote system. 
+                  </p>
+</li>
+<li><p>Specify binary and source search directories. 
+                  </p>
+</li>
+</ol>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="3.825554705432287%">3 
+            </td>
+<td class="cellrowborder" valign="top" width="23.221117061973988%"><p><a href="GUID-3AAE9BB0-19A3-4756-A82D-5B31C9B1466C.html#GUID-3AAE9BB0-19A3-4756-A82D-5B31C9B1466C">Run Basic Hotspots Analysis 
+                </a></p>
+</td>
+<td class="cellrowborder" valign="top" width="72.95332823259373%"><ol id="GUID-92B392CE-8200-48B3-B36E-5D82A974A542"><li><p>Choose the Basic Hotspots analysis type. 
+                  </p>
+</li>
+<li><p>Run the analysis from the host. 
+                  </p>
+</li>
+</ol>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="3.825554705432287%">4 
+            </td>
+<td class="cellrowborder" valign="top" width="23.221117061973988%"><p><a href="GUID-600E7FC6-8A21-489C-AB79-FA8C75AC7623.html#GUID-600E7FC6-8A21-489C-AB79-FA8C75AC7623">Interpret Result Data 
+                </a></p>
+</td>
+<td class="cellrowborder" valign="top" width="72.95332823259373%"><ol id="GUID-98481B7D-7A27-4700-8AA7-A634B8E063D6"><li><p>View the collected data on the host. 
+                  </p>
+</li>
+<li><p>Consider project views and reports to identify bottlenecks
+                    or unexpected application behavior. 
+                  </p>
+</li>
+<li><p>Analyze your code. 
+                  </p>
+</li>
+</ol>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="3.825554705432287%">5 
+            </td>
+<td class="cellrowborder" valign="top" width="23.221117061973988%"><p><a href="GUID-2D6F95DF-D6FC-4202-9B57-EC26CD55C35E.html#GUID-2D6F95DF-D6FC-4202-9B57-EC26CD55C35E">Compare
+                  Results</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="72.95332823259373%"><ol id="GUID-AFE06070-DEF2-4C97-B639-DAA21DC71B9D"><li><p>View performance results for a single-threaded
+                    application. 
+                  </p>
+</li>
+<li><p>Examine differences between results. 
+                  </p>
+</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="GUID-1471A7AF-64B1-4484-A08C-7A8A4710CFA3"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-C92174A6-EDE2-4A46-8208-604523E17832.html#GUID-C92174A6-EDE2-4A46-8208-604523E17832">Set
+          up Android System for Analysis</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+</div>
+<div></div>
+</body>
+</html>

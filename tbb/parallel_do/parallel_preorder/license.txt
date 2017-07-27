@@ -1,0 +1,11 @@
+Intel(R) Threading Building Blocks. Parallel_preorder sample
+
+License Information Follows
+---------------------------
+* msvs/*.*
+* xcode/*.*
+* *.*
+
+Copyright 2016 Intel Corporation
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/

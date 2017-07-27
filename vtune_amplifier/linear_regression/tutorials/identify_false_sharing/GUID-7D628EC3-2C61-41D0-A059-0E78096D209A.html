@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Summary" />
+<meta name="DC.Relation" scheme="URI" content="GUID-C48CC76B-F5FE-4C50-8196-FADF23F3F4BD.html" />
+<meta name="DC.Relation" scheme="URI" content="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials/" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-7D628EC3-2C61-41D0-A059-0E78096D209A" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Summary</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-7D628EC3-2C61-41D0-A059-0E78096D209A">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Summary</h1>
+<div><p><img id="IMAGE_3DB7488309BC4CDBBC1494A5ACFB0DE4" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" /> You have completed the
+		Identifying False Sharing tutorial. Here are some important things to remember
+		when using the 
+		<span id="GUID-1C69335C-24C9-44CC-967F-EFC4E6B5E6EA">Intel&reg; VTune&#8482; Amplifier</span> to
+		analyze your code for false sharing: 
+	 </p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="TABLE_A550A0BCBDEB40C6AFA296859DDF0E67" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" valign="top" width="20.449897750511248%" id="d919e33"><p>Step 
+				  </p>
+</th>
+<th class="cellrowborder" valign="top" width="36.809815950920246%" id="d919e36"><p>Tutorial Recap 
+				  </p>
+</th>
+<th class="cellrowborder" valign="top" width="42.740286298568506%" id="d919e39"><p>Key Tutorial Take-aways 
+				  </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d919e33 "><p><strong>1. Prepare for analysis</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d919e36 "><p> 
+					 You 
+					 built the target in the Release mode. 
+				  </p>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d919e39 "><p> Make sure to use the same workload for each application run. 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d919e33 "><p><strong>2. Identify False Sharing</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d919e36 "><p>You created the VTune Amplifier project for your analysis
+					 target and launched the Memory Access data collection that identifies
+					 memory-related issues and attributes performance events to memory objects: 
+				  </p>
+<ul id="UL_1613D5B1DEA94ADF8C6CE5D76EB8674B"><li id="LI_0A4BDA31094B40BD8CEE9F16E04FB182"><p>Analyzed the data provided in the 
+						  <strong>Memory Usage</strong> viewpoint, explored the memory-related
+						  metrics, and found the memory object with the highest latency. 
+						</p>
+</li>
+<li id="LI_64F9E84105BA4BCDB5DC5BFFC8150FEF"><p>Identified the code section where the memory object was
+						  allocated and identified false sharing. 
+						</p>
+</li>
+</ul>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d919e39 "><p><ul id="UL_3A353142642C4DF599461CEE2B227CDA"><li id="LI_3BF95BBC634E47C4A8C78FA0A84F8105"><p>Start analyzing the performance of your application from
+						  the 
+						  <strong>Summary</strong> window to explore the memory access metrics
+						  for the whole application. Then, move to the 
+						  <strong>Bottom-up</strong> window to analyze the performance per
+						  memory object. Focus on the objects with the highest average latency. 
+						</p>
+</li>
+<li id="LI_36C72A2C83DD4123BE48DD57D7F390AC"><p>Double-click the function in the 
+						  <strong>Bottom-up</strong> pane to open its source code and identify
+						  the code line that indicates false sharing. 
+						</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d919e33 "><p><strong>3. Remove False Sharing</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d919e36 "><p>You edited the function structure by adding padding and
+					 rebuilt the application. 
+				  </p>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d919e39 "><p>Use the 
+					 <img id="IMAGE_96604F65FCF7403880017EE00F5F1A31" src="GUID-66F5A54E-83EC-4E60-AD9A-83481F49715D-low.jpg" /><strong> Source
+						Editor</strong> button to open the code editor from the VTune Amplifier. 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d919e33 "><p><strong>4. Check your work</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d919e36 "><p>You ran the Memory Access analysis on the optimized code and
+					 got performance gain of 6.66 seconds. 
+					 </p>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d919e39 "><p>Perform regression testing to understand whether you got rid
+					 of memory-related issues. 
+				  </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Next step: 
+		</strong>Prepare your own application(s) for analysis. Then use the VTune
+		Amplifier to find and eliminate false sharing. 
+	 </p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-C48CC76B-F5FE-4C50-8196-FADF23F3F4BD.html">Tutorial: Identifying False Sharing - C Sample Code</a></div>
+</div>
+<div><h2>See Also</h2>
+<div class="linklist">
+<div><a href="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials/" target="_blank">Click here for more Getting Started
+			 Tutorials 
+		  </a></div></div></div>
+</body>
+</html>

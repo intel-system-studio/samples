@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Key Terms" />
+<meta name="DC.Relation" scheme="URI" content="GUID-B8163350-C3DE-495A-AC09-0DD7B987DA1F.html" />
+<meta name="DC.Relation" scheme="URI" content="http://www.intel.com/software/products/softwaredocs_feedback" />
+<meta name="prodname" content="Intel&reg; VTune&#8482; Amplifier for Systems" />
+<meta name="version" content="VTune Amplifier for Systems" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-9C656E9B-B7CD-4497-A47D-C669B4D64C11" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Key Terms</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-9C656E9B-B7CD-4497-A47D-C669B4D64C11">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Enabling Performance Collection on an Embedded Linux* System</em></p>
+
+
+<h1 class="topictitle1">Key Terms</h1>
+<div><p id="GUID-C32F6EB6-C51C-4DF5-ABC2-93A3C043F448"><img src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" /></p>
+<p id="BASELINE"><strong id="GUID-C8414FE0-9872-47D6-BB6D-8F0AFA40951F">Baseline</strong>: 
+      <span id="GUID-1389924F-A9CF-4854-B219-2C0058EE28C9">A performance metric used as a basis for comparison
+          of the application versions before and after optimization. Baseline should be
+          measurable and reproducible.</span></p>
+<p id="CPU_TIME"><strong id="GUID-20DD28BD-FDC1-4FD5-9C42-680938BB002A">CPU Time</strong>: 
+      <span id="GUID-48103D06-C57F-47E6-9B0F-C7517F4A2D48">The amount of time a thread spends executing on a
+          logical processor. For multiple threads, the CPU time of the threads is summed.
+          The application CPU time is the sum of the CPU time of all the threads that run
+          the application.</span></p>
+<p><strong>CPU Usage</strong>: A performance metric when the VTune Amplifier
+      identifies a processor utilization scale, calculates the target CPU usage, and
+      defines default utilization ranges depending on the number of processor cores. 
+    </p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-AFC79536-4AE0-4585-8F2B-04328B4E097A" width="100%" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" valign="top" width="11.918274687854712%" id="d1811e45"><p id="d34e163">Utilization Type 
+                </p>
+</th>
+<th class="cellrowborder" valign="top" width="11.350737797956869%" id="d1811e48"><p id="d34e166">Default color 
+                </p>
+</th>
+<th class="cellrowborder" valign="top" width="76.73098751418843%" id="d1811e51"><p id="d34e169">Description 
+                </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="11.918274687854712%" headers="d1811e45 "><p id="d34e174">Idle 
+                </p>
+</td>
+<td class="cellrowborder" valign="top" width="11.350737797956869%" headers="d1811e48 "><p id="d34e177"><img id="d34e178" height="13" src="GUID-399AC448-BF89-49CF-8AA2-AEEE8F7DFB96-low.jpg" width="16" /></p>
+</td>
+<td class="cellrowborder" valign="top" width="76.73098751418843%" headers="d1811e51 "><p id="d34e180">All CPUs are waiting - no
+                  threads are running. 
+                </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.918274687854712%" headers="d1811e45 "><p id="d34e184">Poor 
+                </p>
+</td>
+<td class="cellrowborder" valign="top" width="11.350737797956869%" headers="d1811e48 "><p id="d34e187"><img id="d34e188" height="13" src="GUID-379CC698-B3D0-454F-B78C-DC5B4E22B37D-low.jpg" width="16" /></p>
+</td>
+<td class="cellrowborder" valign="top" width="76.73098751418843%" headers="d1811e51 "><p id="d34e190">Poor usage. By default, poor
+                  usage is when the number of simultaneously running CPUs is less than or equal
+                  to 50% of the target CPU usage. 
+                </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.918274687854712%" headers="d1811e45 "><p id="d34e194">OK 
+                </p>
+</td>
+<td class="cellrowborder" valign="top" width="11.350737797956869%" headers="d1811e48 "><p id="d34e197"><img id="d34e198" height="13" src="GUID-96C7A16F-D7BF-4963-A9ED-9CB10C2CC574-low.jpg" width="16" /></p>
+</td>
+<td class="cellrowborder" valign="top" width="76.73098751418843%" headers="d1811e51 "><p id="d34e200">Acceptable (OK) usage. By
+                  default, OK usage is when the number of simultaneously running CPUs is between
+                  51-85% of the target CPU usage. 
+                </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="11.918274687854712%" headers="d1811e45 "><p id="d34e204">Ideal 
+                </p>
+</td>
+<td class="cellrowborder" valign="top" width="11.350737797956869%" headers="d1811e48 "><p id="d34e207"><img id="d34e208" height="13" src="GUID-0EDA1A3F-30A6-4035-80F2-A115DDE4953E-low.jpg" width="16" /></p>
+</td>
+<td class="cellrowborder" valign="top" width="76.73098751418843%" headers="d1811e51 "><p id="d34e210">Ideal usage. By default, Ideal
+                  usage is when the number of simultaneously running CPUs is between 86-100% of
+                  the target CPU usage. 
+                </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p id="ELAPSED_TIME"><strong id="GUID-ADFC3A88-1880-4C9C-A6B5-90463CDDB238">Elapsed Time</strong>: 
+      <span id="GUID-A81A2BD3-C85A-4840-A210-D137FB812249">The total time your target ran, calculated as
+          follows: 
+          <strong id="d34e56">Wall clock time at
+            end of application – Wall clock time at start of application</strong>. 
+        </span></p>
+<p><strong>Finalization</strong>: A process during which the 
+      <span>Intel&reg; VTune&#8482; Amplifier</span>
+      converts the collected data to a database, resolves symbol information, and
+      pre-computes data to make further analysis more efficient and responsive. 
+    </p>
+<p id="HOTSPOT"><strong id="GUID-C7660F2E-336F-4BC3-A580-1A175646ACB5">Hotspot</strong>: A section
+      of code that took a long time to execute. Some hotspots may indicate
+      bottlenecks and can be removed, while other hotspots inevitably take a long
+      time to execute due to their nature. 
+    </p>
+<p><strong>Advanced Hotspots Analysis</strong>: A non-default analysis type used to
+      understand the application flow of control and to identify hotspots, that works
+      directly with the CPU without the influence of the booted operating system.
+      VTune Amplifier creates a list of functions in your application ordered by the
+      amount of time spent in a function. It also detects the call stacks for each of
+      these functions so you can see how the hot functions are called. VTune
+      Amplifier uses a low overhead (about 5%) user-mode sampling and tracing
+      collection that gets you the information you need without slowing down the
+      application execution significantly. 
+    </p>
+<p><span id="GUID-71771586-5532-4644-874D-84D20CD4723A">A 
+          <dfn class="term">target</dfn> is an executable file you analyze using the
+          Intel&reg; VTune&#8482; Amplifier.</span></p>
+<p><strong>Host system</strong>: The system on which you install Intel VTune Amplifier
+      and from which you launch your application analysis and view those results. 
+    </p>
+<p><strong>Target System</strong>: The supported, embedded device on which you
+      install sampling drivers and run the application on which you are running
+      performance analysis. 
+    </p>
+<p id="VIEWPOINT"><strong id="GUID-1B5043B8-253D-4758-A765-3CDCD11AD26C">Viewpoint</strong>: A preset
+      result tab configuration that filters out the data collected during a
+      performance analysis and enables you to focus on specific performance problems.
+      When you select a viewpoint, you select a set of performance metrics the VTune
+      Amplifier shows in the windows/panes of the result tab. To select the required
+      viewpoint, click the 
+      <strong>(<u>change</u>)</strong> link and use the drop-down menu at the top of the
+      result tab. 
+    </p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-B8163350-C3DE-495A-AC09-0DD7B987DA1F.html">Tutorial: Enabling Performance Collection on an Embedded Linux* System (Linux Host)</a></div>
+</div>
+<div></div>
+</body>
+</html>

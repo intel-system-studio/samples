@@ -1,0 +1,175 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Generating a Vectorization Report">
+<meta name="DC.Relation" scheme="URI" content="GUID-5802FE1F-A872-4B07-9816-EA3D42046146.htm">
+<meta name="DC.Relation" scheme="URI" content="http://www.intel.com/software/products/softwaredocs_feedback">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-92680CAC-9375-4AE9-9B30-BDDB73792AF8">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Generating a Vectorization Report</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-92680CAC-9375-4AE9-9B30-BDDB73792AF8">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+ 
+  <h1 class="topictitle1">Generating a Vectorization Report</h1>
+ 
+  <div> 
+    <p>A vectorization report shows what loops in your code
+      were vectorized and explains why other loops were not vectorized. To generate a
+      vectorization report, use the 
+  <span class="option">qopt-report-phase=vec</span> compiler options together with 
+  <span class="option">qopt-report=1</span> or 
+  <span class="option">qopt-report=2</span>. 
+  </p>
+ 
+  <p>Together with 
+  <span class="option">qopt-report-phase=vec</span>, 
+  <span class="option">qopt-report=1</span> generates a report with the loops in your code
+  that were vectorized while 
+  <span class="option">qopt-report-phase=vec</span> with 
+  <span class="option">qopt-report=2</span> generates a report with both the loops in your
+  code that were vectorized and the reason that other loops were not vectorized. 
+  </p>
+ 
+  <p>Because vectorization is turned off with the 
+  <span class="option">O1</span> option, the compiler
+  does not generate a vectorization report. To generate a vectorization report,
+  compile your project with the 
+  <span class="option">O2</span>, 
+  <span class="option">qopt-report-phase=vec</span>, 
+  <span class="option">qopt-report=1</span> options: 
+  </p>
+ 
+  <p><samp class="codeph">icc -std=c99 -O2 -D NOFUNCCALL -qopt-report=1
+      -qopt-report-phase=vec Multiply.c Driver.c -o MatVector</samp> 
+    </p>
+ 
+  <p> Note: We replace the call to the Matvec function with
+    an inline equivalent with 
+  <span class="option">-D NOFUNCCALL</span>. 
+  </p>
+ 
+  <p>Recompile the program and then execute 
+    <span class="filepath">MatVector</span>. Record the new execution time. The
+    reduction in time is mostly due to auto-vectorization of the inner loop at line
+    
+    150 noted in the
+    vectorization report 
+    <samp class="codeph">matvec.optrpt</samp>: 
+  </p>
+ 
+  <p> 
+    <pre class="msgblock">
+LOOP BEGIN at Driver.c(145,2)
+   remark #25460: No loop optimizations reported
+
+   LOOP BEGIN at Driver.c(148,3)
+      remark #25460: No loop optimizations reported
+
+      LOOP BEGIN at Driver.c(150,4)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at Driver.c(150,4)
+      &lt;Remainder&gt;
+      LOOP END
+   LOOP END
+LOOP END</pre>
+ 
+    </p>
+ 
+  <p> 
+    <div class="Note"><h3 class="NoteTipHead">Note</h3>Your line and column
+      numbers may be different. 
+    </div> 
+  </p>
+ 
+  <p><span class="option">qopt-report=2</span> with 
+  <span class="option">qopt-report-phase=vec</span> returns a list that also includes
+  loops that were not vectorized, along with the reason that the compiler did not
+  vectorize them. 
+  </p>
+ 
+  <p>Recompile your project with the 
+  <span class="option">qopt-report=2</span> and 
+  <span class="option">qopt-report-phase=vec</span> options. 
+  </p>
+ 
+  <p><samp class="codeph">icc -std=c99 -O2 -D NOFUNCCALL
+      -qopt-report-phase=vec -qopt-report=2 Multiply.c Driver.c -o MatVector</samp>
+    
+    </p>
+ 
+  <p>The vectorization report 
+    Multiply.optrpt indicates that the loop at
+    line 
+    45 in 
+      <span class="filepath">Multiply.c</span> did not
+      vectorize because it is not the innermost loop of the loop nest. Two versions
+      of the innermost loop at line 55 were generated, but neither version was
+      vectorized.</p>
+ 
+  <p> 
+    <pre class="msgblock">
+LOOP BEGIN at Multiply.c(45,2)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at Multiply.c(55,3)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between  line 56 and  line 56
+   LOOP END
+
+   LOOP BEGIN at Multiply.c(55,3)
+   &lt;Remainder loop for vectorization&gt;
+   LOOP END
+LOOP END</pre>
+ 
+    </p>
+ 
+  <div class="Note"><h3 class="NoteTipHead">Note</h3> 
+    <ul id="GUID-96F67F49-0658-4E1F-A4D4-6E9A3C18C3A6"> 
+      <li> 
+        <p>Your line and column numbers may be different. 
+        </p>
+ 
+      </li>
+ 
+      <li> 
+        <p>For more information on the 
+    <span class="option">qopt-report</span> and 
+    <span class="option">qopt-report-phase</span> compiler options, see the 
+    <em>Compiler Options</em> section in the 
+    <em>Compiler User and Reference Guide</em>. 
+    </p>
+ 
+    </li>
+ 
+    </ul>
+ 
+  </div> 
+  <p> 
+    <a href="GUID-5CEA2788-D9FF-4C5A-A104-7251B9200405.htm#GUID-5CEA2788-D9FF-4C5A-A104-7251B9200405"><img class="border(0)" style="border-style: none" src="GUID-7F3B04BE-CA31-4F1C-B7C4-88C93723B324-low.jpg" alt="Next: Improving Performance by Pointer Disambiguation"></a> 
+    </p>
+ 
+  </div>
+ 
+  
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-5802FE1F-A872-4B07-9816-EA3D42046146.htm">Tutorial: Linux* and OS X* Version</a></div>
+</div>
+<div></div> 
+
+</body>
+</html>

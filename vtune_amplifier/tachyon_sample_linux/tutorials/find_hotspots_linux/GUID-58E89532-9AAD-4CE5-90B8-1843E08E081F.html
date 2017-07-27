@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Summary" />
+<meta name="DC.subject" content="Summary" />
+<meta name="keywords" content="Summary" />
+<meta name="DC.Relation" scheme="URI" content="GUID-B8163350-C3DE-495A-AC09-0DD7B987DA1F.html" />
+<meta name="DC.Relation" scheme="URI" content="http://www.intel.com/software/products/softwaredocs_feedback" />
+<meta name="prodname" content="Intel&reg; VTune&#8482; Amplifier for Systems" />
+<meta name="version" content="VTune Amplifier for Systems" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-58E89532-9AAD-4CE5-90B8-1843E08E081F" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Summary</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-58E89532-9AAD-4CE5-90B8-1843E08E081F">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Enabling Performance Collection on an Embedded Linux* System</em></p>
+
+
+<h1 class="topictitle1">Summary</h1>
+<div><p id="GUID-D0FD3DB0-6A64-4EB8-8BB2-27055E81B8DB"><img src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" /> You have completed the Enabling Performance Collection on an
+      Embedded Linux* Device tutorial. Here are some important things to remember
+      when setting up your remote embedded device analysis using the Intel&reg; VTune&#8482;
+      Amplifier for Systems: 
+    </p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-37E0D84D-32D5-41F0-BE9F-F1EE50ED00C9" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" valign="top" width="20.449897750511248%" id="d698e38"><p>Step 
+              </p>
+</th>
+<th class="cellrowborder" valign="top" width="36.809815950920246%" id="d698e41"><p>Tutorial Recap 
+              </p>
+</th>
+<th class="cellrowborder" valign="top" width="42.740286298568506%" id="d698e44"><p>Key Tutorial Take-aways 
+              </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d698e38 "><p><strong>1. Configure the Yocto Project* kernel</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d698e41 "><p>You configured a stable Yocto Project kernel with the required
+                configurations.
+              </p>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d698e44 "><ul id="GUID-6C97DF37-5168-4766-96B4-C889907D5D17"><li> Download and extract an appropriate
+                  toolchain from the Yocto Project web site and create an installation area. 
+                </li>
+<li>Set up a Yocto Project kernel for your target device.
+                </li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d698e38 "><p><strong>2. Add VTune Amplifier sampling drivers and build operating
+                  system</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d698e41 "><p>You compiled the VTune Amplifier sampling drivers, built the
+                Yocto Project operating system, and copied the kernel to the target embedded
+                device. 
+              </p>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d698e44 "><ul id="GUID-9C3ADD8D-E6D9-4553-A6A1-CF890DA635C8"><li id="GUID-A1F82561-5605-462B-B341-17C3F1F6B977"> Build a
+                  Yocto Project kernel for your target, including the appropriate VTune Amplifier
+                  drivers. Adding the drivers can be done on the host or target system.
+                </li>
+<li>Copy the operating system and drivers from the host system
+                  to the target embedded device.
+                </li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d698e38 "><p><strong>3. Load sampling drivers and configure SSH access</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d698e41 "><p>You loaded the VTune Amplifier drivers on the target embedded
+                device and set up password-less SSH access between the host and target systems.
+              </p>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d698e44 "><ul id="GUID-28102E59-42AA-4CCE-89B1-5AB81FD9298F"><li id="GUID-701ABF57-433B-4F1A-B55D-191D6BA824AF"><p id="GUID-4E0D9CD9-3970-474A-AC3A-02A671D730A4">Configure 
+                    <samp class="codeph">ssh</samp> so there is no password request for
+                    file transfers between your server and target. 
+                  </p>
+</li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d698e38 "><p><strong>4. Prepare your sample application</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d698e41 "><p id="GUID-FDC332A9-AE66-43C4-A810-DD5DB7C0F1FF">You extracted
+                and compiled the 
+                <samp class="codeph">tachyon</samp> code. 
+              </p>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d698e44 "><ul id="GUID-79E43A42-96BE-406C-957A-EA401D9C60E5"><li>Unarchive 
+                  <samp class="codeph">tachyon</samp> in the 
+                  <samp class="codeph">/~yocto</samp> directory. 
+                </li>
+<li>Compile the application on the host and copy it to the
+                  target or compile the application on the target. 
+                </li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d698e38 "><p><strong>5. Run Advanced Hotspot Analysis 
+                </strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d698e41 "><p id="GUID-20DDA88E-6AB5-48BF-B9FA-806C4A2D427C">You ran the
+                VTune Amplifier GUI to configure and launch Advanced Hotspot Analysis on the 
+                <samp class="codeph">tachyon</samp> code on your target device. It ran on
+                your target and the results were sent via 
+                <samp class="codeph">ssh</samp> back to your server. 
+              </p>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d698e44 "><ul id="GUID-09A9CDC9-49DB-4104-BD45-A67B29CDA7DB"><li><p> Launch the GUI using the 
+                    <samp class="codeph">amplxe-gui</samp> command. 
+                  </p>
+</li>
+<li><p> Use the 
+                    <strong>Analysis Target</strong> tab to choose and configure your
+                    analysis target. 
+                  </p>
+</li>
+<li><p>Use the 
+                    <strong>Analysis Type</strong> tab to choose, configure, and run the
+                    Advanced Hotspot Analysis. 
+                  </p>
+</li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d698e38 "><p><strong>6. View your results</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d698e41 "><p>You viewed the Advanced Hotspots analysis on the 
+                <samp class="codeph">tachyon</samp> application in the VTune Amplifier for
+                Systems GUI. 
+              </p>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d698e44 "><ul id="GUID-D9BAEEE1-4330-44EA-8496-403B1B130F97"><li><p>You can also use the VTune Amplifier command-line
+                    interface by running the 
+                    <samp class="codeph">amplxe-cl</samp> command to test your code for
+                    hotspots and regressions. For details see the 
+                    <em id="GUID-BE7229B8-A9E6-443E-AEBF-912D569EF80E">Command-line Interface
+                      Support</em> section in the VTune Amplifier online help. 
+                  </p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-F86C668D-8AC4-4562-907A-4FDDEE8B8280" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d698e176"><p id="d10e52">Optimization Notice 
+				  </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d698e176 "><p>Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction sets and other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of any optimization on microprocessors not manufactured by Intel. Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more information regarding the specific instruction sets covered by this notice. 
+				  </p>
+<p> Notice revision #20110804 
+				  </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-B8163350-C3DE-495A-AC09-0DD7B987DA1F.html">Tutorial: Enabling Performance Collection on an Embedded Linux* System (Linux Host)</a></div>
+</div>
+<div></div>
+</body>
+</html>

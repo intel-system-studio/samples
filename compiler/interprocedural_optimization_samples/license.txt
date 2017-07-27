@@ -1,0 +1,10 @@
+Intel® C++ Interprocedural Optimization (IPO) Sample
+
+License Information Follows
+---------------------------
+* ipo_sample_defs.h, ipo_sample_init.c, ipo_sample_main.c, ipo_sample_sum.c
+* readme.html, Makefile, build.bat
+
+Copyright 2016 Intel Corporation
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/

@@ -1,0 +1,11 @@
+Jitprofiling Sample
+
+License Information Follows
+---------------------------
+* dyncode_intel64.S dyncode_x86.S jitprofiling.c Makefile 
+
+Copyright 2016 Intel Corporation
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/  
+
+

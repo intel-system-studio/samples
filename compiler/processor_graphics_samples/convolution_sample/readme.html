@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+	<meta charset="UTF-8">
+	<style>
+	::selection {
+		background: #b7ffb7;
+	}
+	::-moz-selection {
+		background: #b7ffb7;
+	}
+
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16px;
+		width: 800px;
+		margin: 0 auto;
+	}
+	#banner {
+		/* Div for banner */
+		float:left;
+		margin: 0px;
+		margin-bottom: 10px;
+		width: 100%;
+		background-color: #0071C5;
+		z-index: 0;
+	}
+	#banner .logo {
+		/* Apply to logo in banner. Add as class to image tag. */
+		float: left;
+		margin-right: 20px;
+		margin-left: 20px;
+		margin-top: 15px;
+		padding-bottom: 5px;
+	}
+	h1 {
+		text-align: center;
+		font-size: 36px;
+	}
+	h1.title {
+		/* Add as class to H1 in banner */
+		font-family: "Intel Clear", Verdana, Arial, sans-serif;
+		font-weight:normal;
+		color: #FFFFFF;
+		font-size: 170%;
+		margin-right: 40px;
+		margin-left: 40px;
+		padding-right: 20px;
+		text-indent: 20px;
+	}
+	.h3-alike {
+		display:inline;
+		font-size: 1.17em;
+		font-weight: bold;
+		color: #0071C5;
+	}
+	h3 {
+		font-size: 1.17em;
+		font-weight: bold;
+		color: #0071C5;
+	}
+	pre {
+		font-family: "Consolas", Monaco, monospace;
+		font-size:small;
+		background: #fafafa;
+		margin: 0;
+        padding-left:20px;
+	}
+	#footer {
+		font-size: small;
+	}
+	code {
+		font-family: "Consolas", Monaco, monospace;
+	}
+    .code-block
+    {
+        padding-left:20px;
+    }
+	.changes {
+		margin: 1em 0;
+	}
+	.changes input:active {
+		position: relative;
+		top: 1px;
+	}
+	.changes input:hover:after {
+		padding-left: 16px;
+		font-size: 10px;
+		content: 'More';
+	}
+	.changes input:checked:hover:after {
+		content: 'Less';
+	}
+	.changes input + .show-hide {
+		display: none;
+	}
+	.changes input:checked + .show-hide {
+		display: block;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0.5em 0 0.5em 2.5em;
+	}
+	ul li {
+		margin-bottom: 3px;
+	}
+	ul li:last-child {
+		margin-bottom: 0;
+	}
+	.disc {
+		list-style-type:disc
+	}
+	.circ {
+		list-style-type:circ
+	}
+	
+	.single {
+		padding: 0 0.5em;
+	}
+	.specs {
+		border-collapse:collapse;
+	}
+	.specs td, .specs th {
+		font-size: 14px;
+	}
+	.specs td {
+		border: 1px solid black;
+	}
+	.specs td td, .specs td th {
+		border: none;
+	}
+	.specs	td, .specs td td, .specs td th {
+		padding: 0 0.2em 0.2em;
+		text-align: center;
+	}
+	.specs td tr:last-child td, 
+	.specs td tr:last-child th {
+		padding: 0 0.2em;
+	}
+	.serial-time {
+	}
+	.modified-time {
+	width: 6.5em;
+	}
+	.compiler {
+	}
+	.comp-opt {
+	}
+	.sys-specs {
+		width: 18em;
+	}
+	</style>
+	<!--[if lte IE 8]>
+	<style>
+	.changes input + .show-hide {
+		display: block;
+	}
+	.changes input {
+		display: none;
+	}
+	</style>
+	<![endif]-->
+	<title>Intel&reg; Processor Graphics Sample - Convolution</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:URL msdt:dt="string"></mso:URL>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+	<div id="banner">
+		<img class="logo" src="data:image/png;base64,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
+		9Or1LzUmVVz+HJXDAAAAAElFTkSuQmCC">
+		
+		<h1 class="title">Intel&reg; Processor Graphics Sample - Convolution</h1>
+	</div>
+
+	<p>Image convolution is a common image processing technique. It is a general purpose filter effect for images. This sample contains 2 offload implementations of 2-dimensional convolution with dynamically sized filter and relying on image 0 padding to handle out-of-image pixel in the filter window:
+        <br> Convolution - Uses a vector function defined to calcualate the destination pixel. Simple implementation with reasonable performance
+  <br />ConvolutionLocalsAN - Explicit caching in local tiles and use of Array Notations for data parallel operations. More complicated implementation with better performance
+	</p>
+	
+	<div class="changes">
+		<div class="h3-alike">System Requirements:</div><input type="checkbox">
+		<ul class="show-hide disc">
+			<li>Hardware:
+				<ul>
+					<li>Any Intel&reg; processor supports Intel&reg; Graphics Technology</li>
+				</ul>
+			</li>
+			<li>For Microsoft* Windows*:
+				<ul>
+					<li>Microsoft Visual Studio 2012*, 2013*, or 2015* Professional Edition or above</li>
+					<li>Intel&reg; Parallel Studio XE 2017 Composer Edition for C++ Windows* or newer</li>
+				</ul>
+			</li>
+			<li>For Linux*:
+				<ul>
+					<li>GNU* GCC 4.5 or newer</li>
+					<li>Intel&reg; Parallel Studio XE 2017 Composer Edition for C++ Linux* or newer</li>
+				</ul>
+			</li>	
+            <li> More detail requirements, please refer to article <a href="https://software.intel.com/en-us/articles/getting-started-with-compute-offload-to-intelr-graphics-technology">
+                Getting Started With Compute Offload to Intel&reg;  Graphics Technology</a>
+                </ul>
+	</div>
+
+	<h3>Performance Gain with Processor Graphics Computer Offload</h3>
+	<table class="specs">
+		<tr>
+			<th class="serial-time">Speedup</th>		
+			<th class="compiler">Compiler (Intel&reg; 64)</th>
+			<th class="comp-opt">Compiler options</th>
+			<th class="sys-specs">System specifications</th>
+		</tr>
+		<tr>
+			<td>Convolution<br />
+                GPU 3.5x
+                </td>	
+			<td>Intel&reg;  Parallel Studio XE 2017 Composer Edition for C++ Windows*</td>
+			<td>/O2 /Qipo /Oi /MD /EHsc</td>
+			<td>
+				Windows 7 Enterprise SP1<br>
+				4th Gen Intel&reg; Core&#8482; i5-4300U CPU @ 1.90GHz + 4GB memory<br />
+                Intel&reg; HD Graphics 4400
+			</td>
+		</tr>
+		<tr>
+			<td>Convolution<br />GPU 2.1x</td>			
+			<td>Intel&reg; Parallel Studio XE 2017 Composer Edition for C++ Linux*</td>
+			<td>-O2 -ipo</td>
+			<td>
+				Red Hat Enterprise Linux Server release 7.1<br>
+&nbsp;5th Gen Intel&reg; Core&#8482; i7-5850HQ CPU @ 2.70GHz + 16GB memory<br />
+                Intel&reg; Iris&#8482; Pro Graphics 6200
+			</td>
+		</tr>
+	</table>
+		
+	<h3>Build Instructions</h3>
+	<div class="changes">
+	<div>For Microsoft* Visual Studio 2012*, 2013*, or 2015* users: <input type="checkbox">
+		<ul class="show-hide disc">
+            <li>Open Visual Studio 2012, 2013, or 2015 and load the solution .sln 
+			file</li>
+			<li>Choose a configuration (for best performance, choose a release 
+			configuration):<ul class="circ">
+					<li>debug and release: uses Intel C++ compiler only</li>
+				</ul>
+			</li>
+			<li>Run application: press Ctrl+F5 to run the application. Use "Release" configuration for performance testing<ul class="circ">               
+				<li>Project Properties -> Debugging -> Command Arguments: add options
+                <br/><br />Options available:                 <br/>
+                  "  workload=<name>"                   <br/>
+                  "  exec=offload|offload_off|cpu"      <br/>
+                  "  cpu_share=<0.0 .. 1.0>"            <br/>
+                  "  iterations=<count>"                <br/>
+                  "  validate=on|off"                   <br/>
+                  "  single.validate=off|on"            <br/>
+                  "  single.init=on|off"                <br/>
+                  "  logfile=<name>"                    <br/>
+                  "  guarded=on|off"                    <br/>
+                  "  verbose=on|off"              <br />
+                  You can also specify a *.prop file to supply those properties. For example "..\src\convolution.prop"<br />
+                      </li>
+				</ul>
+			</li>			           
+		</ul>
+	</div>
+	</div>
+	<div class="changes">
+	<div>For Windows Command Line users: <input type="checkbox">
+		<ul class="show-hide disc">
+        <li>For Intel C++ Compiler: 
+            <ul>
+			    <li>Open the appropriate Intel C++ compiler command prompt</li>
+                <li>Build and run the application: <br />
+                <code>build</code> <br />
+                <code>build run ["exec={offload|cpu}"]</code><br />
+                <br />More options available for build run:                 <br/>
+                  "  workload=<name>"                   <br/>
+                  "  exec=offload|offload_off|cpu"      <br/>
+                  "  cpu_share=<0.0 .. 1.0>"            <br/>
+                  "  iterations=<count>"                <br/>
+                  "  validate=on|off"                   <br/>
+                  "  single.validate=off|on"            <br/>
+                  "  single.init=on|off"                <br/>
+                  "  logfile=<name>"                    <br/>
+                  "  guarded=on|off"                    <br/>
+                  "  verbose=on|off"              <br/>
+                  You can also specify a *.prop file to supply those properties. For example: <br />
+                      <code>build run src\convolution.prop</code><br /></li>
+			    </ul></li>
+		</ul>
+	</div>
+	</div>
+	<div class="changes">
+	<div>For Intel&reg; Parallel Studio XE 2017 Composer Edition for Linux* users: <input type="checkbox">
+		<ul class="show-hide disc">
+			<li>From a terminal window, navigate to the project folder</li>
+            <li>For Intel C++ compiler:
+				<ul class="circ">
+					<li>Set the environment: <code>source &#60;icc-install-dir&#62;/bin/compilervars.sh ia32</code> or <code>intel64</code></li>
+                    <li>to compile: <code>make [icpc] [debug=1]</code>
+						<ul>
+							<li><code>debug=1</code>: build debug version binary</li>
+						</ul>
+					</li>
+					<li>to run: <code>make run [option=help|"exec={offload|cpu}"]</code><br />
+                <br />More options available for make run:                 <br/>
+                  "  workload=<name>"                   <br/>
+                  "  exec=offload|offload_off|cpu"      <br/>
+                  "  cpu_share=<0.0 .. 1.0>"            <br/>
+                  "  iterations=<count>"                <br/>
+                  "  validate=on|off"                   <br/>
+                  "  single.validate=off|on"            <br/>
+                  "  single.init=on|off"                <br/>
+                  "  logfile=<name>"                    <br/>
+                  "  guarded=on|off"                    <br/>
+                  "  verbose=on|off"              <br/>
+                     You can also specify a *.prop file to supply those properties. For example: <br />
+                      <code>make run option=src\convolution.prop</code><br /></li><br />
+					</li>
+				</ul>
+			</li>            			
+		</ul>
+	</div>
+	</div>
+	<div id="footer">
+		<p>Intel, Intel logo, Intel386, Intel486, Atom, Core, Itanium, MMX, Pentium, VTune, Cilk, 
+		Xeon Phi, and Xeon are trademarks of Intel Corporation in the U.S. and/or other countries<br>
+		* Other names and brands may be claimed as the property of others <br>
+		Copyright &copy; 2016 Intel Corporation. All Rights Reserved<br>
+        <p>For more complete information about compiler optimizations, see our <a href="https://software.intel.com/en-us/articles/optimization-notice#opt-en">Optimization Notice</a>.</p>
+	</div>
+	</div>
+
+	</body>
+</html>

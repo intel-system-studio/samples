@@ -1,0 +1,9 @@
+Package ID: l_iss_samples_p_2017.0.008
+
+Package Contents:
+   Samples and Tutorials for Intel® System Studio
+
+Please use the above information when submitting customer support requests. 
+For information about how to find Technical Support, Product Updates, User Forums, FAQs, tips and tricks, and other support information, please visit http://www.intel.com/software/products/support 
+
+All sample source code subject to Intel(R) Sample Source Code License Agreement:  http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/

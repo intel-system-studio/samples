@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Building the Source Code to Run Only on the Host">
+<meta name="DC.Relation" scheme="URI" content="GUID-08A02E1B-9BA2-4127-A95B-1C0E1F0B127B.htm">
+<meta name="DC.Relation" scheme="URI" content="http://www.intel.com/software/products/softwaredocs_feedback">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-ABDB1B30-D307-4972-AC33-590912618761">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Building the Source Code to Run Only on the Host</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-ABDB1B30-D307-4972-AC33-590912618761">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+ 
+  <h1 class="topictitle1">
+    Building the Source Code to Run Only on the Host</h1>
+ 
+  <div> 
+    <p> In this step, you will compile the same source code into an application
+      that runs only on the host. 
+    </p>
+ 
+    <p> You can use the information in this step to compile an early version of
+      your source code to ensure that the application runs correctly on just the
+      host. Once you have your application running on just the host, you can compile
+      the same code into an application that runs on both the host and the target, if
+      it meets additional limitations for the code to run on the target. 
+    </p>
+ 
+    <ol id="GUID-15F88C9F-F668-4C92-827A-D4E186F9F379"> 
+      <li> 
+        <p> Run the command 
+          <samp class="codeph">make clean</samp> to make sure the directory is clean for a
+          fresh build. 
+        </p>
+ 
+      </li>
+ 
+      <li> 
+        <p> Run the command 
+          <samp class="codeph">make CFLAGS=-no-offload</samp> to build the application so
+          that it runs only on the host. 
+        </p>
+ 
+      </li>
+ 
+      <li> 
+        <p> Run the CrossFade application, as follows: 
+        </p>
+ 
+        <pre>$&gt;release/crossfade
+Workloads available:
+ CrossFade
+ CrossFade_ints
+
+This program is built without __INTEL_OFFLOAD,
+so it will execute without offload (on CPU) regardless of other options.
+
+…
+
+passed
+$&gt;</pre> 
+        <p>The following message should appear: 
+        </p>
+ 
+        <pre>This program is built without __INTEL_OFFLOAD</pre> 
+        <p> This statement indicates that the sample code was compiled into an
+          application that runs only on the host. 
+        </p>
+ 
+      </li>
+ 
+    </ol>
+ 
+    <p> Note the best time per iteration, which is displayed at the end of the
+      output. Compare this time to the best time per iteration of application built
+      to run on the host and the target. 
+    </p>
+ 
+    <p> This is the last step in the tutorial. 
+    </p>
+ 
+    <p>The next section contains additional projects that you can compile and
+      run to learn more about creating applications that run on both the host and the
+      target. 
+    </p>
+ 
+    <p><a href="GUID-6C58F007-C7AB-4DD5-8F8D-0BA08BE7B9BD.htm"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="Open the Building the OpenMP Version topic"></a> 
+    </p>
+ 
+  </div>
+ 
+  
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-08A02E1B-9BA2-4127-A95B-1C0E1F0B127B.htm">Tutorial: Linux* Version</a></div>
+</div>
+<div></div> 
+
+</body>
+</html>

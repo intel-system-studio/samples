@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Tutorial: Using Intel&reg; System Studio Components for Matrix Multiplication Computation">
+<meta name="abstract" content="">
+<meta name="description" content="">
+<meta name="DC.subject" content="Enter index keyword">
+<meta name="keywords" content="Enter index keyword">
+<meta name="DC.Relation" scheme="URI" content="GUID-6754F1D4-4389-4C55-89B0-7FF7BBD93721.htm">
+<meta name="DC.Relation" scheme="URI" content="GUID-FC8A774C-6FE9-4977-9989-7146EFB4506E.htm">
+<meta name="DC.Relation" scheme="URI" content="GUID-2A56A147-89BA-48E6-B53D-1AC9539B1E8B.htm">
+<meta name="DC.Relation" scheme="URI" content="GUID-FBF3BFE0-1AE9-4252-86DA-3C9A4F8A4728.htm">
+<meta name="DC.Relation" scheme="URI" content="GUID-5A53F78C-E79F-4552-9083-450EE73C422C.htm">
+<meta name="DC.Relation" scheme="URI" content="GUID-52D34660-257F-48DD-AEE8-E934272296FD.htm">
+<meta name="DC.Relation" scheme="URI" content="GUID-8D3BB742-C7B7-4486-B3AB-A4021D33470C.htm">
+<meta name="DC.Relation" scheme="URI" content="GUID-332BCC48-B5EE-4DFD-ABAF-BBB01659F51D.htm">
+<meta name="DC.Relation" scheme="URI" content="GUID-DA2C2D53-6FD3-445F-AE0F-CAA4B49D485E.htm">
+<meta name="DC.Relation" scheme="URI" content="GUID-31B59C11-0E4A-4EB9-9467-71E85FF23B32.htm">
+<meta name="DC.Relation" scheme="URI" content="GUID-613B8414-045A-44DA-BE50-083CB454ED68.htm">
+<meta name="prodname" content="">
+<meta name="version" content="XX.XX">
+<meta name="series" content="Tutorial: Using Intel&reg; System Studio Components for Matrix Multiplication Computation">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-064FA951-6166-417B-AA3B-9ECA87C613BC">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Tutorial: Using Intel&reg; System Studio Components for Matrix Multiplication Computation</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body class="titlepage" id="GUID-064FA951-6166-417B-AA3B-9ECA87C613BC">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+ 
+  <h1 class="topictitle1">Tutorial: Using Intel&reg; System Studio Components
+	 for Matrix Multiplication Computation </h1>
+ 
+  <!-- 
+  --> 
+   
+  <div><p class="shortdesc"> 
+  </p>
+ 
+	 <p>Linux* Host - Linux* Target 
+	 </p>
+ 
+	 <p> 
+		<a href="GUID-6754F1D4-4389-4C55-89B0-7FF7BBD93721.htm#GUID-6754F1D4-4389-4C55-89B0-7FF7BBD93721">Legal Information</a> 
+	 </p>
+ 
+	 <p> 
+		<a href="GUID-FC8A774C-6FE9-4977-9989-7146EFB4506E.htm#GUID-FC8A774C-6FE9-4977-9989-7146EFB4506E" class="start">Start Here</a> 
+	 </p>
+ 
+  </div>
+ 
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><a href="GUID-6754F1D4-4389-4C55-89B0-7FF7BBD93721.htm">Legal Information</a><br>
+</li>
+<li class="ulchildlink"><a href="GUID-FC8A774C-6FE9-4977-9989-7146EFB4506E.htm">Overview</a><br>
+</li>
+<li class="ulchildlink"><a href="GUID-2A56A147-89BA-48E6-B53D-1AC9539B1E8B.htm">Introduction</a><br>
+</li>
+<li class="ulchildlink"><a href="GUID-FBF3BFE0-1AE9-4252-86DA-3C9A4F8A4728.htm">System Requirements</a><br>
+</li>
+<li class="ulchildlink"><a href="GUID-5A53F78C-E79F-4552-9083-450EE73C422C.htm">Using Intel&reg; C++ Compiler for Systems to Get Better Performance</a><br>
+</li>
+<li class="ulchildlink"><a href="GUID-52D34660-257F-48DD-AEE8-E934272296FD.htm">Using Intel&reg; VTune&#8482; Amplifier for Systems to Identify Performance Bottlenecks</a><br>
+</li>
+<li class="ulchildlink"><a href="GUID-8D3BB742-C7B7-4486-B3AB-A4021D33470C.htm">Using Intel&reg; Cilk&#8482; Plus to Parallelize the Application</a><br>
+</li>
+<li class="ulchildlink"><a href="GUID-332BCC48-B5EE-4DFD-ABAF-BBB01659F51D.htm">Using Optimized Functions From Intel&reg; Math Kernel Library</a><br>
+</li>
+<li class="ulchildlink"><a href="GUID-DA2C2D53-6FD3-445F-AE0F-CAA4B49D485E.htm">Sample Performance Data of Intel&reg; System Studio Sample – Matrix Multiplication</a><br>
+</li>
+<li class="ulchildlink"><a href="GUID-31B59C11-0E4A-4EB9-9467-71E85FF23B32.htm">Building and Running the Sample from the Command Line on the Host</a><br>
+</li>
+<li class="ulchildlink"><a href="GUID-613B8414-045A-44DA-BE50-083CB454ED68.htm">Building the Sample with Eclipse* IDE on the Host and Executing it on a Target</a><br>
+</li>
+</ul>
+</div>
+
+</body>
+</html>

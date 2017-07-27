@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Analyzing Disk Input and Output Waits" />
+<meta name="DC.Relation" scheme="URI" content="GUID-A54708E1-EAD3-4A36-978E-383ED7BD97E8.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-C8E9B2A9-BC1D-486A-AC85-3514B04CA6DC.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-E0B22255-231F-441D-A780-7DF1B4890751.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-47820606-91EB-4C40-BA60-D199275D0ACF.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-719E2E6E-F030-436D-AD8E-C6A5997E9C4B.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-479FC274-6388-449D-8071-501125B38C9D.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-75792C88-E171-4CF5-A2BE-81CEDD73DD04.html" />
+<meta name="DC.Relation" scheme="URI" content="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials/" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-3B2AF07D-354E-46E1-8D52-1CD085196368" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Analyzing Disk Input and Output Waits</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-3B2AF07D-354E-46E1-8D52-1CD085196368">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Analyzing Disk Input and Output Waits</h1>
+<div><p><img height="32" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" width="32" />
+		You can use the 
+		<span>Intel&reg; VTune&#8482; Amplifier</span>
+		to analyze how efficiently your application is using I/O devices by performing
+		a series of steps in a workflow. This tutorial guides you through these
+		workflow steps while using a sample application named 
+		<samp class="codeph">diskio</samp>. This application works with the I/O device using
+		the system file cache and user buffer. 
+	 </p>
+<p></p>
+<p><img height="440" src="GUID-4037F674-4018-44FC-A240-9B095E3B2F47-low.png" width="359" /></p>
+<p>
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-0035E778-FCDF-4E5C-9946-87E2BEEA70A1" width="100%" frame="border" border="1" cellspacing="0" rules="all"><tbody><tr><td class="cellrowborder" valign="top" width="5.970149253731343%"><p>1. 
+				  </p>
+</td>
+<td class="cellrowborder" valign="top" width="27.82089552238806%"><p><a href="GUID-C8E9B2A9-BC1D-486A-AC85-3514B04CA6DC.html"> Prepare for analysis 
+					 </a></p>
+</td>
+<td class="cellrowborder" valign="top" width="66.2089552238806%"><p> Install the VTune Amplifier and run the 
+					 <samp class="codeph">Makefile</samp> to compile the sample code with the
+					 GCC* compiler. 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="5.970149253731343%"><p>2. 
+				  </p>
+</td>
+<td class="cellrowborder" valign="top" width="27.82089552238806%"><p><a href="GUID-E0B22255-231F-441D-A780-7DF1B4890751.html">Configure and run a Disk Input
+						and Output analysis</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="66.2089552238806%"><p><ul id="GUID-602B1804-8B36-4821-8B96-05A82A7B5992"><li><p>Launch the VTune Amplifier as root. 
+						</p>
+</li>
+<li><p>Create a VTune Amplifier project. 
+						</p>
+</li>
+<li><p>Specify your sample 
+						  <samp class="codeph">diskio</samp> application as an analysis target. 
+						</p>
+</li>
+<li><p>Configure the application parameters to run the target in
+						  the system file cache mode. 
+						</p>
+</li>
+<li><p>Run the Disk I/O analysis. 
+						</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="5.970149253731343%"><p>3. 
+				  </p>
+</td>
+<td class="cellrowborder" valign="top" width="27.82089552238806%"><p><a href="GUID-47820606-91EB-4C40-BA60-D199275D0ACF.html">Analyze data collected in the
+						system file cache mode</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="66.2089552238806%"><p>Use the Disk Input and Output viewpoint to analyze summary
+					 statistics and platform-wide metrics on the timeline and identify performance
+					 issues for the application working with the I/O device in the system file cache
+					 mode. 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="5.970149253731343%"><p>4. 
+				  </p>
+</td>
+<td class="cellrowborder" valign="top" width="27.82089552238806%"><p><a href="GUID-719E2E6E-F030-436D-AD8E-C6A5997E9C4B.html"> Re-run the target in the
+						system file cache and user buffer mode and analyze data</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="66.2089552238806%"><p><ul id="GUID-F7F97F60-7099-48DF-B718-EEAE1A9A7406"><li><p>Re-configure the application to run in the combined system
+						  file cache and user buffer mode. 
+						</p>
+</li>
+<li><p>Re-run the Disk I/O analysis. 
+						</p>
+</li>
+<li><p>Analyze the summary and platform-wide metrics on the
+						  timeline to identify the performance gain and analyze I/O waits. 
+						</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="5.970149253731343%"><p>5. 
+				  </p>
+</td>
+<td class="cellrowborder" valign="top" width="27.82089552238806%"><p><a href="GUID-479FC274-6388-449D-8071-501125B38C9D.html">Re-run the target in the
+						synchronous user buffer mode and analyze data</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="66.2089552238806%"><p><ul id="GUID-C6816532-1207-41DE-AABE-898236293E35"><li><p>Re-configure the application to run in the synchronous
+						  user buffer mode. 
+						</p>
+</li>
+<li><p>Re-run the Disk I/O analysis. 
+						</p>
+</li>
+<li><p>Analyze the summary and platform-wide metrics on the
+						  timeline to explore changes in the I/O waits distribution and identify more
+						  room for improvement 
+						</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="5.970149253731343%"><p>6. 
+				  </p>
+</td>
+<td class="cellrowborder" valign="top" width="27.82089552238806%"><p><a href="GUID-75792C88-E171-4CF5-A2BE-81CEDD73DD04.html"> Re-run the target in the
+						asynchronous user buffer mode and analyze data</a></p>
+</td>
+<td class="cellrowborder" valign="top" width="66.2089552238806%"><p><ul id="GUID-6F677871-9EE6-4D04-ABA1-186E369236E8"><li><p>Re-configure the application to run in the asynchronous
+						  user buffer mode. 
+						</p>
+</li>
+<li><p>Re-run the Disk I/O analysis. 
+						</p>
+</li>
+<li><p>Analyze the summary and platform-wide metrics on the
+						  timeline to identify the performance improvements. 
+						</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+</div>
+<div><h2>See Also</h2>
+<div class="linklist">
+<div><a href="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials/" target="_blank">Click here for more tutorials 
+		  </a></div></div></div>
+</body>
+</html>

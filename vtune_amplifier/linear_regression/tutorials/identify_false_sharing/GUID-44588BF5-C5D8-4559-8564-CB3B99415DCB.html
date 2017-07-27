@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Verify Optimization" />
+<meta name="DC.Relation" scheme="URI" content="GUID-86DB950E-3013-4EB8-B883-21318827CD69.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-44588BF5-C5D8-4559-8564-CB3B99415DCB" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Verify Optimization</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-44588BF5-C5D8-4559-8564-CB3B99415DCB">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Verify Optimization</h1>
+<div><div class="section" id="GUID-FE7B8716-EA89-4B01-8E4F-83DBA947B1E3"><p><img id="IMAGE_35A3868E49C74835ABD19355E2EB9D1B" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" /> You optimized the code by
+		  adding padding that should give the improvement in the application execution
+		  time. To understand whether you got rid of false sharing and what kind of
+		  optimization you got, re-run the Memory Access analysis on the optimized code 
+		</p>
+<ol id="GUID-73D2861B-8E39-4DCB-B927-B478617406BB"><li id="LI_6ABBCABCA3024D58B091DA1BFBA6DAB7"><p>From the 
+				<span>Intel&reg; 
+		  <span>VTune&#8482;</span> Amplifier 
+		</span>
+				toolbar, click the 
+				<img id="IMAGE_18C4D40221C34EB29E6CA0EB00E13292" src="GUID-594B6013-D1E9-4593-B9EC-85791339769D-low.gif" /><strong>New Analysis</strong> button. 
+			 </p>
+<p>The 
+				<strong>Choose Target and Analysis Type</strong> window opens with the 
+				<strong>Analysis Type</strong> tab active. 
+			 </p>
+</li>
+<li id="LI_0EBA3E0B3ECC4018B087D7862DDA87A8"><p>Select 
+				<strong>Microarchitecture Analysis &gt; Memory Access</strong> analysis type
+				and click the 
+				<strong>Start</strong> button. 
+			 </p>
+<p><span>VTune Amplifier 
+		</span>
+				reruns the Memory Access analysis for the updated 
+				<samp class="codeph">lreg-pthread</samp> target and creates a new result,
+				r001macc, that opens automatically. 
+			 </p>
+</li>
+<li id="LI_2661FB6674D746F5A387BE2C2690405F"><p>In the r001macc result, click the 
+				<strong>Summary</strong> pane to see the Elapsed time and Memory Bound values
+				for the optimized code: 
+			 </p>
+<img id="IMAGE_DB149DA73AC64974B7F783767AE4BDAB" src="GUID-EADA53FF-1294-41BB-ABD4-80F9FD866556-low.png" /><p>You see that the Elapsed time has significantly reduced: from
+				8.708 seconds to 2.048 seconds; and memory access metrics values do not exceed
+				the threshold anymore. This means that false sharing is removed. 
+			 </p>
+</li>
+</ol>
+</div>
+<div class="section" id="SECTION_22D5CCB319CF4E21A0A5E7685B2F5757"><h2 class="sectiontitle">Key Terms</h2><p><ul id="UL_3701E3597D344186977C903FB66AC31B"><li id="LI_6830E3ECDAF54180925FE3D3224DD9FC"><a href="GUID-73AEA036-EA8A-4AD0-8F0B-3FBE7ECB1968.html#ELAPSED_TIME">Elapsed
+				Time 
+			 </a></li>
+<li id="LI_76869141D515490FBE32D7A5EBCAC699"><a href="GUID-73AEA036-EA8A-4AD0-8F0B-3FBE7ECB1968.html#FALSE_SHARING">False
+				Sharing</a></li>
+</ul>
+</p>
+</div>
+<div class="section" id="SECTION_EE4ED065CB8D4DE6846BF534CD5A2E92"><h2 class="sectiontitle">See Also</h2><p><a href="GUID-7D628EC3-2C61-41D0-A059-0E78096D209A.html">Summary</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-86DB950E-3013-4EB8-B883-21318827CD69.html">Identifying False Sharing</a></div>
+</div>
+<div></div>
+</body>
+</html>

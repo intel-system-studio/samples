@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Configure and Run Analysis" />
+<meta name="DC.Relation" scheme="URI" content="GUID-86DB950E-3013-4EB8-B883-21318827CD69.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-8BC6E626-610C-4B3E-8972-A5437FBBE224" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Configure and Run Analysis</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-8BC6E626-610C-4B3E-8972-A5437FBBE224">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Configure and Run Analysis</h1>
+<div><div class="section" id="GUID-0EE3355F-5B60-4DB3-8411-A1812000766F"><p><img id="IMAGE_A76EC04F92214E3E918B5A5497B59C2F" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" /> After building the sample
+		  application, configure the 
+		  <span>Intel&reg; 
+		  <span>VTune&#8482;</span> Amplifier 
+		</span>
+		  for the Memory Access analysis as follows: 
+		</p>
+<ol id="GUID-1C452770-75BA-45CE-A0F3-BA4CC6AA4CAA"><li id="LI_BC96CE2FA3CE4FE08FFC9B47CA47B1CB"><a href="#GUID-6F2632E4-A56C-4FCA-BA78-B593A220AEA5">Create
+				a 
+				<span>VTune Amplifier 
+		</span><em>project</em></a>, which is a container for an analysis target
+			 and analysis type configuration and data collection results. 
+		  </li>
+<li id="LI_F850168E278747539E55186737D3B347"><a href="#GUID-633D6DA5-8C4B-471E-98EE-EF612059F4AE">Specify
+				your target application for analysis. 
+			 </a></li>
+<li id="LI_61A8D036AB334D2C9F28113B4C0ED30D"><a href="#GUID-35328B36-6F57-4BE3-82B6-1AE708BCF50D">Select
+				and run the Memory Access analysis</a> to identify and resolve false
+			 sharing. 
+		  </li>
+</ol>
+</div>
+<div class="section" id="GUID-6F2632E4-A56C-4FCA-BA78-B593A220AEA5"><h2 class="sectiontitle">Create a Project 
+		  </h2><p><ol id="GUID-AA96788D-69AE-4282-A880-CE59DF3212A4"><li id="LI_73B6E20EE2B24221B9754357903D7D9D"><p>Set the 
+				<samp class="codeph">EDITOR</samp> or 
+				<samp class="codeph">VISUAL</samp> environment variable to associate your
+				source files with the code editor (like emacs, vi, vim, gedit, and so on). For
+				example: 
+			 </p>
+<p><samp class="codeph">$ export EDITOR=gedit</samp></p>
+</li>
+<li id="LI_406ECFE641B4475C96E87C94178432C2"><p>Execute the 
+				<samp class="codeph">amplxe-vars</samp> script, located in the product
+				installation directory, to set up the environment. 
+			 </p>
+</li>
+<li id="LI_0D2300A49DDD4574AFBC431F7CDE64F0"><p><span>Run the 
+				  <samp class="codeph">amplxe-gui 
+				  </samp>script launching 
+				  <span>VTune Amplifier 
+		</span>
+				  GUI.</span></p>
+</li>
+<li id="LI_437B559F8BA44CC298DCECED8358E091"><p>Click the 
+				<img id="IMAGE_F7559AEB54FF4236A751E3EF5B88568D" src="GUID-0464249E-D696-4E21-91E9-8265017B3DAC-low.gif" /> menu button and select 
+				<strong>New &gt; Project...</strong> to create a new project. 
+			 </p>
+<p>The 
+				<strong>Create a Project</strong> dialog box opens. 
+			 </p>
+</li>
+<li id="LI_257E80D3F1FD4A39BD411BFE80428998"><p>Specify the project name 
+				<samp class="codeph">lreg-pthread</samp> that will be used as the project
+				directory name and click the 
+				<strong>Create Project</strong> button. 
+			 </p>
+<p>By default, the 
+				<span>VTune Amplifier 
+		</span>
+				creates a project directory under the 
+				<samp class="codeph">$HOME/intel/amplxe/projects</samp> directory
+				and opens the 
+				<strong>New Amplifier Result</strong> tab with the 
+				<strong>Analysis Target</strong> sub-tab active. 
+			 </p>
+</li>
+</ol>
+</p>
+</div>
+<div class="section" id="GUID-633D6DA5-8C4B-471E-98EE-EF612059F4AE"><h2 class="sectiontitle">Specify Analysis Target</h2><p>To specify your application as analysis target,
+		  configure the 
+		  <strong>Analysis Target</strong> tab: 
+		</p>
+<p><ol id="GUID-10074957-BD6B-4887-97A0-8D68233214A6"><li id="LI_58FBCEFC7DF742DCA3FA3E9F2722D1C5"><p>From the left pane, select the 
+				<strong>local</strong> type of the analysis system from the 
+				<strong>Accessible Targets</strong> group. 
+			 </p>
+</li>
+<li id="LI_1AE123E9BDDD4223AEA6CF943C9073EB"><p>From the right pane, select the 
+				<strong>Launch Application</strong> type of the analysis target drop-down
+				menu. 
+			 </p>
+</li>
+<li id="LI_A365921FEB7D42E0A2F9762D1EB3D9E8"><p>In the 
+				<strong>Application</strong> field, click the 
+				<strong>Browse</strong> button and navigate to the 
+				<samp class="codeph">lreg-pthread</samp> application. 
+			 </p>
+</li>
+<li id="LI_4493087A946443E5B1FD7FE28D800594">In the 
+			 <strong>Application Parameters</strong> field, enter 
+			 <samp class="codeph">&lt;<em>sample_code_dir</em>&gt;/key_file.txt</samp>. 
+		  </li>
+<li id="LI_4600FA1B45A945A49E630252EA9536BF"><p>Click the 
+				<strong>Choose Analysis</strong> button on the right to switch to the 
+				<strong>Analysis Type</strong> tab. 
+			 </p>
+</li>
+</ol>
+</p>
+<p><img id="IMAGE_D92EA25EF2E3420CB14B3516AA4D30F5" src="GUID-5613FE55-FCD5-423F-A49F-65EA0E18E3A4-low.png" alt="Specify Analysis Target for Memory Access Analysis" /></p>
+</div>
+<div class="section" id="GUID-35328B36-6F57-4BE3-82B6-1AE708BCF50D"><h2 class="sectiontitle">Configure and Run Memory Access Analysis</h2><ol id="GUID-D78F94E6-9051-4556-B51E-B7B78A98D472"><li id="LI_188B152F32DE4DD1850D26A1BE80BE50"><p>In the 
+				<strong>Analysis Type</strong> tab, select the 
+				<strong>Microarchitecture Analysis &gt; Memory Access</strong> analysis type
+				from the analysis tree on the left. 
+			 </p>
+</li>
+<li id="LI_EA4252CBB3084E2591125009938AD6C7"><p>In the configuration pane on the right, select the 
+				<strong>Analyze memory objects</strong> option to enable the instrumentation
+				of memory allocation/de-allocation and map hardware events to memory objects. 
+			 </p>
+</li>
+<li id="LI_CB4EB00BE697440D8AAA75F04EFA1B2C"><p>Set the 
+				<strong>Minimal memory object size to track, in bytes</strong> spin box to 1
+				to capture all memory allocations. 
+			 </p>
+</li>
+<li id="LI_EC6AD83D05314FFAB06B1F155184A33D"><p>Click the 
+				<strong>Start</strong> button on the right to run the analysis. 
+			 </p>
+</li>
+</ol>
+<p><img id="IMAGE_34D0D980B39347219B70337DEFCEC086" src="GUID-4BB1BFA8-77CF-4817-996D-081FB0EED241-low.png" /></p>
+<p><span>VTune Amplifier 
+		</span>
+		  launches the 
+		  <samp class="codeph">lreg-pthread</samp> application that takes the 
+		  <samp class="codeph">key_file.txt</samp> as input and generates the summary
+		  statistics of points to give the linear approximation before exiting. When the
+		  application exits, depending on how the collection run was configured,
+		  collection is completed and the 
+		  <span>VTune Amplifier 
+		</span>
+		  enters the 
+		  <em>finalization</em> process, where data are coalesced, symbols are
+		  reconnected to their addresses, and certain data are cached to speed the
+		  display of results. 
+		</p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>To make sure the performance of the application is repeatable, go
+			 through the entire tuning process on the same system with a minimal amount of
+			 other software executing. 
+		  </p>
+</div>
+</div>
+<div class="section" id="GUID-7BD68D9D-2F1C-461C-AD26-2007479EB65F"><h2 class="sectiontitle">Key Terms</h2><ul id="GUID-732B34B8-FB5E-43AF-96D5-AF9A8DF1D0A1"><li id="LI_6F11028A852744E29F353FB02980A13A"><a href="GUID-73AEA036-EA8A-4AD0-8F0B-3FBE7ECB1968.html#FINALIZATION">Finalization</a></li>
+</ul>
+</div>
+<div class="section" id="GUID-3FFB7F4D-751E-4C5A-9C36-310C17694670"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-49A18EE7-634B-46C7-93BA-425BFCB3F751.html">Interpret Results</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-86DB950E-3013-4EB8-B883-21318827CD69.html">Identifying False Sharing</a></div>
+</div>
+<div></div>
+</body>
+</html>

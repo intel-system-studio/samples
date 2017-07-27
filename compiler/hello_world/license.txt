@@ -1,0 +1,10 @@
+Intel® C++ Compiler - Hello World 
+
+License Information Follows 
+--------------------------- 
+* src\*.* 
+* readme.html 
+
+Copyright 2016 Intel Corporation 
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/ 

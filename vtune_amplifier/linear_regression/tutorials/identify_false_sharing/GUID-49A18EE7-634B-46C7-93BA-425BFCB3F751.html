@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Interpret Results" />
+<meta name="DC.Relation" scheme="URI" content="GUID-86DB950E-3013-4EB8-B883-21318827CD69.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-49A18EE7-634B-46C7-93BA-425BFCB3F751" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Interpret Results</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-49A18EE7-634B-46C7-93BA-425BFCB3F751">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Interpret Results</h1>
+<div><div class="section" id="GUID-734B808E-503D-48E8-BECC-1BAAB02972BA"><p><img id="IMAGE_D029A8ACB0174402B7705DFF6903380D" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" /> When the sample
+		  application exits, the 
+		  <span>Intel&reg; 
+		  <span>VTune&#8482;</span> Amplifier 
+		</span>
+		  finalizes the results and opens the 
+		  <strong>Memory Usage</strong> viewpoint where each window or pane is configured
+		  to characterize how effectively your application uses memory resources and
+		  identify potential memory access related issues. To interpret the data on the
+		  sample code performance, do the following: 
+		</p>
+<ol id="GUID-5A3FBE16-0D04-44B9-976C-F090BD437472"><li id="LI_AB1A2FD3A1A5448DA10CB104B0E7F52A"><a href="#GUID-AD82EF86-977A-4C86-BA3D-B4D2FD0790F4">Understand
+				the basic performance metrics provided by the Memory Access analysis. 
+			 </a></li>
+<li id="LI_AA9BEB974D044D51AA72375E3A4ABB31"><a href="#GUID-E8C41642-2B65-4E62-B8E1-EEBE04C18F62">Identify
+				memory access issues. 
+			 </a></li>
+<li id="LI_4A559A24C0C94305A24F91C04F4D49EF"><a href="#GUID-51B93058-84F5-4CCC-B25C-542AF6E1F95C">Analyze
+				code. 
+			 </a></li>
+</ol>
+</div>
+<div class="section" id="GUID-AD82EF86-977A-4C86-BA3D-B4D2FD0790F4"><h2 class="sectiontitle">Understand the Memory Access Metrics</h2><p>Start analysis with the 
+		  <strong>Summary</strong> window. To interpret the data, hover over the question
+		  mark icons 
+		  <img id="IMAGE_4CD7D04E0CFD4711A6109DB9501E8170" src="GUID-08AABA1E-7FDD-4ACF-8B4E-FA82F6AE7773-low.gif" /> to read the pop-up help and
+		  better understand what each performance metric means. 
+		</p>
+<p>The 
+		  <strong>Result Summary</strong> section provides data on the overall application
+		  performance per the following metrics: 
+		</p>
+<img id="IMAGE_14755B63D8E84FBAAC999831034760BE" src="GUID-297BA567-CD12-4605-BF29-4BA765BDDFD8-low.png" /><p>The 
+		  <strong>Elapsed time</strong> metric shows the wall time from the beginning to
+		  the end of the collection. Treat this metric as your basic performance 
+		  <em>baseline</em> against which you will compare subsequent runs of the
+		  application. The goal of your optimization is to reduce the value of this
+		  metric. 
+		</p>
+<p><span>VTune Amplifier 
+		</span>
+		  highlights metrics values that exceed the threshold set for the corresponding
+		  metric. Such a value highlighted in red and marked with a flag signifies an
+		  application-level memory access issue. Hover over the highlighted metric value
+		  to view the text with the detected issue, potential cause and recommendations
+		  on the next steps. 
+		</p>
+<p>For the 
+		  <samp class="codeph">lreg-pthread</samp> application, the following metrics are
+		  high: 
+		</p>
+<ul id="GUID-3BF96FEC-A080-4334-BD3C-9C820AEEB6EE"><li id="LI_E5634CBBFEF84228B7C96DAEB7BD0F0A"><strong>Memory Bound</strong> - this
+			 metrics shows how memory issues affect the performance. 
+		  </li>
+<li id="LI_3C16367A3CE34AC1BDC52F7D98E4C855"><strong>L1 Bound</strong> - this
+			 metric shows how often machine was stalled without missing the L1 data cache. 
+		  </li>
+<li id="LI_121AB9FC37F040538737AC9132BCAE22"><strong>L3 Bound</strong> - this
+			 metric shows how often CPU was stalled on L3 cache, or contended with a sibling
+			 Core. 
+		  </li>
+</ul>
+<p>To identify the cause, you need to explore the 
+		  <strong>Bottom-up</strong> pane. 
+		</p>
+<p>The 
+		  <strong>Top Memory Objects by Latency</strong> section displays memory objects
+		  (variables, data structures, arrays) that introduced the highest latency to the
+		  execution of the application. 
+		</p>
+<img id="IMAGE_A77E43FCAF8D4D3C8865F1CFD5A75548" src="GUID-8F8BF105-6EC5-41CB-8F66-8F5EA73CE0FD-low.png" /><p>For the sample application, the 
+		  <samp class="codeph">linear_regression_pthread.c.136(512 B)</samp> object
+		  introduced the highest latency. 
+		</p>
+</div>
+<div class="section" id="GUID-E8C41642-2B65-4E62-B8E1-EEBE04C18F62"><h2 class="sectiontitle">Identify Memory Access Issues</h2><p>From the 
+		  <strong>Top Memory Objects by Latency</strong> section, click the top memory
+		  object that introduced the highest latency to open the 
+		  <strong>Bottom-up</strong> window on the selected object. By default, the data in
+		  the grid is sorted by Memory Object. You may change the grouping level using
+		  the Grouping drop-down menu at the top of the grid. 
+		</p>
+<img id="IMAGE_B00E75A2A04A43CD879142A401778885" src="GUID-2F1DD306-E692-42B9-B59F-4DCF611F10CE-low.png" /><p> You see that the size of the highlighted 
+		  <samp class="codeph">linear_regression_pthread.c:136</samp> memory object is only
+		  512 bytes. The object should fit fully into the L1 cache, however the Average
+		  Latency metric shows the latency of 37 cycles. This value far exceeds the
+		  normal L1 access latency and this shows that the application has a contention
+		  issue that can be either true or false sharing. 
+		</p>
+</div>
+<div class="section" id="GUID-51B93058-84F5-4CCC-B25C-542AF6E1F95C"><h2 class="sectiontitle">Analyze Code</h2><p>You identified the memory object that introduced the memory access
+		  issue. Double-click the 
+		  <samp class="codeph">linear_regression_pthread.c:136 (512 B)</samp> object to view
+		  the source code. 
+		  <span>VTune Amplifier 
+		</span>
+		  opens the source code highlighting location where the 
+		  <samp class="codeph">linear_regression_pthread</samp> object was allocated. 
+		</p>
+<img id="IMAGE_AC07B4A7009C4563A97CB9A0C330F05C" src="GUID-6FD3EFA9-B6B1-4B84-ACCE-E212D648D821-low.png" /><p>You see that the 
+		  <samp class="codeph">tid_args</samp> variable allocates memory to the 
+		  <samp class="codeph">lreg_args</samp> structure using the 
+		  <samp class="codeph">num_procs</samp> variable (the number of threads) as the size
+		  of the structure. 
+		</p>
+<p>Open the 
+		  <strong>Bottom-up</strong> window, click the arrow sign 
+		  <img id="IMAGE_B47E2FD9219B4FD5AA6B385E8ED69F3E" src="GUID-FB99E6CF-E5AE-4C62-BC34-5330982D70A5-low.gif" /> to expand the 
+		  <samp class="codeph">linear_regression_pthread.c:136 (512 B)</samp> object and
+		  double-click the 
+		  <samp class="codeph">linear_regression_pthread</samp> function to find the source
+		  code that accesses the 
+		  <samp class="codeph">lreg_args</samp> structure. 
+		</p>
+<img id="IMAGE_1FC9060E6EB646E3BE9058CA43648285" src="GUID-BB6CDC1C-0047-4C3F-84D1-C0DBC151EE79-low.png" /><p>You see that the threads independently access their elements in the
+		  array that can be located on the same cache line, and this indicates false
+		  sharing. You need to optimize the source code to make threads always access
+		  different cache lines. 
+		</p>
+</div>
+<div class="section" id="SECTION_A2B36B72A65A4B02B99418F27AD49CBA"><h2 class="sectiontitle">Key Terms</h2><p><ul id="UL_AC4DB2DFEA734E56BE4EA357D27B5E93"><li id="LI_7F6815BAB4CA4D83BFFB12A863B48B58"><a href="GUID-73AEA036-EA8A-4AD0-8F0B-3FBE7ECB1968.html#ELAPSED_TIME">Elapsed
+				Time</a></li>
+<li id="LI_E6496D9243F8484E89370502161015BE"><a href="GUID-73AEA036-EA8A-4AD0-8F0B-3FBE7ECB1968.html#MA_ANALYSIS">Memory
+				Access Analysis</a></li>
+<li id="LI_1482D37F3B0F4511A7D75A17532CB8FD"><a href="GUID-73AEA036-EA8A-4AD0-8F0B-3FBE7ECB1968.html#VIEWPOINT">Viewpoint</a></li>
+</ul>
+</p>
+</div>
+<div class="section" id="SECTION_242AA31A09044282A39738285EC3349F"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-C2EB916B-046A-46B8-9251-67452C88C391.html">Remove False Sharing</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-86DB950E-3013-4EB8-B883-21318827CD69.html">Identifying False Sharing</a></div>
+</div>
+<div></div>
+</body>
+</html>

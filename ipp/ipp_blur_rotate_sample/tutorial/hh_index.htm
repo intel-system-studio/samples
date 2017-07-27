@@ -1,0 +1,170 @@
+﻿<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+  <script type="text/javascript">
+  <!--
+
+  if (parent.location.href == self.location.href)
+    window.location.href = "index.htm#+hh_index.htm";
+
+  function CloseNav() {
+    if ((top.right.location == null) || (top.right.location == undefined) || (typeof(top.right.location.href) != "string") || (top.right.location.href == ""))
+      top.location="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.htm";
+    else
+      top.location=top.right.location;
+  }
+  function IndexListOnChange() { //Listbox select -> Put selected text into Entry field
+    var iSelect = document.getElementById("indexcontainer").selectedIndex;
+    var text = document.getElementById("indexcontainer").item(iSelect).text;
+    //Remove leading spaces - &#160; &nbsp; %A0 -- Finding it hard to remove Non-breaking space. JScript does not see %A0 as White space
+    text = escape(text);    text = text.replace(/^(%A0)+/g, "");
+    text = unescape(text);  text = text.replace(/^\s+/g, "");
+    document.getElementById("IndexEntry").value = text;
+  }
+  function IndexEntryOnKeyUp() { //text typed -> select closest listbox entry 
+    var oList = document.getElementById("indexcontainer"); 
+    var ListLen = oList.length; 
+    var iCurSel = oList.selectedIndex; 
+    var text = document.getElementById("IndexEntry").value.toUpperCase(); 
+    var TextLen = text.length; 
+    for (var i = 0; i < ListLen; i++) { 
+      var listitem = oList.item(i).text.substr(0, TextLen).toUpperCase(); 
+      if (listitem == text) { 
+        if (i != iCurSel) { 
+          var iPos = i + oList.size - 1; 
+          if(ListLen > iPos) 
+            oList.selectedIndex = iPos; 
+          else 
+            oList.selectedIndex = ListLen-1; 
+          oList.selectedIndex = i; 
+        } 
+        break; 
+      } 
+    } 
+    return(true); //do not gobble keypress 
+  } 
+  function OpenSelected() {  //open selected list item
+    var iSelect = document.getElementById("indexcontainer").selectedIndex;
+    if (iSelect >= 0) {
+      var URL = document.getElementById("indexcontainer").item(iSelect).value;
+      if (URL.length > 0) top.right.location = URL;  //right pane has name "right"
+    }
+  }
+  function KeyDownEvent(event) {
+    if ((event.which && event.which==13) || (event.keyCode && event.keyCode==13)) {
+      OpenSelected();
+      IndexListOnChange();  //update entry field to list box selected text
+      return(false);        //gobble text
+      } else return(true);
+  }
+
+  function GetFrameWidth() { 
+    var x = 300; 
+    if (self.innerHeight) // all except Explorer 
+	x = self.innerWidth; 
+    else if (document.documentElement && document.documentElement.clientHeight) // Explorer 6 Strict Mode 
+	x = document.documentElement.clientWidth; 
+    else if (document.body) // other Explorers 
+	x = document.body.clientWidth; 
+    return(x); 
+  } 
+
+  function GetFrameHeight() { 
+    var y = 400; 
+    if (self.innerHeight) // all except Explorer 
+      y = self.innerHeight; 
+    else if (document.documentElement && document.documentElement.clientWidth) // Explorer 6 Strict Mode 
+      y = document.documentElement.clientHeight; 
+    else if (document.body) // other Explorers 
+      y = document.body.clientHeight; 
+    return(y); 
+  } 
+
+  function resizeIndex() {
+    var indexDiv = document.getElementById("indexcontainer");
+    var xTop = indexDiv.offsetTop;
+    var DivFooter = document.getElementById("DivFooter");
+    if ((DivFooter != null) && (DivFooter != undefined))
+        xTop = xTop + DivFooter.offsetHeight;
+
+    var WW = GetFrameWidth() - 10; //working with 5px each side 
+    indexDiv.style.width = WW.toString() + "px"; 
+    var HH = GetFrameHeight() -  xTop; 
+    if (HH > 0) 
+      indexDiv.style.height = HH.toString() + "px"; 
+  }
+  function OnLoadCode() {
+    window.onresize=resizeIndex;
+    resizeIndex();
+  }
+  -->
+  </script>
+
+
+<title>Index</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <style type="text/css">
+  .docstyle
+  {
+    font-size: 80%;
+    font-family: arial,verdana,sans-serif;
+  }
+  </style>
+
+</head>
+
+<body id="docBody" style="color: Black; margin: 5px 0px 0px 0px;" onload="OnLoadCode()">
+
+
+<div style="display: inline; white-space: nowrap; margin: 0px 0px 0px 5px;">
+<input
+ TYPE="button" VALUE="Contents" ONCLICK="javascript:location='hh_toc.htm';"
+ NAME="HelpTopics"><input
+ TYPE="button" VALUE="Index" ONCLICK="javascript:location='hh_index.htm';"
+ NAME="Index"><input
+ TYPE="button" VALUE="Search" ONCLICK="javascript:location='hh_search.htm';"
+ NAME="Search">
+</div>
+
+
+  <div style="margin: 11px 0px 0px 0px; padding: 0px 5px 0px 5px;">
+     <input type="text" id="IndexEntry" class="docstyle"
+       style="width:100%;"
+       onkeydown="javascript:return(KeyDownEvent(event));"
+       onkeyup="javascript:return(IndexEntryOnKeyUp());">
+  </div>
+
+<div style="margin: 5px 0px 0px 0px; padding: 0px 5px 0px 5px;">
+<select id="indexcontainer" name="IndexListbox" class="docstyle"
+  style="width:200; height:200;"
+  size="500"
+  onchange="javascript:IndexListOnChange();"
+  onclick="javascript:OpenSelected();return(true);"
+  onkeydown="javascript:return(KeyDownEvent(event));">
+<option value="GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574.htm">basic concepts</option>
+<option value="GUID-87A54D90-C8A5-440C-8E18-AF52D47E519F.htm">blur an image</option>
+<option value="GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574.htm">borders processing</option>
+<option value="GUID-42D90243-5482-4359-96EE-E73A4633A924.htm">building application</option>
+<option value="GUID-42D90243-5482-4359-96EE-E73A4633A924.htm">compile and link your application</option>
+<option value="GUID-0EE46F60-3F41-4AC2-B201-6F476094BE89.htm">compile and link your code</option>
+<option value="GUID-0EE46F60-3F41-4AC2-B201-6F476094BE89.htm">create an application for image blurring and rotation</option>
+<option value="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.htm">Enter index keyword</option>
+<option value="GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574.htm">initialize function data</option>
+<option value="GUID-ED24D992-DF63-4712-9B28-B89FF4BEEBD7.htm">introduction to Intel IPP</option>
+<option value="GUID-CB5D50F4-28CC-492E-853B-D926678C0308.htm">overview</option>
+<option value="GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574.htm">represent an image</option>
+<option value="GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574.htm">ROI processing</option>
+<option value="GUID-3B4A1095-6A5D-474C-A620-CDC265B18843.htm">rotate an image</option>
+<option value="GUID-42D90243-5482-4359-96EE-E73A4633A924.htm">set up environment</option>
+<option value="GUID-187975F1-948C-4DBE-9E1C-6EDFDDD59B65.htm">summary</option>
+<option value="GUID-AAE32BCA-63A6-40D7-8527-F148B24FBD5D.htm">technical support</option>
+<option value="GUID-87A54D90-C8A5-440C-8E18-AF52D47E519F.htm">using ippiFilterBoxBorder</option>
+<option value="GUID-3B4A1095-6A5D-474C-A620-CDC265B18843.htm">using ippiWarpAffine&lt;Interpolation&gt;</option>
+</select>
+</div>
+
+
+</body>
+</html>

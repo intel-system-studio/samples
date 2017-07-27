@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?>
+
+<cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="intel.config.iss.exe.debug.1329082758">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="intel.config.iss.exe.debug.1329082758" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ICCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="intel.config.iss.exe.debug.1329082758" name="Debug" parent="intel.config.iss.exe.debug">
+					<folderInfo id="intel.config.iss.exe.debug.1329082758." name="/" resourcePath="">
+						<toolChain id="intel.toolchain.iss.exe.debug.678137872" name="Intel System Studio" superClass="intel.toolchain.iss.exe.debug">
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="intel.platform.iss.base.2107851142" isAbstract="false" name="intel.platform.base" osList="linux" superClass="intel.platform.iss.base"/>
+							<builder buildPath="${workspace_loc:/GDB_ReverseDebugging}/Debug" id="intel.builder.base.1551167626" managedBuildOn="true" name="CDT Internal Builder.Debug" superClass="intel.builder.base"/>
+							<tool id="intel.tool.archiver.iss.base.1778915507" name="Intel Archiver" superClass="intel.tool.archiver.iss.base"/>
+							<tool id="intel.tool.cpp.compiler.iss.base.236120170" name="Intel C++ Compiler" superClass="intel.tool.cpp.compiler.iss.base">
+								<option defaultValue="true" id="intel.compilestep.general.debug.2009824558" superClass="intel.compilestep.general.debug" valueType="boolean"/>
+								<option defaultValue="general.opt.none" id="intel.compilestep.general.optimization2.1167262128" superClass="intel.compilestep.general.optimization2" valueType="enumerated"/>
+							</tool>
+							<tool id="intel.tool.c.compiler.iss.base.40639673" name="Intel C Compiler" superClass="intel.tool.c.compiler.iss.base">
+								<option defaultValue="true" id="intel.compilestep.general.debug.1917938482" superClass="intel.compilestep.general.debug" valueType="boolean"/>
+								<option defaultValue="general.opt.none" id="intel.compilestep.general.optimization2.1351113854" superClass="intel.compilestep.general.optimization2" valueType="enumerated"/>
+							</tool>
+							<tool id="intel.tool.cpp.linker.iss.base.1319431311" name="Intel C++ Linker" superClass="intel.tool.cpp.linker.iss.base"/>
+							<tool id="intel.tool.c.linker.iss.base.1460751976" name="Intel C Linker" superClass="intel.tool.c.linker.iss.base"/>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="intel.config.iss.exe.release.3216466">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="intel.config.iss.exe.release.3216466" moduleId="org.eclipse.cdt.core.settings" name="Release">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ICCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="intel.config.iss.exe.release.3216466" name="Release" parent="intel.config.iss.exe.release">
+					<folderInfo id="intel.config.iss.exe.release.3216466." name="/" resourcePath="">
+						<toolChain id="intel.toolchain.iss.exe.release.1116469130" name="Intel System Studio" superClass="intel.toolchain.iss.exe.release">
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="intel.platform.iss.base.990556761" isAbstract="false" name="intel.platform.base" osList="linux" superClass="intel.platform.iss.base"/>
+							<builder buildPath="${workspace_loc:/GDB_ReverseDebugging}/Release" id="intel.builder.base.2002835075" managedBuildOn="true" name="CDT Internal Builder.Release" superClass="intel.builder.base"/>
+							<tool id="intel.tool.archiver.iss.base.850834523" name="Intel Archiver" superClass="intel.tool.archiver.iss.base"/>
+							<tool id="intel.tool.cpp.compiler.iss.base.188018034" name="Intel C++ Compiler" superClass="intel.tool.cpp.compiler.iss.base">
+								<option defaultValue="false" id="intel.compilestep.general.debug.1735616060" superClass="intel.compilestep.general.debug" valueType="boolean"/>
+								<option defaultValue="general.opt.speed" id="intel.compilestep.general.optimization2.1137415955" superClass="intel.compilestep.general.optimization2" valueType="enumerated"/>
+							</tool>
+							<tool id="intel.tool.c.compiler.iss.base.136521090" name="Intel C Compiler" superClass="intel.tool.c.compiler.iss.base">
+								<option defaultValue="false" id="intel.compilestep.general.debug.1386496926" superClass="intel.compilestep.general.debug" valueType="boolean"/>
+								<option defaultValue="general.opt.speed" id="intel.compilestep.general.optimization2.1949443762" superClass="intel.compilestep.general.optimization2" valueType="enumerated"/>
+							</tool>
+							<tool id="intel.tool.cpp.linker.iss.base.1713198091" name="Intel C++ Linker" superClass="intel.tool.cpp.linker.iss.base"/>
+							<tool id="intel.tool.c.linker.iss.base.526383007" name="Intel C Linker" superClass="intel.tool.c.linker.iss.base"/>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="GDB_ReverseDebugging.intel.target.iss.exe.1513666664" name="Executable" projectType="intel.target.iss.exe"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+</cproject>

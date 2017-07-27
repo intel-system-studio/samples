@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Prepare Your Sample Application" />
+<meta name="DC.subject" content="Sample Application, Prepare Your" />
+<meta name="keywords" content="Sample Application, Prepare Your" />
+<meta name="DC.Relation" scheme="URI" content="GUID-50355842-AFD0-4A40-9CC1-65DAC1A6558F.html" />
+<meta name="prodname" content="Intel&reg; VTune&#8482; Amplifier for Systems" />
+<meta name="version" content="VTune Amplifier for Systems" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-B65A32B8-F2FC-4F32-AE44-5FFC84C1DC82" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Prepare Your Sample Application</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-B65A32B8-F2FC-4F32-AE44-5FFC84C1DC82">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Enabling Performance Collection on an Embedded Linux* System</em></p>
+
+
+<h1 class="topictitle1">Prepare Your Sample Application</h1>
+<div><p>The Intel&reg; VTune&#8482; Amplifier for Systems release
+      includes sample code called 
+      <samp class="codeph">tachyon</samp> for you to use on the target system. The 
+      <samp class="codeph">tachyon</samp> sample code included with your distribution is
+      modified for the Yocto* environment. After extracting the sample code, build
+      the application and copy it to your target. 
+    </p>
+<ol id="GUID-AB54AE4D-8340-46E4-BD93-16C606812153"><li><p><a href="#EXTRACT">Extract
+            Sample Code</a></p>
+</li>
+<li><p><a href="#BUILD">Build
+            Application</a></p>
+<ul id="GUID-6E1A2F59-4FC9-4044-B319-63A802097946"><li><p><a href="#INTEL">Build
+                Application Using the Intel C++ Compiler</a></p>
+</li>
+<li><p><a href="#GNU">Build
+                Application Using the GNU* C++ Compiler 
+              </a></p>
+</li>
+<li><p><a href="#ECLIPSE">Build
+                Application Using Eclipse* 
+              </a></p>
+</li>
+</ul>
+</li>
+<li><p><a href="#TARGET">Copy
+            Application to Target Device</a></p>
+</li>
+</ol>
+<div class="section" id="EXTRACT"><h2 class="sectiontitle">Extract Sample Code</h2><ol id="GUID-8BADB81E-FC51-4BE1-83AF-E8CC7BDBDD93"><li><p>On the host Linux* system, change directories so you can untar the
+            sample code: 
+          </p>
+<pre><code class="language-plain">cd /~yocto</code></pre></li>
+<li><p>Extract the 
+            <samp class="codeph">tachyon</samp> sample application: 
+          </p>
+<pre><code class="language-plain">tar xvzf /opt/intel/vtune_amplifier_for_systems/samples/en/C++/tachyon_vtune_amp_xe.tgz</code></pre></li>
+</ol>
+</div>
+<div class="section" id="BUILD"><h2 class="sectiontitle">Build Application </h2><p>Use the Intel C++ Compiler, GNU C++ Compiler, or Eclipse to build the
+        sample application. 
+      </p>
+<p id="INTEL"><strong>Build Application using the Intel C++ Compiler</strong></p>
+<ol id="GUID-E08ECD91-86C8-48E6-AF3F-BF35DA4DFDFE"><li><p>Source important environmental variables: 
+          </p>
+<pre><code class="language-plain">source /opt/poky/2.1/environment-setup-corei7-64-poky-linux-icc</code></pre><div class="Note"><h3 class="NoteTipHead">Note</h3> <p>This option is only available if you have integrated Intel
+              System Studio with Yocto Project. For more information, see 
+              <a href="https://software.intel.com/en-us/articles/using-intel-system-studio-with-the-yocto-project" target="_blank">https://software.intel.com/en-us/articles/using-intel-system-studio-with-the-yocto-project</a>.
+              
+            </p>
+</div>
+</li>
+<li><p>Compile the 
+            <samp class="codeph">tachyon</samp> code: 
+          </p>
+<pre><code class="language-plain">make CXX="$CXX” build_find_hotspots</code></pre></li>
+</ol>
+<p id="GNU"><strong>Build Application Using GNU C++ Compiler</strong></p>
+<ol id="GUID-E2934722-1F8C-4465-ADC3-D55CF40A7B89"><li><p>Source important environmental variables: 
+          </p>
+<pre><code class="language-plain">source /opt/poky/2.1/environment-setup-corei7-64-poky-linux</code></pre></li>
+<li><p>Compile the 
+            <samp class="codeph">tachyon</samp> code: 
+          </p>
+<pre><code class="language-plain">make CXX="$CXX” build_find_hotspots</code></pre></li>
+</ol>
+<p id="ECLIPSE"><strong>Build Application Using Eclipse</strong></p>
+<ol id="GUID-106437CD-7CA0-4A28-AE3E-863AF03A0CEB"><li><p>Source important environmental variables: 
+          </p>
+<pre><code class="language-plain">source /opt/poky/2.1/environment-setup-corei7-64-poky-linux</code></pre></li>
+<li><p>Open Eclipse from the command window. This allows Eclipse to
+            inherit the environment variables set in the previous step. 
+          </p>
+</li>
+<li><p>In Eclipse, select 
+            <b class="uicontrol">File</b> &gt; <b class="uicontrol">Import</b>
+            to import the existing Tachyon project. 
+          </p>
+</li>
+<li><p>In the 
+            <strong>Import</strong> window, select 
+            <b class="uicontrol">C/C++</b> &gt; <b class="uicontrol">Existing Code
+                as Makefile Project</b> and click 
+            <strong>Next</strong>. 
+          </p>
+</li>
+<li><p>Set a project name and click 
+            <strong>Browse</strong> and navigate to the location where you extracted the
+            Tachyon sample code. Click 
+            <strong>Finish</strong> to import the project. 
+          </p>
+</li>
+<li><p>Select the new project you created and select 
+            <b class="uicontrol">Project</b> &gt; <b class="uicontrol">Properties</b>
+            or right-click the project name and select 
+            <strong>Properties</strong>. 
+          </p>
+</li>
+<li><p>In the 
+            <strong>Properties</strong> window, select 
+            <strong>C/C++ Build</strong> to show the build settings. 
+          </p>
+<ol type="a" id="GUID-5DD33EAA-D152-44AE-BB63-99F8737D8C61"><li><p>On the 
+                <strong>Builder Settings</strong> tab, uncheck the 
+                <strong>Use default build command</strong> checkbox and enter the
+                following in the 
+                <strong>Build command</strong> field: 
+                <samp class="codeph">make CXX="${CXX}"</samp></p>
+<p><img src="GUID-6601B99E-E8E7-4EEF-AAD5-EB6ADD66347E-low.png" width="600" /></p>
+</li>
+<li><p>On the 
+                <strong>Behavior</strong> tab, enter the following in the 
+                <strong>Build (incremental build)</strong> field: 
+                <samp class="codeph">build_find_hotspots</samp></p>
+<p><img src="GUID-31B8B3B5-2C66-4FEC-AA78-B65727CB1A13-low.png" width="600" /></p>
+</li>
+</ol>
+</li>
+<li><p>Click 
+            <strong>Apply</strong> to apply the changes and 
+            <strong>OK</strong> to close the 
+            <strong>Properties</strong> window. 
+          </p>
+</li>
+<li><p>Select 
+            <b class="uicontrol">Project</b> &gt; <b class="uicontrol">Build
+                Project</b> to build the Tachyon sample application. 
+          </p>
+</li>
+</ol>
+</div>
+<div class="section" id="TARGET"><h2 class="sectiontitle">Copy Application to Target Device</h2><p> Copy the 
+        <samp class="codeph">tachyon</samp> binary, the 
+        <samp class="codeph">dat</samp> library and the 
+        <samp class="codeph">libtbb.so</samp> folder to an appropriate location on your
+        target system. 
+      </p>
+<p> For example: 
+      </p>
+<pre><code class="language-plain">scp tachyon_find_hotspots dat 
+root@123.456.789.00:home/root/
+scp tbbforexamples/linux/4.0.1/lib/intel64/libtbb.so* 
+root@123.456.789.00:/usr/lib</code></pre></div>
+<div class="section" id="GUID-1D653D37-33FA-4354-8E05-DF4093CA5FAC"><strong>Next step: 
+      </strong><a href="GUID-B74AC4CA-DFAF-44B6-9857-EE13477C4D6F.html">Run Advanced
+        Hotspot Analysis</a></div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-50355842-AFD0-4A40-9CC1-65DAC1A6558F.html">Enabling Collection on a Remote Embedded Device</a></div>
+</div>
+<div></div>
+</body>
+</html>

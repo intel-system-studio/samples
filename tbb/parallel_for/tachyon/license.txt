@@ -1,0 +1,17 @@
+Intel(R) Threading Building Blocks. Tachyon sample
+
+License Information Follows
+---------------------------
+* dat/*.*
+* msvs/*.*
+* src/*.*
+* xcode/*.*
+* *.*
+
+Copyright 2016 Intel Corporation
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
+
+The original source for this sample:
+Copyright (c) 1994-2008 John E. Stone. All rights reserved.
+license: http://jedi.ks.uiuc.edu/~johns/raytracer/

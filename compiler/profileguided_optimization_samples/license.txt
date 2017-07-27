@@ -1,0 +1,16 @@
+FluidAnimate Sample for Profile Guided Optimization
+
+License Information Follows
+---------------------------
+* src\*.h, src\*.cpp
+* data\in_15k.fluid
+* readme.html, Makefile, Build.bat, Build.sh
+
+Copyright 2016 Intel Corporation
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/  
+
+FluidAnimate original code: 
+---------------------------
+* source: http://parsec.cs.princeton.edu/download.htm
+* license: http://parsec.cs.princeton.edu/license.htm#frameworkLicense

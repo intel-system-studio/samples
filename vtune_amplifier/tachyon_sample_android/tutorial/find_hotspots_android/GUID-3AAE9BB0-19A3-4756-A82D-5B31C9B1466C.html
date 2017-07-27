@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Run Basic Hotspots Analysis" />
+<meta name="DC.subject" content="Hotspots Analysis" />
+<meta name="keywords" content="Hotspots Analysis" />
+<meta name="DC.Relation" scheme="URI" content="GUID-B85B5093-366C-4785-B784-D705E4D7186D.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-3AAE9BB0-19A3-4756-A82D-5B31C9B1466C" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Run Basic Hotspots Analysis</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-3AAE9BB0-19A3-4756-A82D-5B31C9B1466C">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier for Systems</em></p>
+
+
+<h1 class="topictitle1">Run Basic Hotspots Analysis</h1>
+<div><p><img height="32" src="GUID-AE4B0E82-637D-4E88-949B-A1F6CFB43219-low.gif" width="32" />
+      Before running an analysis, choose a configuration level to regulate Intel&reg;
+      VTune&#8482; Amplifier analysis scope and running time, including the size of the
+      data collection files. In this tutorial, you run the Basic Hotspots Analysis to
+      identify the hotspots that took the most time to execute. 
+    </p>
+<p>Basic Hotspots analysis requires no sampling drivers, but sampling
+      drivers are required for hardware event-based analysis. Refer to the 
+      <em>Intel VTune Amplifier for Systems Installation Guide</em> or the
+      "Preparing a Target Android* System for Remote Analysis" help topic for more
+      information. 
+    </p>
+<div class="section" id="GUID-9AEFCD75-C81D-4F62-B26A-BF224AC21AF5"><h2 class="sectiontitle">Run an Analysis</h2><ol id="GUID-96649F9E-5CC6-4279-90AE-B093FE67BD8F"><li><p>If it is not already displayed, select the 
+            <strong>Analysis Type</strong> tab. 
+          </p>
+</li>
+<li><p>On the left pane of the 
+            <strong>Analysis Type</strong> window, locate the analysis tree and select 
+            <strong>Algorithm Analysis &gt; Basic Hotspots</strong>. The right pane is
+            updated with the predefined settings for the 
+            <strong>Basic Hotspots</strong> analysis. 
+          </p>
+</li>
+<li><p>Click the 
+            <strong>Start</strong> button on the right command bar. 
+          </p>
+<p><img height="200" src="GUID-7D83B5E7-0F29-44B8-BB54-00FD17D7E888-low.png" width="600" /></p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>After you click the 
+              <strong>Start</strong> button, VTune Amplifier first installs the remote
+              collector on the Android device before running 
+              <samp class="codeph">tachyon</samp> and collecting data. 
+            </p>
+</div>
+</li>
+<li><p>If you selected the 
+            <strong>Analyze unplugged device</strong> option when you configured the
+            analysis target, unplug the device when prompted either by VTune Amplifier on
+            your host system or by the VTune Amplifier remote collector on your Android
+            device. 
+          </p>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-4B4CFDFB-78D7-47FC-8A0A-3A3800676CBA"><h2 class="sectiontitle">Data Collection</h2><p>VTune Amplifier launches the 
+        <samp class="codeph">tachyon</samp> application which displays a 3-D fractal image
+        and its own execution time, and will continue running until you press 
+        <strong>Stop</strong> or until the duration of the sampling session that you set
+        up in seconds has been reached. If you ran the analysis on a disconnected
+        device, reconnect the device when prompted. The VTune Amplifier finalizes the
+        collected results and opens the analysis results in the 
+        <strong>Hotspots by CPU Usage</strong> viewpoint. 
+      </p>
+<p>To make sure the performance of the application is repeatable, go
+        through the entire tuning process on the same system with a minimal amount of
+        other software executing. 
+      </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>By using advanced features of the VTune Amplifier you can include
+          Android framework events on your results timeline. This allows you to draw
+          correlations between the code that is running on your CPU and events that are
+          spawned by the Android framework, such as 
+          <em>jank</em> - dropped frames which make apps smoother. For details on
+          how to set up these events in your Basic Hotspots Analysis refer to 
+          <a href="https://software.intel.com/en-us/articles/using-android-framework-events-in-vtune" target="_blank">Using Android Framework Events</a>. 
+        </p>
+</div>
+</div>
+<div class="section" id="GUID-13E72EF9-DB83-4098-9D93-CC3AAD2A3B49"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-600E7FC6-8A21-489C-AB79-FA8C75AC7623.html#GUID-600E7FC6-8A21-489C-AB79-FA8C75AC7623">Interpret Result Data</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-B85B5093-366C-4785-B784-D705E4D7186D.html">Finding Hotspots</a></div>
+</div>
+<div></div>
+</body>
+</html>

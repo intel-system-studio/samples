@@ -1,0 +1,34 @@
+Intel(R) Threading Building Blocks samples
+
+License Information Follows
+---------------------------
+* common/*.*
+* concurrent_hash_map/*.*
+* concurrent_priority_queue/*.*
+* GettingStarted/*.*
+* graph/*.*
+* parallel_do/*.*
+* parallel_for/*.*
+* parallel_reduce/*.*
+* pipeline/*.*
+* task/*.*
+* task_arena/*.*
+* task_group/*.*
+* test_all/*.*
+* *.*
+
+Copyright 2016 Intel Corporation
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
+
+Fgbzip2 sample uses the "libbzip2" sources:
+Copyright (c) 1996-2010 Julian R Seward. All rights reserved.
+license: http://www.bzip.org/
+
+Stereo sample uses third party software "LodePNG" version 20160409:
+Copyright (c) 2005-2016 Lode Vandevenne. All rights reserved.
+license: http://lodev.org/lodepng/
+
+The original source for Tachyon sample:
+Copyright (c) 1994-2008 John E. Stone. All rights reserved.
+license: http://jedi.ks.uiuc.edu/~johns/raytracer/

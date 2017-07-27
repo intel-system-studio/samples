@@ -1,0 +1,137 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Establishing a Performance Baseline">
+<meta name="DC.Relation" scheme="URI" content="GUID-9AD30AA8-98FF-4D12-AC12-7AB9888AF2CF.htm">
+<meta name="DC.Relation" scheme="URI" content="http://www.intel.com/software/products/softwaredocs_feedback">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="GUID-DE61F086-8437-4B2D-AF2D-CDBAB882B9E3">
+<meta name="DC.Language" content="en-US">
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css">
+<title>Establishing a Performance Baseline</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet">
+</head>
+<body id="GUID-DE61F086-8437-4B2D-AF2D-CDBAB882B9E3">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+ 
+  <h1 class="topictitle1">Establishing a Performance Baseline</h1>
+ 
+  <div> 
+    <div class="section" id="GUID-CFB47CB5-C32B-4A36-980E-C3DC4FFC649E"> 
+      <p>To set a performance baseline for the improvements
+        that follow in this tutorial, build your project with these settings: 
+      <ol id="GUID-CA13D8E1-5FEA-425A-89B0-C6E25832F4C5"> 
+        <li> 
+          <p>Select 
+            <b class="uicontrol">Project &gt;
+              Properties</b>. The project property pages window appears. 
+          </p>
+ 
+        </li>
+ 
+        <li> 
+          <p> Select 
+            <b class="uicontrol">Configuration
+                Properties</b> &gt; <b class="uicontrol">C/C++</b> &gt; <b class="uicontrol">Optimization 
+              </b>. 
+          </p>
+ 
+          </li>
+ 
+        <li> 
+          <p> For 
+            <b class="uicontrol">Optimization</b>, select 
+            <b class="uicontrol">Minimum size</b> from the dropdown list. 
+          </p>
+ 
+        </li>
+ 
+        <li> 
+          <p>For 
+            <b class="uicontrol">Configuration
+                Properties</b> &gt; <b class="uicontrol">C/C++</b> &gt; <b class="uicontrol">Optimization
+                [Intel C++]</b> &gt; <b class="uicontrol">Interprocedural
+                Optimization</b>, select 
+            <b class="uicontrol">No</b>. 
+          </p>
+ 
+          </li>
+ 
+        <li> 
+          <p>Select 
+            <b class="uicontrol">Configuration
+              Properties &gt; C/C++ &gt; Language [Intel C++]</b>. 
+          </p>
+ 
+          <p>For 
+            <b class="uicontrol">Enable C99
+              Support</b>, select 
+            <b class="uicontrol">Yes</b>. 
+          </p>
+ 
+          <p>This example uses a variable length array
+            (VLA), and therefore, must be compiled with the 
+      <span class="option">/Qstd=c99</span> option. 
+      </p>
+ 
+      </li>
+ 
+      <li> 
+        <p>Select 
+          <b class="uicontrol">Configuration Properties &gt; C/C++ &gt; Code
+            Generation</b>. 
+        </p>
+ 
+        <p>For 
+          <b class="uicontrol">Floating Point
+            Model</b>, select 
+          <b class="uicontrol">Fast (/fp:fast)</b>. 
+        </p>
+ 
+        <p>The 
+      <span class="option">/fp:fast</span> option sets the compiler to aggressively
+      optimize floating point arithmetic operations. Using the 
+      <span class="option">/fp:precise</span> or 
+      <span class="option">/fp:strict</span> options may limit opportunities for auto
+      vectorization. 
+      </p>
+ 
+      </li>
+ 
+      <li> 
+        <p>Rebuild the project, then run the executable
+          (<b class="uicontrol">Debug &gt; Start Without
+            Debugging</b>). Record the execution time reported in the output. This
+          is the baseline against which subsequent improvements will be measured. 
+        </p>
+ 
+      </li>
+ 
+      </ol>
+ 
+      </p>
+ 
+    </div>
+ 
+    <p><a href="GUID-2C6D2B07-1308-4ACE-B577-944E11D46027.htm#GUID-2C6D2B07-1308-4ACE-B577-944E11D46027"><img class="border(0)" style="border-style: none" src="GUID-7F3B04BE-CA31-4F1C-B7C4-88C93723B324-low.jpg" alt="Next: Generating a Vectorization Report"></a> 
+    </p>
+ 
+  </div>
+ 
+  
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong>&nbsp;<a href="GUID-9AD30AA8-98FF-4D12-AC12-7AB9888AF2CF.htm">Tutorial: Windows* Version</a></div>
+</div>
+<div></div> 
+
+</body>
+</html>
