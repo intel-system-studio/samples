@@ -34,11 +34,11 @@
 								<inputType id="intel.c.compilestep.input.568923297" name="C Sources" superClass="intel.c.compilestep.input"/>
 							</tool>
 							<tool id="intel.tool.cpp.linker.iss.base.286102698" name="Intel C++ Linker" superClass="intel.tool.cpp.linker.iss.base">
-								<option defaultValue="true" id="intel.linkstep.shared.413098587" superClass="intel.linkstep.shared" valueType="boolean"/>
+								<option defaultValue="false" id="intel.linkstep.shared.413098587" superClass="intel.linkstep.shared" valueType="boolean"/>
 							</tool>
 							<tool id="intel.tool.c.linker.iss.base.1634903829" name="Intel C Linker" superClass="intel.tool.c.linker.iss.base">
 								<option id="intel.linkstep.perflibs.daal.156126439" name="Use Intel(R) Data Analytics Acceleration Library" superClass="intel.linkstep.perflibs.daal" value="perflibs.daal.none" valueType="enumerated"/>
-								<option defaultValue="true" id="intel.linkstep.shared.364141982" superClass="intel.linkstep.shared" valueType="boolean"/>
+								<option defaultValue="false" id="intel.linkstep.shared.364141982" superClass="intel.linkstep.shared" valueType="boolean"/>
 								<inputType id="intel.linkstep.input.938742273" superClass="intel.linkstep.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
