@@ -70,24 +70,24 @@
             System Studio installation folder to the Yocto Project development folder. For
             example: 
           </p>
-<pre><code class="language-plain">cp -r /opt/intel/system_studio_2017.0.0/wr-iss-2017 $HOME/source/poky/</code></pre></li>
+<pre><code class="language-plain">cp -r /opt/intel/system_studio_2018/wr-iss-2018 $HOME/source/poky/</code></pre></li>
 <li><p>Run the post-installation script. For example: 
           </p>
 <pre><code class="language-plain">cd $HOME/source/poky
-wr-iss-2017/yp-setup/postinst_yp_iss.sh /opt/intel/system_studio_2017.0.0</code></pre></li>
+wr-iss-2018/yp-setup/postinst_yp_iss.sh /opt/intel/system_studio_2018</code></pre></li>
 <li><p>Add the path to the 
             <samp class="codeph">wr-iss-&lt;version&gt;</samp> to the 
             <samp class="codeph">bblayer.conf</samp> file. For example: 
           </p>
 <pre><code class="language-plain">vi $HOME/source/poky/build/conf/bblayers.conf
-BBLAYERS = "$HOME/source/poky/wr-iss-2017\"</code></pre><p>Your file should look similar to the following: 
+BBLAYERS = "$HOME/source/poky/wr-iss-2018\"</code></pre><p>Your file should look similar to the following: 
           </p>
 <pre><code class="language-plain">BBLAYERS ?= " \
   /opt/source/poky/meta \
   /opt/source/poky/meta-poky \
   /opt/source/poky/meta-yocto-bsp \
   /opt/source/poky/meta-intel \
-  /opt/source/poky/wr-iss-2017 \
+  /opt/source/poky/wr-iss-2018 \
   "</code></pre></li>
 <li><p>Add the Intel VTune Amplifier recipe to 
             <span class="filepath">conf/local.conf</span>. For example: 
@@ -147,7 +147,7 @@ cd /opt/poky/2.1/sysroots/corei7-64-poky-linux/usr/src/kernel; make scripts
 cd /opt/intel/vtune_amplifier_for_systems/target/linux/
 cp vtune_amplifier_target_x86_64.tgz /tmp
 tar zxvf /tmp/vtune_amplifier_target_x86_64.tgz
-cd /tmp/vtune_amplifier_2017_for_systems.0.0.0/
+cd /tmp/vtune_amplifier_2018_for_systems.0.0.0/
 ./build-driver -ni --c-compiler="$CC" --kernel-src-dir=/opt/poky/2.1/sysroots/corei7-64-poky-linux/usr/src/kernel --kernel-version=4.4.3-yocto-standard --make-args="PLATFORM=x64 ARITY=smp"</code></pre></li>
 <li><p>Copy 
             <span class="filepath">/tmp/vtune_amplifier_<var>&lt;version&gt;</var>_for_systems.<var>&lt;version&gt;</var></span>

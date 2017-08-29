@@ -50,10 +50,10 @@
 <div class="section" id="LOAD"><h2 class="sectiontitle">Load the Intel VTune Amplifier Sampling Drivers</h2><p>On the target device, run the following command to load the sampling
         drivers: 
       </p>
-<p><samp class="codeph">/opt/intel/vtune_amplifier_<var>&lt;version&gt;</var>_for_systems.<var>&lt;version&gt;</var>/sepdk/src/insmod-sep</samp></p>
+<p><samp class="codeph">/opt/intel/system_studio_<var>&lt;version&gt;</var>/vtune_amplifier/sepdk/src/insmod-sep</samp></p>
 <p>For example: 
       </p>
-<pre><code class="language-plain">/opt/intel/vtune_amplifier_2017_for_systems.0.0/sepdk/src/insmod-sep</code></pre><p>If you are using a 64-bit target system, create a link between 
+<pre><code class="language-plain">/opt/intel/system_studio_2018/vtune_amplifier/sepdk/src/insmod-sep</code></pre><p>If you are using a 64-bit target system, create a link between 
         <span class="filepath">/lib64/ld-linux-x86-64.so.2</span> and 
         <span class="filepath">/lib/ld-linux-x86-64.so.2</span> so the default search
         path for the application functions properly. This step only needs to be
