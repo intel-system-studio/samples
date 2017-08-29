@@ -110,8 +110,7 @@ static color_t render_one_pixel (int x, int y, unsigned int *local_mbox, unsigne
 
 #define RUNTIME_SERIAL 1
 #define RUNTIME_OPENMP 2
-#define RUNTIME_CILK   3
-#define RUNTIME_TBB    4
+#define RUNTIME_TBB    3
 
 #ifndef RUNTIME
 #define RUNTIME RUNTIME_TBB
@@ -131,8 +130,6 @@ static void parallel_thread(void)
 #elif RUNTIME == RUNTIME_OPENMP
 #pragma omp parallel for
     for ( int y = starty; y < stopy; y++ )
-#elif RUNTIME == RUNTIME_CILK
-    _Cilk_for(int y = starty; y < stopy; y++)
 #elif RUNTIME == RUNTIME_TBB
     tbb::parallel_for(starty, stopy, [mboxsize] (int y)
 #endif

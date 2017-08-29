@@ -73,20 +73,17 @@ debug: build_debug
 solution: build_solution run_solution
 test: run
 
-build: build_serial build_openmp build_cilk build_tbb
-build_debug: build_serial_debug build_openmp_debug build_cilk_debug build_tbb_debug
-build_solution: build_serial build_openmp_solution build_cilk_solution build_tbb_solution
-run: run_serial run_openmp run_cilk run_tbb
-run_solution: run_serial run_openmp_solution run_cilk_solution run_tbb_solution
+build: build_serial build_openmp build_tbb
+build_debug: build_serial_debug build_openmp_debug build_tbb_debug
+build_solution: build_serial build_openmp_solution build_tbb_solution
+run: run_serial run_openmp run_tbb
+run_solution: run_serial run_openmp_solution run_tbb_solution
 
 serial: build_serial run_serial
 serial_debug: build_serial_debug run_serial
 openmp: build_openmp run_openmp
 openmp_debug: build_openmp_debug run_openmp
 openmp_solution: build_openmp_solution run_openmp_solution
-cilk: build_cilk run_cilk
-cilk_debug: build_cilk_debug run_cilk
-cilk_solution: build_cilk_solution run_cilk_solution
 tbb: build_tbb run_tbb
 tbb_debug: build_tbb_debug run_tbb
 tbb_solution: build_tbb_solution run_tbb_solution
@@ -123,17 +120,6 @@ run_openmp:
 	$(MAKE) VERSION=openmp run_one
 run_openmp_solution:
 	$(MAKE) VERSION=openmp_solution run_one
-
-build_cilk:
-	$(MAKE) VERSION=cilk ADD_CILK=1 build_one
-build_cilk_debug:
-	$(MAKE) VERSION=cilk ADD_CILK=1 ADD_DEBUG=1 build_one
-build_cilk_solution:
-	$(MAKE) VERSION=cilk_solution SVERSION=cilk ADD_CILK=1 build_one
-run_cilk:
-	$(MAKE) VERSION=cilk run_one
-run_cilk_solution:
-	$(MAKE) VERSION=cilk_solution run_one
 
 perf_build:
 	$(MAKE) UI=con VERSION=tbb ADD_TBB=1 build_one

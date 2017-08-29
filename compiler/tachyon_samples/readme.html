@@ -226,9 +226,8 @@
         Tachyon is a 2-D raytracer/renderer that visually shows different parallel scheduling
         methods and their resulting speedup.  The code was parallelized by speculating
         that each pixel could be rendered in parallel.  Minimal synchronization was
-        inserted into the parallel code.  The resulting parallel code, using either
-        Intel&reg; Cilk(TM) PLus, OpenMP*, or Intel&reg; Threading Building Blocks
-        (Intel&reg; TBB) exhibits good speedup.
+        inserted into the parallel code.  The resulting parallel code, using Intel&reg;
+        Threading Building Blocks (Intel&reg; TBB) exhibits good speedup.
     </P>
 
 <div class="changes">
@@ -239,17 +238,6 @@
             <ul>
                 <li>Original sequential version.</li>
             </ul>
-        </li>
-        <li>
-            <strong>cilk</strong>:
-            Parallel version that uses Intel&reg; Cilk<sup>TM</sup> Plus and cilk_for to parallelize
-            over tasks that are rectangular sub-areas.
-            <UL>
-                <LI>
-                    By default, this version provides one Intel&reg; Cilk<sup>TM</sup> Plus worker per available processor.  To change this
-                    default, set the CILK_NWORKERS environment variable to the desired number of threads before running.
-                </LI>
-            </UL>
         </li>
         <li>
             <strong>openmp</strong>:
@@ -360,7 +348,7 @@
 			</ul>
 			<h4>To Run</h4>
 			<ul>
-			<li> Run tachyon_*keyword* where keyword is the version of the sample as described at the top (either serial, cilk, openmp, or tbb). To run the solution, add "_solution". </li>
+			<li> Run tachyon_*keyword* where keyword is the version of the sample as described at the top (either serial, openmp, or tbb). To run the solution, add "_solution". </li>
 			</ul>
 		</ul>			
 	</div>
@@ -372,13 +360,13 @@
 			<ul>
 			<li> Run <code>make [config]</code> where config is one of the following:</li>
 			<ul>
-				<li>all, serial, cilk, openmp, tbb</li>
+				<li>all, serial, openmp, tbb</li>
 			</ul>
 			To accomplish the various steps of the tutorial. To build solutions, run <code>make solution</code>.
 			</ul>
 			<h4>To Run</h4>
 			<ul>
-			<li> Run <code>tachyon.*keyword*</code> where keyword is the version of the sample as described at the top (either serial, cilk, openmp, or tbb).</li>
+			<li> Run <code>tachyon.*keyword*</code> where keyword is the version of the sample as described at the top (either serial, openmp, or tbb).</li>
 			</ul>
 			<h4>To Debug</h4>
 			Debug the code by setting breakpoints in gdb* and then running the application.<br><br>
@@ -390,7 +378,7 @@
 			The samples package contains an Xcode solution in xcode/ configured to use the Intel&reg; C++ Compiler. The solution promotes common use cases such as building, running, or debugging an application. Below are the instructions for key tasks which can be done with the samples.<br><br>
 			<h4>To Compile a Scheme in the Solution</h4>
 			<ul>
-			<li> Select the appropriate scheme from tachyon.*keyword* where keyword is the version of the sample as described at the top (either serial, cilk, openmp, or tbb). Then click <strong>Product->Build</strong></li>
+			<li> Select the appropriate scheme from tachyon.*keyword* where keyword is the version of the sample as described at the top (either serial, openmp, or tbb). Then click <strong>Product->Build</strong></li>
 			</ul>
 			<h4>To Run the Scheme</h4>
 			<ul>
@@ -414,7 +402,7 @@
 
 <div id="footer">
     <p>
-        Intel, Intel logo, Intel386, Intel486, Atom, Core, Itanium, MMX, Pentium, VTune, Cilk,
+        Intel, Intel logo, Intel386, Intel486, Atom, Core, Itanium, MMX, Pentium, VTune,
         Xeon Phi, and Xeon are trademarks of Intel Corporation in the U.S. and/or other countries<br>
         * Other names and brands may be claimed as the property of others <br>
         Copyright &copy; 2016 Intel Corporation. All Rights Reserved<br>

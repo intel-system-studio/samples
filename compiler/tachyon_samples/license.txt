@@ -14,7 +14,7 @@ License Information Follows
 * vol.cpp vol.h utility.h fast_random.h xvideo.cpp winvideo.h video.h macvideo.cpp
 * gdivideo.cpp d2dvideo.cpp convideo.cpp build_with_tbb_solution.cpp build_with_tbb.cpp
 * trace.serial.cpp build_with_serial.cpp build_with_openmp_solution.cpp build_with_openmp.cpp
-* build_with_cilk_solution.cpp build_with_cilk.cpp Makefile Makefile.gmake
+* Makefile Makefile.gmake
 
 Copyright 2011-2016 Intel Corporation
 
