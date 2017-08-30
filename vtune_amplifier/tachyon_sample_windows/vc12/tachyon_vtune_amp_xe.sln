@@ -1,0 +1,48 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "find_hotspots", "find_hotspots.vcxproj", "{924517DF-2B6A-47D5-8A11-CC047CC4D8E9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "analyze_locks", "analyze_locks.vcxproj", "{BE7B53CD-50EA-43AB-A800-3A3A200FA88E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tachyon.common", "tachyon.vcxproj", "{924517DF-2B6A-47D5-8A11-CC247CC4D810}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+		Description = Tachyon ray-tracer example
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{924517DF-2B6A-47D5-8A11-CC047CC4D8E9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{924517DF-2B6A-47D5-8A11-CC047CC4D8E9}.Debug|Win32.Build.0 = Debug|Win32
+		{924517DF-2B6A-47D5-8A11-CC047CC4D8E9}.Debug|x64.ActiveCfg = Debug|x64
+		{924517DF-2B6A-47D5-8A11-CC047CC4D8E9}.Debug|x64.Build.0 = Debug|x64
+		{924517DF-2B6A-47D5-8A11-CC047CC4D8E9}.Release|Win32.ActiveCfg = Release|Win32
+		{924517DF-2B6A-47D5-8A11-CC047CC4D8E9}.Release|Win32.Build.0 = Release|Win32
+		{924517DF-2B6A-47D5-8A11-CC047CC4D8E9}.Release|x64.ActiveCfg = Release|x64
+		{924517DF-2B6A-47D5-8A11-CC047CC4D8E9}.Release|x64.Build.0 = Release|x64
+		{BE7B53CD-50EA-43AB-A800-3A3A200FA88E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BE7B53CD-50EA-43AB-A800-3A3A200FA88E}.Debug|Win32.Build.0 = Debug|Win32
+		{BE7B53CD-50EA-43AB-A800-3A3A200FA88E}.Debug|x64.ActiveCfg = Debug|x64
+		{BE7B53CD-50EA-43AB-A800-3A3A200FA88E}.Debug|x64.Build.0 = Debug|x64
+		{BE7B53CD-50EA-43AB-A800-3A3A200FA88E}.Release|Win32.ActiveCfg = Release|Win32
+		{BE7B53CD-50EA-43AB-A800-3A3A200FA88E}.Release|Win32.Build.0 = Release|Win32
+		{BE7B53CD-50EA-43AB-A800-3A3A200FA88E}.Release|x64.ActiveCfg = Release|x64
+		{BE7B53CD-50EA-43AB-A800-3A3A200FA88E}.Release|x64.Build.0 = Release|x64
+		{924517DF-2B6A-47D5-8A11-CC247CC4D810}.Debug|Win32.ActiveCfg = Debug|Win32
+		{924517DF-2B6A-47D5-8A11-CC247CC4D810}.Debug|Win32.Build.0 = Debug|Win32
+		{924517DF-2B6A-47D5-8A11-CC247CC4D810}.Debug|x64.ActiveCfg = Debug|x64
+		{924517DF-2B6A-47D5-8A11-CC247CC4D810}.Debug|x64.Build.0 = Debug|x64
+		{924517DF-2B6A-47D5-8A11-CC247CC4D810}.Release|Win32.ActiveCfg = Release|Win32
+		{924517DF-2B6A-47D5-8A11-CC247CC4D810}.Release|Win32.Build.0 = Release|Win32
+		{924517DF-2B6A-47D5-8A11-CC247CC4D810}.Release|x64.ActiveCfg = Release|x64
+		{924517DF-2B6A-47D5-8A11-CC247CC4D810}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
