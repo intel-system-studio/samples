@@ -103,23 +103,15 @@ the project `Makefile` is located).
 
 ![](images/builder-settings.png)
 
-On the same property panel, select the "**Behavior**" tab and change the
-"**Build (Incremental build)**" field so it matches the `Makefile` build target
-of interest.
+On the same property panel, select the "**Behavior**" tab and clear the
+"**Build (Incremental build)**" field so it is blank, as shown in the image
+below. Optionally, you can set this field so match one of the `Makefile` build
+make targets.
 
->   **NOTE:** The precise name of the make target of interest depends on how the
->   sample's `Makefile` has been written. Many of the sample makefiles have
->   multiple targets.
-
-See the README file inside the sample you have imported for a description of the
-make target(s) in order to figure out what target name to put in this field
-(usually this information is in a section of the README titled *"for Linux\*
-command-line users"*). If the README file is an html file (`readme.html`) you
-can view it in the Eclipse edit window by double-clicking that file in the
-Eclipse Project Explorer.
-
-If it is unclear what the make target should be, leave this field blank or try
-using "release" as the make target (as shown in the screenshot below).
+>   **NOTE:** If you choose to not use the default or "blank" make target you
+>   will have to inspect the sample's `Makefile` for options. The precise name
+>   of the make targets that can be used depend on how the sample's `Makefile`
+>   has been written. Most of the samples have multiple make targets.
 
 ![](images/set-makefile-target.png)
 
@@ -141,6 +133,12 @@ your project (assuming `debug` is a valid make target in your sample's
 (blank) field to one that says `debug`. Now, when you perform a build of your
 project it will execute a `make debug` command.
 
+>   The README file inside the sample you have imported may include a
+>   description of the make target(s) that can be used with this sample. Usually
+>   this information is in a section of the README titled *"for Linux command-
+>   line users"*). If the README file is an html file (`readme.html`) you can
+>   view it directly in the Eclipse edit window by double-clicking that file
+>   within the Eclipse Project Explorer.
 
 ### \* [Trademark Information][2]
 
