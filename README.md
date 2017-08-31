@@ -31,7 +31,7 @@ Import a Sample into Intel System Studio (Eclipse)
 --------------------------------------------------
 
 >   **IMPORTANT!** When you use the import procedure defined below, Eclipse will
->   *“import in place.”* This means the sample folder will be converted to an
+>   *"import in place."* This means the sample folder will be converted to an
 >   Eclipse project, it *will not* be copied to your Eclipse workspace folder as
 >   part of the import. If you want the sample to be located within your Eclipse
 >   workspace you must first *copy* or *move* the sample to your workspace
@@ -53,13 +53,13 @@ System Studio.
 >   It is also possible to use the command-line to build these projects, outside
 >   of Intel System Studio. That usage is outside the scope of this README.
 
-### Enable “unsupported” wizards
+### Enable "unsupported" wizards
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Window > Preferences > Intel System Studio
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Clear the box labeled *“Hide unsupported wizards.”* and click the **OK** button.
+Clear the box labeled *"Hide unsupported wizards."* and click the **OK** button.
 
 >   NOTE: on Apple\* macOS\* the Preferences dialog is located in the
 >   `Intel(R)System Studio` menu, not the `Window` menu.
@@ -90,21 +90,21 @@ Open the project properties so you can fine tune the build commands:
 Project > Properties > C/C++ Build > Tool Chain Editor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Make sure the “**Current builder:**” field is configured to use the “**Gnu Make
-Builder**.”
+Make sure the "**Current builder:**" field is configured to use the "**Gnu Make
+Builder**."
 
 ![](images/gnu-make-builder.png)
 
 Select the **C/C++ Build** item from the list of properties on the left. Make
-sure the “**Build Settings**” tab is selected and clear the “**Generate
-Makefiles automatically**” checkbox is cleared. Also, be sure the “**Build
-directory:**” field points to the root of your project (assuming that is where
+sure the "**Build Settings**" tab is selected and clear the "**Generate
+Makefiles automatically**" checkbox is cleared. Also, be sure the "**Build
+directory:**" field points to the root of your project (assuming that is where
 the project `Makefile` is located).
 
 ![](images/builder-settings.png)
 
-On the same property panel, select the “**Behavior**” tab and change the
-“**Build (Incremental build)**” field so it matches the `Makefile` build target
+On the same property panel, select the "**Behavior**" tab and change the
+"**Build (Incremental build)**" field so it matches the `Makefile` build target
 of interest.
 
 >   **NOTE:** The precise name of the make target of interest depends on how the
@@ -113,28 +113,36 @@ of interest.
 
 See the README file inside the sample you have imported for a description of the
 make target(s) in order to figure out what target name to put in this field
-(usually this information is in a section of the README titled *“for Linux\*
-command-line users”*). If the README file is an html file (`readme.html`) you
+(usually this information is in a section of the README titled *"for Linux\*
+command-line users"*). If the README file is an html file (`readme.html`) you
 can view it in the Eclipse edit window by double-clicking that file in the
 Eclipse Project Explorer.
 
 If it is unclear what the make target should be, leave this field blank or try
-using “release” as the make target (as shown in the screenshot below).
+using "release" as the make target (as shown in the screenshot below).
 
 ![](images/set-makefile-target.png)
 
 ### Build and run the project
 
-Now that your project is configured, you can perform a build and run as you
-would with any Eclipse project. If the make target is incorrect, you may see
-build errors in the build output console; in that case, review the `Makefile`
-and the included README for information regarding what the make targets do, and
-update the make target name in the “**Build (Incremental build)**” field on the
-“**Behavior**” tab of the “**C/C++ Build**” properties panel, as shown in the
-screenshot above.
+Now that your project is configured, you can perform a build and run the build
+sample as you would with any Eclipse project.
 
- 
+If a blank make target does not work, or does not build what you need,  review
+the sample's `Makefile` and README files for information regarding the make
+targets available in that sample's `Makefile`, and update the make target name
+in the "**Build (Incremental build)**" field on the "**Behavior**" tab of the
+"**C/C++ Build**" properties panel to match the desired make target.
 
-\* [Trademark Information][2].
+For example, if you want the Eclipse builder to perform a `make debug` with
+your project (assuming `debug` is a valid make target in your sample's
+`Makefile`), then change the "**Build (Incremental build)**" field on the
+"**Behavior**" tab of the "**C/C++ Build**" properties panel from an empty
+(blank) field to one that says `debug`. Now, when you perform a build of your
+project it will execute a `make debug` command.
+
+
+
+### \* [Trademark Information][2].
 
 [2]: https://www.intel.com/content/www/us/en/legal/trademarks.html
