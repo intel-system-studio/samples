@@ -39,9 +39,9 @@ Import a Sample into Intel System Studio (Eclipse)
 
 These instructions will import the sample as a user-managed makefile project.
 That is, all compile and link instructions are specified in a `Makefile`
-supplied with the sample. This means you must modify the sample’s `Makefile` to
+supplied with the sample. This means you must modify the sample's `Makefile` to
 make changes to the build process, for example, if you want to change compiler
-optimization options. This can be done by opening the sample’s `Makefile` in an
+optimization options. This can be done by opening the sample's `Makefile` in an
 Eclipse edit window, since a makefile is an editable text file.
 
 If a sample *does not* include a `Makefile` it cannot be imported using the
@@ -108,7 +108,7 @@ On the same property panel, select the "**Behavior**" tab and change the
 of interest.
 
 >   **NOTE:** The precise name of the make target of interest depends on how the
->   sample’s `Makefile` has been written. Many of the sample makefiles have
+>   sample's `Makefile` has been written. Many of the sample makefiles have
 >   multiple targets.
 
 See the README file inside the sample you have imported for a description of the
@@ -142,7 +142,6 @@ your project (assuming `debug` is a valid make target in your sample's
 project it will execute a `make debug` command.
 
 
-
-### \* [Trademark Information][2].
+### \* [Trademark Information][2]
 
 [2]: https://www.intel.com/content/www/us/en/legal/trademarks.html
