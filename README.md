@@ -105,8 +105,8 @@ the project `Makefile` is located).
 
 On the same property panel, select the "**Behavior**" tab and clear the
 "**Build (Incremental build)**" field so it is blank, as shown in the image
-below. Optionally, you can set this field so match one of the `Makefile` build
-make targets.
+below. Optionally, you can set this field to match one of the build targets
+in the `Makefile`.
 
 >   **NOTE:** If you choose to not use the default or "blank" make target you
 >   will have to inspect the sample's `Makefile` for options. The precise name
@@ -117,10 +117,10 @@ make targets.
 
 ### Build and run the project
 
-Now that your project is configured, you can perform a build and run the build
+Now that your project is configured, you can perform a build and run the built
 sample as you would with any Eclipse project.
 
-If a blank make target does not work, or does not build what you need,  review
+If the blank make target does not work, or does not build what you need, review
 the sample's `Makefile` and README files for information regarding the make
 targets available in that sample's `Makefile`, and update the make target name
 in the "**Build (Incremental build)**" field on the "**Behavior**" tab of the
