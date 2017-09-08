@@ -34,12 +34,6 @@
  */
 #define __TBB_TODO 0
 
-/*Check which standard library we use on OS X.*/
-/*__TBB_SYMBOL is defined only while processing exported symbols list where C++ is not allowed.*/
-#if !defined(__TBB_SYMBOL) && __APPLE__
-    #include <cstddef>
-#endif
-
 // note that when ICC is in use __TBB_GCC_VERSION might not closely match GCC version on the machine
 #define __TBB_GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
 
@@ -109,7 +103,7 @@
     /** C++11 mode detection macros for Intel C++ compiler (enabled by -std=c++0x option):
           __INTEL_CXX11_MODE__ for version >=13.0
           __STDC_HOSTED__ for version >=12.0 on Windows,
-          __GXX_EXPERIMENTAL_CXX0X__ for version >=12.0 on Linux and OS X. **/
+          __GXX_EXPERIMENTAL_CXX0X__ for version >=12.0 on Linux. **/
     //  On Windows, C++11 features supported by Visual Studio 2010 and higher are enabled by default
     #ifndef __INTEL_CXX11_MODE__
         #define __INTEL_CXX11_MODE__ ((_MSC_VER && __STDC_HOSTED__) || __GXX_EXPERIMENTAL_CXX0X__)
@@ -564,7 +558,7 @@
 #endif /* __FreeBSD__ */
 
 #if (__linux__ || __APPLE__) && __i386__ && defined(__INTEL_COMPILER)
-    /** The Intel compiler for IA-32 (Linux|OS X) crashes or generates
+    /** The Intel compiler for IA-32 (Linux) crashes or generates
         incorrect code when __asm__ arguments have a cast to volatile. **/
     #define __TBB_ICC_ASM_VOLATILE_BROKEN 1
 #endif

@@ -18,12 +18,12 @@
 * [Compile]
 * Windows*: icl
 *
-* Linux* and OS X*: icc -o <output file name>
+* Linux*: icc -o <output file name>
 *
 * Turning off optimization changes the state of the registers.
 * Windows*: icl /Od 
 *
-* Linux* and OS X*: icc -O0
+* Linux*: icc -O0
 *
 * [Output]
 * Shows the state of the FTZ and DAZ registers.

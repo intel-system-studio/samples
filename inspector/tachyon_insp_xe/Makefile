@@ -148,24 +148,12 @@ SOURCE = common/gui/$(UI)video.cpp src/$(SVERSION)/$(SVERSION).cpp src/video.cpp
 build_one:	$(EXE)
 
 run_one:
-ifeq ($(UI),mac)
-	export DYLD_LIBRARY_PATH="$(DYLD_LIBRARY_PATH):$(TBBLIBSPATH)"; ./$(EXE) $(ARGS) dat/$(DATASET).dat
-else
 	./$(EXE) $(ARGS) dat/$(DATASET).dat
-endif
 
 $(EXE): $(SOURCE)
-ifeq ($(UI),mac)
-	mkdir -p $(APPRES)/English.lproj $(NAME).$(VERSION).app/Contents/MacOS
-	$(PBXCP) xcode/English.lproj/main.nib $(APPRES)/English.lproj
-	$(PBXCP) xcode/Info.plist $(APPRES)
-endif
 	$(CXX) $(MYCXXFLAGS) -o $@ $(SOURCE) $(LIBS)
 	$(RM) *.o
 
 clean: VERSION = *
 clean:
 	$(RM) $(EXE) *.o *.d
-ifeq ($(UI),mac)
-	rm -rf $(NAME).*
-endif

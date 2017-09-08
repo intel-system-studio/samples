@@ -30,7 +30,7 @@
  *
  * Windows*: /O1, /O2, /O3
  *
- * Linux* and OS X*: -O1, -O2, -O3
+ * Linux*: -O1, -O2, -O3
  *
  */
 

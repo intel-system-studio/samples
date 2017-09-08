@@ -46,12 +46,8 @@ MULTIARCH = sparc64
 endif
 MULTIARCHTUPLE ?= $(MULTIARCH)-linux-gnu
 
-# detecting UI ("mac", "x" or "con")
-ifeq ($(shell uname),Darwin)
-  UI ?= mac
-else
-  UI ?= $(shell sh -c "[ -f /usr/X11R6/lib$(x64)/libX11.so -o -f /usr/lib$(x64)/libX11.so -o -f /usr/lib/$(MULTIARCHTUPLE)/libX11.so ] && echo x")
-endif
+# detecting UI ("x" or "con")
+UI ?= $(shell sh -c "[ -f /usr/X11R6/lib$(x64)/libX11.so -o -f /usr/lib$(x64)/libX11.so -o -f /usr/lib/$(MULTIARCHTUPLE)/libX11.so ] && echo x")
 
 ifeq ($(UI),x)
   EXE = $(NAME)$(SUFFIX)
@@ -65,21 +61,10 @@ ifeq ($(UI),x)
   endif # libXext
 
 else # ! X
-  ifeq ($(UI),mac)
-    CXX_UI?=g++
-    LIBS += -framework OpenGL -framework Foundation -framework Cocoa
-    MACUISOURCES = $(GUIFOLDER)/xcode/guiExample/OpenGLView.m $(GUIFOLDER)/xcode/guiExample/main.m $(GUIFOLDER)/xcode/guiExample/guiAppDelegate.m 
-    MACUIOBJS = OpenGLView.o main.o guiAppDelegate.o
-    APPRES = $(NAME)$(SUFFIX).app/Contents/Resources
-    EXE = $(NAME)$(SUFFIX).app/Contents/MacOS/$(NAME)$(SUFFIX)
-
-  else # ! OS X*
-
-    EXE = $(NAME)$(SUFFIX)
-    ifeq (,$(strip $(UI)))
-       UI = con
-       $(warning Note: no graphics output capability detected, building for console output.)
-    endif
-  endif # OS X*
+  EXE = $(NAME)$(SUFFIX)
+  ifeq (,$(strip $(UI)))
+     UI = con
+     $(warning Note: no graphics output capability detected, building for console output.)
+  endif
 endif # X
 endif # Windows vs. other

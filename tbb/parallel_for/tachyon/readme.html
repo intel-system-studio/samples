@@ -405,8 +405,6 @@
 				<dd>Contains data sets for running the example.
 				<dt><a href="msvs/">msvs</a>
 				<dd>Contains Microsoft* Visual Studio* workspace for building and running the example (Windows* systems only).
-				<dt><a href="xcode/">xcode</a>
-				<dd>Contains Xcode* IDE workspace for building and running the example (OS X* systems only).
 			</dl>
 			<p>For information about the minimum supported version of IDE, see <a href="http://software.intel.com/en-us/articles/intel-threading-building-blocks-release-notes">release notes.</a></p>
 		</div>
@@ -444,7 +442,7 @@
 				<dd>Build and run as usual, but build with the specified GUI driver: console, GDI+*, Direct2D*, X11, or OpenGL*
 					(see the description of the <a href="../../common/index.html">common GUI code</a>
 					for more information on available graphics support).
-					For Linux* and OS X* systems, the best available driver is detected automatically by the Makefile.
+					For Linux* systems, the best available driver is detected automatically by the Makefile.
 					For Windows* systems, UI=gdi is the default GUI driver; compiling with UI=d2d may offer superior
 					performance, but can only be used if the Microsoft* DirectX* SDK is installed on your system.
 					Use UI=con to build without the GUI for use in making performance measurements

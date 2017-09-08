@@ -49,7 +49,7 @@
       <span class="filepath">ipp_blur_rotate_sample.zip</span>
       (Windows*), or 
       <span class="filepath">ipp_blur_rotate_sample.tgz</span>
-      (Linux* OS, OS X*). 
+      (Linux* OS). 
     </p>
  
     <div class="Note"><h3 class="NoteTipHead">Note</h3>The 
@@ -80,12 +80,6 @@ video *v;
 #define VK_RIGHT    XK_Right
 #define VK_DOWN     XK_Down
 #define VK_ESCAPE   XK_Escape
-#elif defined __APPLE__
-#define VK_LEFT     0xf702
-#define VK_UP       0xf700
-#define VK_RIGHT    0xf703
-#define VK_DOWN     0xf701
-#define VK_ESCAPE   0x1B
 #endif
 
 IppStatus warpAffine(Ipp8u* pSrc, IppiSize srcSize, int srcStep, Ipp8u* pDst, IppiSize dstSize, int dstStep, const double coeffs[2][3])
@@ -227,8 +221,6 @@ void ipp_blur_rotate::process(const drawing_memory &amp;dm)
     #if defined _WIN32
         sprintf_s(titleBuffer, sizeof(titleBuffer)/sizeof(titleBuffer[0]), "Intel&reg; IPP: blur + rotate tutorial : rotation angle %.0f : box filter mask size {%d, %d}", angle - 360.0 * floor(angle / 360.0), maskSize.width, maskSize.height);
     #elif (defined unix || defined UNIX)
-        sprintf(titleBuffer, "Intel&reg; IPP: blur + rotate tutorial : rotation angle %.0f : box filter mask size {%d, %d}", angle - 360.0 * floor(angle / 360.0), maskSize.width, maskSize.height);
-    #elif defined __APPLE__
         sprintf(titleBuffer, "Intel&reg; IPP: blur + rotate tutorial : rotation angle %.0f : box filter mask size {%d, %d}", angle - 360.0 * floor(angle / 360.0), maskSize.width, maskSize.height);
     #endif
         v-&gt;title = titleBuffer;

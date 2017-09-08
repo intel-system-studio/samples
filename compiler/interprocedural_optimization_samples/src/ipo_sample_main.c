@@ -27,7 +27,7 @@
 // 
 // Windows*: /Qipo
 // 
-// Linux* and OS X*: -ipo
+// Linux*: -ipo
 //
 
 #define N 1000

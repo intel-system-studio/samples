@@ -3,7 +3,6 @@ Intel(R) Threading Building Blocks. Shortpath sample
 License Information Follows
 ---------------------------
 * msvs/*.*
-* xcode/*.*
 * *.*
 
 Copyright 2016 Intel Corporation

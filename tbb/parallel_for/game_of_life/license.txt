@@ -4,7 +4,6 @@ License Information Follows
 ---------------------------
 * msvs/*.*
 * src/*.*
-* xcode/*.*
 * *.*
 
 Copyright 2016 Intel Corporation

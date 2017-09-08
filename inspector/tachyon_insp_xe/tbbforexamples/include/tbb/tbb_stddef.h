@@ -97,7 +97,7 @@
 #       define __TBB_x86_32 1
 #   endif
 #else /* Assume generic Unix */
-#   if !__linux__ && !__APPLE__
+#   if !__linux__
 #       define __TBB_generic_os 1
 #   endif
 #   if __x86_64__

@@ -136,11 +136,6 @@ else
 endif
 
 $(EXE): $(SOURCE)
-ifeq ($(UI),mac)
-	mkdir -p $(APPRES)/English.lproj $(NAME).$(VERSION).app/Contents/MacOS
-	$(PBXCP) xcode/English.lproj/main.nib $(APPRES)/English.lproj
-	$(PBXCP) xcode/Info.plist $(APPRES)
-endif
 	$(CXX) $(MYCXXFLAGS) -o $@ $(SOURCE) $(LIBS)
 	$(RM) *.o
 

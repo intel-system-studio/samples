@@ -101,7 +101,7 @@ const char* GetBaseStatusString(Status status)
 #define __USE_LARGEFILE
 #endif
 
-#if defined __APPLE__ || defined (INTEL64) || defined(__USE_LARGEFILE64)
+#if defined (INTEL64) || defined(__USE_LARGEFILE64)
 /* native fopen is 64-bits */
 #define file_fopen fopen
 #else
@@ -113,13 +113,13 @@ const char* GetBaseStatusString(Status status)
 /* binary file IO */
 #define file_fread  fread
 
-#if defined unix || defined UNIX || defined __APPLE__
+#if defined unix || defined UNIX
 unsigned long long file_fseek(FILE *fd, long long position, int mode)
 {
 #if defined ANDROID
     return fseek(fd, (size_t)position, mode);
 #else
-#if defined __APPLE__ || defined INTEL64
+#if defined INTEL64
     return fseeko(fd, (off_t)position, mode);
 #else
     return fseeko64(fd, (__off64_t)position, mode);

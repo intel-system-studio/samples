@@ -3,7 +3,6 @@ Intel(R) Threading Building Blocks. Logic_sim sample
 License Information Follows
 ---------------------------
 * msvs/*.*
-* xcode/*.*
 * *.*
 
 Copyright 2016 Intel Corporation

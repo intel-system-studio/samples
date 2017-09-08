@@ -22,7 +22,7 @@
 // Description:
 // Registers the current clock tick value in m_start_clock_tick, current time value in m_start_time
 // Microsoft Windows* uses __rdtsc for clock ticks and QueryPerformanceFrequency/QueryPerformanceCounter for time
-// Linux*/OS X* uses the rdtsc instruction for clock ticks and get_timeofday for time
+// Linux* uses the rdtsc instruction for clock ticks and get_timeofday for time
 void CUtilTimer::start() {
 #ifdef _WIN32
 	
@@ -40,7 +40,7 @@ void CUtilTimer::start() {
 #else
 
 	// Clock ticks
-	// On Linux and OS X, rdtsc instruction is used since we don't have intrinsic equivalent of __rdtsc()
+	// On Linux, rdtsc instruction is used since we don't have intrinsic equivalent of __rdtsc()
 	unsigned lower, higher;
 	// rdtsc instruction returns a 64 bit clock tick 
 	// whose lower 32 bits is stored in EAX and higher 32 bits are stored in EDX register
@@ -59,7 +59,7 @@ void CUtilTimer::start() {
 // Description:
 // Registers the current clock tick value in m_end_clock_tick, current time value in m_end_time
 // Windows uses __rdtsc for clock ticks and QueryPerformanceFrequency/QueryPerformanceCounter for time
-// Linux*/OS X* uses the rdtsc instruction for clock ticks and get_timeofday for time
+// Linux* uses the rdtsc instruction for clock ticks and get_timeofday for time
 void CUtilTimer::stop() {
 #ifdef _WIN32
 

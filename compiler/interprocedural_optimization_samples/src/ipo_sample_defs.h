@@ -27,7 +27,7 @@
 // 
 // Windows*: /Qipo
 // 
-// Linux* and OS X*: -ipo
+// Linux*: -ipo
 //
 
 void init(float a[], int n);

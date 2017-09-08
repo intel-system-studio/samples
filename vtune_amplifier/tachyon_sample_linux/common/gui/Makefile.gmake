@@ -45,12 +45,8 @@ have_libX11_3 := $(wildcard  /usr/X11R6/lib$(x64)/libX11.so)
 have_libXext_3 := $(wildcard  /usr/X11R6/lib$(x64)/libXext.so)
 
 
-# detecting UI ("mac", "x" or "con")
-ifeq ($(shell uname),Darwin)
-UI ?= mac
-else
+# detecting UI ("x" or "con")
 UI ?= $(shell sh -c "[ -f /usr/X11R6/lib$(x64)/libX11.so -o -f /usr/lib$(x64)/libX11.so ] && echo x || echo con")
-endif
 
 ifeq ($(UI),x)
 EXE = $(NAME)$(SUFFIX)
@@ -64,24 +60,8 @@ CXXFLAGS += -DX_NOSHMEM
 endif # libXext
 
 else # ! X
-ifeq ($(UI),mac)
-TBBLIBSPATH ?= /Library/Frameworks/TBB.framework/Libraries
-CXXFLAGS += -arch i386 -mmacosx-version-min=10.4 -msse3
-LIBS += -framework OpenGL -framework AGL -framework Carbon -L$(TBBLIBSPATH)
-APPRES = $(NAME)$(SUFFIX).app/Contents/Resources
-EXE = $(NAME)$(SUFFIX).app/Contents/MacOS/$(NAME)$(SUFFIX)
-ifneq (,$(shell xcode-select -print-path 2>/dev/null))
-PBXCP = $(shell xcode-select -print-path)/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp
-else
-# look in /System and /Developer
-PBXCP = $(wildcard /[SD]*/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp)
-endif
-PBXCP +=  -resolve-src-symlinks -exclude .DS_Store -exclude CVS -exclude .svn
-
-else # ! Mac
 UI = con
 EXE = $(NAME)$(SUFFIX)
 
-endif # Mac
 endif # X
 endif # Windows vs. other
