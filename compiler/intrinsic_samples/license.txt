@@ -3,7 +3,7 @@ Intrinsics samples
 License Information Follows
 ---------------------------
 * intrin_dot_sample.c, intrin_double_sample.c, intrin_ftz_sample.c
-* readme.html, Makefile
+* readme.html, Makefile, build.bat
 
 Copyright (C) Intel Corporation
 
