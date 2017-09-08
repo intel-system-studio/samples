@@ -5,6 +5,6 @@ License Information Follows
 * msvs/*.*
 * *.*
 
-Copyright 2016 Intel Corporation
+Copyright (C) Intel Corporation
 
 * license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/

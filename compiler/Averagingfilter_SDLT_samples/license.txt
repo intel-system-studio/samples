@@ -7,6 +7,6 @@ License Information Follows
 * readme.html, Makefile, Build.bat
 * res\nahelam.bmp, res\silverfalls.bmp
 
-Copyright 2011-2016 Intel Corporation
+Copyright (C) Intel Corporation
 
 * license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/  

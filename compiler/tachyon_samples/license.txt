@@ -16,7 +16,7 @@ License Information Follows
 * trace.serial.cpp build_with_serial.cpp build_with_openmp_solution.cpp build_with_openmp.cpp
 * Makefile Makefile.gmake
 
-Copyright 2011-2016 Intel Corporation
+Copyright (C) Intel Corporation
 
 * license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/  
 

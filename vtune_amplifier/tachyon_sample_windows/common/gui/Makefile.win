@@ -1,4 +1,4 @@
-# Copyright 2005-2009 Intel Corporation.  All Rights Reserved.
+# Copyright (C) Intel Corporation.  All Rights Reserved.
 #
 # The source code contained or described herein and all documents related
 # to the source code ("Material") are owned by Intel Corporation or its

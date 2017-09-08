@@ -1,6 +1,6 @@
 @echo off
 REM
-REM Copyright 2005-2009 Intel Corporation.  All Rights Reserved.
+REM Copyright (C) Intel Corporation.  All Rights Reserved.
 REM
 REM The source code contained or described herein and all documents related
 REM to the source code ("Material") are owned by Intel Corporation or its
