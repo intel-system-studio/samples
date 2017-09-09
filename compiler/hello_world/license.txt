@@ -5,6 +5,6 @@ License Information Follows
 * src\*.* 
 * readme.html 
 
-Copyright (C) Intel Corporation 
+Copyright 2017 Intel Corporation 
 
 * license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/ 

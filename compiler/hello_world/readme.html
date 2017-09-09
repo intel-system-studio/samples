@@ -213,22 +213,23 @@
 		76H+s6mNX3030df5neGq1OtbZDUbOIlFoFaha0L9j0qfCHeAerDqVtODU8+hNThZfR1fHHbpG6kx
 		9Or1LzUmVVz+HJXDAAAAAElFTkSuQmCC">
 		
-		<h1 class="title">Intel® C++ Compiler Hello World Sample</h1>
+		<h1 class="title">Intel&reg; C++ Compiler Hello World Sample</h1>
 	</div>
 
 	<p>This is a simple "Hello World" example that illustrates how to test whether or not your code was compiled using Intel® C++ Compiler. 
-	This sample will work from Eclipse* or from the Command Line. </p>
+	This sample works on Linux* OS using Eclipse* IDE or using the command line, or on Windows* OS using Microsoft Visual Studio*</p>
 	
 	<div class="changes">
 		<div class="h3-alike">System Requirements:</div><input type="checkbox">
 		<ul class="show-hide disc">
 			<li>Hardware:
 				<ul>
-					<li>Any Intel&reg; processor like 2nd Generation Intel&reg; Core&#8482; i3, i5, 
-					or i7 processors and Intel&reg; Xeon&reg; E3 or E5 processor family</li>
+					<li>Host system with an Intel&reg; processor. For example Intel&reg; Core&#8482;,
+					or Intel&reg; Xeon&reg; processor family</li>
+					<li>Optional: Target system with an Intel&reg; processor, running Linux* OS</li>
 				</ul>
 			</li>
-			<li>For Linux*:
+			<li>For Linux* OS:
 				<ul>
 					<li>One of the following compiler toolchain environments:
 					<ul>
@@ -238,6 +239,12 @@
 						
 					</ul>
 					</li>
+					<li>Intel&reg; System Studio 2017 Composer Edition or newer</li>
+				</ul>
+			</li>
+			<li>For Windows* OS:
+				<ul>
+					<li>Microsoft Visual Studio 2013* or newer</li>
 					<li>Intel&reg; System Studio 2017 Composer Edition or newer</li>
 				</ul>
 			</li>
@@ -257,7 +264,7 @@
 
 	<h3>Build Instructions</h3>
 	<div class="changes">
-	<div>For Eclipse usage with the Intel® C++ Compiler: <input type="checkbox">
+	<div>Linux* OS, using Eclipse* IDE, and Intel® C++ Compiler: <input type="checkbox">
 		<ol class="show-hide disc">
 			<li>Open Eclipse* and import the sample into your workspace from Eclipse* menu: (<i>File &gt; Import &gt; General &gt; Existing Projects into Workspace </i>) </li>
 			<li>Make sure you are using the Intel&reg; System Studio toolchain from (<i>Project Properties &gt; C/C++ Build &gt; Tool Chain Editor &gt; Current toolchain</i>).</li>
@@ -293,12 +300,12 @@
 			</li>
 			<li>Build the project. Use one of the following build configurations <b>Release</b> or <b>Debug</b> to build the different variants.</li>
 			<li>Transfer the application on the Linux* based target by running the sample application</li>
-			<li>You will notice the output "<i><b>Intel(R) C Compiler was used!</b></i>"</li>
+			<li>You will notice the output "<i><b>Intel(R) C++ Compiler was used for compiling this sample</b></i>"</li>
 		</ol>	
 	</div>
 	</div>
 	<div class="changes">
-	<div>For Eclipse usage with a non-Intel® Compiler: <input type="checkbox">
+	<div>Linux* OS, using Eclipse* IDE, and a non-Intel® Compiler: <input type="checkbox">
 		<ol class="show-hide disc">
 			<li>Change the toolchain used (<i>Project Properties &gt; C/C++ Build &gt; Tool Chain Editor &gt; Current toolchain</i>) to <i>Cross GCC</i>.</li>
 			<li>Make sure you have the correct compiler command settings.</li>	
@@ -311,13 +318,13 @@
 			</li>
 			<li>Build the project. Use one of the following build configurations <b>Release</b> or <b>Debug</b> to build the different variants.</li>
 			<li>Transfer the application on the Linux* based target by running the sample application</li>
-			<li>You will notice the output "<i><b>Intel(R) C Compiler was NOT used!</b></i>"</li>
+			<li>You will notice the output "<i><b>Intel(R) C++ Compiler was not used for compiling this sample</b></i>"</li>
 		</ol>
 	</div>
 	</div>
 
 	<div class="changes">
-	<div>For Command Line usage with the Intel® C++ Compiler: <input type="checkbox">
+	<div>Linux* OS, using command line, and Intel® C++ Compiler: <input type="checkbox">
 		<ol class="show-hide disc">
 			<li>Open a Terminal screen</li>
 			<li>Configure the compiler variables.
@@ -331,17 +338,17 @@
 			</li>
 			<li>Change directory to your sample's path.</li>
 			<li>Compile the sample using Intel&reg; C Compiler.
-				<br><code><b>icc -gnu-prefix=$GNU_PREFIX --sysroot=$SYSROOT ./src/HelloWorld.c -o hello_world_intel</b></code>
+				<br><code><b>icc -gnu-prefix=$GNU_PREFIX --sysroot=$SYSROOT ./src/hello_world.c -o hello_world_intel</b></code>
 			</li>
 			<li>Transfer the binary file <i>hello_world_intel</i> to the Linux* based target.</li>
 			<li>Run the binary file on your target system <b>./hello_world_intel</b></li>
 				<div class="note">You might need to add the executable permission using <i><b>chmod +x hello_world_intel</b></i></div>
-			<li>You will notice the output "<i><b>Intel(R) C Compiler was used!</b></i>"</li>
+			<li>You will notice the output "<i><b>Intel(R) C++ Compiler was used for compiling this sample</b></i>"</li>
 		</ol>	
 	</div>
 	</div>
 	<div class="changes">
-	<div>For Command Line usage with a non-Intel® Compiler: <input type="checkbox">
+	<div>Linux* OS, using command line, and a non-Intel® Compiler: <input type="checkbox">
 		<ol class="show-hide disc">
 		<li>Open a Terminal screen</li>
 		<li>Change directory to your sample's path.</li>
@@ -349,7 +356,37 @@
 		<li>Transfer the binary file <i>hello_world_nonIntel</i> to the Linux* based target.</li>
 		<li>Run the binary file on your target system <b>./hello_world_nonIntel</b></li>
 			<div class="note">You might need to add the executable permission using <i><b>chmod +x hello_world_nonIntel</b></i></div>
-		<li>You will notice the output "<i><b>Intel(R) C Compiler was NOT used!</b></i>"</li>
+		<li>You will notice the output "<i><b>Intel(R) C++ Compiler was not used for compiling this sample</b></i>"</li>
+		</ol>
+	</div>
+	</div>	
+	<div class="changes">
+	<div>Microsoft Windows* OS, using Microsoft Visual Studio*, and Intel® C++ Compiler: <input type="checkbox">
+		<ol class="show-hide disc">
+		<li>Double-click on the <i>hello_world.sln</i> solution file.
+                The solution will open in Microsoft Visual Studio*</li>
+                <li>Compile the sample by selecting <b>BUILD &gt; Build Solution</b> menu item or by pressing <b>F6</b></li>
+		<li>Navigate to the build directory (default directory name: <i><var>sample_path</var>\Debug</i>)
+                in <b>File Explorer</b></li>
+		<li>Type <i>cmd</i> in the File Explorer's <b>Address Bar</b> to start cmd console</li>
+		<li>Type <i>hello_world</i> to run the sample</li>
+		<li>You will notice the output "<i><b>Intel(R) C++ Compiler was used for compiling this sample</b></i>"</li>
+		</ol>
+	</div>
+	</div>	
+	<div class="changes">
+	<div>Microsoft Windows* OS, using Microsoft Visual Studio*, and Visual C++ Compiler*: <input type="checkbox">
+		<ol class="show-hide disc">
+		<li>Double-click on the <i>hello_world.sln</i> solution file.
+                The solution will open in Microsoft Visual Studio*</li>
+		<li>Right click on the <i>hello_world</i> project in <b>Solution Explorer</b></li>
+                <li>Select <b>Intel Compiler &gt; Use Visual C++</b></li>
+                <li>Compile the sample by selecting <b>BUILD &gt; Build Solution</b> menu item or by pressing <b>F6</b></li>
+		<li>Navigate to the build directory (default directory name: <i><var>sample_path</var>\Debug</i>)
+                in <b>File Explorer</b></li>
+		<li>Type <i>cmd</i> in the File Explorer's <b>Address Bar</b> to start cmd console</li>
+		<li>Type <i>hello_world</i> to run the sample</li>
+		<li>You will notice the output "<i><b>Intel(R) C++ Compiler was not used for compiling this sample</b></i>"</li>
 		</ol>
 	</div>
 	</div>	
