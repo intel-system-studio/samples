@@ -34,11 +34,11 @@
 								<inputType id="intel.c.compilestep.input.568923297" name="C Sources" superClass="intel.c.compilestep.input"/>
 							</tool>
 							<tool id="intel.tool.cpp.linker.iss.base.286102698" name="Intel C++ Linker" superClass="intel.tool.cpp.linker.iss.base">
-								<option defaultValue="false" id="intel.linkstep.shared.413098587" superClass="intel.linkstep.shared" valueType="boolean"/>
+								<option defaultValue="true" id="intel.linkstep.shared.413098587" superClass="intel.linkstep.shared" valueType="boolean"/>
 							</tool>
 							<tool id="intel.tool.c.linker.iss.base.1634903829" name="Intel C Linker" superClass="intel.tool.c.linker.iss.base">
 								<option id="intel.linkstep.perflibs.daal.156126439" name="Use Intel(R) Data Analytics Acceleration Library" superClass="intel.linkstep.perflibs.daal" value="perflibs.daal.none" valueType="enumerated"/>
-								<option defaultValue="false" id="intel.linkstep.shared.364141982" superClass="intel.linkstep.shared" valueType="boolean"/>
+								<option defaultValue="true" id="intel.linkstep.shared.364141982" superClass="intel.linkstep.shared" valueType="boolean"/>
 								<inputType id="intel.linkstep.input.938742273" superClass="intel.linkstep.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -70,7 +70,7 @@
 					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.release.111504023." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.292593243" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
 							<targetPlatform archList="all" id="cdt.managedbuild.targetPlatform.gnu.cross.1305698977" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder buildPath="${workspace_loc:/HelloWorld}/Release" id="cdt.managedbuild.builder.gnu.cross.644425695" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/hello_world}/Release" id="cdt.managedbuild.builder.gnu.cross.644425695" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1162671622" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.1332561818" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.498096679" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
@@ -102,15 +102,15 @@
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="HelloWorld.cdt.managedbuild.target.gnu.cross.exe.664101713" name="Executable" projectType="cdt.managedbuild.target.gnu.cross.exe"/>
+		<project id="hello_world.cdt.managedbuild.target.gnu.cross.exe.664101713" name="Executable" projectType="cdt.managedbuild.target.gnu.cross.exe"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope" versionNumber="2">
 		<configuration configurationName="Release">
-			<resource resourceType="PROJECT" workspacePath="/HelloWorld"/>
+			<resource resourceType="PROJECT" workspacePath="/hello_world"/>
 		</configuration>
 		<configuration configurationName="Debug">
-			<resource resourceType="PROJECT" workspacePath="/HelloWorld"/>
+			<resource resourceType="PROJECT" workspacePath="/hello_world"/>
 		</configuration>
 	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
