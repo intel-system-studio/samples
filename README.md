@@ -72,12 +72,13 @@ Clear the box labeled *"Hide unsupported wizards."* and click the **OK** button.
 File > Import > C/C++ > Existing Code as Makefile Project
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click the **FINISH** button.
-
->   Locate the folder that contains the `Makefile` for the sample you are
->   importing.
+>   Locate the folder that contains the `Makefile` corresponding to the sample
+>   you are importing (in other words, the folder you identify in this step is
+>   the one that contains the project `Makefile`).
 
 ![](images/import-makefile-sample.png)
+
+Click the **FINISH** button.
 
 ### Modify toolchain build details
 
