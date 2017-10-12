@@ -27,6 +27,14 @@ download** button for details on how to clone this repo.
 
 [1]: https://github.com/intel-system-studio/samples/archive/master.zip
 
+>   **NOTE:** In case of a few of these samples you might need to source the
+>   *compilervars.sh* script. You can do this by running the following command
+>   
+>   Command: source {iss-install-directory}/compilers_and_libraries_2018/linux/
+>   bin/compilervars.sh
+>   
+>   This would set up the environment for examples such as MKL, IPP samples.
+
 Import a Sample into Intel System Studio (Eclipse)
 --------------------------------------------------
 
