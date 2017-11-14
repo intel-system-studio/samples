@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Compare with Previous Result" />
+<meta name="DC.Relation" scheme="URI" content="GUID-4A555FCA-2EAD-4D6B-9AAB-62C99BD9EE1C.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-B1B8C5B6-38A8-4B82-99C4-8AEEF48F6098.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-546F6F5C-DF69-4E78-8534-102A845441A5" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Compare with Previous Result</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-546F6F5C-DF69-4E78-8534-102A845441A5">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Compare with Previous Result</h1>
+<div><p></p>
+<p><img src="GUID-02914B5D-1A7D-4B4B-8A24-9534BDA714E4-low.gif" /> You optimized your code to apply a loop interchange mechanism that gave you 
+		<span>27</span> seconds of improvement in the application execution time. To understand whether you got rid of the hotspot and what kind of optimization you got per function, re-run the Advanced Hotspots analysis on the optimized code and compare results: 
+	 </p>
+<ol id="GUID-01A44331-6964-41AA-B864-A2C584DEE595"><li id="GUID-1B0152D0-8364-495E-94F5-13536BC28C36"><p id="GUID-49FCDA7A-60F0-4297-A686-82C4E908423C"><a href="#GUID-1B8E0569-DEB5-49C4-AE63-DF3DAE2DDA4E">Compare results before and after optimization.</a></p>
+</li>
+<li id="GUID-521D137C-DFB7-4E8E-95B0-F1D5F5D818F9"><p id="GUID-027AA072-AFEA-49E9-9B55-927E88CD0A1A"><a href="#GUID-27B3461E-4C8B-4693-927F-2565EDE6D7AB">Identify the performance gain.</a></p>
+</li>
+</ol>
+<div class="section" id="GUID-1B8E0569-DEB5-49C4-AE63-DF3DAE2DDA4E"><h2 class="sectiontitle">Compare Results Before and After Optimization</h2><ol id="GUID-A4F0EB3C-0413-4298-915E-F600D7E1D3D8"><li id="GUID-431F6FA7-8B23-45D6-B765-BF0192A893B8"><p id="GUID-14F7A5EB-F138-43AC-AEAC-B51B83722ABA">From the product menu select 
+				<strong>New &gt; Advanced Hotspots Analysis</strong>. 
+			 </p>
+<p id="GUID-771C1A3B-06D8-4260-9C0F-747302FF74E3"> VTune Amplifier reruns Advanced Hotspots analysis for the updated 
+				<samp class="codeph" id="GUID-B31D6385-72C0-4792-99E3-73FB00F5DA4F">matrix</samp> target and creates a new result (for example, r002ah) that opens automatically. 
+			 </p>
+</li>
+<li><p id="GUID-0176B471-44A3-4FC9-B28E-FA5530C076FB">Click the 
+				<strong>Compare Results</strong><img src="GUID-E632A67E-51CD-4676-B252-0F411DF5A068-low.gif" /> button on the 
+				<span>Intel&reg; VTune&#8482; Amplifier</span> toolbar. 
+			 </p>
+<p id="GUID-78B81396-5EB6-4EA9-9253-BE6F899E5A76">The 
+				<b class="uicontrol" id="GUID-1BA913F2-F82E-40DE-9E59-621EF40367CA">Compare Results</b> window opens. 
+			 </p>
+</li>
+<li id="GUID-7CA7569B-FC1E-4755-8615-3A41EBFCFFB2"><p id="GUID-4D233877-1307-41B5-80ED-510BC8CF4DC8">Specify the Advanced Hotspots analysis results you want to compare and click the 
+				<strong id="GUID-B921C555-D2FA-4934-9865-86CEF5730864">Compare Results</strong> button. 
+			 </p>
+<p id="GUID-D200E10E-2FC8-47E8-8472-730F01A14D57"><img src="GUID-5C751D51-1F1D-421F-BB2F-B6BAB1554B27-low.gif" /></p>
+<p>The 
+				<strong>Summary</strong> window opens displaying application-level performance statistics for both results and their difference values. 
+			 </p>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-27B3461E-4C8B-4693-927F-2565EDE6D7AB"><h2 class="sectiontitle">Identify the Performance Gain</h2><p>The Result Summary section of the 
+		  <strong>Summary</strong> window shows difference information as follows: 
+		  <strong>&lt;Result 1 
+			 <em>metric</em>&gt; – &lt;Result 2 
+			 <em>metric</em>&gt; = &lt;<em>metric</em> Difference&gt;</strong>. 
+		</p>
+<p>You see that after optimization all metrics values have reduced significantly, though CPI Rate is still an issue (&gt;1). 
+		</p>
+<p><img src="GUID-717B9F56-76C1-4631-B232-E2B149B50247-low.gif" /></p>
+<p>Switch to the 
+		  <strong>Bottom-up</strong> window to view the CPU time usage per function for each result and their differences side by side. 
+		</p>
+<p><img src="GUID-207AA755-D278-46C8-BE19-3C4EA17BB94A-low.gif" width="700" /></p>
+<p>Since for the second run you removed the 
+		  <samp class="codeph">multiply1</samp> function, its time shows up in the 
+		  <strong>Difference</strong> column as a performance gain. 
+		</p>
+<p>Click the 
+		  <strong>CPU Time:r001ah</strong> column to sort the data in the grid by this column. 
+		</p>
+<p><img src="GUID-EA65BF45-75AD-47E3-ACA4-7370A231FEDF-low.gif" width="700" /></p>
+<p>The 
+		  <samp class="codeph">multiply2</samp> function shows up on top as the biggest CPU Time hotspot for the result 
+		  <samp class="codeph">r001ah</samp>, though it performs better than 
+		  <samp class="codeph">multiply1</samp>. You may try to optimize the code further using more advanced algorithms, for example, block-structuring access to matrix data to maximize cache reuse. 
+		</p>
+</div>
+<div class="section" id="GUID-DF9BBEC9-6B7A-4E32-91D5-02AC7A976827"><h2 class="sectiontitle">Key Terms</h2><p id="GUID-A06CE8CB-ED0A-4648-BAAB-A4F11E97A4D2"><ul id="GUID-C01E2806-7BB6-48FC-B04B-A248BB953E19"><li id="GUID-37B50E76-BD07-43A8-A689-DA078947D6E0"><p id="GUID-8BD2BE35-A188-4E8B-AC1F-A6B5AB335A91"><a href="GUID-936F0115-97D4-484C-8778-CFDEC6096945.html#ELAPSED_TIME">Elapsed time</a></p>
+</li>
+<li><p><a href="GUID-936F0115-97D4-484C-8778-CFDEC6096945.html#EBS_METRICS">Event-based metrics</a></p>
+</li>
+</ul>
+</p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-4A555FCA-2EAD-4D6B-9AAB-62C99BD9EE1C.html">Finding Hotspots</a></div>
+</div>
+<div class="See Also"><h2>See Also</h2>
+<div class="linklist">
+<div><a href="GUID-B1B8C5B6-38A8-4B82-99C4-8AEEF48F6098.html">Summary 
+		  </a></div></div></div>
+</body>
+</html>

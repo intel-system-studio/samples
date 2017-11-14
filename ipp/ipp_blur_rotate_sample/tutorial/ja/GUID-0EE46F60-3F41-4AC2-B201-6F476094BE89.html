@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="画像を回転してブラーするアプリケーションの作成" />
+<meta name="DC.subject" content="コードのコンパイルとリンク, 画像を回転してブラーするアプリケーションの作成" />
+<meta name="keywords" content="コードのコンパイルとリンク, 画像を回転してブラーするアプリケーションの作成" />
+<meta name="DC.Relation" scheme="URI" content="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html" />
+<meta name="prodname" content="" />
+<meta name="version" content="9.0" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-0EE46F60-3F41-4AC2-B201-6F476094BE89" />
+<meta name="DC.Language" content="ja-JP" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>画像を回転してブラーするアプリケーションの作成</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-0EE46F60-3F41-4AC2-B201-6F476094BE89">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt">チュートリアル: インテル® IPP 2018 (Beta) による画像の回転とブラー</p>
+
+
+<h1 class="topictitle1">画像を回転してブラーするアプリケーションの作成</h1>
+<div><p>BMP ファイルから画像をロードし、ユーザーが左/右または上/下矢印キーを押した後に画像を回転してブラーする単純なアプリケーションのサンプルコードを以下に示します。</p>
+<p>このアプリケーションのソースコードは、<a href="https://software.intel.com/en-us/product-code-samples" target="_blank">インテル&reg; ソフトウェア製品のサンプルとチュートリアル</a> (英語) からダウンロードできます。</p>
+<div class="Note"><h3 class="NoteTipHead">注</h3> <span class="filepath">ipp_blur_rotate.cpp</span> は、インテル&reg; Parallel Studio XE 内にインストールされるインテル&reg; IPP 用に作成されたサンプルコードです。このサンプルコードは、インテル&reg; System Studio のようなほかの製品スイート内でも利用できます (グラフィカル・レンダリング部分を除く)。</div>
+<pre><code class="language-clike">/* C++ ソースコードは ipp_blur_rotate.cpp を参照 */
+
+#include "ipps.h"
+#include "ipp_blur_rotate.h"
+
+#include "bmpreader.h"
+
+#include &lt;math.h&gt;
+#include &lt;stdio.h&gt;
+
+char titleBuffer[256];
+
+video *v;
+
+#if (defined unix || defined UNIX)
+#include &lt;X11/keysym.h&gt;
+#define VK_LEFT     XK_Left
+#define VK_UP       XK_Up
+#define VK_RIGHT    XK_Right
+#define VK_DOWN     XK_Down
+#define VK_ESCAPE   XK_Escape
+#elif defined __APPLE__
+#define VK_LEFT     0xf702
+#define VK_UP       0xf700
+#define VK_RIGHT    0xf703
+#define VK_DOWN     0xf701
+#define VK_ESCAPE   0x1B
+#endif
+
+IppStatus warpAffine(Ipp8u* pSrc, IppiSize srcSize, int srcStep, Ipp8u* pDst, IppiSize dstSize, int dstStep, const double coeffs[2][3])
+{
+    /* インテル(R) IPP 関数のステータス */
+    IppStatus status = ippStsNoErr;
+
+    /* 画像チャネルの数 */
+    const Ipp32u numChannels = 3;
+
+    /* ソース画像を拡張する境界値 */
+    Ipp64f pBorderValue[numChannels];
+
+    /* WarpAffine データ構造、初期化バッファー、ワークバッファーのサイズ */
+    int specSize = 0, initSize = 0, bufSize = 0;
+
+    /* ワークバッファーのポインター */
+    Ipp8u* pBuffer  = NULL;
+
+    /* WarpAffine データ構造のポインター */
+    IppiWarpSpec* pSpec = NULL;
+
+    /* 処理するデスティネーション ROI のオフセットを設定 */
+    IppiPoint dstOffset = {0, 0};
+
+    /* アフィン変換の境界タイプ */
+    IppiBorderType borderType = ippBorderConst;
+
+    /* ワープアフィン変換の方向 */
+    IppiWarpDirection direction = ippWarpForward;
+
+    /* ソース画像を拡張する境界値を設定 */
+    for (int i = 0; i &lt; numChannels; ++i) pBorderValue[i] = 255.0;
+
+    /* WarpAffine データ構造と初期化バッファーのバッファーサイズを計算 */
+    status = ippiWarpAffineGetSize(srcSize, dstSize, ipp8u, coeffs, ippLinear, direction, borderType,
+        &amp;specSize, &amp;initSize);
+
+    /* メモリーを割り当て */
+    pSpec = (IppiWarpSpec*)ippsMalloc_8u(specSize);
+
+    /* アフィン変換のデータを初期化 */
+    if (status &gt;= ippStsNoErr) status = ippiWarpAffineLinearInit(srcSize, dstSize, ipp8u, coeffs, direction, numChannels, borderType, pBorderValue, 0, pSpec);
+
+    /* ワークバッファーのサイズを取得 */
+    if (status &gt;= ippStsNoErr) status = ippiWarpGetBufferSize(pSpec, dstSize, &amp;bufSize);
+
+    /* ワークバッファーのメモリーを割り当て */
+    pBuffer = ippsMalloc_8u(bufSize);
+
+    /* アフィン変換処理 */
+    if (status &gt;= ippStsNoErr) status = ippiWarpAffineLinear_8u_C3R(pSrc, srcStep, pDst, dstStep, dstOffset, dstSize, pSpec, pBuffer);
+
+    /* 割り当てたメモリーを解放 */
+    ippsFree(pSpec);
+    ippsFree(pBuffer);
+
+    return status;
+}
+
+void ipp_blur_rotate::process(const drawing_memory &amp;dm)
+{
+    IppStatus status = ippStsNoErr;
+    /* 画像チャネルの数 */
+    int numChannels = 3;
+
+    /* フィルタリングを実行 */
+    if (bFilterUpdate)
+    {
+        /* 一時ワークバッファー */
+        Ipp8u* pBuffer = NULL;
+        /* フィルタリングのバッファーのサイズ */
+        int bufSize = 0;
+
+        /* ワークバッファーのサイズを取得 */
+        status = ippiFilterBoxBorderGetBufferSize(srcSize,maskSize,ipp8u,3,&amp;bufSize);
+
+        /* バッファーメモリーを割り当て */
+        pBuffer = ippsMalloc_8u(bufSize);
+
+        /* 画像のフィルタリング */
+        if (status &gt;= ippStsNoErr) status = ippiFilterBoxBorder_8u_C3R(pSrc, srcStep, pBlur, blurStep, srcSize, maskSize, ippBorderRepl, NULL, pBuffer);
+
+        /* フィルターフラグを解除 */
+        bFilterUpdate = false;
+        /* 回転操作をフィルター後に適用 */
+        bRotateUpdate = true;
+
+        /* バッファーメモリーを解放 */
+        ippsFree(pBuffer);
+    }
+
+    /* 回転を実行 */
+    if (bRotateUpdate)
+    {
+        IppiSize roiSize = {dstSize.width / 2, dstSize.height };
+        Ipp8u* pDstRoi = pBlurRot;
+        IppiRect srcRoi = {0};
+        srcRoi.width  = srcSize.width;
+        srcRoi.height = srcSize.height;
+
+        /* アフィン変換の係数 */
+        double coeffs[2][3]  = {0};
+
+        /* アフィン変換の境界 */
+        double bound[2][2]   = {0};
+
+        /* 角度と x/y シフトでアフィン変換の係数を計算 */
+        if (status &gt;= ippStsNoErr) status = ippiGetRotateTransform(angle, 0, 0, coeffs);
+
+        /* 変換した画像の境界を取得 */
+        if (status &gt;= ippStsNoErr) status = ippiGetAffineBound(srcRoi, bound, coeffs);
+
+        /* ソース画像をデスティネーションに合わせる */
+        coeffs[0][2] = -bound[0][0] + (dstSize.width / 2.f  - (bound[1][0] - bound[0][0])) / 2.f;
+        coeffs[1][2] = -bound[0][1] + (dstSize.height - (bound[1][1] - bound[0][1])) / 2.f;
+
+        /* ブラーした画像にアフィン処理を実行 */
+        if (status &gt;= ippStsNoErr) status = warpAffine(pBlur, srcSize, blurStep, pDstRoi, roiSize, blurRotStep, coeffs);
+
+        /* ブラーしていない画像のデスティネーション ROI を設定 */
+        pDstRoi = pBlurRot + roiSize.width * numChannels;
+
+        /* 元の画像にアフィン処理を実行 */
+        if (status &gt;= ippStsNoErr) status = warpAffine(pSrc, srcSize, srcStep, pDstRoi, roiSize, blurRotStep, coeffs);
+
+        /* 回転フラグを解除 */
+        bRotateUpdate = false;
+
+        /* 画像を再描画する必要がある */
+        bRedraw       = true;
+    }
+
+    if (bRedraw)
+    {
+        drawing_area area( 0, 0, dstSize.width, dstSize.height, dm) ;
+
+        /* 情報メッセージをウィンドウのタイトルに渡す */
+    #if defined _WIN32
+        sprintf_s(titleBuffer, sizeof(titleBuffer)/sizeof(titleBuffer[0]), "Intel&reg; IPP: blur + rotate tutorial : rotation angle %.0f : box filter mask size {%d, %d}", angle - 360.0 * floor(angle / 360.0), maskSize.width, maskSize.height);
+    #elif (defined unix || defined UNIX)
+        sprintf(titleBuffer, "Intel&reg; IPP: blur + rotate tutorial : rotation angle %.0f : box filter mask size {%d, %d}", angle - 360.0 * floor(angle / 360.0), maskSize.width, maskSize.height);
+    #elif defined __APPLE__
+        sprintf(titleBuffer, "Intel&reg; IPP: blur + rotate tutorial : rotation angle %.0f : box filter mask size {%d, %d}", angle - 360.0 * floor(angle / 360.0), maskSize.width, maskSize.height);
+    #endif
+        v-&gt;title = titleBuffer;
+        v-&gt;show_title();
+
+        // レンダリング領域を埋める
+        for (int y = 0; y &lt; dstSize.height; ++y)
+        {
+            Ipp8u* dstt = pBlurRot + y * blurRotStep;
+            area.set_pos( 0, y );
+            for (int x = 0, j = 0; x &lt; dstSize.width; ++x, j += 3)
+            {
+                area.put_pixel( v-&gt;get_color(dstt[j+2], dstt[j+1], dstt[j]) );
+            }
+        }
+
+        bRedraw = false;
+    }
+}
+
+/* キーの処理 */
+void ipp_blur_rotate::onKey( int key )
+{
+    if (pSrc == NULL || pBlur ==NULL || pBlurRot == NULL) return;
+
+    /* 上または下矢印キーが押された */
+    if (key == VK_UP || key == VK_DOWN)
+    {
+        /* 画像ブラーの最大マスクサイズ */
+        const IppiSize maxMaskSize = {31,31};
+
+        /* キーに応じてマスクサイズを 2 増加または減少 */
+        maskSize.width  = (key == VK_DOWN) ? maskSize.width  - 2 : maskSize.width  + 2;
+        maskSize.height = (key == VK_DOWN) ? maskSize.height - 2 : maskSize.height + 2;
+
+        /* マスクの幅と高さの両方が正か確認 */
+        if (maskSize.width  &lt; 1) maskSize.width  = 1;
+        if (maskSize.height &lt; 1) maskSize.height = 1;
+
+        /* マスクの幅と高さの両方が最大マスクサイズを超えていないか確認 */
+        if (maskSize.width  &gt; maxMaskSize.width)  maskSize.width  = maxMaskSize.width;
+        if (maskSize.height &gt; maxMaskSize.height) maskSize.height = maxMaskSize.height;
+
+        /* フィルター操作を適用 */
+        bFilterUpdate = true;
+    }
+
+     /* 左または右矢印キーが押された */
+    if(key == VK_RIGHT || key == VK_LEFT)
+    {
+        /* キーに応じてマスクサイズを 2 増加または減少 */
+        angle = (key == VK_LEFT) ? angle + 2 : angle - 2;
+        /* 回転操作をフィルター後に適用 */
+        bRotateUpdate = true;
+    }
+
+    if (key == VK_ESCAPE) v-&gt;running = false;
+}
+
+bool ipp_blur_rotate::loadFileBMP( const char* bmpImageFile )
+{
+    /* ポインターを確認 */
+    if (bmpImageFile == NULL) return false;
+
+    /* 画像チャネルの数 */
+    int numChannels = 0;
+
+    /* ファイルからデータを読み取り (bmp 形式のみサポート) */
+    Status status = ReadFile(bmpImageFile, &amp;pSrc, srcSize, srcStep, numChannels);
+
+    if (numChannels != 3)
+    {
+        status = STS_ERR_UNSUPPORTED;
+    }
+
+    if (status == STS_OK)
+    {
+        /* ブラーした画像のステップを設定 */
+        blurStep = srcStep;
+
+        /* 回転した画像全体を保持するように回転した画像のサイズを設定 */
+        dstSize.width  = static_cast&lt;int&gt;(sqrt((float)srcSize.width  * srcSize.width + srcSize.height  * srcSize.height) + 0.5f) * 2;
+        dstSize.height = static_cast&lt;int&gt;(sqrt((float)srcSize.width  * srcSize.width + srcSize.height  * srcSize.height) + 0.5f);
+
+        /* ブラー/回転した画像の画像ステップを設定 */
+        blurRotStep = dstSize.width * numChannels;
+
+        /* 中間画像のメモリー割り当て */
+        pBlur = ippsMalloc_8u(srcStep * srcSize.height);
+
+        /* 中間画像のメモリー割り当て */
+        pBlurRot = ippsMalloc_8u(dstSize.width * numChannels * dstSize.height);
+
+        maskSize.width  = 3;
+        maskSize.height = 3;
+
+        bFilterUpdate = bRotateUpdate = bRedraw = true;
+
+        return true;
+    }
+
+    return false;
+}
+
+ipp_blur_rotate::ipp_blur_rotate()
+    : angle(0.0), pSrc(NULL), pBlur(NULL), pBlurRot(NULL),
+      bFilterUpdate(false), bRotateUpdate(false), bRedraw(false)
+{
+    dstSize.width  = srcSize.width  = 0;
+    dstSize.height = srcSize.height = 0;
+}
+
+ipp_blur_rotate::~ipp_blur_rotate()
+{
+    ippsFree(pSrc);
+    ippsFree(pBlur);
+    ippsFree(pBlurRot);
+}</code></pre><p><a href="GUID-3B4A1095-6A5D-474C-A620-CDC265B18843.html#GUID-3B4A1095-6A5D-474C-A620-CDC265B18843"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="戻る" /></a><a href="GUID-42D90243-5482-4359-96EE-E73A4633A924.html#GUID-42D90243-5482-4359-96EE-E73A4633A924"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="次へ" /></a></p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a href="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html">チュートリアル: インテル&reg; IPP 2018 (Beta) による画像の回転とブラー</a></div>
+</div>
+<div></div>
+</body>
+</html>

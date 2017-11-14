@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Introduction to the Intel&reg; Math Kernel Library" />
+<meta name="DC.Relation" scheme="URI" content="GUID-6D82DCCE-D53F-4BEB-92A2-EE69A18803CA.html" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-software-product-tutorials/" />
+<meta name="prodname" content="Intel&reg; Math Kernel Library" />
+<meta name="version" content="327255-007" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-CEB793BF-BEFC-42F3-9D4D-F1207725B2DC" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Introduction to the Intel&reg; Math Kernel Library</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-CEB793BF-BEFC-42F3-9D4D-F1207725B2DC">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Using the Intel&reg; Math Kernel Library 2018 for Matrix Multiplication Tutorial</em></p>
+
+
+<h1 class="topictitle1">Introduction to the Intel&reg; Math
+    Kernel Library</h1>
+<div id="GUID-794A2F0A-A053-4AF9-96E5-D6419D77CBA9"><p> Use the Intel Math Kernel Library (Intel MKL) when
+      you need to perform computations with high performance. Intel MKL offers
+      highly-optimized and extensively threaded routines which implement many types
+      of operations. 
+    </p>
+<p>
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-843C64B2-2A98-4047-9EB9-4DFC16641756" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d1887e32"><p id="d30e52">Optimization Notice 
+              </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d1887e32 "><p>Intel's compilers may or may not optimize to the same degree
+                for non-Intel microprocessors for optimizations that are not unique to Intel
+                microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction
+                sets and other optimizations. Intel does not guarantee the availability,
+                functionality, or effectiveness of any optimization on microprocessors not
+                manufactured by Intel. Microprocessor-dependent optimizations in this product
+                are intended for use with Intel microprocessors. Certain optimizations not
+                specific to Intel microarchitecture are reserved for Intel microprocessors.
+                Please refer to the applicable product User and Reference Guides for more
+                information regarding the specific instruction sets covered by this notice. 
+              </p>
+<p> Notice revision #20110804 
+              </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-369D3339-015D-4569-BF8B-DDF045EB2FF6" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" valign="top" width="NaN%" id="d1887e57"><p>Linear Algebra 
+              </p>
+</th>
+<th class="cellrowborder" valign="top" width="NaN%" id="d1887e60"><p>Fast Fourier Transforms 
+              </p>
+</th>
+<th class="cellrowborder" valign="top" width="NaN%" id="d1887e63"><p>Summary Statistics 
+              </p>
+</th>
+<th class="cellrowborder" valign="top" width="NaN%" id="d1887e66"><p>Data Fitting 
+              </p>
+</th>
+<th class="cellrowborder" valign="top" width="NaN%" id="d1887e69"><p>Other Components 
+              </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="NaN%" headers="d1887e57 "><ul id="GUID-D64C801E-EEA4-4658-9277-2EA7F68546DF"><li>BLAS 
+                </li>
+<li>LAPACK/ScaLAPACK 
+                </li>
+<li>PARDISO* 
+                </li>
+<li>Iterative sparse solvers 
+                </li>
+</ul>
+</td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d1887e60 "><ul id="GUID-BBB5F853-5469-4193-8324-9FB5018F0E89"><li>Multidimensional (up to 7D) FFTs 
+                </li>
+<li>FFTW interfaces 
+                </li>
+<li>Cluster FFT 
+                </li>
+</ul>
+</td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d1887e63 "><ul id="GUID-7134A549-CC63-4134-9ED0-CFD9D782F228"><li>Kurtosis 
+                </li>
+<li>Variation coefficient 
+                </li>
+<li>Quantiles, order statistics 
+                </li>
+<li>Min/max 
+                </li>
+<li>Variance/covariance 
+                </li>
+<li>... 
+                </li>
+</ul>
+</td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d1887e66 "><ul id="GUID-7E733C37-E5DD-4596-BD64-9A85A126329C"><li>Splines 
+                </li>
+<li>Interpolation 
+                </li>
+<li>Cell search 
+                </li>
+</ul>
+</td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d1887e69 "><ul id="GUID-D2F26790-FBC8-437D-AB10-D41814498BCF"><li>Vector Math 
+                  <ul id="GUID-FE35404E-CFF0-41D2-AB3C-E4C5C7DD99F5"><li>Trigonometric 
+                    </li>
+<li>Hyperbolic 
+                    </li>
+<li>Exponential, Logarithmic 
+                    </li>
+<li>Power/Root 
+                    </li>
+<li>Rounding 
+                    </li>
+</ul>
+</li>
+<li>Vector Random Number Generators 
+                  <ul id="GUID-8735E67D-1E54-412D-84B1-C6846B28E022"><li>Congruential 
+                    </li>
+<li>Recursive 
+                    </li>
+<li>Wichmann-Hill 
+                    </li>
+<li>Mersenne Twister 
+                    </li>
+<li>Sobol 
+                    </li>
+<li>Niederreiter 
+                    </li>
+<li>RDRAND-based 
+                    </li>
+</ul>
+</li>
+<li>Poisson Solvers 
+                </li>
+<li>Optimization Solvers 
+                </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="BLAS"><h2 class="sectiontitle">Exploring Basic Linear Algebra Subprograms (BLAS)</h2><p>One key area is the Basic Linear Algebra Subprograms (BLAS), which
+        perform a variety of vector and matrix operations. This tutorial uses the 
+        <samp class="codeph"><span class="keyword">dgemm</span></samp> routine to demonstrate how to
+        perform matrix multiplication as efficiently as possible. 
+      </p>
+</div>
+<p><a href="GUID-61CC7FFD-4B0B-44CB-B76A-F8D875E935D2.html#GUID-61CC7FFD-4B0B-44CB-B76A-F8D875E935D2"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="Previous" /></a><a href="GUID-36BFBCE9-EB0A-43B0-ADAF-2B65275726EA.html#GUID-36BFBCE9-EB0A-43B0-ADAF-2B65275726EA"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="Next" /></a></p>
+</div>
+<div><div class="relinfo"><strong>Related information</strong><br />
+</div>
+</div>
+</body>
+</html>

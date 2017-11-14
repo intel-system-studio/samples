@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Summary" />
+<meta name="DC.Relation" scheme="URI" content="GUID-703EC099-0C5C-4505-83DC-BF1854BFED41.html" />
+<meta name="DC.Relation" scheme="URI" content="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-7CE3E712-60CA-4116-9139-C22640D0DB52" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Summary</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-7CE3E712-60CA-4116-9139-C22640D0DB52">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier </em></p>
+
+
+<h1 class="topictitle1">Summary</h1>
+<div id="GUID-2EB11B4E-4D73-47E9-92DB-ED57F5F1774C"><p id="GUID-7DB360A4-1CDE-479D-808E-4626172163DD"></p>
+<p id="GUID-BE9AD884-ABDC-4E6C-B16F-9D90F0996F53"><img id="IMAGE_AF67DCAB95664A83B4B5F6B35145CE8F" height="32" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" width="32" /> You have completed the 
+		<em>Identifying Hardware Issues</em> tutorial. Here are some important
+		things to remember when using the 
+		<span id="GUID-C81CE41D-D201-499B-BDB1-C70FBEEE4FB9">Intel&reg; VTune&#8482; Amplifier</span> to
+		analyze your code for hardware issues: 
+	 </p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-CDE974EC-9E66-418D-90EF-ABE5480E4005" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" valign="top" width="21.231422505307858%" id="d1868e37">Step 
+				</th>
+<th class="cellrowborder" valign="top" width="33.970276008492576%" id="d1868e39">Tutorial Recap 
+				</th>
+<th class="cellrowborder" valign="top" width="44.79830148619957%" id="d1868e41">Key Tutorial Take-aways 
+				</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="21.231422505307858%" headers="d1868e37 "><p><strong>1. Prepare for analysis.</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.970276008492576%" headers="d1868e39 "><p>You 
+					 built the target in the Release mode and created the VTune Amplifier
+					 project for your analysis target. 
+				  </p>
+</td>
+<td class="cellrowborder" valign="top" width="44.79830148619957%" headers="d1868e41 "><ul id="GUID-8A58B52D-805B-4441-AED3-B4F7D5C8733D"><li id="GUID-6C107599-BD48-4910-AAAD-4550DC99CBB8"><p id="GUID-978162FC-AF63-439E-8094-8A8613163B28"><span id="GUID-BF6B627E-55FD-44F8-9EA2-0A345167EBD3">Create a VTune Amplifier project
+							 and u</span> 
+						  se the 
+						  <strong id="GUID-0D136A25-0D60-4890-89F3-E9870759BBC9">Analysis
+							 Target</strong> tab to choose and configure your analysis target. 
+						  </p>
+</li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.231422505307858%" headers="d1868e37 "><p><strong>2. Find hardware issues</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.970276008492576%" headers="d1868e39 "><p id="GUID-60661C70-2704-449A-87B8-A7F136DF43B6">You ran the
+					 General Exploration analysis that monitors how your application performs
+					 against a set of event-based hardware metrics as follows: 
+				  </p>
+<ul id="GUID-D6D6BD1C-6EB3-489D-B113-3507C55D342C"><li>Analyzed the data provided in the 
+						<strong>Hardware Issues</strong> viewpoint, explored the event-based
+						metrics, identified the areas where your sample application had hardware
+						issues, and found the exact function with poor performance per metrics that
+						could be a good candidate for further analysis. 
+					 </li>
+<li>Analyzed the code for the hotspot function identified in
+						the 
+						<strong>Bottom-up</strong> window and located the hotspot line that
+						generated a high number of CPU Clockticks. 
+					 </li>
+</ul>
+</td>
+<td class="cellrowborder" valign="top" width="44.79830148619957%" headers="d1868e41 "><ul id="GUID-25899AD5-088C-4DDC-A420-ACAFC503F3AF"><li>Use the 
+						<strong id="GUID-92D53AF9-5B4C-4B7E-B12C-821C1A10086C">Analysis
+						  Type</strong> tab to choose, configure, and run the analysis. You may choose between
+						a predefined analysis type like the General Exploration type used in this
+						tutorial, or create a new custom analysis type and add events of your choice.
+						For more details on the custom collection, see the 
+						<em id="GUID-A6EF8103-1B90-412B-A694-91D52D38DB7C">Creating a
+						  New Analysis Type</em> topic in the product online help. 
+					 </li>
+<li>See the 
+						<strong id="GUID-DC5374A5-ABC1-4F05-BABD-33ED0FE02F11">Details</strong>
+						section of the General Exploration configuration pane to get the list of
+						processor events used for this analysis type. 
+					 </li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.231422505307858%" headers="d1868e37 "><p><strong>3. Resolve detected issues</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.970276008492576%" headers="d1868e39 "><p id="GUID-D4F6458B-C299-45BD-98B8-EFDAEE9916EA">You solved the
+					 memory access issue for the sample application by interchanging the loops and
+					 sped up the execution time. You also considered using the Intel compiler to
+					 enable instruction vectorization. 
+				  </p>
+<p id="GUID-6F808855-63F5-4581-87DC-24E8369D5B4A">You also tried
+					 optimizing the mechanism of matrix multiplication. Both tuning scenarios gave
+					 you 
+					 <span id="GUID-4B4745BD-8C16-4659-8344-82138D7476FE">138.435</span> seconds of
+					 optimization in the application execution time. 
+				  </p>
+</td>
+<td class="cellrowborder" valign="top" width="44.79830148619957%" headers="d1868e41 "><ul id="GUID-30F946C0-D440-452F-A82F-7F5CDB6267DA"><li id="GUID-842E47B0-096A-4147-8E8E-31B651B7A891"><p id="GUID-0479B426-4698-4186-A790-AD0A7ECCAEFB">Start
+						  analyzing the performance of your application from the 
+						  <strong>Summary</strong> window to explore the event-based
+						  performance metrics for the whole application. Mouse over the help icons to
+						  read the metric descriptions. Use the Elapsed time value as your performance
+						  baseline. 
+						</p>
+</li>
+<li id="GUID-C39CA2EB-BD30-4D25-B2E5-45E0E28A38CB"><p id="GUID-B1AB1156-D4B5-4A30-B7DE-02D95DF38313">Move to the
+						  
+						  <strong>Bottom-up</strong> window and analyze the performance per
+						  function. Focus on the 
+						  <em id="GUID-E496A06C-3794-4A01-BD11-C99E8477FDEB">hotspots</em> - functions that
+						  took the highest Clockticks event count. By default, they are located at the
+						  top of the table. Analyze the hardware issues detected for the hotspot
+						  functions. Hardware issues are highlighted in pink. Mouse over a highlighted
+						  value to read the issues description and see the threshold formula. 
+						</p>
+</li>
+<li id="GUID-B4785EA2-726E-4EA0-A0C7-67373C31EC12"><p id="GUID-4F7AF13F-BA98-43B1-8D0D-3E35428E43C9">Double-click the hotspot
+						  function in the 
+						  <strong>Bottom-up</strong> pane to open its source code and identify
+						  the code line that took the highest Clockticks event count. 
+						</p>
+</li>
+<li id="GUID-84315233-EBC2-4904-972B-52EACE2196E1"><p id="GUID-E578FBBD-6684-4716-A7B1-F3992FD0EF05">Consider
+						  using Intel Compiler to vectorize instructions. Explore the compiler
+						  documentation for more details. 
+						</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="GUID-1D4EF8A1-2C53-46D3-B12A-59E8AEA9C735"><strong>Next step:</strong>
+		Prepare your own application(s) for analysis. Then use the VTune Amplifier to
+		find hardware issues and fix them. 
+	 </div>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-9E42A2A6-3B9F-463C-82E5-06A409D4E52F" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d1868e144"><p id="d10e52">Optimization Notice 
+				  </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d1868e144 "><p>Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction sets and other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of any optimization on microprocessors not manufactured by Intel. Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more information regarding the specific instruction sets covered by this notice. 
+				  </p>
+<p> Notice revision #20110804 
+				  </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-703EC099-0C5C-4505-83DC-BF1854BFED41.html">Tutorial: Identifying Hardware Issues - C++ Sample Code</a></div>
+</div>
+<div><h2>See Also</h2>
+<div class="linklist">
+<div><a href="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials" target="_blank">Click here for more Getting Started
+			 Tutorials 
+		  </a></div></div></div>
+</body>
+</html>

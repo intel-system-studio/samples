@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Multiplying Matrices Using dgemm" />
+<meta name="DC.Relation" scheme="URI" content="GUID-6D82DCCE-D53F-4BEB-92A2-EE69A18803CA.html" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-math-kernel-library-documentation/" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-mkl-kb/all/1/" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-software-product-tutorials/" />
+<meta name="prodname" content="Intel&reg; Math Kernel Library" />
+<meta name="version" content="327255-007" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-36BFBCE9-EB0A-43B0-ADAF-2B65275726EA" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Multiplying Matrices Using dgemm</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-36BFBCE9-EB0A-43B0-ADAF-2B65275726EA">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Using the Intel&reg; Math Kernel Library 2018 for Matrix Multiplication Tutorial</em></p>
+
+
+<h1 class="topictitle1">Multiplying Matrices Using
+	 dgemm</h1>
+<div id="GUID-794A2F0A-A053-4AF9-96E5-D6419D77CBA9"><p>Intel MKL provides several routines for multiplying
+		matrices. The most widely used is the 
+		<samp class="codeph"><span class="keyword">dgemm</span></samp> routine, which calculates the
+		product of double precision matrices: 
+	 </p>
+<img id="IMAGE_CB5FD91647254E8EACA7758B94DF5C22" src="GUID-C03EC0FB-E394-4FD3-83A4-5A0A03E2FF63-low.gif" /><p> The 
+		<samp class="codeph"><span class="keyword">dgemm</span></samp> routine can perform several
+		calculations. For example, you can perform this operation with the transpose or
+		conjugate transpose of 
+		<var>A</var> and 
+		<var>B</var>. The complete details of capabilities of the 
+		<samp class="codeph"><span class="keyword">dgemm</span></samp> routine and all of its
+		arguments can be found in the 
+		<a href="https://software.intel.com/en-us/node/520775" target="_blank"><samp class="codeph"><span class="keyword">cblas_?gemm</span></samp></a>
+		topic in the 
+		<em>Intel Math Kernel Library Developer Reference</em>. 
+	 </p>
+<div class="section" id="INTERPRET"><h2 class="sectiontitle">Use dgemm to Multiply Matrices</h2><p>This exercise demonstrates declaring variables, storing matrix values
+		  in the arrays, and calling 
+		  <samp class="codeph"><span class="keyword">dgemm</span></samp> to compute the product of the
+		  matrices. The arrays are used to store these matrices: 
+		</p>
+<p><img id="IMAGE_3EC1FD4447054DF9BC304E4EB3BD31E0" src="GUID-E275DDC2-BC69-474B-B993-861C888610E1-low.gif" /></p>
+<p>The one-dimensional arrays in the exercises store the matrices by
+		  placing the elements of each column in successive cells of the arrays. 
+		</p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>The C source code for the exercises
+			 in this tutorial 
+			 <span>can be downloaded from 
+				<a href="https://software.intel.com/en-us/product-code-samples" target="_blank">https://software.intel.com/en-us/product-code-samples</a></span>.
+			 
+		  </p>
+</div>
+<pre>/* C source code is found in dgemm_example.c */
+
+#define min(x,y) (((x) &lt; (y)) ? (x) : (y))
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include "mkl.h"
+
+int main()
+{
+    double *A, *B, *C;
+    int m, n, k, i, j;
+    double alpha, beta;
+
+    printf ("\n This example computes real matrix C=alpha*A*B+beta*C using \n"
+            " Intel&reg; MKL function dgemm, where A, B, and  C are matrices and \n"
+            " alpha and beta are double precision scalars\n\n");
+
+    m = 2000, k = 200, n = 1000;
+    printf (" Initializing data for matrix multiplication C=A*B for matrix \n"
+            " A(%ix%i) and matrix B(%ix%i)\n\n", m, k, k, n);
+    alpha = 1.0; beta = 0.0;
+
+    printf (" Allocating memory for matrices aligned on 64-byte boundary for better \n"
+            " performance \n\n");
+    A = (double *)mkl_malloc( m*k*sizeof( double ), 64 );
+    B = (double *)mkl_malloc( k*n*sizeof( double ), 64 );
+    C = (double *)mkl_malloc( m*n*sizeof( double ), 64 );
+    if (A == NULL || B == NULL || C == NULL) {
+      printf( "\n ERROR: Can't allocate memory for matrices. Aborting... \n\n");
+      mkl_free(A);
+      mkl_free(B);
+      mkl_free(C);
+      return 1;
+    }
+
+    printf (" Intializing matrix data \n\n");
+    for (i = 0; i &lt; (m*k); i++) {
+        A[i] = (double)(i+1);
+    }
+
+    for (i = 0; i &lt; (k*n); i++) {
+        B[i] = (double)(-i-1);
+    }
+
+    for (i = 0; i &lt; (m*n); i++) {
+        C[i] = 0.0;
+    }
+
+    printf (" Computing matrix product using Intel&reg; MKL dgemm function via CBLAS interface \n\n");
+    cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, 
+                m, n, k, alpha, A, k, B, n, beta, C, n);
+    printf ("\n Computations completed.\n\n");
+
+    printf (" Top left corner of matrix A: \n");
+    for (i=0; i&lt;min(m,6); i++) {
+      for (j=0; j&lt;min(k,6); j++) {
+        printf ("%12.0f", A[j+i*k]);
+      }
+      printf ("\n");
+    }
+
+    printf ("\n Top left corner of matrix B: \n");
+    for (i=0; i&lt;min(k,6); i++) {
+      for (j=0; j&lt;min(n,6); j++) {
+        printf ("%12.0f", B[j+i*n]);
+      }
+      printf ("\n");
+    }
+    
+    printf ("\n Top left corner of matrix C: \n");
+    for (i=0; i&lt;min(m,6); i++) {
+      for (j=0; j&lt;min(n,6); j++) {
+        printf ("%12.5G", C[j+i*n]);
+      }
+      printf ("\n");
+    }
+
+    printf ("\n Deallocating memory \n\n");
+    mkl_free(A);
+    mkl_free(B);
+    mkl_free(C);
+
+    printf (" Example completed. \n\n");
+    return 0;
+}</pre><div class="Note"><h3 class="NoteTipHead">Note</h3> <p>This exercise illustrates how to call the 
+			 <samp class="codeph"><span class="keyword">dgemm</span></samp> routine. An actual
+			 application would make use of the result of the matrix multiplication. 
+		  </p>
+</div>
+<p>This call to the 
+		  <samp class="codeph">dgemm</samp> routine multiplies the matrices: 
+		</p>
+<pre>cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+           m, n, k, alpha, A, k, B, n, beta, C, n);</pre><p>The arguments provide options for how Intel MKL performs the
+		  operation. In this case: 
+		</p>
+<dl id="GUID-DFA12B24-D2DC-4305-BC51-6A2C3A76D50F"><dt class="dlterm"><samp class="codeph">CblasRowMajor</samp></dt>
+
+<dd><p>Indicates that the matrices are stored in row major order, with
+				  the elements of each row of the matrix stored contiguously as shown in the
+				  figure above. 
+				</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">CblasNoTrans</samp></dt>
+
+<dd><p><span>Enumeration type</span> indicating that the
+				  matrices 
+				  <var>A</var> and 
+				  <var>B</var> should not be transposed or conjugate
+				  transposed before multiplication. 
+				</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">m, n, k</samp></dt>
+
+<dd><p> Integers indicating the size of the matrices: 
+				</p>
+<ul id="GUID-D3E83003-7D5D-43B4-B341-F8DCB147A7BB"><li id="LI_32967F94FD194AF2AF45D47A0AD47DBE"><p><var>A</var>: 
+						<span><samp class="codeph">m</samp> rows by 
+						  <samp class="codeph">k</samp> columns</span></p>
+</li>
+<li id="LI_1C0876495E6141CCBDA82EE156410EF4"><p><var>B</var>: 
+						<span><samp class="codeph">k</samp> rows by 
+						  <samp class="codeph">n</samp> columns</span></p>
+</li>
+<li id="LI_B7C7EEF3CEEA4D209FBDBCCD10D086E2"><p><var>C</var>: 
+						<span><samp class="codeph">m</samp> rows by 
+						  <samp class="codeph">n</samp> columns</span></p>
+</li>
+</ul>
+</dd>
+<dt class="dlterm"><samp class="codeph">alpha</samp></dt>
+
+<dd><p>Real value used to scale the product of matrices 
+				  <var>A</var> and 
+				  <var>B</var>. 
+				</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">A</samp></dt>
+
+<dd><p>Array used to store matrix 
+				  <var>A</var>. 
+				</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">k</samp></dt>
+
+<dd><p>Leading dimension of array 
+				  <samp class="codeph">A</samp>, or the number of elements between successive 
+				  <span>rows (for row major
+					 storage)</span> in memory. In the case of this exercise the leading dimension is
+				  the same as the number of 
+				  <span>columns</span>. 
+				</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">B</samp></dt>
+
+<dd><p>Array used to store matrix 
+				  <var>B</var>. 
+				</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">n</samp></dt>
+
+<dd><p>Leading dimension of array 
+				  <samp class="codeph">B</samp>, or the number of elements between successive 
+				  <span>rows (for row major
+					 storage)</span> in memory. In the case of this exercise the leading dimension is
+				  the same as the number of 
+				  <span>columns</span>. 
+				</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">beta</samp></dt>
+
+<dd><p>Real value used to scale matrix 
+				  <var>C</var>. 
+				</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">C</samp></dt>
+
+<dd><p>Array used to store matrix 
+				  <var>C</var>. 
+				</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">n</samp></dt>
+
+<dd><p>Leading dimension of array 
+				  <samp class="codeph">C</samp>, or the number of elements between successive 
+				  <span>rows (for row major
+					 storage)</span> in memory. In the case of this exercise the leading dimension is
+				  the same as the number of 
+				  <span>columns</span>. 
+				</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="CHOOSE_PROBLEM"><h2 class="sectiontitle">Compile and Link Your Code</h2><p>Intel MKL provides many options for creating code for multiple
+		  processors and operating systems, compatible with different compilers and
+		  third-party libraries, and with different interfaces. To compile and link the
+		  exercises in this tutorial with Intel&reg; Parallel Studio XE Composer Edition,
+		  type 
+		</p>
+<ul id="GUID-FBE2C433-E6DD-4A04-A9F4-E81895B3E4AA"><li id="LI_A345509FD8A34056AB23F59381598935">Windows* OS: 
+			 <samp class="codeph">icl /Qmkl src\dgemm_example.c</samp></li>
+<li id="LI_32E80C2D03B546578B5FDAA9E49683EE">Linux* OS, macOS*: 
+			 <samp class="codeph">icc -mkl src/dgemm_example.c</samp></li>
+</ul>
+<p> Alternatively, you can use the supplied build scripts to build and
+		  run the executables. 
+		</p>
+<ul id="GUID-2E0CFAF0-9967-491C-A889-B3752C0A585B"><li id="LI_2EA59AF56E7F449EBA87087DFC9EAAEE">Windows* OS: 
+			 <pre> build
+build run_dgemm_example</pre></li>
+<li id="LI_A80283952773443D91B4780BDE39CEB3">Linux* OS, macOS*: 
+			 <pre>make
+make run_dgemm_example</pre></li>
+</ul>
+<p>For the executables in this tutorial, the build scripts are named: 
+		</p>
+<table cellpadding="4" cellspacing="0" summary="" id="SIMPLETABLE_5FD5A135AC46478EA2E605B99951D55A" border="1" class="simpletableborder"><tr><th valign="bottom" align="left" id="d623e294"><p>Example 
+				</p>
+</th>
+<th valign="bottom" align="left" id="d623e297"><p>Executable 
+				</p>
+</th>
+</tr>
+<tr><td valign="top" headers="d623e294"><p><span class="filepath">dgemm_example</span><span class="filepath">.c</span></p>
+</td>
+<td valign="top" headers="d623e297"><p><samp class="codeph">run_dgemm_example</samp></p>
+</td>
+</tr>
+<tr><td valign="top" headers="d623e294"><p><span class="filepath">dgemm_with_timing</span><span class="filepath">.c</span></p>
+</td>
+<td valign="top" headers="d623e297"><p><samp class="codeph">run_dgemm_with_timing</samp></p>
+</td>
+</tr>
+<tr><td valign="top" headers="d623e294"><p><span class="filepath">matrix_multiplication</span><span class="filepath">.c</span></p>
+</td>
+<td valign="top" headers="d623e297"><p><samp class="codeph">run_matrix_multiplication</samp></p>
+</td>
+</tr>
+<tr><td valign="top" headers="d623e294"><p><span class="filepath">dgemm_threading_effect_example</span><span class="filepath">.c</span></p>
+</td>
+<td valign="top" headers="d623e297"><p><samp class="codeph">run_dgemm_threading_effect_example</samp></p>
+</td>
+</tr>
+</table>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>This assumes that you have installed Intel MKL and set environment
+			 variables as described in 
+			 <a href="https://software.intel.com/en-us/articles/intel-math-kernel-library-intel-mkl-2018-getting-started" target="_blank">https://software.intel.com/en-us/articles/intel-math-kernel-library-intel-mkl-2018-getting-started</a>.
+			 
+		  </p>
+</div>
+<p>For other compilers, use the Intel MKL Link Line Advisor to generate a
+		  command line to compile and link the exercises in this tutorial: 
+		  <a href="http://software.intel.com/en-us/articles/intel-mkl-link-line-advisor/" target="_blank">http://software.intel.com/en-us/articles/intel-mkl-link-line-advisor/</a>.
+		  
+		</p>
+<p>After compiling and linking, execute the resulting executable file,
+		  named 
+		  <span class="filepath">dgemm_example.exe</span> on Windows* OS or 
+		  <span class="filepath">a.out</span> on Linux* OS and macOS*. 
+		</p>
+<p>
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-454D52BD-178E-49A9-850D-83FB4612D615" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d623e371"><p id="d30e52">Optimization Notice 
+              </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d623e371 "><p>Intel's compilers may or may not optimize to the same degree
+                for non-Intel microprocessors for optimizations that are not unique to Intel
+                microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction
+                sets and other optimizations. Intel does not guarantee the availability,
+                functionality, or effectiveness of any optimization on microprocessors not
+                manufactured by Intel. Microprocessor-dependent optimizations in this product
+                are intended for use with Intel microprocessors. Certain optimizations not
+                specific to Intel microarchitecture are reserved for Intel microprocessors.
+                Please refer to the applicable product User and Reference Guides for more
+                information regarding the specific instruction sets covered by this notice. 
+              </p>
+<p> Notice revision #20110804 
+              </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+</div>
+<p><a href="GUID-CEB793BF-BEFC-42F3-9D4D-F1207725B2DC.html#GUID-CEB793BF-BEFC-42F3-9D4D-F1207725B2DC"><img class="border(0)" id="IMAGE_1C552CB86F7E412DB0B0C429F8B00B4A" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="Previous" /></a><a href="GUID-07526836-E352-498C-93C1-DBD535EF83A7.html#GUID-07526836-E352-498C-93C1-DBD535EF83A7"><img class="border(0)" id="IMAGE_F4CFCEC17C0F42EF9FCF2D5AE7BBBAFB" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="Next" /></a></p>
+</div>
+<div><h2>See Also</h2>
+<div class="linklist">
+<div><a href="http://software.intel.com/en-us/articles/intel-math-kernel-library-documentation/" target="_blank">Intel MKL Documentation 
+		  </a> for additional Intel MKL documentation, including the 
+			 Intel MKL Developer Reference and the 
+			 Intel MKL Developer Guide. 
+		  </div>
+<div><a href="http://software.intel.com/en-us/articles/intel-mkl-kb/all/1/" target="_blank">Intel Math Kernel Library Knowledge Base 
+		  </a> for articles describing usage of Intel MKL functionality. 
+		  </div>
+<div><a href="http://software.intel.com/en-us/articles/intel-software-product-tutorials/" target="_blank">Click here for more Getting Started
+			 Tutorials 
+		  </a></div></div></div>
+</body>
+</html>

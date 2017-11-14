@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Build Application" />
+<meta name="DC.Relation" scheme="URI" content="GUID-4A555FCA-2EAD-4D6B-9AAB-62C99BD9EE1C.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-22680D8F-94EB-47A2-8CD4-FE9F6F095750" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Build Application</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-22680D8F-94EB-47A2-8CD4-FE9F6F095750">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Build Application </h1>
+<div id="GUID-73D427BC-CCB5-4997-AFA9-FE6BC418096D"><p id="GUID-3DE6CA0C-3A46-4F8A-9D95-9192201C716D"></p>
+<p id="GUID-4AB28665-0BBE-4108-8050-DE9F375D5A72"><img id="IMAGE_E930ECFB36384C27AB901F1157E62D2B" src="GUID-02914B5D-1A7D-4B4B-8A24-9534BDA714E4-low.gif" /> Before you start identifying hotspots in your native Intel&reg; Xeon
+		Phi&#8482; coprocessor application, do the following: 
+	 </p>
+<ol id="GUID-A50451E7-FF92-47AD-884A-C7C3A6F9126D"><li><p><a href="#GET_SOFT_TOOLS">Get
+				software tools</a>. 
+		  </p>
+</li>
+<li><p><a href="#BUILD">Build
+				application with full optimizations on the host</a>. 
+		  </p>
+</li>
+<li><p><a href="#SCRIPT">Create
+				a performance baseline</a>. 
+		  </p>
+</li>
+</ol>
+<div class="section" id="GET_SOFT_TOOLS"><h2 class="sectiontitle">Get Software Tools</h2><p>You need the following tools to try these tutorial steps yourself
+		  using the 
+		  <samp class="codeph">matrix</samp> sample application: 
+		</p>
+<p><ul id="GUID-1E9D5DC1-C300-45E8-BD81-9CCF4E217905"><li><p><span>Intel&reg; VTune&#8482; Amplifier</span>,
+				including sample applications 
+			 </p>
+</li>
+<li><p>Sampling driver, set up during the VTune Amplifier installation 
+			 </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>If, for some reason, the VTune Amplifier was not able to install
+				  the driver, you will not be able to run the analysis and will see a warning
+				  message. See online help for additional instructions how to install the driver
+				  manually. 
+				</p>
+</div>
+</li>
+<li><p>Intel&reg; Manycore Platform Software Stack (Intel&reg; MPSS). See Release
+				Notes for more information. 
+			 </p>
+<span></span></li>
+<li><p><samp class="codeph">tar</samp> file extraction utility 
+			 </p>
+</li>
+<li><p>Intel&reg; C++ Compiler installed on the host. See Release Notes for
+				more information. 
+			 </p>
+</li>
+</ul>
+</p>
+<p><strong>Acquire Intel VTune Amplifier</strong></p>
+<p>If you do not already have access to the VTune Amplifier, you can
+		  download an evaluation copy from 
+		  <a href="HTTP://SOFTWARE.INTEL.COM/EN-US/ARTICLES/INTEL-SOFTWARE-EVALUATION-CENTER/" target="_blank">http://software.intel.com/en-us/articles/intel-software-evaluation-center/</a>.
+		  
+		</p>
+<p><strong> Install and Set Up VTune Amplifier Sample Applications 
+		  </strong></p>
+<p><ol id="GUID-31ED23B9-995D-4B7F-81C6-001CBA03BF52"><li><p>Copy the 
+				<samp class="codeph">matrix_vtune_amp_xe.tgz</samp> file from
+				the 
+				<samp class="codeph">&lt;install_dir&gt;/samples/&lt;locale&gt;/C++</samp> directory to a
+				writable directory or share on your system. 
+			 </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>The default installation path for the VTune Amplifier
+        XE is 
+        <samp class="codeph">/opt/intel/vtune_amplifier_xe_<em>version</em></samp>.
+        For the VTune Amplifier for Systems, the default 
+        <samp class="codeph">&lt;<em>install_dir</em>&gt;</samp> is<span>:</span><ul id="d10e98"><li>For super-users: 
+          <samp class="codeph">/opt/intel/system_studio_<em>version</em>/vtune_amplifier_for_systems</samp></li>
+<li>For ordinary users: 
+          <samp class="codeph">$HOME/intel/system_studio_<em>version</em>/vtune_amplifier_for_systems</samp></li>
+</ul>
+</p>
+</div>
+</li>
+<li><p>Extract the sample from the 
+				<samp class="codeph">.tgz</samp> file. 
+			 </p>
+</li>
+</ol>
+</p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <ul id="GUID-1E95CD3F-9A7F-481C-92DB-41C03EF2D97C"><li>Samples are non-deterministic. Your screens may vary from the
+				screen captures shown throughout this tutorial. 
+			 </li>
+<li>Samples are designed only to illustrate the VTune Amplifier
+				features; they do not represent best practices for creating code. 
+			 </li>
+</ul>
+</div>
+</div>
+<div class="section" id="BUILD"><h2 class="sectiontitle">Build the Target </h2><p>Build the target on the host with full optimizations, which is
+		  recommended for performance analysis. 
+		  </p>
+<p></p>
+<ol id="GUID-3C1B9D7D-98E8-4DCA-A9D9-2EF4308FD38A"><li id="GUID-147225CC-BB81-4BEE-BDA1-E26FB0F4DC76"><p id="GUID-FB8FB32D-6167-4E9E-A1EC-C9E776E0446C">Browse to the 
+				<samp class="codeph">linux</samp> directory within where you extracted the
+				sample code (for this example assume that location is 
+				<span class="filepath" id="GUID-8BC13118-CF41-4237-9B2D-E20F9915ADE1">/home/sample/matrix/linux</span>).
+				Make sure this directory contains 
+				<samp class="codeph" id="GUID-14A66CF4-3B5A-49E1-A2E7-5B30C3FD4B07">Makefile</samp>. 
+			 </p>
+</li>
+<li id="GUID-C1D753BA-0186-40DB-AC6B-5B82A2B28579"><p id="GUID-E0E471F0-C0F2-4D5B-BC41-60F4C62FBEB8">Set up the
+				environment for Intel C++ Compiler: 
+			 </p>
+<p><samp class="codeph">source &lt;<em>path_to_compiler_bin</em>&gt;/compilervars.sh
+				  intel64</samp></p>
+</li>
+<li><p>Build the code using the 
+				<samp class="codeph">make</samp> command: 
+			 </p>
+<p><samp class="codeph">$ make mic</samp></p>
+<p id="GUID-2939F576-9ABC-41FF-95CA-CB082F7E1FEC"> The 
+				<samp class="codeph" id="GUID-5E1243F8-152E-4C42-8A23-4757153219E1">matrix</samp> application is
+				built as 
+				<samp class="codeph" id="GUID-AD8C2592-385A-4CA9-9955-6D6C6414ECAB">matrix.mic</samp> and stored
+				in the 
+				<span class="filepath" id="GUID-08F27AA6-4643-4B5C-9458-9164A21C4195">matrix/linux</span>
+				directory. 
+			 </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>This application uses OpenMP* library for compilation. To run
+				  the sample on the Intel Xeon Phi coprocessor, make sure to copy the OpenMP
+				  library to the card and set up the default path. 
+				</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="SCRIPT"><h2 class="sectiontitle">Create a Performance Baseline </h2><p>To communicate with the Intel Xeon Phi
+		  coprocessor cards, you may use any of the following mechanisms: 
+		</p>
+<ul id="GUID-9092501C-5FFD-4868-ACDD-E06EB29FC405"><li>Mount an NFS share. See the 
+			 <em>NFS Mounting a Host Export</em> topic in the Intel Manycore
+			 Programming Software Stack help for details. 
+		  </li>
+<li>Use existing SSH tools. 
+		  </li>
+</ul>
+<ol id="GUID-603D238E-620B-4EBF-B14A-9C60116B690B"><li><p>Ensure that the binary to analyze is copied to the Intel Xeon Phi
+				coprocessor. You can do this by using 
+				<samp class="codeph">scp</samp>, for example: 
+			 </p>
+<p><pre>scp matrix.mic mic0:/tmp
+</pre></p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>You may add this command to build scripts to automate a copy
+				  action after the binary recompilation. In this tutorial's scenario, 
+				  <samp class="codeph">scp</samp> command is added to the 
+				  <samp class="codeph">Makefile</samp>. So, the 
+				  <samp class="codeph">matrix</samp> application is built and automatically
+				  copied to the Intel Xeon Phi coprocessor. 
+				</p>
+</div>
+</li>
+<li><p>Run the application on the coprocessor using 
+				<span><samp class="codeph">ssh</samp></span> and record the results to establish a
+				performance baseline: 
+			 </p>
+<p><img id="IMAGE_0BE9C378802C486BAF05D790A537546A" src="GUID-C455B161-440E-4773-BC54-F06564403D76-low.gif" /></p>
+</li>
+<li><p>Note the execution time displayed at the bottom. For the 
+				<samp class="codeph">matrix.mic</samp> executable in the figure above, the
+				execution time is 
+				<span>30.466</span> seconds. Use this metric as a
+				baseline against which you will compare subsequent runs of the application. 
+			 </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>Run the application several times, noting the execution time for
+				  each run, and use the average time. This helps to minimize skewed results due
+				  to transient system activity. 
+				</p>
+</div>
+</li>
+</ol>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <ul id="GUID-7711588C-30AD-4BE2-BE1A-8272B2F4C303"><li><p> If you experience a problem with permissions to run the
+				  commands, use sudo or root access. 
+				</p>
+</li>
+<li><p>Alternatively, you may create an 
+				  <samp class="codeph">ssh</samp> script to copy and launch your application
+				  on a card or use the 
+				  <samp class="codeph">micnativeloadex</samp> utility. For details, see the 
+				  <em>Preparing an Intel&reg; Xeon Phi&#8482; Coprocessor System for
+					 Analysis</em> online help topic. 
+				</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="GUID-2F6ACADF-6121-413E-A07F-FC70A85EC2DA"><h2 class="sectiontitle">Key Terms </h2><ul id="GUID-FA4439CD-111F-42B5-9885-E8B92C795B80"><li><p><a href="GUID-936F0115-97D4-484C-8778-CFDEC6096945.html#TARGET">Target</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="GUID-797E25B7-6155-4C22-9C96-A7FD494B5D6C"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-5C2B4F86-B210-4693-AA73-1CE6E45A44FA.html">Create Project
+			 and Configure Target</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-4A555FCA-2EAD-4D6B-9AAB-62C99BD9EE1C.html">Finding Hotspots</a></div>
+</div>
+<div></div>
+</body>
+</html>

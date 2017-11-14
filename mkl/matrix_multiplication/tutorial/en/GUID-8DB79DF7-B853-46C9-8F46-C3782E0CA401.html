@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Measuring Effect of Threading on dgemm" />
+<meta name="DC.Relation" scheme="URI" content="GUID-6D82DCCE-D53F-4BEB-92A2-EE69A18803CA.html" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-math-kernel-library-documentation/" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-mkl-kb/all/1/" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-software-product-tutorials/" />
+<meta name="prodname" content="Intel&reg; Math Kernel Library" />
+<meta name="version" content="327255-007" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-8DB79DF7-B853-46C9-8F46-C3782E0CA401" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Measuring Effect of Threading on dgemm</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-8DB79DF7-B853-46C9-8F46-C3782E0CA401">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Using the Intel&reg; Math Kernel Library 2018 for Matrix Multiplication Tutorial</em></p>
+
+
+<h1 class="topictitle1">Measuring Effect of Threading on
+    dgemm</h1>
+<div id="GUID-794A2F0A-A053-4AF9-96E5-D6419D77CBA9"><p></p>
+<p>By default, Intel MKL uses 
+      <var>n</var> threads, where 
+      <var>n</var> is the number of physical cores on the system. By
+      restricting the number of threads and measuring the change in performance of 
+      <samp class="codeph"><span class="keyword">dgemm</span></samp>, this exercise shows how
+      threading impacts performance. 
+    </p>
+<div class="section" id="INTERPRET"><h2 class="sectiontitle">Limit the Number of Cores Used for dgemm</h2><p> This exercise uses the 
+        <samp class="codeph"><span class="keyword">mkl_set_num_threads</span></samp> routine to
+        override the default number of threads, and 
+        <samp class="codeph"><span class="keyword">mkl_get_max_threads</span></samp> to determine
+        the maximum number of threads. 
+      </p>
+<pre>/* C source code is found in dgemm_threading_effect_example.c */
+
+    printf (" Finding max number of threads Intel&reg; MKL can use for parallel runs \n\n");
+    max_threads = mkl_get_max_threads();
+
+    printf (" Running Intel&reg; MKL from 1 to %i threads \n\n", max_threads);
+    for (i = 1; i &lt;= max_threads; i++) {
+        for (j = 0; j &lt; (m*n); j++)
+            C[j] = 0.0;
+        
+        printf (" Requesting Intel&reg; MKL to use %i thread(s) \n\n", i);
+        mkl_set_num_threads(i);
+
+        printf (" Making the first run of matrix product using Intel&reg; MKL dgemm function \n"
+                " via CBLAS interface to get stable run time measurements \n\n");
+        cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, 
+                    m, n, k, alpha, A, k, B, n, beta, C, n);
+        
+        printf (" Measuring performance of matrix product using Intel&reg; MKL dgemm function \n"
+                " via CBLAS interface on %i thread(s) \n\n", i);
+        s_initial = dsecnd();
+        for (r = 0; r &lt; LOOP_COUNT; r++) {
+            cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, 
+                        m, n, k, alpha, A, k, B, n, beta, C, n);
+        }
+        s_elapsed = (dsecnd() - s_initial) / LOOP_COUNT;
+
+        printf (" == Matrix multiplication using Intel&reg; MKL dgemm completed ==\n"
+                " == at %.5f milliseconds using %d thread(s) ==\n\n", (s_elapsed * 1000), i);
+    }
+ </pre><p>Examine the results shown and notice that time to multiply the
+        matrices decreases as the number of threads increases. If you try to run this
+        exercise with more than the number of threads returned by 
+        <samp class="codeph"><span class="keyword">mkl_get_max_threads</span></samp>, you might see
+        performance degrade when you use more threads than physical cores. 
+      </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>You can see specific performance results for 
+          <samp class="codeph"><span class="keyword">dgemm</span></samp> at the Details tab at 
+          <a href="http://software.intel.com/en-us/articles/intel-mkl" target="_blank">http://software.intel.com/en-us/articles/intel-mkl</a>.
+          
+        </p>
+</div>
+</div>
+<p><a href="GUID-07526836-E352-498C-93C1-DBD535EF83A7.html#GUID-07526836-E352-498C-93C1-DBD535EF83A7"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="Previous" /></a><a href="GUID-4EB98A79-11E9-4DD0-A240-5594660460D8.html#GUID-4EB98A79-11E9-4DD0-A240-5594660460D8"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="Next" /></a></p>
+</div>
+<div><h2>See Also</h2>
+<div class="linklist">
+<div><a href="http://software.intel.com/en-us/articles/intel-math-kernel-library-documentation/" target="_blank">Intel MKL Documentation 
+        </a> for additional Intel MKL documentation, including the 
+          Intel MKL Developer Reference and the 
+          Intel MKL Developer Guide. 
+        </div>
+<div><a href="http://software.intel.com/en-us/articles/intel-mkl-kb/all/1/" target="_blank">Intel Math Kernel Library Knowledge Base 
+        </a> for articles describing usage of Intel MKL functionality. 
+        </div>
+<div><a href="http://software.intel.com/en-us/articles/intel-software-product-tutorials/" target="_blank">Click here for more Getting Started
+          Tutorials 
+        </a></div></div></div>
+</body>
+</html>

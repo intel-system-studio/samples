@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Tutorial: Finding Hotspots - C++ Sample Code" />
+<meta name="DC.subject" content="Enter index keyword" />
+<meta name="keywords" content="Enter index keyword" />
+<meta name="DC.Relation" scheme="URI" content="GUID-667008D9-1F25-4B94-9573-A1D855E7D9FC.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-D2009DFB-FDD0-41CC-B9CD-D273822AB964.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-D1320A0F-E1E9-4A8A-BF53-32535A7368A0.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-77A32896-822E-423C-95B9-1BAE6E18C085.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-8DCE8321-E14C-4106-AA5B-443DD8ED634E.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-E65EAF99-9FEC-4FDA-A6FD-84ACD3F86E5D" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Tutorial: Finding Hotspots - C++ Sample Code</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-E65EAF99-9FEC-4FDA-A6FD-84ACD3F86E5D">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+<h1 class="topictitle1"><img id="IMAGE_ACE7A4F31DC6425B9C465E3F14086384" src="GUID-59DFA90A-7EFE-471F-87B3-6B240755CE73-low.png" /> Tutorial: Finding Hotspots
+	 - C++ Sample Code</h1>
+<div><p></p>
+<p><strong>Intel&reg; VTune&#8482; Amplifier for 
+		  <span>Windows</span>* OS</strong></p>
+<p id="GUID-55ED7C8B-907B-466F-8F79-DC6A12222A06"><a class="underlined" href="GUID-667008D9-1F25-4B94-9573-A1D855E7D9FC.html#GUID-667008D9-1F25-4B94-9573-A1D855E7D9FC">Legal Information</a></p>
+<p><br /><br /></p>
+<p> Discover how to use Basic Hotspots analysis of the 
+		<span>Intel&reg; VTune&#8482; Amplifier</span>
+		to understand where your application is spending time, identify 
+		<dfn class="term">hotspots</dfn> - the most time-consuming program units, and detect
+		how they were called. 
+	 </p>
+<p>Basic Hotspots analysis is useful to analyze the performance of both
+		serial and parallel applications. 
+	 </p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="TABLE_D4E7A5076A55473EBA806E3929391C01" frame="border" border="1" cellspacing="0" rules="all"><tbody><tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>About This Tutorial</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><p>This tutorial uses the sample 
+					 <samp class="codeph">tachyon</samp> and guides you through basic steps
+					 required to analyze the code for hotspots. 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>Estimated Duration</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><p>10-15 minutes. 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>Learning Objectives</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><p>After you complete this tutorial, you
+					 should be able to: 
+				  <ul id="UL_ACA29D1255F74D8593DCF800C196C58C"><li id="LI_3A5DF91CD9694917A268E6F1EA7131D9"><p>Choose an analysis target. 
+						</p>
+</li>
+<li id="LI_3DBB63D2593C4895A2CB634BD8DFE1B0"><p>Choose the Basic Hotspots analysis type. 
+						</p>
+</li>
+<li id="LI_1995B2ED89C4465694EBA55EBE487526"><p>Run the Basic Hotspots analysis to locate most
+						  time-consuming functions in an application. 
+						</p>
+</li>
+<li id="LI_BE1FCF5634664ED99F6B8AF2BDE8F944"><p>Analyze the function call flow and threads. 
+						</p>
+</li>
+<li id="LI_B7F2503D9D52478C80ADA505D7B0A3D2"><p>Analyze the source code to locate the most time-critical
+						  code lines. 
+						</p>
+</li>
+<li id="LI_E2EE43F5D63048B38459B8F7A6FC53E2"><p> Compare results before and after optimization. 
+						</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>More Resources</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><ul id="GUID-2C08DE64-1453-4243-97AD-836C88A3D602"><li><p>Intel VTune Amplifier tutorials (HTML, PDF): 
+						  <a href="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials" target="_blank">https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials</a></p>
+</li>
+<li><p>Intel VTune Amplifier support page: 
+						  <a href="https://software.intel.com/en-us/intel-vtune-amplifier-xe-support" target="_blank">https://software.intel.com/en-us/intel-vtune-amplifier-xe-support</a></p>
+</li>
+<li><p>Intel Parallel Studio XE support page: 
+						  <a href="https://software.intel.com/en-us/articles/intel-parallel-studio-xe" target="_blank">https://software.intel.com/en-us/articles/intel-parallel-studio-xe</a></p>
+</li>
+<li><p>Intel System Studio support page: 
+						  <a href="https://software.intel.com/en-us/intel-system-studio" target="_blank">https://software.intel.com/en-us/intel-system-studio</a></p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><u><a class="start" href="GUID-D1320A0F-E1E9-4A8A-BF53-32535A7368A0.html#GUID-D1320A0F-E1E9-4A8A-BF53-32535A7368A0">Start Here</a></u></p>
+</div>
+<div></div>
+</body>
+</html>

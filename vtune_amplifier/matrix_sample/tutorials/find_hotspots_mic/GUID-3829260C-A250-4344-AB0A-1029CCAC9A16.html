@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Tutorial: Finding Hotspots on the Intel&reg; Xeon Phi&#8482; Coprocessor - C++ Sample Code" />
+<meta name="DC.Relation" scheme="URI" content="GUID-667008D9-1F25-4B94-9573-A1D855E7D9FC.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-D2009DFB-FDD0-41CC-B9CD-D273822AB964.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-4A555FCA-2EAD-4D6B-9AAB-62C99BD9EE1C.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-B1B8C5B6-38A8-4B82-99C4-8AEEF48F6098.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-936F0115-97D4-484C-8778-CFDEC6096945.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-3829260C-A250-4344-AB0A-1029CCAC9A16" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Tutorial: Finding Hotspots on the Intel&reg; Xeon Phi&#8482; Coprocessor - C++ Sample Code</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-3829260C-A250-4344-AB0A-1029CCAC9A16">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+<h1 class="topictitle1"><img id="IMAGE_EE07E6E9C1164FC68E1C4F22AB0ADC85" src="GUID-59DFA90A-7EFE-471F-87B3-6B240755CE73-low.png" /> Tutorial: Finding Hotspots
+	 on the Intel&reg; Xeon Phi&#8482; Coprocessor - C++ Sample Code</h1>
+<div><p><strong> Intel&reg; VTune&#8482; Amplifier for 
+		  <span>Linux</span>* OS</strong></p>
+<p id="GUID-55ED7C8B-907B-466F-8F79-DC6A12222A06"><a class="underlined" href="GUID-667008D9-1F25-4B94-9573-A1D855E7D9FC.html#GUID-667008D9-1F25-4B94-9573-A1D855E7D9FC">Legal Information</a></p>
+<p><br /><br /></p>
+<p> Discover how to analyze a native application running on an Intel&reg; Xeon
+		Phi&#8482; coprocessor card with the 
+		<span>Intel&reg; VTune&#8482; Amplifier</span>
+		and identify the most performance-critical code. 
+	 </p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-90830C46-08BF-4A95-A9F9-2465BA185207" frame="border" border="1" cellspacing="0" rules="all"><tbody><tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>About This Tutorial</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><p>This tutorial uses the sample 
+					 <samp class="codeph">matrix</samp> application and guides you through
+					 basic steps required to analyze the code for hotspots on the Intel Xeon Phi
+					 coprocessor (code name: Knights Corner) based on Intel Many Integrated Core
+					 architecture (Intel MIC architecture). 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>Estimated Duration</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><p>10-15 minutes. 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>Learning Objectives</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><p>After you complete this tutorial, you
+					 should be able to: 
+				  <ul id="GUID-211B4EDC-3D3C-4E43-822F-8C4719BE529B"><li><p>Create a VTune Amplifier project. 
+						</p>
+</li>
+<li><p>Configure an analysis target for Intel Xeon Phi
+						  coprocessor 
+						  <span>(native) target system type</span> and run it on
+						  a card. 
+						</p>
+</li>
+<li><p> Configure and run Advanced Hotspots analysis for the
+						  Intel Xeon Phi coprocessor. 
+						</p>
+</li>
+<li><p>Identify the modules/functions that consumed a lot of CPU
+						  time. 
+						</p>
+</li>
+<li><p> Analyze the source code to locate the most critical code
+						  lines. 
+						</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>More Resources</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><ul id="GUID-2C08DE64-1453-4243-97AD-836C88A3D602"><li><p>Intel VTune Amplifier tutorials (HTML, PDF): 
+						  <a href="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials" target="_blank">https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials</a></p>
+</li>
+<li><p>Intel VTune Amplifier support page: 
+						  <a href="https://software.intel.com/en-us/intel-vtune-amplifier-xe-support" target="_blank">https://software.intel.com/en-us/intel-vtune-amplifier-xe-support</a></p>
+</li>
+<li><p>Intel Parallel Studio XE support page: 
+						  <a href="https://software.intel.com/en-us/articles/intel-parallel-studio-xe" target="_blank">https://software.intel.com/en-us/articles/intel-parallel-studio-xe</a></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p id="GUID-87EE735F-EAA3-4457-9C8C-7C73342E5218"><a class="start" href="GUID-4A555FCA-2EAD-4D6B-9AAB-62C99BD9EE1C.html">Start
+		  Here</a></p>
+</div>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="アプリケーションのビルド" />
+<meta name="DC.subject" content="アプリケーションのビルド, アプリケーションのコンパイルとリンク, 環境のセットアップ" />
+<meta name="keywords" content="アプリケーションのビルド, アプリケーションのコンパイルとリンク, 環境のセットアップ" />
+<meta name="DC.Relation" scheme="URI" content="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html" />
+<meta name="prodname" content="" />
+<meta name="version" content="9.0" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-42D90243-5482-4359-96EE-E73A4633A924" />
+<meta name="DC.Language" content="ja-JP" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>アプリケーションのビルド</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-42D90243-5482-4359-96EE-E73A4633A924">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt">チュートリアル: インテル® IPP 2018 (Beta) による画像の回転とブラー</p>
+
+
+<h1 class="topictitle1">アプリケーションのビルド</h1>
+<div><p><div class="Note"><h3 class="NoteTipHead">注</h3> <span class="filepath">ipp_blur_rotate.cpp</span> は、インテル&reg; Parallel Studio XE 内にインストールされるインテル&reg; IPP 用に作成されたサンプルコードです。このサンプルコードは、インテル&reg; System Studio のようなほかの製品スイート内でも利用できます (グラフィカル・レンダリング部分を除く)。</div>
+</p>
+<div class="section" id="GUID-3BF9BEA4-2CC1-4211-ADD1-B42A8A76EC92"><h2 class="sectiontitle">ビルド環境のセットアップ</h2><p>インテル&reg; IPP とともにインストールしたスイートのコンパイラー・コンポーネントを起動する前に、コンパイラーの関連コンポーネントの場所を定義する特定の環境変数を設定する必要があります。インテル&reg; C++コンパイラーをインストールすると、環境変数を設定するための <span class="filepath">compilervars</span> スクリプトがインストールされます。<ul id="GUID-2FEE5E18-4507-402C-806D-F3C422B0D085"><li>Windows* では、<span class="filepath">compilervars.bat</span> バッチファイルが <span class="filepath">&lt;install-dir&gt;\compilers_and_libraries_2018.x.xxx\windows\bin\</span> にインストールされます。</li>
+<li>Linux* および macOS* では、<span class="filepath">compilervars.sh</span> シェルスクリプトが <span class="filepath">&lt;install-dir&gt;\compilers_and_libraries_2018.x.xxx\&lt;linux|mac&gt;\bin\</span> にインストールされます。</li>
+</ul>
+</p>
+<p>異なる製品スイートの環境変数の設定については、<a href="https://software.intel.com/en-us/articles/setting-up-the-build-environment-for-using-intel-c-or-fortran-compilers" target="_blank">https://software.intel.com/en-us/articles/setting-up-the-build-environment-for-using-intel-c-or-fortran-compilers</a> (英語) を参照してください。</p>
+</div>
+<div class="section" id="GUID-9DC911B2-235E-4ABE-80A2-02A57C598ED5"><h2 class="sectiontitle">コードのコンパイルとリンク</h2><p>このチュートリアルのコードサンプルをコンパイルしてリンクするには、次の操作を行います。<ul id="GUID-744D3136-FABE-4ACF-B204-279F55B9B23A"><li>Windows*:<ol id="GUID-DF0878F1-2D1F-4D1E-8C49-51E3D388B718"><li><a href="https://software.intel.com/en-us/product-code-samples" target="_blank">インテル&reg; ソフトウェア製品のサンプルとチュートリアル</a> (英語) からダウンロードした <span class="filepath">ipp_blur_rotate_sample.zip</span> アーカイブを展開します。</li>
+<li>Microsoft* Visual Studio* コマンドプロンプトを実行して、<span class="filepath">Makefile</span> ディレクトリーに移動します。デフォルトでは、<span class="filepath">Makefile</span> は <span class="filepath">ipp_blur_rotate_sample.zip</span> アーカイブのルートにあります。</li>
+<li><samp class="codeph">nmake -f Makefile_win</samp> コマンドを実行します。</li>
+</ol>
+</li>
+<li>Linux* および macOS*:<ol id="GUID-2D104F0C-915A-4CAA-BC74-1E050665E5CA"><li><a href="https://software.intel.com/en-us/product-code-samples" target="_blank">インテル&reg; ソフトウェア製品のサンプルとチュートリアル</a> (英語) からダウンロードした <span class="filepath">ipp_blur_rotate_sample.tgz</span> アーカイブを展開します。</li>
+<li>bash シェルを実行して <span class="filepath">Makefile</span> ディレクトリーに移動します。デフォルトでは、<span class="filepath">Makefile</span> は <span class="filepath">ipp_blur_rotate_sample.tgz</span> アーカイブのルートにあります。</li>
+<li><samp class="codeph">make -f Makefile_lin</samp> コマンド (Linux*) または <samp class="codeph">make -f Makefile_mac</samp> コマンド (macOS*) を実行します。</li>
+</ol>
+</li>
+</ul>
+</p>
+<p>アプリケーションを実行するには、<span class="filepath">Makefile</span> があるディレクトリーから次のコマンドを実行します。<ul id="GUID-A3FAA51E-EC10-4CFA-88BE-AA504FE73E65"><li>Windows*: <samp class="codeph">ipp_blur_rotate.exe</samp></li>
+<li>Linux*: <samp class="codeph">./ipp_blur_rotate</samp></li>
+<li>macOS*: <samp class="codeph">./ipp_blur_rotate.app/Contents/MacOS/ipp_blur_rotate</samp></li>
+</ul>
+</p>
+</div>
+<p><a href="GUID-0EE46F60-3F41-4AC2-B201-6F476094BE89.html#GUID-0EE46F60-3F41-4AC2-B201-6F476094BE89"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="戻る" /></a><a href="GUID-187975F1-948C-4DBE-9E1C-6EDFDDD59B65.html#GUID-187975F1-948C-4DBE-9E1C-6EDFDDD59B65"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="次へ" /></a></p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a href="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html">チュートリアル: インテル&reg; IPP 2018 (Beta) による画像の回転とブラー</a></div>
+</div>
+<div></div>
+</body>
+</html>

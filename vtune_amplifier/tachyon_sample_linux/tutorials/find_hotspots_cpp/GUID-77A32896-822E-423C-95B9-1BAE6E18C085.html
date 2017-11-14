@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Summary" />
+<meta name="DC.Relation" scheme="URI" content="GUID-E65EAF99-9FEC-4FDA-A6FD-84ACD3F86E5D.html" />
+<meta name="DC.Relation" scheme="URI" content="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials/" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-77A32896-822E-423C-95B9-1BAE6E18C085" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Summary</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-77A32896-822E-423C-95B9-1BAE6E18C085">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier</em></p>
+
+
+<h1 class="topictitle1">Summary</h1>
+<div id="GUID-E7E99424-E113-478E-A39D-2721830FF5EA"><p id="GUID-D2B16381-BD24-418F-8665-7C199A94B11B"></p>
+<p id="GUID-D0FD3DB0-6A64-4EB8-8BB2-27055E81B8DB"><img id="IMAGE_C00A5FCA452F47B584D868831E9E3CE7" height="32" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" width="32" /> You have completed the Finding Hotspots tutorial. Here are some
+		important things to remember when using the 
+		<span id="GUID-1C69335C-24C9-44CC-967F-EFC4E6B5E6EA">Intel&reg; VTune&#8482; Amplifier</span> to
+		analyze your code for hotspots: 
+	 </p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-737B4181-C6BE-45FD-8B00-ED9783107B9B" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" valign="top" width="20.449897750511248%" id="d1300e34"><p>Step 
+				  </p>
+</th>
+<th class="cellrowborder" valign="top" width="36.809815950920246%" id="d1300e37"><p>Tutorial Recap 
+				  </p>
+</th>
+<th class="cellrowborder" valign="top" width="42.740286298568506%" id="d1300e40"><p>Key Tutorial Take-aways 
+				  </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d1300e34 "><p><strong>1. Prepare for analysis</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d1300e37 "><p>You 
+					 built the target in the Release mode, created the
+					 performance baseline, and created the VTune Amplifier project for your analysis
+					 target. 
+				  </p>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d1300e40 "><p><ul id="GUID-6C97DF37-5168-4766-96B4-C889907D5D17"><li id="LI_CECBA686EE7647EF8E19FE7A058EDC17"><p>Create a performance baseline to compare the application
+						  versions before and after optimization. Make sure to use the same workload for
+						  each application run. 
+						</p>
+</li>
+<li id="LI_1570E26021A54017B5B97867F362795A"><p><span>Create a VTune
+							 Amplifier project and u</span> 
+						  se the 
+						  <strong>Analysis Target</strong> tab to choose and configure your
+						  analysis target. 
+						  </p>
+</li>
+<li id="GUID-A1F82561-5605-462B-B341-17C3F1F6B977"><p id="GUID-FD7BF294-1697-426F-B92B-7CBAD495E1D1">Use the 
+						  <strong id="GUID-0A58655E-0B47-49AD-A3C6-143571D3639F">Analysis
+							 Type</strong> tab to choose, configure, and run the analysis. You can also run the
+						  analysis from command line using the 
+						  <samp class="codeph" id="GUID-E5456154-228D-4A71-955E-E151B8C4B91A">amplxe-cl</samp> command. 
+						</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d1300e34 "><p><strong>2. Find hotspots</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d1300e37 "><p id="GUID-5FDBCAEE-D552-4409-B796-379D3B4A15C1">You launched
+					 the Basic Hotspots data collection that analyzes function calls and CPU time
+					 spent in each program unit of your application and identified the following
+					 hotspots: 
+				  </p>
+<ul id="GUID-6790C8FC-27D6-43CD-96DF-7FF5D430AAF2"><li id="LI_9FDD8798A5914323A82483C1F66A5A78"><p>Identified a function that took the most CPU time and
+						  could be a good candidate for algorithm tuning. 
+						</p>
+</li>
+<li id="LI_6B11C4139AE547F5BC1F9971E35077B8"><p>Identified the code section that took the most CPU time to
+						  execute. 
+						</p>
+</li>
+</ul>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d1300e40 "><p><ul id="GUID-8AA2DE98-F474-431F-B5D7-844370755751"><li id="LI_E95874D47E7243B3A2337AD65B08A4AE"><p id="GUID-4E0D9CD9-3970-474A-AC3A-02A671D730A4">Start
+						  analyzing the performance of your application from the 
+						  <strong>Summary</strong> window to explore the performance metrics
+						  for the whole application. Then, move to the 
+						  <strong>Bottom-up</strong> window to analyze the performance per
+						  function. Focus on the 
+						  <em>hotspots</em> - functions that took the most CPU time. By
+						  default, they are located at the top of the table. 
+						</p>
+</li>
+<li id="LI_4548CF9DF8F54AA8A3CE98F27E74CB80"><p id="GUID-DF8E6E82-B6D9-4087-B96B-0437B090D744">Double-click the hotspot
+						  function in the 
+						  <strong>Bottom-up</strong> pane or 
+						  <strong>Call Stack</strong> pane to open its source code and identify
+						  the code line that took the most CPU time. 
+						</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d1300e34 "><p><strong>3. Eliminate hotspots</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d1300e37 "><p id="GUID-FDC332A9-AE66-43C4-A810-DD5DB7C0F1FF">You
+					 interchanged the loops in the hotspot function, rebuilt the application, and
+					 got performance gain of 
+					 <span>19.633</span> seconds. 
+					 </p>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d1300e40 "><p>Use the 
+					 <img id="IMAGE_3D04FB02E920470197BE479D46121796" src="GUID-66F5A54E-83EC-4E60-AD9A-83481F49715D-low.jpg" /><strong>Source Editor</strong> button to open the code editor from the
+					 VTune Amplifier directly at the hotspot line. 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20.449897750511248%" headers="d1300e34 "><p><strong>4. Check your work</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="36.809815950920246%" headers="d1300e37 "><p id="GUID-20DDA88E-6AB5-48BF-B9FA-806C4A2D427C">You ran the
+					 Basic Hotspots analysis on the optimized code and compared the results before
+					 and after optimization using the Compare mode of the VTune Amplifier. Compare
+					 analysis results regularly to look for regressions and to track how incremental
+					 changes to the code affect its performance. You may also want to use the VTune
+					 Amplifier command-line interface and run the 
+					 <samp class="codeph">amplxe-cl</samp> command to test your code for
+					 regressions. For more details, see the 
+					 <em id="GUID-BE7229B8-A9E6-443E-AEBF-912D569EF80E">Command-line
+						Interface Support</em> section in the VTune Amplifier online help. 
+				  </p>
+</td>
+<td class="cellrowborder" valign="top" width="42.740286298568506%" headers="d1300e40 "><p id="GUID-36A26783-E0CE-4E0D-90CC-30FF420D1DD6">Perform regular
+					 regression testing by comparing analysis results before and after optimization.
+					 From GUI, click the 
+					 <img id="IMAGE_7915A5E1736E455AA8858CAD36100A3E" src="GUID-E632A67E-51CD-4676-B252-0F411DF5A068-low.gif" /><strong id="GUID-0F126FD6-15B1-4A92-BA3B-0DB1BA72D7BF">Compare
+						Results</strong> button on the VTune Amplifier toolbar. From command line, use the 
+					 <samp class="codeph" id="GUID-CB993EF6-824B-4135-8584-60E4536DDD62">amplxe-cl</samp> command. 
+				  </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="GUID-1D653D37-33FA-4354-8E05-DF4093CA5FAC"><strong>Next step:</strong>
+		Prepare your own application(s) for analysis. Then use the VTune Amplifier to
+		find and eliminate hotspots. 
+	 </div>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-F86C668D-8AC4-4562-907A-4FDDEE8B8280" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d1300e165"><p id="d33e52">Optimization Notice 
+				  </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d1300e165 "><p>Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction sets and other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of any optimization on microprocessors not manufactured by Intel. Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more information regarding the specific instruction sets covered by this notice. 
+				  </p>
+<p> Notice revision #20110804 
+				  </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-E65EAF99-9FEC-4FDA-A6FD-84ACD3F86E5D.html">Tutorial: Finding Hotspots - C++ Sample Code</a></div>
+</div>
+<div><h2>See Also</h2>
+<div class="linklist">
+<div><a href="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials/" target="_blank">Click here for more Getting Started
+			 Tutorials 
+		  </a></div></div></div>
+</body>
+</html>

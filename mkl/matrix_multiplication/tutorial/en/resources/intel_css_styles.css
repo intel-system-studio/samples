@@ -1,0 +1,895 @@
+/* 
+intel_css_styles.css
+CSS for installed help on all supported operating systems.
+Version information:
+1.1.26.2015 - Initial version with all changes.
+1.2.18.2015 - Minor changes after review. Change spacings in several elements.
+1.3.05.2015 - Removed web font declarations. Cleaned up formatting.
+1.3.11.2015 - Changed default margins for body content.
+
+Colors used in definitions:
+Intel Blue: #0071C5 - heading level color, links in body, other common elements.
+White: #FFFFFF - body background, various elements.
+Black: #000000 - text color for all normal text
+Gray20: #333333 - body text and some headings
+Gray80: #CCCCCC - Note shadow
+White Smoke: #F5F5F5 - alternate row color in tables
+Canary: #FFFF99 - review background color
+User defined: #E2E7EB; - Note background
+User defined: #00aeef - hover links
+User defined: green or #007F00 - specific language elements
+*/
+/* ------------------------------------------------- */
+/* Default body style */
+body{
+    color:#333333;
+    background-color :#ffffff;
+    font-family: "Intel Clear", Verdana, Arial, sans-serif; 
+    font-size: 10pt;
+    margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom: 7%;
+}
+/* ------------------------------------------------- */
+/* Special mark ups                                  */
+.RevUpdate{
+    background-color:#FFFF99;
+    font-weight:normal;
+	line-height:100%;
+}
+/*.Fortran95 {*/
+.NonStdFortran{
+	color: #007F00; 
+}
+/* Help 3 body style overriding default MSHV behavior */
+body.OH_VSIP_body{
+    margin-left:30px;
+}
+DIV.OH_outerContent{
+    border:0px none #FFFFFF;
+}
+/* ------------------------------------------------- */
+/* Title headings styles                             */
+h1{
+    color:#0071c5;
+    font-size:15pt;
+    font-weight:normal;
+    padding-bottom:1px;
+    margin-left:0pt;
+    margin-bottom:0px;
+}
+h1.firsttitle{
+   font-weight: normal;
+   border-bottom: 0 none;
+   margin-left: 0;
+   font-size: 18pt;
+   border-bottom: 1px solid #0071c5;
+   line-height: 100%; 
+   padding-bottom: 10px;
+   margin-bottom: 20px;
+   margin-top: 20px;
+}
+h2{
+    color:#0071c5;
+    margin-top: 15pt;
+    margin-bottom: 5pt;
+    font-size: 12pt;
+}
+h3{
+    color:#333333;
+    font-weight:bold;
+    margin-top: 15pt;
+    margin-bottom:5pt;
+    font-size:11pt;
+}
+h4, h5, h6{
+    color: #0071c5;
+    margin-top: 10pt;
+	margin-bottom: 5pt;
+    padding-left: 0px;
+    font-size: 10pt;
+}
+.relinfo{
+    padding-left:30px;
+}
+span.tablecap {
+ color: #0071c5;
+}
+caption{
+	font-size:10pt;
+    font-weight:bold;
+	text-align: left;
+}
+.figcap{
+    margin-left:24px;
+    font-size:10pt;
+    font-weight:bold;
+    text-align:center;
+}
+.sectiontitle{
+    padding-left:0px;
+}
+.linklist{
+    padding-left:0px;
+}
+h1.topictitle1{
+   	color: #0071c5;
+    font-size: 18pt;
+    margin-left:0pt;
+    margin-bottom:15px;
+}
+#header_text {
+ color: #0071C5;
+ text-align: right;
+}
+.titlepage{
+    margin-right:15%;
+}
+/* ------------------------------------------------- */
+/* Link styles                                       */
+a:link{
+    color:#0071c5;
+    text-decoration:none;
+}
+a:active{
+    color:#0071c5;
+    text-decoration:underline;
+}
+a:visited{
+    color:#0071c5;
+    text-decoration:none;
+}
+a:hover{
+    color:#00aeef;
+	text-decoration:underline;
+}
+.familylinks{
+    margin-top:1em;
+}
+a.start{
+    font-size:18pt;
+    text-decoration:underline;
+}
+a:active.start{
+    color:#0071c5;
+    text-decoration:underline;
+}
+a:visited.start{
+    color:#0071c5;
+    text-decoration:underline;
+}
+a.underlined{
+    text-decoration:underline;
+}
+a:active.underlined{
+    color:#0071c5;
+    text-decoration:underline;
+}
+a:visited.underlined{
+    color:#0071c5;
+    text-decoration:underline;
+}
+/* ------------------------------------------------- */
+/* Paragraph styles                                  */
+.shortdesc{
+    font-size:inherit;
+    padding-left:inherit;
+    line-height:16pt;
+    margin-top:0px;
+    margin-bottom:0.5em;
+}
+.shortdesc-it{
+    font-style:italic;
+}
+p{
+    font-size:inherit;
+    margin-left:0px;
+    line-height:120%;
+    margin-top:0;
+    margin-bottom:10px;
+}
+.p{
+    font-size:inherit;
+    margin-left:0px;
+    line-height:170%;
+    margin-top:0;
+    margin-bottom:5pt;
+    padding-left:0pt;
+}
+/* ------------------------------------------------- */
+/* Table styles                                      */
+table{
+    margin-bottom:5pt;
+    border-collapse:collapse;
+    margin-left:0px;
+    margin-top:0.3em;
+    font-size:10pt;
+}
+tr{
+    vertical-align:top;
+}
+tr:nth-child(odd){ 
+background-color:#FFFFFF; 
+}
+tr:nth-child(even){
+background-color:#F5F5F5;
+}
+th, th h3{
+    padding:4px;
+    text-align:left;
+    background-color:#0071C5;
+	font-weight: normal;
+    margin-top: 1px;
+    margin-bottom: 0px;
+    color:#FFFFFF;
+	font-size: inherit;
+}
+th{
+    border:1px #dddddd solid;
+    padding-top:2px;	 	 
+    padding-bottom:0px;
+    padding-right:3px;	 	 
+    padding-left:3px;
+}
+td{
+    border:1px #dddddd solid;
+    vertical-align:top;
+    font-size:100%;
+    text-align:left;
+    margin-bottom:0;
+}
+td, td p{
+    margin-top:0;
+    margin-left:0;
+    text-align:left;
+    font-size:inherit;
+    line-height:120%;
+}
+td p{
+    margin-bottom:0;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-right:5px;
+    padding-left:1px;
+}
+.noborder{
+    border:0px none;
+}
+.noborder1stcol{
+    border:0px none;
+    padding-left:0pt;
+}
+td ol{
+    font-size:inherit;
+    margin-left:28px;
+}
+td ul{
+    font-size:inherit;
+    margin-left:24px;
+}
+.DefListTbl{
+    width:90%;
+    margin-left:-3pt;
+}
+.syntaxdiagramtbl{
+    margin-left:-3pt;
+}
+.sdtbl{
+}
+.sdrow{
+}
+.sdtblp{
+    border:0px none;
+    font-size:inherit;
+    line-height:120%;
+    margin-bottom:0;
+    padding-bottom:0px;
+    padding-top:5px;
+    padding-left:0px;
+    padding-right:5px;
+    vertical-align:top;
+}
+.idepara, .ide_para{
+    border:0px none;
+    font-size:inherit;
+    line-height:120%;
+    margin-bottom:0;
+    padding-bottom:0px;
+    padding-top:5px;
+    padding-left:0px;
+    padding-right:5px;
+    vertical-align:top;
+}
+/* ------------------------------------------------- */
+/* Note styles */
+div.Note{
+    margin-top:10px;
+    margin-left:15px;
+    margin-bottom:10px;
+    padding-left:10px;
+    padding-right:5px;
+    padding-bottom:5px;
+    background-color:#E2E7EB;
+	margin-right: 15%;
+	border-top: 1px solid #0071c5;
+	border-bottom: 1px solid #0071c5;
+}
+dd div.Note{
+    margin-top:10px;
+}
+h3.NoteTipHead{
+    color:#0071c5;
+    padding-top:5px;
+    text-transform:uppercase;
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+}
+h3.NoteTipHead img{
+    vertical-align:middle;
+}
+P.Note{
+    margin-top:10px;
+    margin-left:15px;
+    margin-bottom:10px;
+    padding-left:10px;
+    padding-right:5px;
+    padding-bottom:5px;
+    background-color:#E2E7EB;
+	margin-right: 15%;
+	border-top: 1px solid #0071c5;
+	border-bottom: 1px solid #0071c5;
+}
+/* ------------------------------------------------- */
+/* Misc. */
+blockquote{
+    margin-top:0;
+    margin-bottom:0;
+}
+HR{
+    color:#0071c5;
+    border:0;
+    height:1px;
+    margin-left:0;
+}
+/* ------------------------------------------------- */
+/* List styles */
+.simple{
+    list-style:none;
+}
+ul{
+	margin-bottom:1em;    
+	font-size:inherit;
+    line-height:130%;
+    list-style-image:url();
+    margin-top:0px;
+}
+ol{
+    font-size:inherit;
+    line-height:130%;
+    list-style-type:decimal;
+    margin-top:0px;
+    margin-bottom:1em;
+}
+ol.num{
+    font-size:inherit;
+    line-height:130%;
+    list-style-type:decimal;
+    margin-bottom:1em;
+    margin-top:0px;
+}
+ol.abc{
+    font-size:inherit;
+    line-height:130%;
+    list-style-type:lower-alpha;
+    margin-bottom:1em;
+    margin-top:0px;
+}
+ol.ABC{
+    font-size:inherit;
+    line-height:130%;
+    list-style-type:upper-alpha;
+    margin-bottom:1em;
+    margin-top:0px;
+}
+ol.roman{
+    font-size:inherit;
+    line-height:130%;
+    list-style-type:lower-roman;
+    margin-bottom:1em;
+    margin-top:0px;
+}
+ol.Roman{
+    font-size:inherit;
+    line-height:130%;
+    list-style-type:upper-roman;
+    margin-bottom:1em;
+    margin-top:0px;
+}
+ol ol{
+    margin-left:24px;
+    list-style:lower-alpha;
+    margin-bottom:0em;
+    font-size:inherit;
+}
+ul ol{
+    margin-left:24px;
+    list-style-image:url();
+    list-style-type:decimal;
+    margin-bottom:0em;
+    font-size:inherit;
+}
+ul ul{
+    font-size:inherit;
+    margin-bottom:0px;
+    margin-left:18px;
+}
+ul ul li p{
+    list-style:url();
+}
+ol ul{
+    font-size:inherit;
+    margin-bottom:0px;
+    margin-left:17px;
+}
+ul li p{
+    font-size:inherit;
+    line-height:130%;
+}
+ul.nobullet{
+    list-style:none;
+}
+dd ul,
+dd p ul{
+    list-style:url();
+}
+dd ul{
+    margin-left:16px;
+    font-size:inherit;
+}
+dd ol{
+    margin-left:24px;
+    font-size:inherit;
+}
+li{
+    font-size:inherit;
+    line-height:130%;
+    margin-top:0px;
+}
+li p, ol p, ul p{
+    margin-bottom:0.2em;
+    margin-top:0.2em;
+    margin-left:0;
+    padding-left:0;
+    font-size:inherit;
+}
+li table, td table, dd table{
+    margin-left:0;
+}
+indent li p{
+    margin-bottom:0.2em;
+    margin-top:0.2em;
+    margin-left:-2em;
+}
+P.Preformatted, pre{
+    background-color:#f5f5f5;
+    font-size:inherit;
+    font-family:"Courier New", Courier, monospace;
+    line-height:110%;
+    margin-bottom:0;
+    margin-bottom:10px;
+    margin-top:0;
+    x-text-tab-stops:repeat 1in;
+}
+td P.Preformatted,
+pre{
+    background-color:#f5f5f5;
+    font-size:10pt;
+    font-family:"Courier New", Courier, monospace;
+    margin-bottom:10px;
+    margin-left:0px;
+    margin-top:0;
+    x-text-tab-stops:repeat 1in;
+}
+ul.ullinks{
+    margin-left:0px;
+    margin-bottom:1em;
+    font-size:inherit;
+    line-height:100%;
+    margin-top:0px;
+    margin-left:16px;
+}
+/* ------------------------------------------------- */
+/* Definition list */
+dl{
+    font-size:inherit;
+    margin-bottom:0px;
+    margin-left:0px;
+    margin-top:0px;
+}
+dt{
+    margin-left:0em;
+    margin-top:0em;
+    margin-bottom:0em;
+    width:100px;
+}
+.dlterm{
+    margin-left:0em;
+    margin-top:0em;
+    margin-bottom:0em;
+    width:100px;
+}
+dd{
+    font-size:inherit;
+    margin-left:0px;
+    position:relative;
+    top:-13pt;
+    left:110px;
+    width:70%;
+    line-height:14pt;
+    margin-top:0em;
+    margin-bottom:-10pt;
+}
+dd.biblio{
+    font-size:inherit;
+    margin-left:0px;
+    position:relative;
+    top:-14pt;
+    left:140px;
+    width:60%;
+    line-height:14pt;
+    margin-top:0em;
+    margin-bottom:0em;
+}
+.DefListTbl{
+    width:90%;
+}
+table.argTbl{
+    width:75%;
+}
+.dlsyntax{
+    margin-left:0px;
+    padding-left:0px;
+    font-size:inherit;
+    margin-top:-1px;
+    line-height:150%;
+}
+.dtsyntax{
+    margin-bottom:-1.125em;
+    margin-left:0em;
+    margin-top:0em;
+    width:100px;
+}
+.ddsyntax{
+    font-size:inherit;
+    margin-left:0px;
+    position:relative;
+    top:-4pt;
+    left:110px;
+    width:70%;
+    line-height:14pt;
+    margin-bottom:-1em;
+}
+.dlsyntaxpara{
+    margin-left:0px;
+    margin-bottom:1em;
+    font-size:inherit;
+    line-height:150%;
+}
+.syntaxnote{
+    margin-left:0px;
+    padding-left:0px;
+    font-size:inherit;
+    margin-top:-5px;
+    line-height:150%;
+}
+.syntaxnote-orig{
+    margin-left:135px;
+    margin-bottom:1em;
+    padding-left:30px;
+    font-size:inherit;
+    margin-top:-1px;
+    line-height:150%;
+}
+/* "dl" style for ""ReturnValues" */
+.dlretval{
+    margin-left:24px;
+    margin-bottom:2em;
+    padding-left:30px;
+    font-size:inherit;
+    margin-top:-1px;
+    line-height:150%;
+    width:90%;
+}
+/* "dt" style for ""ReturnValues" */
+.dtretval{
+    margin-left:0em;
+    margin-top:0em;
+    margin-bottom:-1.25em;
+    width:400px;
+}
+/* "dd" style for ""ReturnValues" */
+.ddretval{
+    font-size:inherit;
+    margin-left:0px;
+    position:relative;
+    top:-4pt;
+    left:300px;
+    margin-bottom:0;
+}
+dd p{
+    margin-bottom:0em;
+    margin-top:0em;
+    margin-left:0;
+    padding-left:0;
+    font-size:inherit;
+}
+dd dl{
+    margin-left:0px;
+}
+/* ------------------------------------------------- */
+/* Inline Styles */
+SPAN.Big{
+    font-weight:bold;
+    font-size:105%;
+}
+SPAN.Code, .Code{
+    font-family:"Courier New", Courier, monospace;
+}
+.code{
+    background-color:#F5F5F5;
+    font-family:"Courier New", Courier, monospace;
+    font-size:10pt;
+    line-height:118%;
+    margin-top:0.0em;
+    margin-bottom:0.0em;
+    padding-left:0px;
+    white-space:pre;
+}
+code{
+    background-color:#F5F5F5;
+    font-family:"Courier New", Courier, monospace;
+    font-size:10pt;
+    line-height:118%;
+    margin-top:0.0em;
+    margin-bottom:0.0em;
+    padding-left:0px;
+    white-space:pre;
+}
+strong{
+    font-size:inherit;
+}
+sup,
+sub{
+    vertical-align:0;
+    position:relative;
+}
+sub{
+    top:0.8ex;
+}
+sup{
+    bottom:1ex;
+}
+tt{
+    font-family:"Courier New", Courier, monospace;
+}
+.b{
+    font-weight:bold;
+}
+.boldspan{
+    font-weight:bold;
+}
+.bgcolorgray{
+    background-color:#999999;
+}
+.bi{
+    font-style:italic;
+    font-weight:bold;
+}
+.bt{
+    font-family:times;
+    font-weight:bold;
+}
+.codeph{
+    font-family:"Courier New", Courier, monospace;
+}
+.delim{
+    font-family:"Courier New", Courier, monospace;
+}
+.eq{
+    margin-bottom:1em;
+}
+.eqsymbol{
+    font-family:'Times New Roman', sans-serif;
+    font-size:12pt;
+}
+.imagecenter{
+    text-align:center;
+}
+.tfootnote{
+    font-size:8pt;
+}
+.italic{
+    font-style:italic;
+}
+.keyword{
+    font-family:"Courier New", Courier, monospace;
+    font-weight:normal;
+}
+.keywordb{
+    font-family:"Courier New", Courier, monospace;
+    font-weight:bold;
+}
+.keywordtt{
+    font-family:"Courier New", Courier, monospace;
+    font-weight:normal;
+}
+.keywordbt{
+    font-family:"Courier New", Courier, monospace;
+    font-weight:bold;
+}
+.keywordit{
+    font-family:"Courier New", Courier, monospace;
+    font-style:italic;
+    font-weight:inherit;
+}
+.keywordbi{
+    font-family:"Courier New", Courier, monospace;
+    font-weight:bold;
+    font-style:italic;
+}
+.keywordn{
+    font-family:"Courier New", Courier, monospace;
+    font-style:normal;
+    font-weight:normal;
+}
+h1 .keyword, h2 .keyword, h3 .keyword{
+    font-family:"Courier New", Courier, monospace;
+    font-weight:bold;
+}
+.kwd{
+    font-family:"Courier New", Courier, monospace;
+}
+.option{
+    font-family:"Courier New", Courier, monospace;
+}
+.optionb{
+    font-family:"Courier New", Courier, monospace;
+    font-weight:bold;
+}
+.optiontt{
+    font-family:"Courier New", Courier, monospace;
+    font-weight:normal;
+}
+.optionbt{
+    font-family:"Courier New", Courier, monospace;
+    font-weight:bold;
+}
+.optionit{
+    font-family:"Courier New", Courier, monospace;
+    font-style:italic;
+    font-weight:inherit;
+}
+.optionbi{
+    font-family:"Courier New", Courier, monospace;
+    font-weight:bold;
+    font-style:italic;
+}
+.optionn{
+    font-family:"Courier New", Courier, monospace;
+    font-style:normal;
+    font-weight:normal;
+}
+.oper{
+    font-family:"Courier New", Courier, monospace;
+}
+.parmname{
+    font-style:italic;
+    font-family:"Courier New", Courier, monospace;
+    font-weight:normal;
+}
+.parmnameb{
+    font-family:"Courier New", Courier, monospace;
+    font-style:italic;
+    font-weight:bold;
+}
+.parmnamett{
+    font-family:"Courier New", Courier, monospace;
+    font-style:normal;
+    font-weight:normal;
+}
+.parmnamebt{
+    font-family:"Courier New", Courier, monospace;
+    font-style:normal;
+    font-weight:bold;
+}
+.parmnamen{
+    font-family:"Courier New", Courier, monospace;
+    font-style:normal;
+    font-weight:normal;
+}
+.sep{
+    font-family:"Courier New", Courier, monospace;
+}
+.tenpt{
+    font-size:8pt;
+}
+.tt{
+    font-family:"Courier New", Courier, monospace;
+}
+.var{
+    font-style:italic;
+    font-family:"Courier New", Courier, monospace;
+}
+.equation{
+    font-style:italic;
+    font-family:"Times New Roman", monospace;
+}
+.varname{
+    font-style:italic;
+    font-family:"Courier New", monospace;
+}
+.varnameb{
+    font-family:"Courier New", monospace;
+    font-style:italic;
+    font-weight:bold;
+}
+.varnamebo{
+    font-family:"Courier New", monospace;
+    font-style:italic;
+    font-weight:bold;
+    text-decoration:overline
+}
+.varnamebt{
+    font-family:"Courier New", monospace;
+    font-style:normal;
+    font-weight:bold;
+}
+.varnamebu{
+    font-family:"Courier New", monospace;
+    font-style:italic;
+    font-weight:bold;
+    text-decoration:underline
+}
+.varnamett{
+    font-family:"Courier New", monospace;
+    font-style:normal;
+    font-weight:normal;
+}
+.varnamen{
+    font-family:"Courier New", monospace;
+    font-style:normal;
+    font-weight:normal;
+}
+.overline{
+    text-decoration:overline
+}
+.underline{
+    text-decoration:underline
+}
+.filepath{
+    font-style:normal;
+    font-family:"Courier New", Courier, monospace;
+}
+.h3titleblue{
+    color:#0071c5;
+    font-weight:lighter;
+    margin-top:5pt;
+    margin-bottom:0;
+    font-size:13pt;
+}
+.Context_StepsIntro{
+    font-weight:bold;
+}
+.docfeedback{
+    margin-top:15px;
+    margin-left:0pt;
+    margin-bottom:0px;
+    border-top:1px solid #cccccc;
+	font-weight: normal;
+}
+.noBgrnd{
+    background-image:none;
+}
+.dropPara{
+    float:left;
+}

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="インテル&reg; MKL サポート関数を使用したパフォーマンスの測定" />
+<meta name="DC.Relation" scheme="URI" content="GUID-6D82DCCE-D53F-4BEB-92A2-EE69A18803CA.html" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-math-kernel-library-documentation/" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-mkl-kb/all/1/" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-software-product-tutorials/" />
+<meta name="prodname" content="Intel&reg; Math Kernel Library" />
+<meta name="version" content="327255-007" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-07526836-E352-498C-93C1-DBD535EF83A7" />
+<meta name="DC.Language" content="ja-JP" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>インテル&reg; MKL サポート関数を使用したパフォーマンスの測定</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-07526836-E352-498C-93C1-DBD535EF83A7">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt">チュートリアル: インテル® MKL 2018 を使用した行列乗算 (C 言語) (Beta)</p>
+
+
+<h1 class="topictitle1">インテル&reg; MKL サポート関数を使用したパフォーマンスの測定</h1>
+<div id="GUID-794A2F0A-A053-4AF9-96E5-D6419D77CBA9"><p></p>
+<p>インテル&reg; MKL には、パフォーマンスを測定する関数が用意されています。ここでは、このチュートリアルでインテル&reg; MKL ルーチンを使用したことによりどの程度パフォーマンスが向上したかを測定する方法を示します。</p>
+<div class="section" id="INTERPRET"><h2 class="sectiontitle">dgemm のパフォーマンスの測定</h2><p><samp class="codeph"><span class="keyword">dsecnd</span></samp> ルーチンを使用して経過 CPU 時間を秒で返します。</p>
+<div class="Note"><h3 class="NoteTipHead">注</h3> <p><samp class="codeph"><span class="keyword">dgemm</span></samp> ルーチンは迅速に実行されるため、大きな行列を計算した場合でも、速度を測定することは困難です。このため、演習では乗算を複数回実行します。合計実行時間が約 1 秒になるように <samp class="codeph">LOOP_COUNT</samp> 定数の値を設定します。</p>
+</div>
+<pre>/* C ソースコードは dgemm_with_timing.c を参照 */
+
+    printf (" Making the first run of matrix product using Intel&reg; MKL dgemm function \n"
+            " via CBLAS interface to get stable run time measurements \n\n");
+    cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, 
+                m, n, k, alpha, A, k, B, n, beta, C, n);
+
+    printf (" Measuring performance of matrix product using Intel&reg; MKL dgemm function \n"
+            " via CBLAS interface \n\n");
+    s_initial = dsecnd();
+    for (r = 0; r &lt; LOOP_COUNT; r++) {
+        cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, 
+                    m, n, k, alpha, A, k, B, n, beta, C, n);
+    }
+    s_elapsed = (dsecnd() - s_initial) / LOOP_COUNT;
+
+    printf (" == Matrix multiplication using Intel&reg; MKL dgemm completed == \n"
+            " == at %.5f milliseconds == \n\n", (s_elapsed * 1000));
+</pre></div>
+<div class="section" id="CHOOSE_PROBLEM"><h2 class="sectiontitle">dgemm を使用しない場合のパフォーマンスの測定</h2><p><samp class="codeph"><span class="keyword">dgemm</span></samp> を使用した場合のパフォーマンスの向上を示すため、三重に入れ子にしたループを使用して同じ行列乗算を行った結果を測定します。</p>
+<pre>/* C ソースコードは matrix_multiplication.c を参照 */
+
+    printf (" Making the first run of matrix product using triple nested loop\n"
+            " to get stable run time measurements \n\n");
+    for (i = 0; i &lt; m; i++) {
+        for (j = 0; j &lt; n; j++) {
+            sum = 0.0;
+            for (l = 0; l &lt; k; l++)
+                sum += A[k*i+l] * B[n*l+j];
+            C[n*i+j] = sum;
+        }
+    }
+
+    printf (" Measuring performance of matrix product using triple nested loop \n\n");
+    s_initial = dsecnd();
+    for (r = 0; r &lt; LOOP_COUNT; r++) {
+        for (i = 0; i &lt; m; i++) {
+            for (j = 0; j &lt; n; j++) {
+                sum = 0.0;
+                for (l = 0; l &lt; k; l++)
+                    sum += A[k*i+l] * B[n*l+j];
+                C[n*i+j] = sum;
+            }
+        }
+    }
+    s_elapsed = (dsecnd() - s_initial) / LOOP_COUNT;
+    
+    printf (" == Matrix multiplication using triple nested loop completed == \n"
+            " == at %.5f milliseconds == \n\n", (s_elapsed * 1000));
+</pre><p><samp class="codeph"><span class="keyword">dgemm</span></samp> を使用した最初の演習の結果と、<samp class="codeph"><span class="keyword">dgemm</span></samp> を使用しない 2 つ目の演習の結果を比較します。</p>
+<p>インテル&reg; MKL のパフォーマンス測定の詳細については、インテル&reg; MKL ナレッジベースの記事、「A simple example to measure the performance of an Intel MKL function (インテル&reg; MKL 関数のパフォーマンスを測定する単純なサンプル)」を参照してください。</p>
+</div>
+<p>
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-454D52BD-178E-49A9-850D-83FB4612D615" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d444e80"><p id="d119e67">最適化に関する注意事項</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d444e80 "><p>インテル&reg; コンパイラーでは、インテル&reg; マイクロプロセッサーに限定されない最適化に関して、他社製マイクロプロセッサー用に同等の最適化を行えないことがあります。これには、インテル&reg; ストリーミング SIMD 拡張命令 2、インテル&reg; ストリーミング SIMD 拡張命令 3、インテル&reg; ストリーミング SIMD 拡張命令 3 補足命令などの最適化が該当します。インテルは、他社製マイクロプロセッサーに関して、いかなる最適化の利用、機能、または効果も保証いたしません。本製品のマイクロプロセッサー依存の最適化は、インテル&reg; マイクロプロセッサーでの使用を前提としています。インテル&reg; マイクロアーキテクチャーに限定されない最適化のなかにも、インテル&reg; マイクロプロセッサー用のものがあります。この注意事項で言及した命令セットの詳細については、該当する製品のユーザー・リファレンス・ガイドを参照してください。</p>
+<p>注意事項の改訂 #20110804</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+<p><a href="GUID-36BFBCE9-EB0A-43B0-ADAF-2B65275726EA.html#GUID-36BFBCE9-EB0A-43B0-ADAF-2B65275726EA"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="戻る" /></a><a href="GUID-8DB79DF7-B853-46C9-8F46-C3782E0CA401.html#GUID-8DB79DF7-B853-46C9-8F46-C3782E0CA401"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="次へ" /></a></p>
+</div>
+<div><h2>関連情報</h2>
+<div class="linklist">
+<div><a href="http://software.intel.com/en-us/articles/intel-math-kernel-library-documentation/" target="_blank">インテル&reg; MKL ドキュメント</a> : 『インテル&reg; MKL リリースノート』および『インテル&reg; MKL デベロッパー・ガイド』を含む、その他のインテル&reg; MKL ドキュメント。</div>
+<div><a href="http://software.intel.com/en-us/articles/intel-mkl-kb/all/1/" target="_blank">インテル&reg; MKL ナレッジベース</a> : インテル&reg; MKL 機能の使用法を説明している記事。</div>
+<div><a href="http://software.intel.com/en-us/articles/intel-software-product-tutorials/" target="_blank">オンライン・ドキュメント (英語)</a></div></div></div>
+</body>
+</html>

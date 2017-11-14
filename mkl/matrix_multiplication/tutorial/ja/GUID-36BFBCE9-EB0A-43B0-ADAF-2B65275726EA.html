@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="dgemm を使用した行列の乗算" />
+<meta name="DC.Relation" scheme="URI" content="GUID-6D82DCCE-D53F-4BEB-92A2-EE69A18803CA.html" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-math-kernel-library-documentation/" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-mkl-kb/all/1/" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-software-product-tutorials/" />
+<meta name="prodname" content="Intel&reg; Math Kernel Library" />
+<meta name="version" content="327255-007" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-36BFBCE9-EB0A-43B0-ADAF-2B65275726EA" />
+<meta name="DC.Language" content="ja-JP" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>dgemm を使用した行列の乗算</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-36BFBCE9-EB0A-43B0-ADAF-2B65275726EA">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt">チュートリアル: インテル® MKL 2018 を使用した行列乗算 (C 言語) (Beta)</p>
+
+
+<h1 class="topictitle1">dgemm を使用した行列の乗算</h1>
+<div id="GUID-794A2F0A-A053-4AF9-96E5-D6419D77CBA9"><p>インテル&reg; MKL には、行列乗算用のルーチンが用意されています。最も広く利用されるのは、倍精度行列の積を計算する <samp class="codeph"><span class="keyword">dgemm</span></samp> ルーチンです。</p>
+<img id="IMAGE_CB5FD91647254E8EACA7758B94DF5C22" src="GUID-C03EC0FB-E394-4FD3-83A4-5A0A03E2FF63-low.gif" /><p><samp class="codeph"><span class="keyword">dgemm</span></samp> ルーチンは、いくつかの計算を実行できます。例えば、このルーチンを使用して、<var>A</var> と <var>B</var> の転置または共役転置を実行することができます。<samp class="codeph"><span class="keyword">dgemm</span></samp> ルーチンの機能の詳細とすべての引数については、『インテル&reg; MKL デベロッパー・リファレンス』の<a href="https://software.intel.com/en-us/node/520775" target="_blank"><samp class="codeph"><span class="keyword">cblas_?gemm</span></samp>」</a> (英語) を参照してください。</p>
+<div class="section" id="INTERPRET"><h2 class="sectiontitle">行列乗算に dgemm を使用する</h2><p>この演習は、変数を宣言し、行列値を配列で格納した後、<samp class="codeph"><span class="keyword">dgemm</span></samp> を呼び出して行列の積を計算します。これらの行列の格納には配列を使用します。</p>
+<p><img id="IMAGE_3EC1FD4447054DF9BC304E4EB3BD31E0" src="GUID-E275DDC2-BC69-474B-B993-861C888610E1-low.gif" /></p>
+<p>演習の 1 次元配列は、配列の連続するセルに各列の要素を配置して、行列を格納します。</p>
+<div class="Note"><h3 class="NoteTipHead">注</h3> <p>このチュートリアルの演習の C ソースコードは、<a href="https://software.intel.com/en-us/product-code-samples" target="_blank">https://software.intel.com/en-us/product-code-samples</a> (英語) からダウンロードできます。</p>
+</div>
+<pre>/* C ソースコードは dgemm_example.c を参照 */
+
+#define min(x,y) (((x) &lt; (y)) ?  (x) : (y))
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include "mkl.h"
+
+int main()
+{
+    double *A, *B, *C;
+    int m, n, k, i, j;
+    double alpha, beta;
+
+    printf ("\n This example computes real matrix C=alpha*A*B+beta*C using \n"
+            " Intel&reg; MKL function dgemm, where A, B, and  C are matrices and \n"
+            " alpha and beta are double precision scalars\n\n");
+
+    m = 2000, k = 200, n = 1000;
+    printf (" Initializing data for matrix multiplication C=A*B for matrix \n"
+            " A(%ix%i) and matrix B(%ix%i)\n\n", m, k, k, n);
+    alpha = 1.0; beta = 0.0;
+
+    printf (" Allocating memory for matrices aligned on 64-byte boundary for better \n"
+            " performance \n\n");
+    A = (double *)mkl_malloc( m*k*sizeof( double ), 64 );
+    B = (double *)mkl_malloc( k*n*sizeof( double ), 64 );
+    C = (double *)mkl_malloc( m*n*sizeof( double ), 64 );
+    if (A == NULL || B == NULL || C == NULL) {
+      printf( "\n ERROR: Can't allocate memory for matrices.   Aborting...\n\n");
+      mkl_free(A);
+      mkl_free(B);
+      mkl_free(C);
+      return 1;
+    }
+
+    printf (" Intializing matrix data \n\n");
+    for (i = 0; i &lt; (m*k); i++) {
+        A[i] = (double)(i+1);
+    }
+
+    for (i = 0; i &lt; (k*n); i++) {
+        B[i] = (double)(-i-1);
+    }
+
+    for (i = 0; i &lt; (m*n); i++) {
+        C[i] = 0.0;
+    }
+
+    printf (" Computing matrix product using Intel&reg; MKL dgemm function via CBLAS interface \n\n");
+    cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, 
+                m, n, k, alpha, A, k, B, n, beta, C, n);
+    printf ("\n Computations completed.\n\n");
+
+    printf (" Top left corner of matrix A: \n");
+    for (i=0; i&lt;min(m,6); i++) {
+      for (j=0; j&lt;min(k,6); j++) {
+        printf ("%12.0f", A[j+i*k]);
+      }
+      printf ("\n");
+    }
+
+    printf ("\n Top left corner of matrix B: \n");
+    for (i=0; i&lt;min(k,6); i++) {
+      for (j=0; j&lt;min(n,6); j++) {
+        printf ("%12.0f", B[j+i*n]);
+      }
+      printf ("\n");
+    }
+    
+    printf ("\n Top left corner of matrix C: \n");
+    for (i=0; i&lt;min(m,6); i++) {
+      for (j=0; j&lt;min(n,6); j++) {
+        printf ("%12.5G", C[j+i*n]);
+      }
+      printf ("\n");
+    }
+
+    printf ("\n Deallocating memory \n\n");
+    mkl_free(A);
+    mkl_free(B);
+    mkl_free(C);
+
+    printf (" Example completed.\n\n");
+    return 0;
+}</pre><div class="Note"><h3 class="NoteTipHead">注</h3> <p>この演習は、<samp class="codeph"><span class="keyword">dgemm</span></samp> ルーチンの呼び出し方法を説明します。実際のアプリケーションでは、行列乗算の結果を使用します。</p>
+</div>
+<p>この <samp class="codeph">dgemm</samp> ルーチンの呼び出しは、行列の乗算を行います。</p>
+<pre>cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+           m, n, k, alpha, A, k, B, n, beta, C, n);</pre><p>引数は、インテル&reg; MKL がどのように演算を行うかを指定するオプションです。ここでは、以下の引数が指定されています。</p>
+<dl id="GUID-DFA12B24-D2DC-4305-BC51-6A2C3A76D50F"><dt class="dlterm"><samp class="codeph">CblasRowMajor</samp></dt>
+
+<dd><p>行列が行優先で格納され、行列の各行の要素が上記の図で示されているように連続して格納されることを示します。</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">CblasNoTrans</samp></dt>
+
+<dd><p>行列 <var>A</var> と <var>B</var> を乗算前に転置または共役転置しないことを示す列挙型。</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">m、n、k</samp></dt>
+
+<dd><p>行列のサイズを示す整数:</p>
+<ul id="GUID-D3E83003-7D5D-43B4-B341-F8DCB147A7BB"><li id="LI_32967F94FD194AF2AF45D47A0AD47DBE"><p><var>A</var>: <samp class="codeph">m</samp> 行 <samp class="codeph">k</samp> 列</p>
+</li>
+<li id="LI_1C0876495E6141CCBDA82EE156410EF4"><p><var>B</var>: <samp class="codeph">k</samp> 行 <samp class="codeph">n</samp> 列</p>
+</li>
+<li id="LI_B7C7EEF3CEEA4D209FBDBCCD10D086E2"><p><var>C</var>: <samp class="codeph">m</samp> 行 <samp class="codeph">n</samp> 列</p>
+</li>
+</ul>
+</dd>
+<dt class="dlterm"><samp class="codeph">alpha</samp></dt>
+
+<dd><p>行列 <var>A</var> と <var>B</var> の積の測定に使用する実数値。</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">A</samp></dt>
+
+<dd><p>行列 <var>A</var> の格納に使用する配列。</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">k</samp></dt>
+
+<dd><p>配列 <samp class="codeph">A</samp> のリーディング・ディメンジョン、またはメモリーの連続する列 (列優先で格納する場合) 間の要素の数。この演習では、リーディング・ディメンジョンは列の数と同じです。</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">B</samp></dt>
+
+<dd><p>行列 <var>B</var> の格納に使用する配列。</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">n</samp></dt>
+
+<dd><p>配列 <samp class="codeph">B</samp> のリーディング・ディメンジョン、またはメモリーの連続する列 (列優先で格納する場合) 間の要素の数。この演習では、リーディング・ディメンジョンは列の数と同じです。</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">beta</samp></dt>
+
+<dd><p>行列 <var>C</var> の測定に使用する実数値。</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">C</samp></dt>
+
+<dd><p>行列 <var>C</var> の格納に使用する配列。</p>
+</dd>
+<dt class="dlterm"><samp class="codeph">n</samp></dt>
+
+<dd><p>配列 <samp class="codeph">C</samp> のリーディング・ディメンジョン、またはメモリーの連続する列 (列優先で格納する場合) 間の要素の数。この演習では、リーディング・ディメンジョンは列の数と同じです。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="CHOOSE_PROBLEM"><h2 class="sectiontitle">コードのコンパイルとリンク</h2><p>インテル&reg; MKL には、さまざまなコンパイラーとサードパーティーのライブラリー、およびインターフェイスと互換性のある、複数のプロセッサーとオペレーティング・システム向けにコードを生成する多くのオプションが用意されています。インテル&reg; Parallel Studio XE Composer Edition でこの演習をコンパイルおよびリンクする場合は、以下のように入力します。</p>
+<ul id="GUID-FBE2C433-E6DD-4A04-A9F4-E81895B3E4AA"><li id="LI_A345509FD8A34056AB23F59381598935">Windows*: <samp class="codeph">icl /Qmkl src\dgemm_example.c</samp></li>
+<li id="LI_32E80C2D03B546578B5FDAA9E49683EE">Linux*、macOS*: <samp class="codeph">icc -mkl src/dgemm_example.c</samp></li>
+</ul>
+<p>代わりに、提供されているビルドスクリプトを使用して実行ファイルをビルドおよび実行することもできます。</p>
+<ul id="GUID-2E0CFAF0-9967-491C-A889-B3752C0A585B"><li id="LI_2EA59AF56E7F449EBA87087DFC9EAAEE">Windows*:<pre> build
+build run_dgemm_example</pre></li>
+<li id="LI_A80283952773443D91B4780BDE39CEB3">Linux* および macOS*<pre>make
+make run_dgemm_example</pre></li>
+</ul>
+<p>このチュートリアルの実行ファイルのビルドスクリプトは次のとおりです。</p>
+<table cellpadding="4" cellspacing="0" summary="" id="SIMPLETABLE_5FD5A135AC46478EA2E605B99951D55A" border="1" class="simpletableborder"><tr><th valign="bottom" align="left" id="d623e291"><p>サンプル</p>
+</th>
+<th valign="bottom" align="left" id="d623e294"><p>実行ファイル</p>
+</th>
+</tr>
+<tr><td valign="top" headers="d623e291"><p><span class="filepath">dgemm_example</span><span class="filepath">.c</span></p>
+</td>
+<td valign="top" headers="d623e294"><p><samp class="codeph">run_dgemm_example</samp></p>
+</td>
+</tr>
+<tr><td valign="top" headers="d623e291"><p><span class="filepath">dgemm_with_timing</span><span class="filepath">.c</span></p>
+</td>
+<td valign="top" headers="d623e294"><p><samp class="codeph">run_dgemm_with_timing</samp></p>
+</td>
+</tr>
+<tr><td valign="top" headers="d623e291"><p><span class="filepath">matrix_multiplication</span><span class="filepath">.c</span></p>
+</td>
+<td valign="top" headers="d623e294"><p><samp class="codeph">run_matrix_multiplication</samp></p>
+</td>
+</tr>
+<tr><td valign="top" headers="d623e291"><p><span class="filepath">dgemm_threading_effect_example</span><span class="filepath">.c</span></p>
+</td>
+<td valign="top" headers="d623e294"><p><samp class="codeph">run_dgemm_threading_effect_example</samp></p>
+</td>
+</tr>
+</table>
+<div class="Note"><h3 class="NoteTipHead">注</h3> <p>ここでは、https://software.intel.com/en-us/articles/intel-math-kernel-library-intel-mkl-2018-getting-started (英語) で説明されているように、インテル&reg; MKL をインストールして環境変数を設定済みであることを想定しています。</p>
+</div>
+<p>ほかのコンパイラーの場合は、インテル&reg; MKL リンクライン・アドバイザー (<a href="http://software.intel.com/en-us/articles/intel-mkl-link-line-advisor/" target="_blank">https://software.intel.com/en-us/articles/intel-mkl-link-line-advisor/</a> (英語)) を使用して、このチュートリアルの演習をコンパイルおよびリンクするコマンドラインを取得します。</p>
+<p>コンパイルとリンクが完了したら、生成された実行ファイル <span class="filepath">dgemm_example.exe</span> (Windows*) または <span class="filepath">a.out</span> (Linux*/macOS*) を実行します。</p>
+</div>
+<p>
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-454D52BD-178E-49A9-850D-83FB4612D615" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d623e371"><p id="d119e67">最適化に関する注意事項</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d623e371 "><p>インテル&reg; コンパイラーでは、インテル&reg; マイクロプロセッサーに限定されない最適化に関して、他社製マイクロプロセッサー用に同等の最適化を行えないことがあります。これには、インテル&reg; ストリーミング SIMD 拡張命令 2、インテル&reg; ストリーミング SIMD 拡張命令 3、インテル&reg; ストリーミング SIMD 拡張命令 3 補足命令などの最適化が該当します。インテルは、他社製マイクロプロセッサーに関して、いかなる最適化の利用、機能、または効果も保証いたしません。本製品のマイクロプロセッサー依存の最適化は、インテル&reg; マイクロプロセッサーでの使用を前提としています。インテル&reg; マイクロアーキテクチャーに限定されない最適化のなかにも、インテル&reg; マイクロプロセッサー用のものがあります。この注意事項で言及した命令セットの詳細については、該当する製品のユーザー・リファレンス・ガイドを参照してください。</p>
+<p>注意事項の改訂 #20110804</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+<p><a href="GUID-CEB793BF-BEFC-42F3-9D4D-F1207725B2DC.html#GUID-CEB793BF-BEFC-42F3-9D4D-F1207725B2DC"><img class="border(0)" id="IMAGE_1C552CB86F7E412DB0B0C429F8B00B4A" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="戻る" /></a><a href="GUID-07526836-E352-498C-93C1-DBD535EF83A7.html#GUID-07526836-E352-498C-93C1-DBD535EF83A7"><img class="border(0)" id="IMAGE_F4CFCEC17C0F42EF9FCF2D5AE7BBBAFB" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="次へ" /></a></p>
+</div>
+<div><h2>関連情報</h2>
+<div class="linklist">
+<div><a href="http://software.intel.com/en-us/articles/intel-math-kernel-library-documentation/" target="_blank">インテル&reg; MKL ドキュメント</a> : 『インテル&reg; MKL リリースノート』および『インテル&reg; MKL デベロッパー・ガイド』を含む、その他のインテル&reg; MKL ドキュメント。</div>
+<div><a href="http://software.intel.com/en-us/articles/intel-mkl-kb/all/1/" target="_blank">インテル&reg; MKL ナレッジベース</a> : インテル&reg; MKL 機能の使用法を説明している記事。</div>
+<div><a href="http://software.intel.com/en-us/articles/intel-software-product-tutorials/" target="_blank">オンライン・ドキュメント (英語)</a></div></div></div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="著作権と商標について" />
+<meta name="DC.Relation" scheme="URI" content="GUID-6D82DCCE-D53F-4BEB-92A2-EE69A18803CA.html" />
+<meta name="prodname" content="Intel&reg; Math Kernel Library" />
+<meta name="version" content="327255-007" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-026A599F-32EC-4CA2-BC18-815FE2ACB743" />
+<meta name="DC.Language" content="ja-JP" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>著作権と商標について</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-026A599F-32EC-4CA2-BC18-815FE2ACB743">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt">チュートリアル: インテル® MKL 2018 を使用した行列乗算 (C 言語) (Beta)</p>
+
+
+<h1 class="topictitle1">著作権と商標について</h1>
+<div><div class="section" id="GUID-5ABF9002-3C19-4930-AB97-6771C9058A63"><p>本資料は、明示されているか否かにかかわらず、また禁反言によるとよらずにかかわらず、いかなる知的財産権のライセンスも許諾するものではありません。</p>
+<p>インテルは、明示されているか否かにかかわらず、いかなる保証もいたしません。ここにいう保証には、商品適格性、特定目的への適合性、知的財産権の非侵害性への保証、およびインテル製品の性能、取引、使用から生じるいかなる保証を含みますが、これらに限定されるものではありません。</p>
+<p>本資料には、開発中の製品、サービスおよびプロセスについての情報が含まれています。本資料に含まれる情報は予告なく変更されることがあります。最新の予測、スケジュール、仕様、ロードマップについては、インテルの担当者までお問い合わせください。</p>
+<p>本資料で説明されている製品およびサービスには、不具合が含まれている可能性があり、公表されている仕様とは異なる動作をする場合があります。現在確認済みのエラッタについては、インテルまでお問い合わせください。</p>
+</div>
+<p>性能に関するテストに使用されるソフトウェアとワークロードは、性能がインテル&reg; マイクロプロセッサー用に最適化されていることがあります。SYSmark* や MobileMark* などの性能テストは、特定のコンピューター・システム、コンポーネント、ソフトウェア、操作、機能に基づいて行ったものです。結果はこれらの要因によって異なります。製品の購入を検討される場合は、他の製品と組み合わせた場合の本製品の性能など、ほかの情報や性能テストも参考にして、パフォーマンスを総合的に評価することをお勧めします。</p>
+<div class="section" id="GUID-C50A413E-6BEF-4518-9F99-6ECCDF62C6C6"><p>Intel、インテル、Intel ロゴは、アメリカ合衆国および / またはその他の国における Intel Corporation の商標です。</p>
+<p>* その他の社名、製品名などは、一般に各社の表示、商標または登録商標です。</p>
+</div>
+<p>Microsoft および Windows は、米国 Microsoft Corporation の、米国およびその他の国における登録商標または商標です。</p>
+<p>Java は、Oracle および / または関連会社の登録商標です。</p>
+<div class="section" id="GUID-8AC96B30-6C89-4B46-91F0-9E9E16BBBF32"><h2 class="sectiontitle">サードパーティー・コンテンツ</h2><p>インテル&reg; マス・カーネル・ライブラリー (インテル&reg; MKL) には、いくつかのサードパーティー提供のコンテンツが含まれており、それぞれ以下のライセンス規約が適用されます (敬称略)。</p>
+<ul id="d131e113"><li id="d131e115"><p class="tenpt">Portions© Copyright 2001 Hewlett-Packard Development Company, L.P.</p>
+</li>
+<li id="d131e121"><p>Linear Algebra PACKage (LAPACK) ルーチンのセクションには、著作権で保護された派生物の一部が含まれています。</p>
+<p class="tenpt">© 1991, 1992, and 1998 by The Numerical Algorithms Group, Ltd.</p>
+</li>
+<li id="d131e130"><p>インテル&reg; MKL は、以下のライセンスの下で LAPACK 3.5 の計算、ドライバー、および補助ルーチンをサポートしています。</p>
+<p class="tenpt">Copyright © 1992-2011 The University of Tennessee and The University of Tennessee Research Foundation.  All rights reserved.</p>
+<p class="tenpt">Copyright © 2000-2011 The University of California Berkeley.   All rights reserved.</p>
+<p class="tenpt">Copyright © 2006-2012 The University of Colorado Denver.   All rights reserved.</p>
+<p class="tenpt">Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ul id="d131e148"><li id="d131e150"><p class="tenpt">Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
+</li>
+<li id="d131e156"><p class="tenpt">Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer listed in this license in the documentation and/or other materials provided with the distribution.</p>
+</li>
+<li id="d131e162"><p class="tenpt">Neither the name of the copyright holders nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p>
+</li>
+</ul>
+<p class="tenpt">The copyright holders provide no reassurances that the source code provided does not infringe any patent, copyright, or any other intellectual property rights of third parties.   The copyright holders disclaim any liability to any recipient for claims brought against recipient by any third party for infringement of that parties intellectual property rights.</p>
+<p class="tenpt">THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.   IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>インテル&reg; MKL の一部の基となった LAPACK の原版は http://www.netlib.org/lapack/index.html (英語) から入手できます。LAPACK の開発は、E. Anderson、Z. Bai、C. Bischof、S. Blackford、J. Demmel、J. Dongarra、J. Du Croz、A. Greenbaum、S. Hammarling、A. McKenney、D. Sorensen らによって行われました。</p>
+</li>
+<li id="d131e179"><p>インテル&reg; MKL の一部の基となった BLAS の原版は http://www.netlib.org/blas/index.html (英語) から入手できます。</p>
+</li>
+<li id="d131e185"><p>XBLAS は、以下の著作権の下で配布されています。</p>
+<p>Copyright © 2008-2009 The University of California Berkeley.   All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<p>- Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
+<p>- Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer listed in this license in the documentation and/or other materials provided with the distribution.</p>
+<p>- Neither the name of the copyright holders nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.   IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+</li>
+<li id="d131e211"><p>インテル&reg; MKL の一部の基となった BLACS の原版は http://www.netlib.org/blacs/index.html (英語) から入手できます。BLACS の開発は、Jack Dongarra と R. Clint Whaley によって行われました。</p>
+</li>
+<li id="d131e217"><p>インテル&reg; MKL の一部の基となった ScaLAPACK の原版は http://www.netlib.org/scalapack/index.html (英語) から入手できます。ScaLAPACK の開発は、L. S. Blackford、J. Choi、A. Cleary、E. D'Azevedo、J. Demmel、I. Dhillon、J. Dongarra、S. Hammarling、G. Henry、A. Petitet、K. Stanley、D. Walker、R. C. Whaley らによって行われました。</p>
+</li>
+<li id="d131e223"><p>インテル&reg; MKL の一部の基となった PBLAS の原版は http://www.netlib.org/scalapack/html/pblas_qref.html (英語) から入手できます。</p>
+</li>
+<li id="d131e229"><p>インテル&reg; MKL の PARDISO* (PARallel DIrect SOlver) の開発は、バーゼル大学のコンピューター・サイエンス学部 (http://www.unibas.ch (英語)) によって行われました。http://www.pardiso-project.org (英語) から入手できます。</p>
+</li>
+<li id="d131e235"><p>拡張固有値ソルバーは、Feast ソルバーパッケージを基にしており、以下のライセンスの下で配布されています。</p>
+<p><p>Copyright © 2009, The Regents of the University of Massachusetts, Amherst.<br />
+Developed by E. Polizzi<br />
+All rights reserved.</p>
+</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: 
+			 </p>
+<ol id="d131e249"><li id="d131e251"><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
+</li>
+<li id="d131e257"><p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
+</li>
+<li id="d131e263"><p>Neither the name of the University nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p>
+</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE AUTHOR ''AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.   IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+</li>
+<li id="d131e274"><p>本リリースのインテル&reg; MKL の一部の高速フーリエ変換 (FFT) 関数は、カーネギーメロン大学からライセンスを受けて、SPIRAL ソフトウェア生成システム (http://www.spiral.net/ (英語)) によって生成されました。SPIRAL の開発は、Markus Püschel、José Moura、Jeremy Johnson、David Padua、Manuela Veloso、Bryan Singer、Jianxin Xiong、Franz Franchetti、Aca Gacic、Yevgen Voronenko、Kang Chen、Robert W. Johnson、Nick Rizzolo らによって行われました。</p>
+</li>
+<li id="d131e281"><p>Open MPI は、以下の New BSD ライセンスの下で配布されています。</p>
+<p>このリリースの多くのファイルには、ファイルを編集した組織の著作権が適用されます。以下の著作権は順不同で、一般に、このリリースに貢献したコードを所有する Open MPI コアチームのメンバーを反映しています。ほかの組織の許可の下で使用しているコードの著作権は、対応するファイルに含まれています。</p>
+<p>Copyright © 2004-2010 The Trustees of Indiana University and Indiana University Research and Technology Corporation.  All rights reserved.</p>
+<p>Copyright © 2004-2010 The University of Tennessee and The University of Tennessee Research Foundation.   All rights reserved.</p>
+<p>Copyright © 2004-2010 High Performance Computing Center Stuttgart, University of Stuttgart.   All rights reserved.</p>
+<p>Copyright © 2004-2008 The Regents of the University of California.   All rights reserved.</p>
+<p>Copyright © 2006-2010 Los Alamos National Security, LLC.   All rights reserved.</p>
+<p>Copyright © 2006-2010 Cisco Systems, Inc. All rights reserved.</p>
+<p>Copyright © 2006-2010 Voltaire, Inc. All rights reserved.</p>
+<p>Copyright © 2006-2011 Sandia National Laboratories.   All rights reserved.</p>
+<p>Copyright © 2006-2010 Sun Microsystems, Inc. All rights reserved.   Use is subject to license terms.</p>
+<p>Copyright © 2006-2010 The University of Houston.   All rights reserved.</p>
+<p>Copyright © 2006-2009 Myricom, Inc. All rights reserved.</p>
+<p>Copyright © 2007-2008 UT-Battelle, LLC.   All rights reserved.</p>
+<p>Copyright © 2007-2010 IBM Corporation.   All rights reserved.</p>
+<p>Copyright © 1998-2005 Forschungszentrum Juelich, Juelich Supercomputing Centre, Federal Republic of Germany</p>
+<p>Copyright © 2005-2008 ZIH, TU Dresden, Federal Republic of Germany</p>
+<p>Copyright © 2007 Evergrid, Inc. All rights reserved.</p>
+<p>Copyright © 2008 Chelsio, Inc. All rights reserved.</p>
+<p>Copyright © 2008-2009 Institut National de Recherche en Informatique.   All rights reserved.</p>
+<p>Copyright © 2007 Lawrence Livermore National Security, LLC.   All rights reserved.</p>
+<p>Copyright © 2007-2009 Mellanox Technologies.   All rights reserved.</p>
+<p>Copyright © 2006-2010 QLogic Corporation.   All rights reserved.</p>
+<p>Copyright © 2008-2010 Oak Ridge National Labs.   All rights reserved.</p>
+<p>Copyright © 2006-2010 Oracle and/or its affiliates.   All rights reserved.</p>
+<p>Copyright © 2009 Bull SAS.   All rights reserved.</p>
+<p>Copyright © 2010 ARM ltd. All rights reserved.</p>
+<p>Copyright © 2010-2011 Alex Brick.   All rights reserved.</p>
+<p>Copyright © 2012 The University of Wisconsin-La Crosse.   All rights reserved.</p>
+<p>Copyright © 2013-2014 Intel, Inc. All rights reserved.</p>
+<p>Copyright © 2011-2014 NVIDIA Corporation.   All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<p>- Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
+<p>- Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer listed in this license in the documentation and/or other materials provided with the distribution.</p>
+<p>- Neither the name of the copyright holders nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p>
+<p>The copyright holders provide no reassurances that the source code provided does not infringe any patent, copyright, or any other intellectual property rights of third parties.   The copyright holders disclaim any liability to any recipient for claims brought against recipient by any third party for infringement of that parties intellectual property rights.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.   IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+</li>
+<li id="d131e401"><p>Safe C Library は、以下の著作権の下で配布されています。</p>
+<p>Copyright ©</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</li>
+<li id="d131e419"><p>HPL の著作権情報とライセンス使用許諾条件</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ol id="d131e427"><li id="d131e429"><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p>
+</li>
+<li id="d131e435"><p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions, and the following disclaimer in the documentation and/or other materials provided with the distribution.</p>
+</li>
+<li id="d131e441"><p>All advertising materials mentioning features or use of this software must display the following acknowledgement: This product includes software developed at the University of Tennessee, Knoxville, Innovative Computing Laboratories.</p>
+</li>
+<li id="d131e447"><p>The name of the University, the name of the Laboratory, or the names of its contributors may not be used to endorse or promote products derived from this software without specific written permission.</p>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+<p class="tenpt">© 2017 Intel Corporation. 無断での引用、転載を禁じます。</p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a href="GUID-6D82DCCE-D53F-4BEB-92A2-EE69A18803CA.html">チュートリアル: インテル&reg; MKL を使用した行列乗算 (C 言語)</a></div>
+</div>
+<div></div>
+</body>
+</html>

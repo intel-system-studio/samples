@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Resolve Issue" />
+<meta name="DC.Relation" scheme="URI" content="GUID-A9D4BE8C-4266-4F34-BA9C-00AFF01CE32B.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-53AE2D51-3318-4D2E-A746-8DDF537D917C" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Resolve Issue</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-53AE2D51-3318-4D2E-A746-8DDF537D917C">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier </em></p>
+
+
+<h1 class="topictitle1">Resolve Issue</h1>
+<div id="GUID-751B246D-FEC0-4598-89CE-8A906DA53D06"><p id="GUID-830853F8-DCCB-48C4-ADB2-4154C442AE8C"></p>
+<p id="GUID-9137BC63-4F24-4453-8D62-200772C413B9"><img id="IMAGE_66476109F82D4A8FB1AC6A71ED13E4A5" height="32" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" width="32" /> In the 
+		<strong>Source</strong> pane, you identified that in the 
+		<samp class="codeph" id="GUID-564EC2D5-0360-468C-A370-D7BB3A6B8D3F">multiply1</samp>
+		function the code line 51 resulted in the highest values for the Clockticks
+		event. To solve this issue, do the following: 
+	 </p>
+<ol id="GUID-E73D4F4C-73D7-4412-AE2B-DC28D07E4A87"><li><p><a href="#ALGORITHM">
+				Change the multiplication algorithm</a>. 
+		  </p>
+</li>
+<li><p><a href="#VERIFY">
+				Re-run the analysis to verify optimization</a>. 
+		  </p>
+</li>
+</ol>
+<div class="section" id="ALGORITHM"><h2 class="sectiontitle">Change Algorithm</h2><p id="GUID-19758A88-1BD5-47E2-89E2-C7DDD1AA520C"><div class="Note"><h3 class="NoteTipHead">Note</h3> <p id="GUID-218DF83D-6D6A-47BA-8578-4254A90CEF03">The proposed
+				solution is one of the multiple ways to optimize the memory access and is used
+				for demonstration purposes only. 
+			 </p>
+</div>
+</p>
+<ol id="GUID-5DF411CD-E83D-4F15-A7DF-023B935F5448"><li><p id="GUID-F231FBFF-C63B-4124-A755-B17839CFF878">Open the 
+				<samp class="codeph" id="GUID-E699CC99-AB96-4ACD-BBB1-0494CAD0DD4B">multiply.h</samp> file from
+				the 
+				<span id="GUID-16FDF98B-1ACF-4B24-BAB8-1640AA2CF089">sample code directory (for
+				  example, 
+				  <samp class="codeph" id="GUID-EC5BD721-F5C8-44D6-A7C6-4082F313E140">/home/sample/matrix/src</samp>)</span>. 
+			 </p>
+<p id="GUID-18CE6848-2D44-429E-90E9-41E75E7E8125">For this sample, the<samp class="codeph" id="GUID-046BB481-B07D-44A6-8502-A7F67C08F4BB"> multiply.h</samp> file is
+				used to define the functions used in the 
+				<samp class="codeph" id="GUID-816F1983-E7DD-4958-AE90-16DEC5DDFB88">multiply.c</samp> file. 
+			 </p>
+<p id="GUID-C90BA299-9B16-4255-8015-BBC30809D364"><img id="IMAGE_0540A3B4DB5144BE9F4F84225803CCB8" src="GUID-FA2F2896-3201-4C42-A038-9127E6CB0F8C-low.gif" /></p>
+</li>
+<li><p id="GUID-6ACDA8F4-2A06-4DAF-A58B-AD0E98A45C56">In line 36, replace
+				the 
+				<samp class="codeph" id="GUID-C3696A89-F533-4920-9610-5D3947AD1C5F">multiply1</samp> function name
+				with the 
+				<samp class="codeph" id="GUID-3E816C0E-FF2D-4429-B424-1E6BE82664F4">multiply2</samp> function. 
+			 </p>
+<p id="GUID-57FB977F-FB14-4768-8FD9-0F9F729600E7">This new function uses the loop
+				interchange mechanism that optimizes the memory access in the code. 
+			 </p>
+<p id="GUID-497DEF47-D105-4E84-BD44-38EE1274A2BD"><img id="IMAGE_C12CAEC2C76144489714B00F02132C2D" src="GUID-98289BE0-D5A7-457A-9394-582D9A4BC3B0-low.gif" /></p>
+<p id="GUID-52E5065A-3714-49D3-A0C3-24CFFA10438B">
+				Intel compiler helps vectorize the data, which means that it uses SIMD
+				instructions that can work with several data elements simultaneously. If only
+				one source file is used, the Intel compiler enables vectorization
+				automatically. The current sample uses several source files, that is why the 
+				<samp class="codeph" id="GUID-F340B2A5-E7E4-4D95-A612-A5FF9F294B22">multiply2</samp> function uses
+				
+				<samp class="codeph" id="GUID-5D983885-A15E-4465-A9A3-267A811BE8F4">#pragma
+				  ivdep</samp> to instruct the compiler to ignore assumed vector dependencies.
+				This information lets the compiler enable the Supplemental Streaming SIMD
+				Extensions (SSSE). 
+			 </p>
+</li>
+<li><p id="GUID-EDD66CB9-C6A8-485A-A867-A6EEE840ADE5">Save files and
+				rebuild the project using the compiler of your choice. 
+			 </p>
+<p id="GUID-6945A4FE-7647-48A6-BEDE-F07D989029DF"><span id="GUID-8970D480-EFBE-4E78-A6AB-0ACAAE923C68">Run Intel C++ Compiler from the
+				  code sample directory (for example: 
+				  <samp class="codeph" id="GUID-205FB4A0-78BB-406D-99B8-3E50CEFA9072">/home/sample/matrix/linux</samp>)
+				  as follows:</span></p>
+<p id="GUID-249B6B49-1F89-4BFC-9AE9-7EF7EB88C5EE"><samp class="codeph" id="GUID-E6E4D18A-D9F1-43AE-8822-CD0416B616AF">make
+				  icc</samp></p>
+<p id="GUID-ED2A5C45-4069-49B8-B28E-F0EBC5A3F4FD">The matrix application is
+				automatically built with the Intel compiler (as 
+				<samp class="codeph" id="GUID-B504F23D-358B-4862-B80E-7D7910CDC7B8">matrix.icc</samp>) and stored
+				in the 
+				<samp class="codeph" id="GUID-E83755E9-7D54-4E91-846D-5FA59F39B654">matrix/linux</samp> directory.
+				
+			 </p>
+</li>
+</ol>
+</div>
+<div class="section" id="VERIFY"><h2 class="sectiontitle">Verify Optimization</h2><ol id="GUID-A4F0EB3C-0413-4298-915E-F600D7E1D3D8"><li><p id="GUID-35743708-9BD0-4701-A392-8D8209815925">From the VTune
+				Amplifier toolbar, click the 
+				<img id="IMAGE_53B3BC31A1674A459A2F3C921402621C" src="GUID-D252800A-0917-41A4-A19E-4260C43540E9-low.gif" /><strong id="GUID-614D49CA-0E75-4CAD-BFA1-61F285042E1D">Configure Project...</strong> button.
+				
+			 </p>
+<p id="GUID-FB284100-6472-45D6-86F8-B0651A5AE301">The 
+				<strong id="GUID-8C1AD830-872D-4C0B-917C-2EF1867C0476">Choose Target and
+				  Analysis Type</strong> window opens with the 
+				<strong id="GUID-98C48B25-F3C1-4470-A767-129376D78885">Analysis
+				  Target</strong> tab active. Make sure the 
+				<strong>local</strong> target system and 
+				<strong>Launch Application</strong> target type are selected. 
+			 </p>
+</li>
+<li><p id="GUID-A4BB4A02-0EDA-41AC-8FA1-A21558FA5876">In the 
+				<strong id="GUID-DEF12CFA-B52E-4D3A-AFE1-8DA50E9923D7">Application</strong>
+				field, click the 
+				<strong id="GUID-26D173FF-9AE4-4A21-9ECC-BD59A649F18D">Browse...</strong>
+				button and navigate to the updated 
+				<samp class="codeph" id="GUID-893C5182-383B-45A4-8AE7-F2B5777A1E0F">matrix</samp> application. 
+			 </p>
+<p id="GUID-70EB9E20-51F2-4912-9175-DBA0A2696BE3"><img id="IMAGE_A9F952A625364452BB40132D472E70B9" src="GUID-9DAFC48E-64E6-48DC-9BEC-5BB51479B059-low.gif" /></p>
+</li>
+<li><p id="GUID-7E0123FA-CB09-44BF-B644-BF024017D077">Click 
+				<strong id="GUID-F4A553EB-CAAC-4C37-885E-7B4FA902DDDE">OK</strong> to close
+				the dialog box. 
+			 </p>
+</li>
+<li><p id="GUID-14F7A5EB-F138-43AC-AEAC-B51B83722ABA">Re-run the General
+				Exploration analysis: 
+				<span>From the 
+				  <strong>Analysis Type</strong> tab, select 
+				  <strong>Microarchitecture Analysis&gt; General Exploration</strong></span>. 
+			 </p>
+<p id="GUID-771C1A3B-06D8-4260-9C0F-747302FF74E3">
+				VTune Amplifier reruns the General Exploration analysis for the updated 
+				<samp class="codeph" id="GUID-B31D6385-72C0-4792-99E3-73FB00F5DA4F">matrix</samp> target and
+				creates a new result, r001ge, that opens automatically. 
+			 </p>
+</li>
+<li><p id="GUID-1243B453-34E2-4EDA-A900-91714AC0235E">In the r001ge
+				result, click the 
+				<strong id="GUID-76522B04-A06B-466E-868C-A97C855ED5E0">Summary</strong> tab
+				to see the Elapsed time value for the optimized code: 
+			 </p>
+<p id="GUID-6D3CB54D-7BD9-43DA-900C-9CEA22ABCFC5"><img id="IMAGE_DEE800F4D6AF4E7899DBC00BA8EBF27B" src="GUID-18F8C6D3-635F-4EB5-BAD1-056C81B376F7-low.gif" /></p>
+<p id="GUID-71E2AC3A-76AF-42B1-8AB1-02BB16B85194">You see that the Elapsed time
+				has reduced from 
+				<span id="GUID-68CA1574-FFF7-4B15-9493-478F392E333F">140.218</span> seconds to 
+				<span id="GUID-EA59E50C-1B7E-4F73-9A48-67E8D44D3C41">10.032</span> seconds. 
+				<span>CPI Rate and LLC Miss</span> is still
+				an issue though has reduced significantly. 
+			 </p>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-DF9BBEC9-6B7A-4E32-91D5-02AC7A976827"><h2 class="sectiontitle">Key Terms</h2><p id="GUID-A06CE8CB-ED0A-4648-BAAB-A4F11E97A4D2"><ul id="GUID-C01E2806-7BB6-48FC-B04B-A248BB953E19"><li><p id="GUID-8BD2BE35-A188-4E8B-AC1F-A6B5AB335A91"><a href="GUID-2BEA8D3A-AF3A-46FE-8A4E-39F889F59C58.html">Elapsed time</a></p>
+</li>
+<li><p><a href="GUID-2BEA8D3A-AF3A-46FE-8A4E-39F889F59C58.html#EBS_METRICS">Event-based
+				  metrics</a></p>
+</li>
+</ul>
+</p>
+</div>
+<div class="section" id="GUID-8CDAE6E9-A205-4856-941F-939F814444EC"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-9D64DB39-15AE-4B8D-A2E7-D4ED8C6DD42A.html">Resolve Next
+			 Issue</a></p>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-5732FFBE-74FD-43A4-8345-9EDF93ED3DD5" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d509e221"><p id="d10e52">Optimization Notice 
+				  </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d509e221 "><p>Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction sets and other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of any optimization on microprocessors not manufactured by Intel. Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more information regarding the specific instruction sets covered by this notice. 
+				  </p>
+<p> Notice revision #20110804 
+				  </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-A9D4BE8C-4266-4F34-BA9C-00AFF01CE32B.html">Identifying Hardware Issues</a></div>
+</div>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Interpret Results" />
+<meta name="DC.Relation" scheme="URI" content="GUID-A9D4BE8C-4266-4F34-BA9C-00AFF01CE32B.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-D77E4125-C797-4949-9418-AA630B67A72F" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Interpret Results</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-D77E4125-C797-4949-9418-AA630B67A72F">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier </em></p>
+
+
+<h1 class="topictitle1">Interpret Results</h1>
+<div id="GUID-C2F867F2-A2E6-4BF7-8993-C3AA81BF5390"><p id="GUID-85D9731B-C177-4CFC-94E8-7A9224C93FCB"></p>
+<p id="GUID-C5A459E4-0703-498C-AEAF-8AA89856C061"><img id="IMAGE_D4796CB5D34E4710913A6C4961CD2598" height="32" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" width="32" /> When the application exits, the 
+		<span id="GUID-BA6CB11E-BDE4-4EDD-A38B-7F2BC738C358">Intel&reg; VTune&#8482; Amplifier</span>
+		finalizes the results and opens the Hardware Issues viewpoint. To interpret the
+		collected data and understand where you should focus your tuning efforts for
+		the specific hardware, do the following: 
+	 </p>
+<ol id="GUID-56FCE759-58AE-4A6E-A897-2FED2F8F76BD"><li><p><a href="#METRICS">
+				Understand the event-based metrics</a></p>
+</li>
+<li><p><a href="#ISSUES">Identify
+				the hardware issues that affect the performance of your application</a></p>
+</li>
+</ol>
+<p id="GUID-5D6AC19E-14E0-4446-BD39-8EDBB65DC607"><div class="Note"><h3 class="NoteTipHead">Note</h3> <ul id="GUID-5AF25922-1AE0-4D38-85E9-2D6DAF4C77EA"><li><p>For a detailed tuning methodology based on the events and
+				  metrics in General Exploration, visit 
+				  <a href="https://software.intel.com/en-us/articles/processor-specific-performance-analysis-papers" target="_blank">https://software.intel.com/en-us/articles/processor-specific-performance-analysis-papers</a>.
+				  
+				</p>
+</li>
+<li><p id="GUID-E953A924-7EFF-45DD-B3C8-E356EC39DB7A">The screenshots
+				  and execution time data provided in this tutorial are created on a system with 
+				  <span>4</span> CPU cores, based on the Intel
+				  microarchitecture code name 
+				  <span>Merom</span>. Your data may vary depending on
+				  the number and type of CPU cores on your system. 
+				</p>
+</li>
+<li><p>The screenshots and execution time data provided in this
+				  tutorial are created for a sample code compiled with Intel&reg; C++ Compiler. Your
+				  data may vary depending on the compiler you use. 
+				</p>
+</li>
+</ul>
+</div>
+</p>
+<div class="section" id="METRICS"><h2 class="sectiontitle">Understand the
+		  Event-based Metrics</h2><p id="SUMMARY">Click the 
+		  <strong id="GUID-487A92CE-AC58-4911-86CF-89199A3FA9F6">Summary</strong> tab to
+		  explore the data provided in the 
+		  <strong>Summary</strong> window for the whole application performance: 
+		</p>
+<img id="IMAGE_B1F674E168F64BC2B83ED3A6DFB4DD32" src="GUID-75F768B9-B36D-4B17-847A-CA6F71D40255-low.gif" alt="Hardware Issues Viewpoint: Summary Window" /><p>The 
+		  <strong>Elapsed time</strong> metric shows the wall time from the beginning to
+		  the end of the collection. Treat this metric as your basic performance 
+		  <em>baseline</em> against which you will compare subsequent runs of the
+		  application. The goal of your optimization is to reduce the value of this
+		  metric. All other metrics in this section are hardware event ratios provided by
+		  Intel architects. Mouse over the 
+		  <img id="IMAGE_7F37BD1CB29145AA9F889DF7593E041E" src="GUID-08AABA1E-7FDD-4ACF-8B4E-FA82F6AE7773-low.gif" /> icon to see the metric
+		  description and formula used for the metric calculation. VTune Amplifier
+		  highlights metrics values that exceed the threshold set for the corresponding
+		  metric. Such a value highlighted in pink signifies an application-level
+		  hardware issue. The text below a metric with the detected hardware issue
+		  describes the issue, potential cause and recommendations on the next steps, and
+		  displays a threshold formula used for calculation. Mouse over the truncated
+		  text to read a full description. 
+		</p>
+<p id="GUID-B841FF2E-4040-4CCF-8B35-B5BB688CF153">Quick look at the summary
+		  results discovers that the 
+		  <samp class="codeph" id="GUID-4B2081F8-6B42-4A10-B541-DA9E67FC2FBC">matrix</samp>
+		  application has the following issues: 
+		</p>
+<ul id="GUID-E7C52C3F-5DA2-415F-AE6C-84BEF8C198B9"><li id="GUID-8F8F57F5-1882-4DE9-92F1-C06B41DF5342"><p id="GUID-D9F9A69D-1DE2-425D-A941-748AD6C5F85C">CPI (Clockticks per
+				Instructions Retired) Rate 
+			 </p>
+</li>
+<li id="GUID-E0152560-683D-4B41-9423-DB8236C73FA9"><p id="GUID-C9869657-6C19-45CC-A2F9-E55EBDC71420">LLC Miss 
+			 </p>
+</li>
+</ul>
+</div>
+<div class="section" id="ISSUES"><h2 class="sectiontitle">Identify the
+		  Hardware Issues </h2><p id="BOTTOMUP">Click the 
+		  <strong id="GUID-A5656DF4-DEAE-45AB-B216-DF30A81DE4B1">Bottom-up</strong> tab to
+		  open the 
+		  <strong>Bottom-up</strong> window and see how each program unit performs against
+		  the event-based metrics. Each row represents a program unit and percentage of
+		  the CPU cycles used by this unit. Program units that take more than 5% of the
+		  CPU time are considered hotspots. This means that by resolving a hardware issue
+		  that, for example, took about 20% of the CPU cycles, you can obtain 20%
+		  optimization for the hotspot. 
+		</p>
+<p id="GUID-EE548CD4-D269-4114-9145-6F752A06D22B">By
+		  default, the VTune Amplifier sorts data in the descending order by Clockticks
+		  and provides the hotspots at the top of the list. The metric values for event
+		  ratios show up as numbers and/or bars. To change the data format, right-click a
+		  column and select 
+		  <strong>Show Data As &gt; 
+			 <em>format</em></strong>. 
+		</p>
+<img id="IMAGE_07C3996E2ED7419E920C9EAB6C9D38AD" src="GUID-20CA02A3-2074-4FF0-8EDC-EBCB2ED05D2E-low.gif" alt="Hardware Issues Viewpoint: Bottom-up Window" /><p id="GUID-DEE0C875-635D-4CD6-BE57-741EB74686F1">You
+		  see that the 
+		  <samp class="codeph" id="GUID-43786AED-922C-4195-A848-35118D895B23">multiply1</samp> function is
+		  the most obvious hotspot in the 
+		  <samp class="codeph" id="GUID-6AB48BB8-6857-4366-AC52-05B27A25776B">matrix</samp>
+		  application. It has the highest event count (Clockticks and Instructions
+		  Retired events) and most of the hardware issues were also detected during
+		  execution of this function. 
+		</p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p id="GUID-12E9381C-E516-4FE5-BE52-1621B4523BA1">Mouse over a column
+			 header with an event-based metric name to see the metric description. Mouse
+			 over a highlighted cell to read the description of the hardware issue detected
+			 for the program unit. 
+		  </p>
+</div>
+<p id="GUID-20B1DC74-254D-4377-9781-2AB64F6E9428">For
+		  the 
+		  <samp class="codeph" id="GUID-DB4A531C-32AF-4885-A90F-F3B93E0BCA9F">multiply1</samp> function, the
+		  VTune Amplifier highlights the same issues that were detected as the issues
+		  affecting the performance of the whole application: 
+		</p>
+<ul id="GUID-468177DE-8B32-4983-858D-3615C4CA77E8"><li id="GUID-6DDA8203-3051-4A6A-9734-D88A46616E97"><p id="GUID-F42FF4D7-931E-47E8-83E0-661A35EC06DC"><strong id="GUID-4AC8C972-BD35-43FB-AE21-63F4493A1CF2">CPI Rate</strong> is
+				high (&gt;1). Potential causes are memory stalls, instruction starvation,
+				branch misprediction, or long-latency instruction. To define the cause for your
+				code, explore other metrics in the Bottom-up window. 
+			 </p>
+</li>
+<li id="GUID-0CF25ECF-ACD0-4549-871E-711AB78B34FF"><p id="GUID-2CD4390B-7103-4FC3-8310-5C47DD5E0EAE"><strong id="GUID-392F063A-8F1E-4F66-BF0E-05258AE40A55">LLC miss</strong>
+				metric shows that about 81.6% (0.816) of CPU cycles were spent waiting for LLC
+				load misses to be serviced. Possible optimizations are to reduce data working
+				set size, improve data access locality, blocking and consuming data in chunks
+				that fit in the LLC, or better exploit hardware prefetchers. Consider using
+				software prefetchers but beware that they can increase latency by interfering
+				with normal loads and can increase pressure on the memory system. 
+			 </p>
+</li>
+</ul>
+</div>
+<div class="section" id="GUID-4A4790CE-A4DA-4CAA-909B-1BCFAB1BCD03"><h2 class="sectiontitle">Key Terms </h2><p id="GUID-2A44C141-C884-4BFC-A21D-E0C3A7004574"><ul id="GUID-55E44EA9-3223-4D17-B5FC-4613FE22A44F"><li><p><a href="GUID-2BEA8D3A-AF3A-46FE-8A4E-39F889F59C58.html#BASELINE">Baseline</a></p>
+</li>
+<li><p><a href="GUID-2BEA8D3A-AF3A-46FE-8A4E-39F889F59C58.html#ELAPSED_TIME">Elapsed
+				  time</a></p>
+</li>
+<li><p><a href="GUID-2BEA8D3A-AF3A-46FE-8A4E-39F889F59C58.html#EBS_METRICS">Event-based
+				  metrics</a></p>
+</li>
+<li id="GUID-CCCEFCFB-A70A-46E5-B3E2-FDEBC04D9B90"><p id="GUID-0519948A-D349-475C-80B2-24EEE1E04998"><a href="GUID-2BEA8D3A-AF3A-46FE-8A4E-39F889F59C58.html#VIEWPOINT">Viewpoint</a></p>
+</li>
+</ul>
+</p>
+</div>
+<div class="section" id="GUID-DAEB61C5-BFC2-4FAC-996D-3361133E9FE8"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-6FC48780-2172-4763-947F-59F5BAC37DD0.html">Analyze
+			 Code</a></p>
+</div>
+<p>
+<div class="tablenoborder"><table cellpadding="4" summary="" id="d10e46" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d3306e182"><p id="d10e52">Optimization Notice 
+				  </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d3306e182 "><p>Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction sets and other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of any optimization on microprocessors not manufactured by Intel. Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more information regarding the specific instruction sets covered by this notice. 
+				  </p>
+<p> Notice revision #20110804 
+				  </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-A9D4BE8C-4266-4F34-BA9C-00AFF01CE32B.html">Identifying Hardware Issues</a></div>
+</div>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="インテル&reg; IPP ワープ関数を使用した画像の回転" />
+<meta name="DC.subject" content="画像の回転, ippiWarpAffine&lt;Interpolation&gt; の使用" />
+<meta name="keywords" content="画像の回転, ippiWarpAffine&lt;Interpolation&gt; の使用" />
+<meta name="DC.Relation" scheme="URI" content="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html" />
+<meta name="prodname" content="" />
+<meta name="version" content="9.0" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-3B4A1095-6A5D-474C-A620-CDC265B18843" />
+<meta name="DC.Language" content="ja-JP" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>インテル&reg; IPP ワープ関数を使用した画像の回転</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-3B4A1095-6A5D-474C-A620-CDC265B18843">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt">チュートリアル: インテル® IPP 2018 (Beta) による画像の回転とブラー</p>
+
+
+<h1 class="topictitle1">インテル&reg; IPP ワープ関数を使用した画像の回転</h1>
+<div><p>インテル&reg; IPP 9.0 から、回転パラメーター (角度、<span class="keyword">x</span> シフト、<span class="keyword">y</span> シフト) に基づいて事前に計算したアフィン係数を使用して画像の回転を実装する <span class="option">ippiWarpAffine&lt;Interpolation&gt;</span> 関数を利用できるようになりました。指定した回転パラメーターのアフィン係数を取得するには、<span class="option">ippiGetRotateTransform</span> 関数を適用します。この関数は、指定した (0, 0) まわりの角度で画像を回転し、指定した <span class="keyword">x</span> シフト値と <span class="keyword">y</span> シフト値で画像をシフトする変換のアフィン係数を計算します。</p>
+<p>計算したバウンディング・ボックスを適用して、変換した画像がデスティネーション ROI に合うように、回転した画像の <span class="keyword">x</span> シフトと <span class="keyword">y</span> シフトを変更します。アフィン変換のバウンディング・ボックスを計算するには、<span class="option">ippiGetAffineBound</span> 関数を使用します。</p>
+<p>ワープアフィン処理関数を呼び出す前に、次の操作を行う必要があります。<ul id="GUID-F6F6C0AC-F900-4528-9972-2F58726BEDF0"><li><span class="option">ippiWarpAffineGetSize</span> 関数を使用して、指定した補間手法でアフィンワープの指定構造のサイズを計算します。</li>
+<li><span class="option">ippiWarpAffine&lt;Interpolation&gt;Init</span> 関数を使用して指定構造を初期化します。</li>
+<li><span class="option">ippiWarpAffineGetSize</span> を使用してワープに必要な一時ワークバッファーのサイズを計算し、バッファーのポインターを処理関数に渡します。</li>
+</ul>
+</p>
+<p>インテル&reg; IPP ワープ関数を使用して画像を回転する方法のサンプルコードを以下に示します。<pre><code class="language-clike">
+IppStatus warpAffine(Ipp8u* pSrc, IppiSize srcSize, int srcStep, Ipp8u* pDst, IppiSize dstSize, int dstStep, const double coeffs[2][3])
+{
+    int specSize = 0, initSize = 0, bufSize = 0;
+    Ipp8u* pBuffer  = NULL;
+    const Ipp32u numChannels = 3;
+    IppiPoint dstOffset = {0, 0};
+    IppiBorderType borderType = ippBorderConst;
+    IppiWarpDirection direction = ippWarpForward;
+    Ipp64f pBorderValue[numChannels];
+    IppiWarpSpec* pSpec = NULL;
+    IppStatus status = ippStsNoErr;
+
+    for (int i = 0; i &lt; numChannels; ++i) pBorderValue[i] = 255.0;
+
+    /* 指定バッファーと初期化バッファーのサイズ */
+    status = ippiWarpAffineGetSize(srcSize, dstSize, ipp8u, coeffs, ippLinear, direction, borderType,
+        &amp;specSize, &amp;initSize);
+
+    /* メモリーを割り当て */
+    pSpec = (IppiWarpSpec*)ippsMalloc_8u(specSize);
+
+    /* アフィン変換データの初期化 */
+    if (status &gt;= ippStsNoErr) status = ippiWarpAffineLinearInit(srcSize, dstSize, ipp8u, coeffs, direction, numChannels, borderType, pBorderValue, 0, pSpec);
+
+    /* ワークバッファーのサイズを取得 */
+    if (status &gt;= ippStsNoErr) status = ippiWarpGetBufferSize(pSpec, dstSize, &amp;bufSize);
+
+    pBuffer = ippsMalloc_8u(bufSize);
+
+    /* アフィン変換処理 */
+    if (status &gt;= ippStsNoErr) status = ippiWarpAffineLinear_8u_C3R(pSrc, srcStep, pDst, dstStep, dstOffset, dstSize, pSpec, pBuffer);
+
+    /* メモリーを解放 */
+    ippsFree(pSpec);
+    ippsFree(pBuffer);
+
+    return status;
+}</code></pre></p>
+<p>インテル&reg; IPP Warp 関数の詳細は、『インテル&reg; IPP デベロッパー・リファレンス』を参照してください。</p>
+<p><a href="GUID-87A54D90-C8A5-440C-8E18-AF52D47E519F.html#GUID-87A54D90-C8A5-440C-8E18-AF52D47E519F"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="戻る" /></a><a href="GUID-0EE46F60-3F41-4AC2-B201-6F476094BE89.html#GUID-0EE46F60-3F41-4AC2-B201-6F476094BE89"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="次へ" /></a></p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a href="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html">チュートリアル: インテル&reg; IPP 2018 (Beta) による画像の回転とブラー</a></div>
+</div>
+<div></div>
+</body>
+</html>

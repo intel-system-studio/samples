@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Finding Hotspots" />
+<meta name="DC.Relation" scheme="URI" content="GUID-31A20E55-3123-4706-B320-131A8C7D4416.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-D56343F9-2E2A-476D-A4A7-07BAD2C58D14.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-1EB22153-F0EF-4A29-9629-70B6FDAA897E.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-4C1A118B-F15A-472A-9A39-D6657B484D62.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-8DF87690-C9D0-464E-852B-C839266C97C7.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-29E0EADE-D0EC-4C35-AECA-D93936C3C938.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-00266A69-9256-4CF5-BC51-D02DD956DDF1.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-B245A744-74DE-484F-8F8B-F02E4797E4F8.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-10E76965-CBA4-43A9-B0F6-F438EA885E59.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-F44D6AB4-899A-48DC-9F0A-59E9BE98748F.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-D231F74D-4A67-4C76-B9B9-C1B762496616.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2016" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-742F5949-4A88-4170-9A20-425DD0CFB029" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Finding Hotspots</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-742F5949-4A88-4170-9A20-425DD0CFB029">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier</em></p>
+
+
+<h1 class="topictitle1">Finding Hotspots</h1>
+<div><p></p>
+<p><img id="IMAGE_02500A18FAEE42A1869C9569A23CD5FB" height="32" src="GUID-02914B5D-1A7D-4B4B-8A24-9534BDA714E4-low.gif" width="32" /> You can use the 
+		<span>Intel&reg; VTune&#8482; Amplifier</span>
+		to identify and analyze hotspot functions in your serial or parallel
+		application by performing a series of steps in a workflow. This tutorial guides
+		you through these workflow steps while using a sample multithreaded application
+		named 
+		<samp class="codeph">nqueens_parallel</samp>. 
+	 </p>
+<p></p>
+<p><img id="IMAGE_4E73F8803A404C779547C31E8FF2389E" src="GUID-85A1D0A8-2F99-4E40-94C6-7B385A95853F-low.gif" alt="Workflow steps to find hotspots" /></p>
+<p>
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-0035E778-FCDF-4E5C-9946-87E2BEEA70A1" width="100%" frame="border" border="1" cellspacing="0" rules="all"><tbody><tr><td class="cellrowborder" valign="top" width="20%"><p><strong>Step 1: Prepare for analysis 
+					 </strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="80%"><p><a href="GUID-D56343F9-2E2A-476D-A4A7-07BAD2C58D14.html">Build an
+						application to analyze for hotspots and create a new VTune Amplifier
+						project</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20%"><p><strong>Step 2: Find hotspots 
+					 </strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="80%"><ul id="GUID-9ADAFDE9-14C1-4001-8F44-619612DA59F6"><li id="LI_52537DAA2C0C491CB4A4EC271A6DF5D0"><p><a href="GUID-1EB22153-F0EF-4A29-9629-70B6FDAA897E.html">Choose and run the Basic
+							 Hotspots analysis.</a></p>
+</li>
+<li id="LI_B5085B0F14E747579800B68F4BBC821B"><p><a href="GUID-4C1A118B-F15A-472A-9A39-D6657B484D62.html">
+							 Interpret the result data.</a></p>
+</li>
+<li id="LI_A7C9DE0DEB58487CB866509694865320"><p><a href="GUID-8DF87690-C9D0-464E-852B-C839266C97C7.html">Resolve issue.</a></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20%"><p><strong>Step 3: Analyze parallelism</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="80%"><ul id="GUID-8929CCD7-77D1-463C-9D2C-C85D53C0B3BE"><li id="LI_27E71F58AC1C456D93AA71475E392952"><p><a href="GUID-29E0EADE-D0EC-4C35-AECA-D93936C3C938.html">Choose and run the Concurrency
+							 analysis.</a></p>
+</li>
+<li id="LI_EDAD4AADD0D24673BCC1747AFD9B5E2C"><p><a href="GUID-00266A69-9256-4CF5-BC51-D02DD956DDF1.html">Interpret the result
+							 data.</a></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20%"><p><strong>Step 4: Identify locks</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="80%"><ul id="GUID-12B7F0EB-C13D-48D9-B114-2FAA97953B43"><li id="LI_34C5B556163A4CFA9F2C8104D3DE837B"><p><a href="GUID-B245A744-74DE-484F-8F8B-F02E4797E4F8.html">Choose and run the Locks and
+							 Waits analysis.</a></p>
+</li>
+<li id="LI_5302DDC7473444B5BF0C2D3B7C2A4AA0"><p><a href="GUID-10E76965-CBA4-43A9-B0F6-F438EA885E59.html">Interpret the result
+							 data.</a></p>
+</li>
+<li id="LI_113120E0590F455BB785CB384EE870E9"><p><a href="GUID-F44D6AB4-899A-48DC-9F0A-59E9BE98748F.html">Remove lock.</a></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20%"><p><strong>Step 5: Check your work 
+					 </strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="80%"><p><a href="GUID-D231F74D-4A67-4C76-B9B9-C1B762496616.html">Re-build
+						the target, re-run the Locks and Waits analysis, and compare the result data
+						before and after optimization.</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+</div>
+<div></div>
+</body>
+</html>

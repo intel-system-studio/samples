@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FluidAnimate", "msvs2017\FluidAnimate.vcxproj", "{778A9823-E60D-4862-9914-7FF2771420AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Intel-Debug|Win32 = Intel-Debug|Win32
+		Intel-Debug|x64 = Intel-Debug|x64
+		Intel-Release|Win32 = Intel-Release|Win32
+		Intel-Release|x64 = Intel-Release|x64
+		VSC-Debug|Win32 = VSC-Debug|Win32
+		VSC-Debug|x64 = VSC-Debug|x64
+		VSC-Release|Win32 = VSC-Release|Win32
+		VSC-Release|x64 = VSC-Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{778A9823-E60D-4862-9914-7FF2771420AA}.Intel-Debug|Win32.ActiveCfg = Intel-Debug|Win32
+		{778A9823-E60D-4862-9914-7FF2771420AA}.Intel-Debug|Win32.Build.0 = Intel-Debug|Win32
+		{778A9823-E60D-4862-9914-7FF2771420AA}.Intel-Debug|x64.ActiveCfg = Intel-Debug|x64
+		{778A9823-E60D-4862-9914-7FF2771420AA}.Intel-Debug|x64.Build.0 = Intel-Debug|x64
+		{778A9823-E60D-4862-9914-7FF2771420AA}.Intel-Release|Win32.ActiveCfg = Intel-Release|Win32
+		{778A9823-E60D-4862-9914-7FF2771420AA}.Intel-Release|Win32.Build.0 = Intel-Release|Win32
+		{778A9823-E60D-4862-9914-7FF2771420AA}.Intel-Release|x64.ActiveCfg = Intel-Release|x64
+		{778A9823-E60D-4862-9914-7FF2771420AA}.Intel-Release|x64.Build.0 = Intel-Release|x64
+		{778A9823-E60D-4862-9914-7FF2771420AA}.VSC-Debug|Win32.ActiveCfg = VSC-Debug|Win32
+		{778A9823-E60D-4862-9914-7FF2771420AA}.VSC-Debug|Win32.Build.0 = VSC-Debug|Win32
+		{778A9823-E60D-4862-9914-7FF2771420AA}.VSC-Debug|x64.ActiveCfg = VSC-Debug|x64
+		{778A9823-E60D-4862-9914-7FF2771420AA}.VSC-Debug|x64.Build.0 = VSC-Debug|x64
+		{778A9823-E60D-4862-9914-7FF2771420AA}.VSC-Release|Win32.ActiveCfg = VSC-Release|Win32
+		{778A9823-E60D-4862-9914-7FF2771420AA}.VSC-Release|Win32.Build.0 = VSC-Release|Win32
+		{778A9823-E60D-4862-9914-7FF2771420AA}.VSC-Release|x64.ActiveCfg = VSC-Release|x64
+		{778A9823-E60D-4862-9914-7FF2771420AA}.VSC-Release|x64.Build.0 = VSC-Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

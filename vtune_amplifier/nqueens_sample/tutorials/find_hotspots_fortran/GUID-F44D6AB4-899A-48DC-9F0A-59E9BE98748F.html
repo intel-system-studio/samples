@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Remove Locks" />
+<meta name="DC.Relation" scheme="URI" content="GUID-742F5949-4A88-4170-9A20-425DD0CFB029.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2016" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-F44D6AB4-899A-48DC-9F0A-59E9BE98748F" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Remove Locks</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-F44D6AB4-899A-48DC-9F0A-59E9BE98748F">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier</em></p>
+
+
+<h1 class="topictitle1">Remove Locks</h1>
+<div><p><img id="IMAGE_0A2EBE62EA2143E2BE7972037140BACB" src="GUID-02914B5D-1A7D-4B4B-8A24-9534BDA714E4-low.gif" /> In the Source window, you located the synchronization objects
+		that caused significant waits while the processor cores were underutilized 
+		. To resolve the issue, do the following: 
+	 </p>
+<ol id="GUID-CD82FD6C-E009-493F-ACE2-511753C321E1"><li id="LI_CB3BA7F815964F578F6A394A44B9FECB"><p><a href="#GUID-D9C10778-DA13-4FA7-A4AB-24E46157553D">Open
+				the code editor.</a></p>
+</li>
+<li id="LI_233F3E47A4CA4C42AFBE96DCB8DFEE34"><p><a href="#GUID-5BBA5C29-4BEB-450A-84A2-71597525D7CF">Modify
+				the code to remove locks.</a></p>
+</li>
+<li id="LI_B2BB2E1707C14B0193A4FB9FA91B75A1"><p><a href="#GUID-E90C834A-A64A-451B-A551-1F7981DED548">Recompile
+				the project and check the result.</a></p>
+</li>
+</ol>
+<div class="section" id="GUID-D9C10778-DA13-4FA7-A4AB-24E46157553D"><h2 class="sectiontitle">Open the Code Editor</h2><p><div class="Note"><h3 class="NoteTipHead">Note</h3> <p>Depending on the sample code version, your source line numbers may
+				slightly differ from the numbers provided in this tutorial. 
+			 </p>
+</div>
+</p>
+<p>Click the 
+		  <img id="IMAGE_A5FDF1B36E37479AB5BD9C24B58972C6" src="GUID-66F5A54E-83EC-4E60-AD9A-83481F49715D-low.jpg" /><strong>Source Editor</strong> button to open the 
+		  <samp class="codeph">nqueens_parallel.f90</samp> file in your default editor: 
+		</p>
+<p><img id="IMAGE_ACBBC578DA554387A5840960DDC9D03D" src="GUID-0AEDFCF7-9B9A-4465-AA1D-8EAFA28FEE7C-low.gif" /></p>
+</div>
+<div class="section" id="GUID-5BBA5C29-4BEB-450A-84A2-71597525D7CF"><h2 class="sectiontitle">Remove Locks</h2><p>The critical section introduced in line 141 protects the global
+		  variable from a race condition in a multithreaded application but it spawns a
+		  redundant synchronization. To resolve this issue, you may replace the critical
+		  section with an atomic operation as follows: 
+		</p>
+<ol id="GUID-8EE398EA-B770-40BB-B132-56A84CF1581A"><li id="LI_60520112C16E4F458DC7E2DC11569E7F"><p>Edit like 141 to replace the 
+				<samp class="codeph">OMP CRITICAL</samp> with the 
+				<samp class="codeph">OMP ATOMIC</samp> directive. 
+			 </p>
+</li>
+<li id="LI_DED46FC46C7B49478D03C139B53BE775"><p>Comment out or remove line 143. 
+			 </p>
+<p><img id="IMAGE_74EC55722BC14C959AB963D55BE491F5" src="GUID-987FFCC6-97E5-4793-9C68-B6FD9D1F0D90-low.png" /></p>
+</li>
+<li id="LI_0CCA6B504C994C26AC7CC8B07DF79B34"><p>Save your changes.
+			 </p>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-E90C834A-A64A-451B-A551-1F7981DED548"><h2 class="sectiontitle">Recompile the Project and Check the Result</h2><ol id="GUID-2A8526A0-1AEF-418D-BC81-6E85252C7332"><li id="LI_BDA1FAF041044FE3943BB1B6B139747B"><p>Browse to the directory where you extracted the sample code (for
+				example,<samp class="codeph"> /home/vtune/nqueens_fortran/linux</samp>). 
+			 </p>
+</li>
+<li id="LI_D7D1260A1D664DCE8835B4DE89B7E558"><p>Rebuild your target in the release mode using the make command as
+				follows: 
+			 </p>
+<p><samp class="codeph">$ make clean</samp></p>
+<p><samp class="codeph">$ make</samp></p>
+<p>The 
+				<samp class="codeph">nqueens_parallel</samp> application is rebuilt. 
+			 </p>
+</li>
+<li id="LI_85FC8DC7A40D4FBE9CDE1DEFE98CD433"><p>Run 
+				<samp class="codeph">nqueens_parallel</samp> as follows: 
+			 </p>
+<p><samp class="codeph">./nqueens_parallel
+				  15</samp></p>
+<p><img id="IMAGE_376FA8B09E3847D8A04F9B24275D4E4A" src="GUID-A79196FB-3D5A-45B6-B4AC-329A61B09D31-low.gif" /></p>
+<p><span>System</span> runs the 
+				<samp class="codeph">nqueens_parallel</samp>. Note that execution time
+				reduced from 
+				<span>56566</span> ms to 
+				<span>14585</span> ms. 
+			 </p>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-0905CF5A-7204-4B0B-A0A1-B4470E95DAEA"><h2 class="sectiontitle">Key Terms </h2><ul id="GUID-52D7B502-A0A5-424B-A08D-152860ED0E35"><li id="LI_6EE256FB1282415A89CC2A9036DFEF44"><p><a href="GUID-E9306A17-2C65-46CD-BE42-D8D94D0E336E.html#WAIT_TIME">Wait
+				  time</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="GUID-EA3B5CA7-1D07-4FAF-8F42-1AC62A21B8B0"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-D231F74D-4A67-4C76-B9B9-C1B762496616.html">Compare with
+			 Previous Result</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-742F5949-4A88-4170-9A20-425DD0CFB029.html">Finding Hotspots</a></div>
+</div>
+<div></div>
+</body>
+</html>

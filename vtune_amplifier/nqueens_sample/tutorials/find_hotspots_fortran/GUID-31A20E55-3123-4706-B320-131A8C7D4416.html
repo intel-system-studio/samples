@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Tutorial: Finding Hotspots - Fortran Sample Code" />
+<meta name="DC.Relation" scheme="URI" content="GUID-667008D9-1F25-4B94-9573-A1D855E7D9FC.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-D2009DFB-FDD0-41CC-B9CD-D273822AB964.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-742F5949-4A88-4170-9A20-425DD0CFB029.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-5CC0DF13-808D-43AD-A1C7-1690ECC4DC83.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-E9306A17-2C65-46CD-BE42-D8D94D0E336E.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2016" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-31A20E55-3123-4706-B320-131A8C7D4416" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Tutorial: Finding Hotspots - Fortran Sample Code</title>
+<script src="resources/prism/prism.js"><!----></script>
+<xml>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="DocSet" Value="Intel"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="Locale" Value="kbEnglish"></MSHelp:Attr>
+<MSHelp:Attr xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Name="TopicType" Value="kbReference"></MSHelp:Attr>
+<MSHelp:Keyword xmlns:MSHelp="http://www.microsoft.com/MSHelp/" Index="F" Term="Context-id"></MSHelp:Keyword>
+</xml>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-31A20E55-3123-4706-B320-131A8C7D4416">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+<h1 class="topictitle1"><img id="IMAGE_93798FCF40C24CFBA9A47C3A6A29F4F4" src="GUID-59DFA90A-7EFE-471F-87B3-6B240755CE73-low.png" />Tutorial: Finding Hotspots
+	 - Fortran Sample Code</h1>
+<div><p></p>
+<p><strong>Intel&reg; VTune&#8482; Amplifier for 
+		  <span>Linux*</span> OS</strong></p>
+<p id="GUID-55ED7C8B-907B-466F-8F79-DC6A12222A06"><a class="underlined" href="GUID-667008D9-1F25-4B94-9573-A1D855E7D9FC.html#GUID-667008D9-1F25-4B94-9573-A1D855E7D9FC">Legal Information</a></p>
+<p><br /><br /></p>
+<p> Discover how to use the Basic Hotspots, Concurrency, and Locks and
+		Waits analysis types of the 
+		<span>Intel&reg; VTune&#8482; Amplifier</span>
+		to identify 
+		<dfn class="term">hotspots</dfn> - the most time-consuming program units, understand
+		how effectively your code is using available cores, and discover causes of
+		ineffective utilization. 
+	 </p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-90830C46-08BF-4A95-A9F9-2465BA185207" frame="border" border="1" cellspacing="0" rules="all"><tbody><tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>About This Tutorial</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><p>This tutorial uses the sample 
+					 <samp class="codeph">nqueens_parallel</samp> application and guides you
+					 through basic workflow steps required to analyze the code for hotspots,
+					 parallelism, and locks. 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>Estimated Duration</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><p>10-15 minutes. 
+				  </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>Learning Objectives</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><p>After you complete this tutorial, you
+					 should be able to: 
+				  <ul id="GUID-211B4EDC-3D3C-4E43-822F-8C4719BE529B"><li id="LI_D63E460CDA424F94A3D775C56D11C09E"><p>Choose an analysis target. 
+						</p>
+</li>
+<li id="LI_C02CA07F0F794921AE53E547EA86B59A"><p>Choose an analysis type. 
+						</p>
+</li>
+<li id="LI_D7C6AC030BB84033915F5FBE77555CA9"><p>Run the Basic Hotspots analysis to locate most
+						  time-consuming functions in an application. 
+						</p>
+</li>
+<li id="LI_729E5CF978794B068AA183FA093CA056"><p>Analyze the function call flow and threads. 
+						</p>
+</li>
+<li id="LI_884BD073A425456F876999A14210DBB4"><p>Analyze the source code to locate the most time-critical
+						  code lines. 
+						</p>
+</li>
+<li id="LI_B7B16412CE6F4705A46315734479DBF6"><p>Run the Concurrency analysis to identify function
+						  candidates for parallelization. 
+						</p>
+</li>
+<li id="LI_A7BC16F1B2D743CB92EFF0B20CA041F2"><p>Run the Locks and Waits analysis to identify where
+						  synchronization objects spent too much CPU time waiting. 
+						</p>
+</li>
+<li id="LI_A88978253539477EBCA7643109B6203B"><p> Compare results before and after optimization. 
+						</p>
+</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="18.832391713747647%"><p><strong>More Resources</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="81.16760828625236%"><ul id="GUID-2C08DE64-1453-4243-97AD-836C88A3D602"><li><p>Intel VTune Amplifier tutorials (HTML, PDF): 
+						  <a href="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials" target="_blank">https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials</a></p>
+</li>
+<li><p>Intel VTune Amplifier support page: 
+						  <a href="https://software.intel.com/en-us/intel-vtune-amplifier-xe-support" target="_blank">https://software.intel.com/en-us/intel-vtune-amplifier-xe-support</a></p>
+</li>
+<li><p>Intel Parallel Studio XE support page: 
+						  <a href="https://software.intel.com/en-us/articles/intel-parallel-studio-xe" target="_blank">https://software.intel.com/en-us/articles/intel-parallel-studio-xe</a></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p id="GUID-87EE735F-EAA3-4457-9C8C-7C73342E5218"><a class="start" href="GUID-742F5949-4A88-4170-9A20-425DD0CFB029.html">Start
+		  Here</a></p>
+</div>
+<div></div>
+</body>
+</html>

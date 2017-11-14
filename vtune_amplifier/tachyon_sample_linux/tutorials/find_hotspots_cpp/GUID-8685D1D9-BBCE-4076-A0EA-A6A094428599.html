@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Interpret Result Data" />
+<meta name="DC.Relation" scheme="URI" content="GUID-D1320A0F-E1E9-4A8A-BF53-32535A7368A0.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-8685D1D9-BBCE-4076-A0EA-A6A094428599" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Interpret Result Data</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-8685D1D9-BBCE-4076-A0EA-A6A094428599">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier</em></p>
+
+
+<h1 class="topictitle1">Interpret Result Data</h1>
+<div id="GUID-85FE4038-C6C5-4788-A27F-3ADD71526D7B"><p id="GUID-BBE52BE3-6107-481B-84F6-08D7FB091C89"></p>
+<p id="GUID-62665B94-7D2B-4673-8CBC-3B07DB216DC1"><img id="IMAGE_243EDB5E54CE4561B9B9C6C8EDE9BC85" height="32" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" width="32" /> When the sample application exits, the Intel&reg; VTune&#8482; Amplifier
+		finalizes the results and opens the 
+		<b class="uicontrol" id="GUID-8987B3D5-3946-4892-B838-322A66BFDE9E">Hotspots by CPU
+		  Usage</b> viewpoint where each window or pane is configured to display
+		code regions that consumed a lot of CPU time. To interpret the data on the
+		sample code performance, do the following: 
+	 </p>
+<ul id="GUID-7EB7CB0B-EF38-4E30-8255-AD98C778A879"><li id="GUID-4443BB6B-65B1-4044-A671-081FCFA01DF2"><p id="GUID-F4FEA8C4-2B35-4100-A9B1-3AE98F7AA0EA"><a href="#BASIC_METRICS">Understand
+				the basic performance metrics</a> provided by the Basic Hotspots analysis. 
+		  </p>
+</li>
+<li id="GUID-3329D57E-2813-45CC-B7A6-3E6FB15F7D0E"><p id="GUID-5CF1ED89-4CF3-4869-953A-31E3196387E0"><a href="#ANALYZE_HOTSPOTS">Analyze
+				the most time-consuming functions and CPU usage</a>. 
+		  </p>
+</li>
+<li id="LI_56F69632CC874E5C8DECE51A1EADDC24"><p><a href="#CPU_USAGE">Analyze
+				performance per thread</a>. 
+		  </p>
+</li>
+</ul>
+<p id="GUID-F845D207-A601-4F75-A36C-F5938A1FCC6F"><div class="Note"><h3 class="NoteTipHead">Note</h3> <p id="GUID-6E7E60F3-4A88-4577-90E3-96EE180104BD">The screenshots and
+			 execution time data provided in this tutorial are created on a system with 
+			 <span>8</span> CPU cores. Your data may vary depending
+			 on the number and type of CPU cores on your system. 
+		  </p>
+</div>
+</p>
+<div class="section" id="BASIC_METRICS"><h2 class="sectiontitle">Understand the Basic Hotspots
+		  Metrics</h2><p>Start analysis with the 
+		  <strong>Summary</strong> window. To interpret the data, hover over the question
+		  mark icons 
+		  <img id="IMAGE_2C612A6BE9C04FA7AD604503E43AE665" src="GUID-08AABA1E-7FDD-4ACF-8B4E-FA82F6AE7773-low.gif" /> to read the pop-up help and
+		  better understand what each performance metric means. 
+		</p>
+<p id="GUID-BB10AEDA-F0FD-4163-B0D6-A14E507A0529"><img id="IMAGE_8837DDDD09D14E80BFA45324F0BE2E3E" src="GUID-65CB3538-B65D-40DC-BA08-C6D670B12A89-low.gif" /></p>
+<p id="GUID-BE5E783D-B0F4-47DF-BE74-2D97A3AE8B84">Note that 
+		  <strong id="GUID-E888E65F-0D86-46AF-B942-5FE06BBE8F5A">CPU Time</strong> for the
+		  sample application is equal to 
+		  <span id="GUID-6BC9014D-A014-45BA-8C5B-110A7DB3AD11">38.158</span> seconds. It is the
+		  sum of CPU time for all application threads. 
+		  <strong id="GUID-EDF6A58C-2777-48C3-A86D-A6D25633BFEB">Total Thread
+			 Count</strong> is 
+		  <span id="GUID-784F9247-EAC3-4C23-80E1-3251BB5709B5">1</span>, so the sample
+		  application is 
+		  <span id="GUID-643F3239-02A5-4AD5-A6BF-684192F48937">single-threaded</span>. 
+		</p>
+<p>The 
+		  <strong id="GUID-179E5252-EDD6-42CA-B381-64CB494F4FCC">Top Hotspots</strong>
+		  section provides data on the most time-consuming functions (<dfn class="term">hotspot
+			 functions</dfn>) sorted by CPU time spent on their execution. 
+		</p>
+<p><img id="IMAGE_E2C8512D58F6430BBA4DD5A75687E89C" src="GUID-9AC809DE-A602-43ED-8B03-F6A0E68FB580-low.gif" /></p>
+<p id="GUID-4A1056D0-CA84-4DC4-AAF4-70436A4584D7">For the sample
+		  application, the 
+		  <samp class="codeph">initialize_2D_buffer</samp> function, which took 
+		  <span id="GUID-011002AD-962E-4B98-B009-B962C376B939">22.746</span> seconds to execute,
+		  shows up at the top of the list as the hottest function. 
+		</p>
+<p id="GUID-07A62E3F-BFE3-4F09-8B2B-BADB571EE7FF">The 
+		  <samp class="codeph" id="GUID-9DEBBE90-EEAD-4B41-94B7-EFE57BCD57B8">[Others]</samp> entry at the
+		  bottom shows the sum of CPU time for all functions not listed in the table. 
+		</p>
+<p>The 
+		  <strong>CPU Usage Histogram</strong> represents the Elapsed time and usage level
+		  for the available logical processors.</p>
+<p><img id="IMAGE_065102A75164469FB0FB4F09CC84314F" src="GUID-EF71EF8C-35FF-4E00-8A4A-875E4AADA62C-low.gif" /></p>
+<p> The 
+		  <samp class="codeph">tachyon_find_hotspots</samp> application ran
+		  mostly on one logical CPU. If you hover over the highest bar, you see that it
+		  spent 
+		  <span>38.15336</span> seconds using one core only,
+		  which is classified by the VTune Amplifier as a Poor utilization for a
+		  multicore system. To understand what prevented the application from using all
+		  available logical CPUs effectively, explore the 
+		  <strong>Bottom-up</strong> pane. 
+		</p>
+</div>
+<div class="section" id="ANALYZE_HOTSPOTS"><h2 class="sectiontitle">Analyze the Most
+		  Time-consuming Functions</h2><p id="GUID-63C979ED-AA8C-4FA9-A3A3-87FA86DB5CA6">Click the 
+		  <strong id="GUID-62288F76-0E16-4FC3-8867-B540F9E46989">Bottom-up</strong> tab to
+		  explore the 
+		  <strong>Bottom-up</strong> pane. By default, the data in the grid is sorted by
+		  Function. You may change the grouping level using the 
+		  <strong>Grouping</strong> drop-down menu at the top of the grid. 
+		</p>
+<p>Analyze the 
+		  <strong id="GUID-DA6AD9B7-5E3B-4A2A-9C02-E7208CB52496">CPU Time</strong> column
+		  values. Functions that took most CPU time to execute are listed on top. 
+		</p>
+<p id="GUID-82C70941-F90A-4DD1-B3B4-4A67636F97A7"> The
+		  
+		  <samp class="codeph">initialize_2D_buffer</samp> function took the maximum time to
+		  execute,<span id="GUID-1F9CCE2A-66E6-4EEB-B149-F0C7CE075533">22.746</span> seconds, and had the
+		  longest poor CPU utilization (red 
+		  <img id="IMAGE_14E4A61FA06D4716AD49A872E22D284D" src="GUID-379CC698-B3D0-454F-B78C-DC5B4E22B37D-low.jpg" /> bars). This means that the
+		  processor cores were underutilized most of the time spent on executing this
+		  function. 
+		</p>
+<p id="GUID-35EA8C8E-9D58-4B98-9ABB-E68DECBA892C"><span id="GUID-5CA8A2C9-6841-4542-A77A-3A2B61911EA6"><img id="IMAGE_6FF1D4C0865A499FBAF2A6AF3D88DD42" src="GUID-D21B4BA2-D151-40C8-BF1E-3A4C222F2B1F-low.gif" /></span><br /></p>
+<p>To get the detailed CPU usage information per function, use the 
+		  <img id="IMAGE_020F3EDE2012449A907929C4DF37DAF6" src="GUID-BA49DA5A-0828-482B-8E50-97A92B13D585-low.gif" /><strong>Expand</strong> button in the 
+		  <strong>Bottom-up</strong> pane to expand the 
+		  <strong>CPU Time</strong> column. 
+		</p>
+<p><img id="IMAGE_484A065FF88941E3A047D95DFA6C2BBA" src="GUID-1D659123-13BE-4287-B2E5-55FDC352FA69-low.gif" /></p>
+<p>Click the arrow sign 
+		  <img id="IMAGE_BFD7DDD5895D4859BE819519B0C66D43" src="GUID-FB99E6CF-E5AE-4C62-BC34-5330982D70A5-low.gif" /> at the 
+		  <samp class="codeph">initialize_2D_buffer</samp> function to expand the stacks
+		  calling this function. You see that it was called only by the 
+		  <samp class="codeph">render_one_pixel</samp> function. 
+		</p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>You may change the stack representation to a "tree" style by
+			 clicking the 
+			 <img id="IMAGE_1B5258E9323D41FEA664BA16990E9D28" src="GUID-2BA710D9-DBD0-41F9-996A-26A55340F680-low.gif" /><strong>Change Stack Layout</strong> button. 
+		  </p>
+</div>
+<p>Select the 
+		  <samp class="codeph">initialize_2D_buffer</samp> function in the grid and explore
+		  the data provided in the 
+		  <strong>Call Stack</strong> pane on the right. The 
+		  <strong>Call Stack</strong> pane displays full stack data for each hotspot
+		  function, enables you to navigate between function call stacks and understand
+		  the impact of each stack to the function CPU time. The stack functions in the 
+		  <strong>Call Stack</strong> pane are represented in the following format: 
+		</p>
+<p id="GUID-3442F5B7-37B9-4101-AF7E-58A58EB45A4E"><em id="GUID-767663FD-3385-441B-9DA7-C845515CADF4">&lt;module&gt;!&lt;function&gt;
+			 - &lt;file&gt;:&lt;line number&gt;</em>, where the line number corresponds to
+		  the line calling the next function in the stack. 
+		</p>
+<p id="GUID-10167466-6F0D-4726-A5E0-92DDD1FF9F40"><img id="IMAGE_461128D2BBD246F798BED9C2570F2661" src="GUID-0052F069-B894-4E81-BC2F-CA23757183B0-low.gif" /></p>
+<p id="GUID-5D8F4664-AC97-46B6-BD88-59EF592D4F59">For
+		  the sample application, the hottest function 
+		  <samp class="codeph">initialize_2D_buffer</samp> is called at line 
+		  <span id="GUID-5C0170B2-08EB-484A-9F6D-EC5560EEF580">143</span> of the 
+		  <samp class="codeph">render_one_pixel</samp> function in the 
+		  <span class="filepath">find_hotspots.cpp</span> file. 
+		</p>
+</div>
+<div class="section" id="CPU_USAGE"><h2 class="sectiontitle">Analyze Performance
+		  per Thread</h2><p id="GUID-BEF81EC1-CE02-4215-B1B2-C0210E832395">If
+		  you change the grouping level in the 
+		  <strong>Bottom-up</strong> pane from 
+		  <strong id="GUID-BBDD597E-888F-4EE1-92C9-796162DF3017">Function/Call
+			 Stack</strong> to 
+		  <strong id="GUID-19A1BF88-9221-41E5-B145-488E139DE80B">Thread/Function/Call
+			 Stack</strong>, you see that the 
+		  <samp class="codeph" id="GUID-ECBC50B8-98AB-4484-A960-ED15E02184D1">initialize_2D_buffer</samp>
+		  function belongs to the 
+		  <samp class="codeph">tachyon_find_ho</samp> thread. To get detailed information on the 
+		  thread performance, explore the 
+		  <strong>Timeline</strong> pane. 
+		</p>
+<p id="GUID-8134B9DB-092C-4F39-9F91-D446395E5B89"><img id="IMAGE_5CC0653DDD754AF3990CE0976814F30F" src="GUID-41E8AB15-DFC5-4BF7-89CE-CB500C9528D6-low.gif" /></p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-8B7579A6-14B5-4817-81C3-87B2DC876C31" width="100%" frame="void" border="0" rules="none" cellspacing="2"><tbody><tr><td class="noborder" valign="top" width="6.5274151436031325%"><p id="GUID-11A97477-F33D-42A6-8439-D9A56AD0FFD5"><img id="IMAGE_BB641379B89F4536A21C893B371D24C7" height="22" src="GUID-A4AF9F6D-C2F3-4CC2-BC62-4EF73CA76B7B-low.jpg" width="22" alt="3" /></p>
+</td>
+<td class="noborder" colspan="2" valign="top"><p id="GUID-19F4969F-C10A-49AF-8597-AA49828A9DCA"><strong id="GUID-C903D6DF-3787-4F09-9549-E5F4752D1426">Timeline</strong> area. When you
+						hover over the graph element, the timeline tooltip displays the time passed
+						since the application has been launched. 
+					 </p>
+</td>
+</tr>
+<tr><td class="noborder" valign="top" width="6.5274151436031325%"><p id="GUID-0BB16174-A9F0-4E5D-A5A7-E42B1FD7A904"><img id="IMAGE_C1505D0FE42E41D086A77DA8662042C3" height="22" src="GUID-D8DBA40B-558C-4899-B9B6-9068F1CAE124-low.jpg" width="22" alt="4" /></p>
+</td>
+<td class="noborder" colspan="2" valign="top"><p id="GUID-83BB0D81-07BC-4B4A-A0EB-2BB167BB29ED"><strong id="GUID-B5AE0913-4A3D-4595-92AC-39CE0D73B7D2">Threads</strong>
+						area that shows the distribution of CPU time utilization per thread. Hover over
+						a bar to see the CPU time utilization in percent for this thread at each moment
+						of time. Green zones show the time threads are active. 
+					 </p>
+</td>
+</tr>
+<tr><td class="noborder" valign="top" width="6.5274151436031325%"><p id="GUID-CA7351BD-C809-4A79-A738-10A62CF11526"><img id="IMAGE_51F180EE8A104796BBEC015B5C911600" height="22" src="GUID-EC89F6F7-1D37-4D59-82B5-710853E15391-low.jpg" width="22" alt="5" /></p>
+</td>
+<td class="noborder" colspan="2" valign="top"><p id="GUID-A654AF1B-4055-42F1-9B4B-9D5AD185173E"><strong id="GUID-F5F17619-969A-43D3-AE97-DA5349BEB10F">CPU
+						  Usage</strong> area that shows the distribution of CPU time utilization for the
+						whole application. Hover over a bar to see the application-level CPU time
+						utilization in percent at each moment of time. 
+					 </p>
+<p id="GUID-004FD26B-D473-4C9A-B4C3-3173253A83A8">VTune Amplifier calculates the
+						overall 
+						<b class="uicontrol" id="GUID-638ACAD9-9911-46A4-9D17-0BCBD0192F00">CPU
+						  Usage</b> metric as the sum of CPU time per each thread of the 
+						<strong id="GUID-E0312F91-FF4F-45BE-B0D4-0A7057843A58">Threads</strong>
+						area. Maximum 
+						<b class="uicontrol" id="GUID-51161B2F-928C-4060-B092-E6DD11AD4ABA">CPU
+						  Usage</b> value is equal to 
+						<samp class="codeph" id="GUID-699A65CE-FE28-4F7E-934F-F98660BB8ED6">[number of processor cores] x
+						  100%</samp>. 
+					 </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p id="GUID-13B7954A-C11C-4FC3-8A53-F437A51C70E1"><span>The Timeline analysis identifies that the 
+			 <samp class="codeph">_start</samp> thread was actively utilizing CPU resources
+			 most of the time.</span> The 
+		  <strong>CPU Usage</strong> tooltip shows that CPU time values are about 100%
+		  whereas the maximum CPU time value for a system with 
+		  <span>8 cores is 800%</span>. This means that the
+		  processor cores were under-utilized for most of the time spent on executing the
+		  
+		  <samp class="codeph">tachyon_find_hotspots</samp> application. 
+		</p>
+</div>
+<div class="section" id="GUID-F32C84F6-D38D-406B-8E84-B4A4949E2759"><h2 class="sectiontitle">Key Terms </h2><ul id="GUID-CF1720F3-BF52-414D-BABA-E02EC0A397B9"><li id="LI_9DCE10E35FA448119FA5C0C964F79F91"><p><a href="GUID-8DCE8321-E14C-4106-AA5B-443DD8ED634E.html#CPU_TIME">CPU
+				  time</a></p>
+</li>
+<li id="LI_5DF3A652E3A446BC85943F38545DA4DE"><p><a href="GUID-8DCE8321-E14C-4106-AA5B-443DD8ED634E.html#GUID-48103D06-C57F-47E6-9B0F-C7517F4A2D48">CPU
+				  usage</a></p>
+</li>
+<li id="LI_87343E5B1BDF436390A21F1221319CAE"><p><a href="GUID-8DCE8321-E14C-4106-AA5B-443DD8ED634E.html#GUID-ADFC3A88-1880-4C9C-A6B5-90463CDDB238">Elapsed
+				  time</a></p>
+</li>
+<li id="LI_AC7672ED3DFB445EAC83EE322EEE13B6"><p><a href="GUID-8DCE8321-E14C-4106-AA5B-443DD8ED634E.html#GUID-C7660F2E-336F-4BC3-A580-1A175646ACB5">Basic
+				  Hotspots analysis</a></p>
+</li>
+<li id="LI_DD58AC8E23E546709DA87059B61F996B"><p><a href="GUID-8DCE8321-E14C-4106-AA5B-443DD8ED634E.html#VIEWPOINT">Viewpoint</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="GUID-CB3D6353-0B87-4468-A5F6-BAED6D5D8B3F"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-61315581-3BEC-462C-9528-4D8DAA250D55.html">Analyze
+			 Code</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-D1320A0F-E1E9-4A8A-BF53-32535A7368A0.html">Finding Hotspots</a></div>
+</div>
+<div></div>
+</body>
+</html>

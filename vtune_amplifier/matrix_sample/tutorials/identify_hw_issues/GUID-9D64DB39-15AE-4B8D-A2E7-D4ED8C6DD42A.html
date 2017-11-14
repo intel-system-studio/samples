@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Resolve Next Issue" />
+<meta name="DC.Relation" scheme="URI" content="GUID-A9D4BE8C-4266-4F34-BA9C-00AFF01CE32B.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-7CE3E712-60CA-4116-9139-C22640D0DB52.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-9D64DB39-15AE-4B8D-A2E7-D4ED8C6DD42A" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Resolve Next Issue</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-9D64DB39-15AE-4B8D-A2E7-D4ED8C6DD42A">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier </em></p>
+
+
+<h1 class="topictitle1">Resolve Next Issue</h1>
+<div id="GUID-5816B330-4E0B-4D83-B1AB-5D598B187076"><p id="GUID-00859974-16C1-4223-8397-6F36F0D06A55"></p>
+<p id="GUID-3D38D003-FED5-4C22-920F-79169ECF7ACC"><img id="IMAGE_1B1523598938408D8EB2C6B9A1B4B5AC" height="32" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" width="32" /> You got a significant performance boost by optimizing the memory
+		access for the 
+		<samp class="codeph" id="GUID-4D613AC4-FC52-4538-8950-67A6C7F83CF4">multiply1</samp>
+		function. According to the data provided in the 
+		<strong>Summary</strong> window for your updated result, r001ge, you still have
+		high CPI rate and 
+		<span>LLC Miss</span><span>Back-End Bound</span> issues. You can try to
+		optimize your code further following the steps below: 
+	 </p>
+<ol id="GUID-ED8921C0-5BBF-4DAB-9D93-E5FC17764A6C"><li><a href="#ANALYZE">Analyze
+			 results after optimization</a></li>
+<li><a href="#ADVANCED">Use
+			 more advanced algorithms</a></li>
+<li><a href="#VERIFY">Verify
+			 optimization</a></li>
+</ol>
+<div class="section" id="ANALYZE"><h2 class="sectiontitle">Analyze Results after
+		  Optimization</h2><p id="GUID-9869ED2F-0444-4F2A-A17E-E51D7FDC4617">To
+		  get more details on the issues that still affect the performance of the 
+		  <samp class="codeph" id="GUID-DE198515-1FF1-4D73-B574-846BA7A3751B">matrix</samp>
+		  application, switch to the 
+		  <strong>Bottom-up</strong> window in the Hardware Issues viewpoint: 
+		</p>
+<p id="GUID-46AC8055-4DD4-4AD3-8396-24C7ADB4935B"><img id="IMAGE_32EBFE4C9A024211BBBD09E8CAC8E909" src="GUID-F5B7CFD9-F73F-4FF5-837F-C1BDE6B0F024-low.gif" /></p>
+<p id="GUID-095D30C6-0640-4B5A-8A6C-9411C448F5CB">You
+		  see that the 
+		  <samp class="codeph" id="GUID-4C0F0EF1-BD1D-41E4-BE6F-4026F0CFF94A">multiply2</samp> function (in
+		  fact, updated 
+		  <samp class="codeph" id="GUID-ECB923CF-00D1-4926-8ABA-0EE9C677EE59">multiply1</samp> function) is
+		  still a hotspot. Double-click this function to view the source code and click
+		  both the 
+		  <strong id="GUID-F07B428B-EBD9-4568-8720-5AA994D1766E">Source</strong> and 
+		  <strong id="GUID-D46A0DA9-4641-43EF-A57C-1E06E1D8BEBE">Assembly</strong> buttons
+		  on the toolbar to enable the 
+		  <strong>Source</strong> and 
+		  <strong>Assembly</strong> panes. 
+		</p>
+<p id="GUID-72443C23-D2F2-4810-BE45-7772BE3E202D"><img id="IMAGE_6B11E4FA2BD0479AAF2F3EA864FFA91D" src="GUID-87108A1F-7EFA-4788-AF1E-25671365DD0F-low.gif" width="700" /></p>
+<p id="GUID-CFAF2E77-C4E7-4751-BFFC-6B7FF0421CB7">In
+		  the 
+		  <strong>Source</strong> pane, the VTune Amplifier highlights line 66 that took
+		  the highest number of Clockticks samples. This is again the section where
+		  matrices are multiplied. The 
+		  <strong>Assembly</strong> pane is automatically synchronized with the 
+		  <strong>Source</strong> pane. It highlights the basic blocks corresponding to the
+		  code line highlighted in the 
+		  <strong>Source</strong> pane. If you compiled the application with the Intel&reg;
+		  Compiler, you can see that highlighted block 20 includes vectorization
+		  instructions added after your previous optimization. All vectorization
+		  instructions have the 
+		  <samp class="codeph" id="GUID-2781A0FD-A4BA-462F-B002-A14C7CA4E753">p</samp>
+		  (packed) postfix (for example, 
+		  <samp class="codeph" id="GUID-1FD34BF0-D416-484C-B0E8-71ABC5698D21">mul<strong id="GUID-1043041F-540A-4AE1-95F7-09303FF9AD9F">p</strong>d<span>x</span></samp>). You may use the 
+		  <samp class="codeph" id="GUID-E1E3404A-E5E6-4CF9-8A9F-5F2986526F91">/Qvec-report3</samp> option of
+		  the Intel compiler to generate the compiler optimization report and see which
+		  cycles were not vectorized and why. For more details, see the Intel compiler
+		  documentation. 
+		</p>
+</div>
+<div class="section" id="ADVANCED"><h2 class="sectiontitle">Use More Advanced
+		  Algorithms</h2><ol id="GUID-4AB299E7-D6D7-4E53-A4D0-889BE2E84607"><li id="GUID-120449AC-F735-4DF5-8BD6-96B3B60AFC63"><p id="GUID-C74D16F9-57FC-4C95-B67F-A8E6721ECEA4">Open the 
+				<samp class="codeph" id="GUID-511DD16D-9D93-49CE-A242-B2AA4F2E302B">multiply.h</samp> file from
+				the Source Files of the 
+				<strong id="GUID-3BE7BEC1-CCE1-41C8-8C6D-8EAD6C76876B">matrix</strong>
+				project. 
+			 </p>
+</li>
+<li id="GUID-4B34C007-8E5C-4F21-AA0B-75B2DDD254A3"><p id="GUID-6D34331D-AE97-4954-BD76-05580286E687">In line 36, replace
+				the 
+				<samp class="codeph" id="GUID-4394AE0E-1D54-4F0F-BF81-C29AFB7F0E2A">multiply2</samp> function name
+				with the 
+				<samp class="codeph" id="GUID-AF21C86C-686F-46E4-B56C-0A1B7120FF38">multiply3</samp> function. 
+			 </p>
+<p id="GUID-F9540A6F-1138-49DF-9D86-C8C5877411AB">This function enables uploading
+				the matrix data by blocks. 
+			 </p>
+<p id="GUID-82B36EDD-BFF7-48C0-A834-63B03EBB57AB"><img id="IMAGE_75CB00B5195D4E629EDC19B846876698" src="GUID-D5D2D7B6-5246-4E30-BDAD-44A64358B218-low.gif" /></p>
+</li>
+<li id="GUID-81C724F4-88EB-4F2F-AE18-0AD25FC09224"><p id="GUID-FE2FF5EB-0C72-402B-836A-043EF9A278B2">Save the files and
+				rebuild the project. 
+			 </p>
+</li>
+</ol>
+</div>
+<div class="section" id="VERIFY"><h2 class="sectiontitle">Verify Optimization</h2><ol id="GUID-802E1B41-D420-4111-860F-F707F167DD5A"><li id="GUID-46BDEDF8-E5F5-4E97-9AFF-9F315C7DCAD9"><p id="GUID-9CF567FE-0209-4E8B-800A-8D4F1F8DFD71">Re-run the General
+				Exploration analysis: 
+				<span>From the product menu, select 
+				  <strong>New &gt; General Exploration Analysis</strong>.</span></p>
+<p id="GUID-4FCE7AAB-6857-4C80-8652-555F04A6D1AB">VTune Amplifier reruns the
+				General Exploration analysis for the updated 
+				<samp class="codeph" id="GUID-8C283959-2724-49FF-97D7-4C3FC5846129">matrix</samp> target and
+				creates a new result, r002ge, that opens automatically. 
+			 </p>
+</li>
+<li id="GUID-B17074B7-F7A2-4A46-B623-196D12798798"><p id="GUID-91FE109F-D8C5-4D8D-A71A-6EB512CDCBD2">In the r002ge
+				result, click the 
+				<strong id="GUID-F8D2B60F-E6E9-40C8-86CA-B23F2B832CC5">Summary</strong> tab
+				to see the Elapsed time value for the optimized code: 
+			 </p>
+<p id="GUID-4AFCD933-922D-47A7-AE8E-B502D19C45FB"><img id="IMAGE_A164037B7B6A4DF5A042AA7C8073EEE0" src="GUID-A6F2E84C-E438-4713-AE70-C87BD893D491-low.gif" /></p>
+<p id="GUID-C6E0A209-8BDF-496C-9BFA-2214BB11B8AA">You see that the Elapsed time
+				has reduced significantly: from 
+				<span id="GUID-6C2BCD8C-A977-4662-9D48-3793E6832C48">10.032</span> seconds to 
+				<span id="GUID-C11E8631-F237-4F0C-95D2-6023E5BAD92E">1.783</span> seconds but one of
+				hardware issues identified in the previous run, 
+				<span>LLC Miss</span>, stayed. This means that there is
+				more room for improvement and you can try other, more effective, mechanisms of
+				matrix multiplication. 
+			 </p>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-AB804704-B219-4096-B8B7-AC5C6C226718"><h2 class="sectiontitle">Key Terms </h2><p id="GUID-F2821BDF-C594-46E4-93F7-DBA1FF603083"><ul id="GUID-A707F866-A750-40B5-9069-FAF7FA2CCF4E"><li><p><a href="GUID-2BEA8D3A-AF3A-46FE-8A4E-39F889F59C58.html#ELAPSED_TIME">Elapsed
+				  time</a></p>
+</li>
+<li id="GUID-4B53EAC8-D636-4B9F-9987-B3E938B97ABA"><p id="GUID-71D78339-B0E3-434C-A2FA-F3127BE78DB5"><a href="GUID-2BEA8D3A-AF3A-46FE-8A4E-39F889F59C58.html#EBS_METRICS">Event-based
+				  metrics</a></p>
+</li>
+</ul>
+</p>
+</div>
+<p>
+<div class="tablenoborder"><table cellpadding="4" summary="" id="d10e46" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d2263e199"><p id="d10e52">Optimization Notice 
+				  </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d2263e199 "><p>Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction sets and other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of any optimization on microprocessors not manufactured by Intel. Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more information regarding the specific instruction sets covered by this notice. 
+				  </p>
+<p> Notice revision #20110804 
+				  </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-A9D4BE8C-4266-4F34-BA9C-00AFF01CE32B.html">Identifying Hardware Issues</a></div>
+</div>
+<div class="See Also"><div class="relinfo"><strong>Related information</strong><br />
+</div>
+</div>
+</body>
+</html>

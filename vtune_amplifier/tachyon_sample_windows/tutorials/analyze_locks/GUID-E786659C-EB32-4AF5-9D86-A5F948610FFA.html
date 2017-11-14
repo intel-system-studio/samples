@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Analyze Code" />
+<meta name="DC.Relation" scheme="URI" content="GUID-FC1CA445-3400-447E-AD79-5A37D0D1D22B.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-E786659C-EB32-4AF5-9D86-A5F948610FFA" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Analyze Code</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-E786659C-EB32-4AF5-9D86-A5F948610FFA">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Analyze Code</h1>
+<div id="GUID-46B10402-EE94-453F-A4A8-634ACEDB28BD"><p id="GUID-B444ED5C-B5A0-49D5-8C0F-C6EEF9D44060"></p>
+<p id="GUID-9A6B393E-F4DD-424D-97FB-F14398E44A35"><img id="IMAGE_D4C1FAA1320C479C8C7A801C4C6E8CC2" height="32" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" width="32" /> You identified the 
+		<span id="GUID-4475AAC5-03E6-4DDC-BB81-EBA9AE7512AF">critical section</span> that caused
+		significant Wait time and poor processor utilization. Double-click this
+		critical section in the 
+		<strong>Bottom-up</strong> pane to view the source. Intel&reg; VTune&#8482; Amplifier opens
+		source and disassembly code. Focus on the 
+		<strong>Source</strong> pane and analyze the source code: 
+	 </p>
+<ol id="GUID-3C5C10AA-E3D6-4A0F-9079-8F4DC598B1AF"><li id="GUID-AFB9A0FB-97A4-477C-B2F7-9C5C3F8D85B5"><p id="GUID-FF97E5C0-AE63-41EB-A97F-624F748B5EB5"><a href="#BASIC">Understand
+				basic options</a> provided in the Source window. 
+		  </p>
+</li>
+<li id="GUID-679F00D2-E9E2-4250-82DC-A0A5F75B2C0E"><p id="GUID-92BC6F7E-F223-46ED-9580-ECDD7A8BAEF6"><a href="#IDENTIFY">Identify
+				the hottest code lines</a>. 
+		  </p>
+</li>
+</ol>
+<div class="section" id="BASIC"><h2 class="sectiontitle">Understand Basic Source View
+		  Options</h2><p id="GUID-C65536E0-A11D-4A10-873D-91596DE6A3F8"><img id="IMAGE_DA7185E31DA944E59A53429ED4690DF7" src="GUID-F5F7762C-7C7C-4493-A2C1-8321F6925178-low.gif" /></p>
+<p id="GUID-F8CD7BA9-71B3-4F08-BEBF-9D8606EA5DC3">The table below
+		  explains some of the features available in the 
+		  <strong>Source</strong> pane for the Locks and Waits viewpoint. 
+		</p>
+<p id="GUID-C418F671-83DD-465A-9318-0E80BFDB9AD5">
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-6348B271-9402-4046-AA15-DC89CEE7BACB" frame="void" border="1" rules="none" cellspacing="2"><tbody><tr><td class="noborder" valign="top" width="7.283321194464676%"><p id="GUID-14205D29-9372-418F-A401-5F8A1182F3A5"><img id="IMAGE_76832A72D3744BC694D962C3DC9CE1A6" src="GUID-58BE0BCC-04C0-45F3-AB9D-E3C9C3A033DE-low.jpg" /></p>
+</td>
+<td class="noborder" valign="top" width="92.71667880553532%"><p id="GUID-F4E16696-D339-4C06-A7FC-5A1F521B63DE">Source window
+						toolbar. Use hotspot navigation buttons to switch between most
+						performance-critical code lines. Hotspot navigation is based on the metric
+						column selected as a Data of Interest. For the Locks and Waits viewpoint, this
+						is 
+						<strong>Wait Time: Self by Thread Concurrency</strong>. Use the 
+						<img id="IMAGE_4AE9E0FAADF84EC08ACBBB0D9C05CA91" src="GUID-66F5A54E-83EC-4E60-AD9A-83481F49715D-low.jpg" /> source file editor button
+						to open and edit your code in your default editor. 
+					 </p>
+</td>
+</tr>
+<tr><td class="noborder" valign="top" width="7.283321194464676%"><p id="GUID-0C7E038B-3FF8-4BBC-9093-EDA76A8B73BA"><img id="IMAGE_ED1D347BE440451D93DD89F5E0FD56AB" src="GUID-4B6D43C6-61DE-43CA-BDA0-7C526609614C-low.jpg" /></p>
+</td>
+<td class="noborder" valign="top" width="92.71667880553532%"><p id="GUID-28CD5F0D-C66F-4E7B-8967-A46DC06ABC1C">Source code
+						of the application displayed if the function symbol information is available.
+						When you go to the source by double-clicking the synchronization object in the 
+						<strong>Bottom-up</strong> pane, the VTune Amplifier opens the wait
+						function containing this object. The source code in the 
+						<strong>Source</strong> pane is not editable. 
+					 </p>
+<p id="GUID-46970F34-7B73-4EAE-B7FB-6BA11EED268D">If the function symbol
+						information is not available, the 
+						<strong>Assembly</strong> pane opens displaying assembler instructions
+						for the selected wait function. To view the source code in the 
+						<strong>Source</strong> pane, make sure to 
+						<a href="GUID-EE38AD95-A509-4506-9232-13367F5C2495.html">build the target</a> properly. 
+					 </p>
+</td>
+</tr>
+<tr><td class="noborder" valign="top" width="7.283321194464676%"><p id="GUID-1CD97496-0185-4B28-95FF-6EBDD894C357"><img id="IMAGE_0180D8866CAE46C7878F584D2F092BD2" src="GUID-A0BD7121-1B93-429C-90AD-126873188B5E-low.jpg" /></p>
+</td>
+<td class="noborder" valign="top" width="92.71667880553532%"><p id="GUID-F09AFAD0-10A0-43C4-A70E-DE21530902FA">Processor
+						time and concurrency bar attributed to a particular code line. The 
+						<strong>Self Time</strong> metric shows the time the application spent
+						at this particular source line while the 
+						<strong>Total Time</strong> includes Self time of the function itself
+						and Self time of all functions that were called from that function, if any. 
+					 </p>
+<p>The colored bar represents the distribution of the Wait time
+						according to the concurrency levels (Idle, Poor, Ok, Ideal, and Over) defined
+						by the VTune Amplifier. The longer the bar, the higher the value. Ok level is
+						not available for systems with a small number of cores. 
+					 </p>
+</td>
+</tr>
+<tr><td class="noborder" valign="top" width="7.283321194464676%"><p id="GUID-B52A22CC-8262-4668-A1DC-7469DE03950B"><img id="IMAGE_AABC63D651F14E5C90E279CF517F6463" src="GUID-243C1C93-BA25-4E15-B379-AA543EC09590-low.png" /></p>
+</td>
+<td class="noborder" valign="top" width="92.71667880553532%"><p id="GUID-4881E198-F018-4FA5-A31F-4B5A2447A7C5">Number of
+						times the corresponding system wait API was called while this code line was
+						executing. For a lock, it is the number of times the lock was contended and
+						caused a wait. 
+					 </p>
+</td>
+</tr>
+<tr><td class="noborder" valign="top" width="7.283321194464676%"><p><img id="IMAGE_677A675CE64146F786A68723B52B197F" src="GUID-76D33B01-88BA-4AF5-8354-0D3B8DED312B-low.png" /></p>
+</td>
+<td class="noborder" valign="top" width="92.71667880553532%"><p>Wait Time during which the CPU was busy. This often occurs
+						when a synchronization API causes the CPU to poll while a software thread is
+						waiting. Some Spin Time may be preferable to the alternative of increased
+						context switches. Too much Spin Time, however, may reflect a lost opportunity
+						for productive work. 
+					 </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+</div>
+<div class="section" id="IDENTIFY"><h2 class="sectiontitle">Identify the
+		  Hottest Code Lines</h2><p id="GUID-54CC8A7F-F630-4108-A789-0C313B2592F8">For
+		  the sample code, the VTune Amplifier highlights line 
+		  <span id="GUID-AF18A9A2-EBC9-4F40-A807-D70B6A99EC6B">166</span> entering the 
+		  <samp class="codeph">rgb_mutex</samp> mutex in the 
+		  <samp class="codeph" id="GUID-936DFCC3-7ECD-41B8-BE0C-DDE3D97C4C61">draw_task</samp> function. The
+		  
+		  <samp class="codeph" id="GUID-FC747CC0-2FB5-473F-9DC1-75E809D44670">draw_task</samp> function was
+		  waiting for almost 
+		  <span>54</span> seconds while this code line was
+		  executing and most of the time the processor was underutilized. During this
+		  time, the critical section was contended 
+		  <span id="GUID-48E28349-45E5-4888-8724-348B3D8E86E7">508</span> times. 
+		</p>
+<p id="GUID-39267BE2-D66E-41AB-AF00-9B1223F4CF3A">The 
+		  <samp class="codeph" id="GUID-119D2594-7A7C-405B-9ED3-111E7FE5A8DD">rgb_mutex</samp> is the place
+		  where the application is serializing. Each thread has to wait for the mutex to
+		  be available before it can proceed. Only one thread can be in the mutex at a
+		  time. You need to optimize the code to make it more concurrent. Click the 
+		  <img id="IMAGE_CAAE2377DE6B48398EAC2D40D24E0081" src="GUID-66F5A54E-83EC-4E60-AD9A-83481F49715D-low.jpg" /><strong> Source Editor</strong> button on
+		  the 
+		  <strong>Source</strong> window toolbar to open the code editor and optimize the
+		  code. 
+		</p>
+</div>
+<div class="section" id="GUID-E586766B-0185-40AD-88CA-96FA3A47FCFC"><h2 class="sectiontitle">Key Terms </h2><p id="GUID-9F131022-2721-4A16-B3A5-B7E07AAC7333"><ul id="GUID-173F230E-ED52-42B5-A9D7-F4C8A74EB89F"><li id="GUID-8938215B-8CCC-4EE6-AF5D-C29F0D7E5C6E"><p id="GUID-BAB140A7-4EDC-4AB0-B176-9B40BC8EC2B1"><a href="GUID-59EDEE56-7657-472E-BB86-5A57FBBE4968.html#GUID-48103D06-C57F-47E6-9B0F-C7517F4A2D48">CPU
+				  Usage</a></p>
+</li>
+<li id="GUID-F5AC8EAB-B996-473E-B0B9-8028166FA123"><p id="GUID-2FEFF4E6-DAEF-4572-8B54-F00287914F91"><a href="GUID-59EDEE56-7657-472E-BB86-5A57FBBE4968.html#VIEWPOINT">Wait
+				  Time</a></p>
+</li>
+</ul>
+</p>
+</div>
+<div class="section" id="GUID-438C89DB-B0FC-40C4-98AC-513685647D09"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-14D61C3A-A2F4-43A4-B9B9-6C0F1A20F346.html">Remove
+			 Lock</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-FC1CA445-3400-447E-AD79-5A37D0D1D22B.html">Analyzing Locks and Waits</a></div>
+</div>
+<div></div>
+</body>
+</html>

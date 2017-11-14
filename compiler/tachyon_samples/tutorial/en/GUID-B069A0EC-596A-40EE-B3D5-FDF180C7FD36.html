@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Building the Intel&reg; Threading Building Blocks (Intel&reg; TBB) Version" />
+<meta name="DC.Relation" scheme="URI" content="GUID-4E518E06-60DC-4CA0-9398-5B15062EFC66.html" />
+<meta name="DC.Relation" scheme="URI" content="http://www.intel.com/software/products/softwaredocs_feedback" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-B069A0EC-596A-40EE-B3D5-FDF180C7FD36" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Building the Intel&reg; Threading Building Blocks (Intel&reg; TBB) Version</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-B069A0EC-596A-40EE-B3D5-FDF180C7FD36">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+<h1 class="topictitle1">Building the Intel&reg; Threading Building Blocks (Intel&reg; TBB) Version</h1>
+<div id="GUID-F0F51325-0475-4F40-8CB7-C36725B61634"><p>To build the Intel&reg; TBB version, you will modify the sample application to use Intel&reg; TBB and then compile the modified code. You will then run the application and then compare the time with the baseline performance time. 
+    </p>
+<ol id="GUID-73DD4793-87D0-426C-A75A-508C076CB53C"><li id="GUID-A2323D3B-6F8F-4F51-8EE9-E0C8C72989AB"><p>Remove all of the files that were created when you build the serial version by running the following command: 
+        </p>
+<p><span class="filepath">%make clean</span></p>
+</li>
+<li id="GUID-A2551441-A21E-476C-AF92-6CA450D029D4"><p>Open the source file 
+          <span class="filepath">src/build_with_tbb/build_with_tbb.cpp</span> in your favorite code editor. 
+        </p>
+</li>
+<li id="GUID-9EE5CA0B-AD16-4983-A223-F6C289B5CAFF"><p id="GUID-38F997B5-9711-49B4-BEAE-3087E12A454E">Remove the comment marks for the Intel&reg; TBB headers to declare the Intel&reg; TBB functions that will be used in the sample application. 
+          <pre>#include "tbb/tbb.h"</pre></p>
+</li>
+<li><p>Remove the comment marks from the 
+          <samp class="codeph">parallel_thread()</samp> function related to Intel&reg; TBB implementation. 
+        </p>
+<ul id="GUID-A9DC9515-1846-4645-AD0D-457C507B6E1E"><li>It calls the Intel&reg; TBB 
+            <samp class="codeph">parallel_for</samp> function. This function is where the parallelization call happens. The first two arguments in this function define the iteration space the loop executes along from 
+            <samp class="codeph">starty</samp> to 
+            <samp class="codeph">stopy</samp>. The third parameter is a C++11 lambda expression that lets the compiler do the tedious work of creating a function object. 
+          </li>
+</ul>
+</li>
+<li><p>Add comment marks to the 
+          <samp class="codeph">serial parallel_thread()</samp> function call since Intel&reg; TBB version of 
+          <samp class="codeph">parallel_for()</samp> function replaces this function. 
+        </p>
+</li>
+<li><p>Build the sample by running the following command: 
+        </p>
+<p><span class="filepath">%make tbb</span></p>
+</li>
+</ol>
+<p>The makefile automatically runs the sample after it is built. 
+    </p>
+<p>Compare the time to render the image to the baseline performance time. 
+    </p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-4E518E06-60DC-4CA0-9398-5B15062EFC66.html">Tutorial: macOS* Version</a></div>
+</div>
+<div></div>
+</body>
+</html>

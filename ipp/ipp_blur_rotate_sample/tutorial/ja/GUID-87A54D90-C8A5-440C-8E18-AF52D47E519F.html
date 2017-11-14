@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="ippiFilterBoxBorder を使用した画像のブラー" />
+<meta name="DC.subject" content="画像のブラー, ippiFilterBoxBorder の使用" />
+<meta name="keywords" content="画像のブラー, ippiFilterBoxBorder の使用" />
+<meta name="DC.Relation" scheme="URI" content="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html" />
+<meta name="prodname" content="" />
+<meta name="version" content="9.0" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-87A54D90-C8A5-440C-8E18-AF52D47E519F" />
+<meta name="DC.Language" content="ja-JP" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>ippiFilterBoxBorder を使用した画像のブラー</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-87A54D90-C8A5-440C-8E18-AF52D47E519F">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt">チュートリアル: インテル® IPP 2018 (Beta) による画像の回転とブラー</p>
+
+
+<h1 class="topictitle1"><span class="option">ippiFilterBoxBorder</span> を使用した画像のブラー</h1>
+<div><p>画像のボックスブラーは、指定したマスクサイズの隣接する矩形領域でデスティネーション画像の各ピクセルをソース画像の全ピクセルの平均値に設定するフィルタリング・プロセスです。この操作はソース画像をブラーまたはスムーズにする効果があります。</p>
+<p>インテル&reg; IPP の <span class="option">ippiFilterBoxBorder</span> 関数は画像のボックスブラーを実装します。処理関数を呼び出す前に、ワークバッファーのメモリーを割り当てる必要があります。<span class="option">ippiFilterBoxBorderGetBufferSize</span> 補助関数を使用して指定したパラメーターに必要なメモリーサイズを取得できます。インテル&reg; IPP のボックスブラー機能を使用する方法のサンプルコードを以下に示します。<pre><code class="language-clike">…
+IppStatus status  = ippStsNoErr;
+IppiSize maskSize = {3,3};
+IppiSize srcSize   = {0};
+Ipp8u* pBuffer    = NULL;
+Ipp8u* pSrc       = NULL;
+Ipp8u* pDst       = NULL;
+int srcStep, dstStep;
+…
+/* パラメーターを割り当て */
+…
+/* ワークバッファーのサイズを取得 */
+status = ippiFilterBoxBorderGetBufferSize(srcSize, maskSize, ipp8u, 3, &amp;bufSize);
+
+pBuffer = ippsMalloc_8u(bufSize);
+
+/* 画像をフィルター */
+if (status &gt;= ippStsNoErr) status = ippiFilterBoxBorder_8u_C3R(pSrc, srcStep, pDst, dstStep, srcSize, maskSize, ippBorderRepl, NULL, pBuffer);
+
+if (pBuffer) ippsFree(pBuffer);
+…</code></pre></p>
+<p><span class="option">ippiFilterBoxBorder</span> API と補助関数の詳細は、『インテル&reg; IPP デベロッパー・リファレンス』を参照してください。</p>
+<p><a href="GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574.html#GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="戻る" /></a><a href="GUID-3B4A1095-6A5D-474C-A620-CDC265B18843.html#GUID-3B4A1095-6A5D-474C-A620-CDC265B18843"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="次へ" /></a></p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a href="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html">チュートリアル: インテル&reg; IPP 2018 (Beta) による画像の回転とブラー</a></div>
+</div>
+<div></div>
+</body>
+</html>

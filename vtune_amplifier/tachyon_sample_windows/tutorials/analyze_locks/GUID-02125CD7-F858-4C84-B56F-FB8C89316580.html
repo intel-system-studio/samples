@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Run Locks and Waits Analysis" />
+<meta name="DC.Relation" scheme="URI" content="GUID-FC1CA445-3400-447E-AD79-5A37D0D1D22B.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-02125CD7-F858-4C84-B56F-FB8C89316580" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Run Locks and Waits Analysis</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-02125CD7-F858-4C84-B56F-FB8C89316580">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Run Locks and Waits
+	 Analysis</h1>
+<div id="GUID-2CCE1881-8F47-4B24-A84C-DA423407D348"><p id="GUID-9BFFC030-510C-488E-B6B1-8FA07697AC8B"></p>
+<p id="GUID-AF6C24B4-E04A-46D2-97D8-7860584EBD92"><img id="IMAGE_09D4AD1390274E03BA0E9B579340E37E" height="32" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" width="32" /> 
+		 In this tutorial, you run the Locks and Waits
+		analysis to identify synchronization objects that caused contention and fix the
+		problem in the source. 
+	 </p>
+<p id="GUID-CCD8D301-5C36-4A09-819B-E91219684570"><strong id="GUID-5E1D099D-B741-4A8B-8260-72CD8FA30556">To run an analysis:</strong></p>
+<ol id="GUID-DF7FAE61-CEE2-466D-B3D5-CBC4704875CF"><li id="GUID-B2725A4D-343F-44DD-A503-4095096EB482"><p id="GUID-E4DA13F1-83CB-4260-A85F-B0D49166F8C7">In
+			 the 
+			 <strong>Choose Target and Analysis Type</strong> window, switch to the 
+			 <b class="uicontrol" id="GUID-7E1E4DDC-38D1-4FE2-81C7-67C09B1CB19C">Analysis
+				Type</b> tab. 
+		  </p>
+</li>
+<li id="GUID-C2AB0AB7-ABF5-40E9-9725-DBAF9CA01B8C"><p id="GUID-2409C5F7-5EEB-4042-A26F-BB1FF23EF387">
+			 From the analysis tree on the left, select 
+			 <strong id="GUID-B599BBE3-5FE9-415F-938F-EDFF5CCEF033">Algorithm Analysis
+				&gt; Locks and Waits</strong>. 
+		  </p>
+<p id="GUID-7952B4CC-105A-4FE0-A347-8DEDE1F15663">The right pane is
+			 updated with the default options for the Locks and Waits analysis. 
+		  </p>
+</li>
+<li id="GUID-A017432D-4FF1-4564-B5C9-FD4832A7E242"><p id="GUID-DBFB64C0-89F2-4E95-9BBD-FD23A732DE85">Click the 
+			 <strong id="GUID-9484ABAC-CA0A-4EA2-9B31-E878D7BAD63B">Start</strong> button on
+			 the right command bar. 
+		  </p>
+</li>
+</ol>
+<p id="GUID-6C423C83-3626-4A5A-80CE-2492394CCB48"><img id="IMAGE_2C43B79816914E209AF0FC019513E57E" src="GUID-1F1789E7-1A9E-4011-BFF3-3049B9E2A3EE-low.gif" alt="Analysis Type Configuration" /></p>
+<p id="GUID-F816031A-D08A-45B4-9F80-DAF2DE98705E"><span>Intel&reg; VTune&#8482; Amplifier</span> launches the 
+		<samp class="codeph" id="GUID-B218A13A-FD8D-4E61-8BE0-7D7DE5423199">analyze_locks</samp>
+		executable that takes 
+		<samp class="codeph" id="GUID-FB0B332C-7C3C-4F99-A925-6C66AA1C55E4">balls.dat</samp>
+		as input and renders an image displaying the execution time before exiting.
+		VTune Amplifier finalizes the collected data and opens the results in the Locks
+		and Waits viewpoint. 
+	 </p>
+<p id="GUID-C68CAF1A-8629-42DB-93B5-C56F4C9EF012"><div class="Note"><h3 class="NoteTipHead">Note</h3> <ul id="GUID-787EF849-7DA4-46E2-9FD5-3659C3066B84"><li><p>To make sure the performance of the application is repeatable,
+				  go through the entire tuning process on the same system with a minimal amount
+				  of other software executing. 
+				</p>
+</li>
+<li><p id="GUID-6B7FF16D-5144-4B4D-93B1-11DFB4FCE8F8">This tutorial
+				  explains how to run an analysis from the VTune Amplifier graphical user
+				  interface (GUI). You can also use the VTune Amplifier command-line interface
+				  (<samp class="codeph" id="GUID-43406546-76FD-4038-AF38-471D922B0291">amplxe-cl</samp>
+				  command) to run an analysis. For more details, check the 
+				  <em id="GUID-B6C90CA9-724D-46A8-BAC6-EE5FFB1860D5">Command Line
+					 Interface Support 
+				  </em>section of the VTune Amplifier Help. 
+				</p>
+</li>
+</ul>
+</div>
+</p>
+<div class="section" id="GUID-D231C4B5-A3D3-49AB-BE04-5B4EE87CA86B"><h2 class="sectiontitle">Key Terms </h2><p id="GUID-A8E1A426-EBB9-4AA8-9D6A-D0CF80F35F52"><ul id="GUID-518C6F37-F170-430E-B496-8AEB05B8043F"><li id="GUID-A445665C-19C2-4313-9062-A6C853B29FFA"><p id="GUID-D48013D3-57E5-4156-A0F4-465FC4852D0D"><a href="GUID-59EDEE56-7657-472E-BB86-5A57FBBE4968.html#GUID-AE3A8073-103F-456F-8CBC-1B4E676335E6">Finalization</a></p>
+</li>
+<li id="GUID-31728CD1-7C6D-42AE-A647-72FF7F8F72D0"><p id="GUID-B7554DDB-8268-4083-A2E1-8C1F5D665255"><a href="GUID-59EDEE56-7657-472E-BB86-5A57FBBE4968.html#GUID-1B5043B8-253D-4758-A765-3CDCD11AD26C">Viewpoint</a></p>
+</li>
+</ul>
+</p>
+</div>
+<div class="section" id="GUID-D9F48781-06AF-4730-90A5-43B35D17E9F4"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-582A3DAF-523B-42E5-AA51-689832BAC0E2.html">Interpret
+			 Result Data</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-FC1CA445-3400-447E-AD79-5A37D0D1D22B.html">Analyzing Locks and Waits</a></div>
+</div>
+<div></div>
+</body>
+</html>

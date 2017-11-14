@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Compare with Previous Result" />
+<meta name="DC.Relation" scheme="URI" content="GUID-D1320A0F-E1E9-4A8A-BF53-32535A7368A0.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-77A32896-822E-423C-95B9-1BAE6E18C085.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-C0FFAF0B-0D4A-4251-A7AE-62AA0F30294C" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Compare with Previous Result</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-C0FFAF0B-0D4A-4251-A7AE-62AA0F30294C">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier</em></p>
+
+
+<h1 class="topictitle1">Compare with Previous
+	 Result</h1>
+<div id="GUID-A2FDE0D5-3849-42BA-A5ED-A3893F22F9E5"><p id="GUID-78AC18DC-7423-486F-9C91-369D62F1D1D9"></p>
+<p id="GUID-6661921A-8ABD-42DE-B3E0-F151B1F83955"><img id="IMAGE_7AC38EE6CB02453CB4A8D8AF76465B3F" height="32" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" width="32" /> You optimized your code to apply a loop interchange mechanism
+		that gave you 
+		<span>7.029</span> seconds of improvement in the
+		application execution time. To understand whether you got rid of the hotspot
+		and what kind of optimization you got per function, re-run the Basic Hotspots
+		analysis on the optimized code and compare results: 
+	 </p>
+<ol id="GUID-01A44331-6964-41AA-B864-A2C584DEE595"><li id="GUID-1B0152D0-8364-495E-94F5-13536BC28C36"><p id="GUID-49FCDA7A-60F0-4297-A686-82C4E908423C"><a href="#SELECT_RESULTS">Compare
+				results before and after optimization</a>. 
+		  </p>
+</li>
+<li id="GUID-521D137C-DFB7-4E8E-95B0-F1D5F5D818F9"><p id="GUID-027AA072-AFEA-49E9-9B55-927E88CD0A1A"><a href="#IDENTIFY_GAIN">
+				Identify the performance gain</a>. 
+		  </p>
+</li>
+</ol>
+<div class="section" id="SELECT_RESULTS"><h2 class="sectiontitle">Compare Results
+		  Before and After Optimization</h2><ol id="GUID-D6954F9B-187B-4B1D-A63D-BF5C4B3B5DB0"><li id="GUID-1269E71A-1E77-4E37-AD93-6A2D5CCEA8C1"><p id="GUID-FF0E7A48-1638-421B-979D-7A663BCC99CD">Run the Basic
+				Hotspots analysis on the modified code. 
+			 </p>
+<p>VTune Amplifier collects data and opens the result in the Result
+				tab. Make sure to close the results before comparison. 
+			 </p>
+</li>
+<li id="GUID-808A7B32-9408-4752-8C17-E8297D5F110E"><p id="GUID-0176B471-44A3-4FC9-B28E-FA5530C076FB">Select the result
+				in the 
+				<span><strong>Solution
+					 Explorer</strong>/</span><strong>Project Navigator</strong>, right-click and choose 
+				<strong>Compare Results</strong> from the context menu. 
+			 </p>
+<p id="GUID-78B81396-5EB6-4EA9-9253-BE6F899E5A76">The 
+				<b class="uicontrol" id="GUID-1BA913F2-F82E-40DE-9E59-621EF40367CA">Compare
+				  Results</b> window opens. 
+			 </p>
+</li>
+<li id="GUID-7CA7569B-FC1E-4755-8615-3A41EBFCFFB2"><p id="GUID-4D233877-1307-41B5-80ED-510BC8CF4DC8">Specify the Basic
+				Hotspots analysis results you want to compare and click the 
+				<strong id="GUID-B921C555-D2FA-4934-9865-86CEF5730864">Compare
+				  Results</strong> button: 
+			 </p>
+<p id="GUID-D200E10E-2FC8-47E8-8472-730F01A14D57"><img id="IMAGE_F7005498707A4F82AECC2539296FC19C" src="GUID-C5135754-54C1-4ABB-9EC9-101B6192B8C0-low.gif" /></p>
+<p id="GUID-012ABBE3-3291-4844-A367-7A8FFB4C7EEB">The Hotspots<strong>
+				  Summary</strong> window opens, providing a high-level picture of performance
+				improvements in the following format: 
+				<samp class="codeph">&lt;<em>result 1 value</em>&gt; - &lt;<em>result 2
+					 value</em>&gt;</samp>. 
+			 </p>
+</li>
+</ol>
+</div>
+<div class="section" id="IDENTIFY_GAIN"><h2 class="sectiontitle">Identify the
+		  Performance Gain</h2><p>In the 
+		  <strong>Summary</strong> window, you see that the Elapsed time shows 
+		  <span>7.029</span> seconds of optimization for the
+		  whole application execution: 
+		</p>
+<p><img id="IMAGE_78F0E696EC274FA88A89E8FC66384532" src="GUID-83A4F285-B015-4B4B-A71C-CCADD6BC8470-low.gif" /></p>
+<p></p>
+<p>The 
+		  <strong>Top Hotspots</strong> section shows the gain in performance for the most
+		  critical functions: 
+		</p>
+<p><img id="IMAGE_8A50A687529E48A29B876F2470B148D2" src="GUID-B6E1FE76-55BE-46CC-B3E3-E92A8918120B-low.gif" /></p>
+<p></p>
+<p>Switch to the 
+		  <strong>Bottom-up</strong> window to compare the two results and see the
+		  differences per metrics side by side. 
+		</p>
+</div>
+<div class="section" id="GUID-E3A8C3BF-23A0-4003-BC4A-13F4AB536F07"><h2 class="sectiontitle">Key Terms </h2><ul id="GUID-603CF551-4ABD-41A8-86BA-B2BB3DD8E354"><li id="LI_BBED444A97174A4294087BE9242B2BFF"><p><a href="GUID-8DCE8321-E14C-4106-AA5B-443DD8ED634E.html#CPU_TIME">CPU
+				  time</a></p>
+</li>
+<li id="LI_01649664972E4E1ABCE43A46755FD757"><p><a href="GUID-8DCE8321-E14C-4106-AA5B-443DD8ED634E.html#GUID-ADFC3A88-1880-4C9C-A6B5-90463CDDB238">Elapsed
+				  time</a></p>
+</li>
+<li id="LI_A5378C3EE0CA4370834BBC73AC160DC2"><p><a href="GUID-8DCE8321-E14C-4106-AA5B-443DD8ED634E.html#GUID-C7660F2E-336F-4BC3-A580-1A175646ACB5">Hotspot</a></p>
+</li>
+</ul>
+<p id="GUID-8EAFF180-AB8D-4CBA-B30A-F17880EA2CA5"></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-D1320A0F-E1E9-4A8A-BF53-32535A7368A0.html">Finding Hotspots</a></div>
+</div>
+<div><h2>See Also</h2>
+<div class="linklist">
+<div><a href="GUID-77A32896-822E-423C-95B9-1BAE6E18C085.html">Summary 
+		  </a> </div></div></div>
+</body>
+</html>

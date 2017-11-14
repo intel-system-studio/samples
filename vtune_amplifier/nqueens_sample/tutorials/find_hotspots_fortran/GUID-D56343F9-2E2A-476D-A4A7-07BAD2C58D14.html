@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Build Application and Create New Project" />
+<meta name="DC.Relation" scheme="URI" content="GUID-742F5949-4A88-4170-9A20-425DD0CFB029.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2016" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-D56343F9-2E2A-476D-A4A7-07BAD2C58D14" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Build Application and Create New Project</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-D56343F9-2E2A-476D-A4A7-07BAD2C58D14">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier</em></p>
+
+
+<h1 class="topictitle1">Build Application and Create New Project</h1>
+<div id="GUID-B68E0CBE-CCD6-4679-B4E9-6054FECA861B"><p id="GUID-F3E66E06-EB9C-4C1C-B3B5-FFF0773E2311"><img id="IMAGE_ABB1BFFC11EE4E6F9CA2B59F58F95D04" src="GUID-02914B5D-1A7D-4B4B-8A24-9534BDA714E4-low.gif" /> Before you start analyzing your
+		application target for hotspots, do the following: 
+	 </p>
+<ol id="GUID-FE6021FD-F757-43D8-A2F8-60E2753DBD6C"><li id="LI_F3C25D04B1654DAF9818D9FD28CD1783"><p><a href="#GET_TOOLS">Get
+				software tools.</a></p>
+</li>
+<li id="LI_0F71E81FD4A54C97BEC409E860DE6A23"><p><span><a href="#BUILD_MODE">Build
+				  application in the release mode.</a></span></p>
+</li>
+<li id="GUID-697FD493-FD5D-4DFF-A8A0-FB03FDE064C4"><p id="GUID-4F38B809-C3CC-4A5B-8864-3DCBBD3B30B5"><a href="#BASELINE">Create
+				a performance baseline.</a></p>
+</li>
+<li id="LI_6B715C986E8D47C78B12534B5912254E"><p><a href="#GUID-B6484B17-B21F-40C6-9FB4-928B94F31CE1">Create
+				a VTune Amplifier project.</a></p>
+</li>
+</ol>
+<div class="section" id="GET_TOOLS"><h2 class="sectiontitle">Get Software Tools</h2><p>You need the following tools to try tutorial steps yourself using the 
+		  <samp class="codeph">nqueens_fortran</samp> sample application: 
+		</p>
+<p><ul id="GUID-2331F98E-DA99-4A5E-841D-CA1D15CBF187"><li id="LI_68F88471F8EF4AE88F319CFB109C3BDA"><p><span>Intel&reg; VTune&#8482; Amplifier</span>,
+				including sample applications 
+			 </p>
+</li>
+<li id="LI_27B51891E1044FA9BE79AC45F043A14A"><p><samp class="codeph">.tgz</samp> file extraction utility 
+			 </p>
+</li>
+<li id="LI_632B4F057A9B49F1A15C97AEB83FF629"><p>Supported Fortran compiler (see Release Notes for more
+				information) 
+			 </p>
+</li>
+</ul>
+</p>
+<p><strong>Acquire Intel VTune Amplifier 
+		  </strong></p>
+<p>If you do not already have access to the VTune Amplifier, you can
+		  download an evaluation copy from 
+		  <a href="HTTP://SOFTWARE.INTEL.COM/EN-US/ARTICLES/INTEL-SOFTWARE-EVALUATION-CENTER/" target="_blank">
+			 http://software.intel.com/en-us/articles/intel-software-evaluation-center/</a>.
+		  
+		</p>
+<p><strong>Install and Set Up VTune Amplifier Sample Applications</strong></p>
+<p><ol id="GUID-F03D0085-FDF9-4559-B10C-F24541ABA707"><li id="LI_A30806164B28437E9BB61EB69E4675CF">Copy the 
+			 <samp class="codeph">nqueens_fortran.<span>tgz</span></samp> file from the 
+			 <samp class="codeph">&lt;install-dir&gt;/samples/&lt;locale&gt;/Fortran</samp>
+			 directory to a writable directory or share on your system. 
+			 <div class="Note"><h3 class="NoteTipHead">Note</h3> <p>The default installation path for the VTune Amplifier
+        XE is 
+        <samp class="codeph">/opt/intel/vtune_amplifier_xe_<em>version</em></samp>.
+        For the VTune Amplifier for Systems, the default 
+        <samp class="codeph">&lt;<em>install_dir</em>&gt;</samp> is<span>:</span><ul id="d37e98"><li>For super-users: 
+          <samp class="codeph">/opt/intel/system_studio_<em>version</em>/vtune_amplifier_for_systems</samp></li>
+<li>For ordinary users: 
+          <samp class="codeph">$HOME/intel/system_studio_<em>version</em>/vtune_amplifier_for_systems</samp></li>
+</ul>
+</p>
+</div>
+</li>
+<li id="LI_9DC38917041340719DDADD395263132A">Extract the sample from
+			 the 
+			 <span>tgz</span> file. 
+		  </li>
+</ol>
+</p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p><ul id="GUID-66A2C9B8-8561-4174-8DF4-711CD71BE238"><li id="LI_44E0BA27203248F29BF6A4375A957C5E">Samples are
+				non-deterministic. Your screens may vary from the screen captures shown
+				throughout this tutorial. 
+			 </li>
+<li id="LI_D1788EABDEAA4CA1A1F8992813C50B23">Samples are designed
+				only to illustrate the VTune Amplifier features; they do not represent best
+				practices for creating code. 
+			 </li>
+</ul>
+</p>
+</div>
+</div>
+<div class="section" id="BUILD_MODE"><h2 class="sectiontitle">Build the Target in
+		  the Release Mode</h2><p> Build the target in the Release mode with full optimizations, which
+		  is recommended for performance analysis. For this tutorial, Intel&reg; Fortran
+		  Compiler is used to build the application. 
+		</p>
+<ol id="GUID-9E1FC280-2192-4513-8797-0FEE56186CE6"><li id="GUID-1274383C-4579-454F-A5DB-6FAC6BC18F90"><p id="GUID-A1454785-F576-400F-B43C-5BAD3B9565ED">Browse to the
+				directory where you extracted the sample code (for example, 
+				<span class="filepath" id="GUID-A2BE163A-A52F-41CE-8A6D-C69FC1378D5B">/home/fortran/linux</span>).
+				Make sure this directory contains 
+				<samp class="codeph" id="GUID-E2C30459-A279-41D7-ACCC-B338F34E2383">Makefile</samp>. 
+			 </p>
+</li>
+<li id="GUID-315D2B27-4CD7-4ACB-8288-A15A5AE30DBF"><p id="GUID-E8673B85-3C4A-444D-80B6-6550692AAAD0">Clean up all the
+				previous builds as follows: 
+			 </p>
+<p id="GUID-F8085570-4064-4025-A79B-BF4F273B5A9B"><samp class="codeph" id="GUID-6498FF13-53B0-4DA9-99A7-81BFCA7C2258">$ make
+				  clean</samp></p>
+</li>
+<li id="GUID-8A1E1E52-FD63-4EEB-BC71-EB0B1381F9DD"><p id="GUID-3E955BC3-6EB1-46D3-9B79-B0152CDDD6CB">Build your target
+				in the release mode as follows: 
+			 </p>
+<p id="GUID-166F1E44-92D5-4FEE-A3E3-C1817F7BED59"><samp class="codeph" id="GUID-2F6EAA33-85A9-44A3-A245-0FD5E2D0CA89">$
+				  make</samp></p>
+<p id="GUID-6F64BC6C-5DAE-4581-BE84-E51B00588EB1"> The 
+				<samp class="codeph" id="GUID-1F0DB1BC-C806-4A03-9A2E-86F581C534A1">nqueens_parallel</samp>
+				application is built. 
+			 </p>
+</li>
+</ol>
+</div>
+<div class="section" id="BASELINE"><h2 class="sectiontitle">Create a
+		  Performance Baseline</h2><p>Run the application to create a performance baseline that will be used
+		  to identify optimization you achieve during performance tuning with the VTune
+		  Amplifier. 
+		</p>
+<p><div class="Note"><h3 class="NoteTipHead">Note</h3> <p>Before you start the application, minimize the amount of other
+				software running on your computer to get more accurate results. 
+			 </p>
+</div>
+</p>
+<ol id="GUID-082C3CFF-32A6-4C7C-AEB0-BE0DB0A30E51"><li id="LI_E738960B178E42118EED30261755E064"><p><span>Run 
+				  <samp class="codeph">nqueens_parallel</samp> with the task size of 15. For
+				  example:</span></p>
+<p><p><samp class="codeph">$ ./nqueens_parallel 15</samp></p>
+</p>
+<p><img id="IMAGE_AB2D54163FF9415B9CA462FB020E10C8" src="GUID-14570859-4183-4343-8FDE-A86EA692BA2B-low.gif" /></p>
+</li>
+<li id="LI_2AFDA67605954ABF95422C56ACAB116D"><p>Note the execution time displayed in the shell window caption. In
+				the example above, the execution time is 
+				<span>256710</span> milliseconds. 
+			 </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <ul id="GUID-3234CBB3-6D54-488C-AC1B-6EDCA3098816"><li id="LI_2EB31ABDA1BE4A95B744DFCF8741E7CF"><p id="GUID-F30C6380-76A6-481F-9651-14ACD221F501">Run the application several
+						times, note the execution time for each run, and use the average number. This
+						helps to minimize skewed results due to transient system activity. 
+					 </p>
+</li>
+<li id="LI_51F5E835A7CD4EC8BF972BFDD82E7A06"><p>The screenshots and execution time data provided in this
+						tutorial are created on a system with 4 CPU cores. Your data may vary depending
+						on the number and type of CPU cores on your system. 
+					 </p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-B6484B17-B21F-40C6-9FB4-928B94F31CE1"><h2 class="sectiontitle">Create a VTune Amplifier Project</h2><ol id="GUID-88E742D9-B660-41A7-9EFE-5CAC97065C5A"><li id="GUID-DE17C2A6-7D77-4D39-88A4-6F5A1D646A4F"><p id="GUID-DF533D1E-88E4-45B0-A90A-E71781A1FD5E">Set the 
+				<samp class="codeph" id="GUID-D5D59DAA-F739-4F52-BA74-C9D1EF702FF9">EDITOR</samp> or 
+				<samp class="codeph" id="GUID-FD6F6A9E-B169-49F4-9E56-1D96A053286E">VISUAL</samp> environment
+				variable to associate your source files with the code editor (like emacs, vi,
+				vim, gedit, and so on). For example: 
+			 </p>
+<p id="GUID-D4B7D370-FDF8-4D5F-B61E-715A0B0FD941"><samp class="codeph" id="GUID-6210C531-AD06-4199-9799-EB31EC03E827">$ export EDITOR=gedit</samp></p>
+</li>
+<li id="GUID-31D89361-DA71-49FF-BF1B-826BC864D43E"><p id="GUID-10A6995A-4B63-45F4-94CF-7FEBD0CEF423"><span>Run the 
+				  <samp class="codeph" id="GUID-9E31C4CB-7957-4673-857B-7B6FC37528C6">amplxe-gui
+					 
+				  </samp>script launching the VTune Amplifier</span> GUI. 
+			 </p>
+</li>
+<li id="GUID-6481551D-F22D-4D09-AE02-B12F6056A136"><p id="GUID-B52CCF4F-F361-427C-A846-AC47DAC80275">Create a new
+				project via 
+				<strong id="GUID-5F35D3F1-0BA8-4E06-AD18-3DFD928C2D47">New &gt;
+				  Project...</strong>. 
+			 </p>
+</li>
+<li id="GUID-D30DCD25-766B-4BBB-AB0D-5C1218A5E9A8"><p id="GUID-795E8E2F-87AD-4468-8842-7F8776D76F7A">Specify the project
+				name 
+				<samp class="codeph" id="GUID-43CA6C9E-2D8D-4F69-895F-C5D472561193">nqueens</samp> that will be
+				used as the project directory name and click 
+				<b class="uicontrol">Create Project</b>. 
+			 </p>
+<p id="GUID-ADF2CAF4-D479-48FD-9FD7-F36D024140C6">VTune Amplifier
+				creates the 
+				<samp class="codeph" id="GUID-D8E941C6-C563-428A-BBE8-E2ED4E1837B2">tachyon</samp> project
+				directory under the 
+				<span><samp class="codeph" id="GUID-2F2A90CF-8661-4E6D-9CDD-AEDB4F3E1E2C">$HOME/intel/amplxe/projects</samp>
+				  (for VTune Amplifier XE) or 
+				  <samp class="codeph">$HOME/intel/amplsys/projects</samp> (for VTune
+				  Amplifier for Systems) 
+				</span> directory and opens the 
+				<strong id="GUID-B2A25F9A-CDE3-46C5-9FDA-9F7E60E5DC2E">Choose Target and
+				  Analysis Type</strong> window with the 
+				<strong>Analysis Target</strong> tab active. 
+			 </p>
+</li>
+<li id="LI_65681C2F46C04C17935F4A491781EFDE"><p>From the left pane, select the 
+				<strong>local</strong> target system from the 
+				<strong>Accessible Targets</strong> group. From the right pane select the 
+				<strong>Launch Application</strong> target type. 
+			 </p>
+</li>
+<li id="GUID-F6828CA6-B8B2-4F9D-8E32-1B1763C226CF"><p id="GUID-EE40EDA3-C3B3-49C5-9B79-DAA864E89A76">Specify and
+				configure your target as follows: 
+			 </p>
+<ul id="GUID-A5BA6132-3C64-477C-B8EC-B433834749F4"><li id="LI_6E85914F7034406A9C1C7A0B7F1ABCB9"><p id="GUID-5BADB436-48C9-4F42-B573-07C24B215184">For the 
+					 <b class="uicontrol" id="GUID-4A2EF593-E8E6-48D3-AB00-A2722D199B32">Application</b> field,
+					 browse to: 
+					 <span class="filepath" id="GUID-A8070542-6A1B-4184-B464-EA2302AA00ED">&lt;<var>sample_code_dir</var>&gt;</span>,
+					 for example: 
+					 <span class="filepath" id="GUID-0F027BC3-703F-4D79-BF29-E3BE7655F875">/home/vtune/nqueens_fortran/linux/nqueens_parallel</span>.
+					 
+				  </p>
+</li>
+<li id="LI_810D8C501EB74461B5CB0B581A7E8188"><p>In the 
+					 <strong>Application parameters</strong> field, specify the task size for
+					 this target: 15. 
+				  </p>
+</li>
+</ul>
+</li>
+<li id="GUID-B86B1F80-E183-4926-8E6A-2B607B20CE16"><p id="GUID-E14FF671-26B6-438D-90D3-673C108E10D3">Click 
+				<strong id="GUID-37D99CB9-ED68-44E4-A72B-E34FDE170110">Choose
+				  Analysis</strong> to select an analysis type. 
+			 </p>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-B1F5248E-63DC-49E5-9702-6FB5905EE19E"><h2 class="sectiontitle">Recap</h2><p id="GUID-CC8D4D8B-F6E0-4561-90FE-C6290631290F">You 
+		  built the target in the Release mode, created the performance
+		  baseline, and created the VTune Amplifier project for your analysis target.
+		  Your application is ready for analysis. 
+		</p>
+</div>
+<div class="section" id="GUID-325DD6A2-B650-4F4D-8D2B-62B1C5F02B3C"><h2 class="sectiontitle">Key Terms</h2><p id="GUID-6F969AD3-0041-4BBF-AEB7-86B7DEA3C6DB"><ul id="GUID-915FF6F0-4453-4295-95BE-B4CD9A1AD0E6"><li id="GUID-42754BCA-3F1B-42FA-8730-21E9AB5BA6AA"><p id="GUID-CE92C141-5B52-4AF2-9DFA-C30A2DB5859F"><a href="GUID-E9306A17-2C65-46CD-BE42-D8D94D0E336E.html#BASELINE">
+				  Baseline 
+				</a></p>
+</li>
+<li id="LI_2DDE1724FDC245C39E0B6CAF6E1055C3"><p><a href="GUID-E9306A17-2C65-46CD-BE42-D8D94D0E336E.html#HOTSPOT">Target
+				  
+				</a></p>
+</li>
+</ul>
+</p>
+</div>
+<div class="section" id="GUID-0E9774BC-BB5C-47B8-93AB-E0313688996D"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-1EB22153-F0EF-4A29-9629-70B6FDAA897E.html">Run Basic
+			 Hotspots Analysis</a></p>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-F86C668D-8AC4-4562-907A-4FDDEE8B8280" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d4016e337"><p id="d58e52">Optimization Notice 
+				  </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d4016e337 "><p>Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction sets and other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of any optimization on microprocessors not manufactured by Intel. Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more information regarding the specific instruction sets covered by this notice. 
+				  </p>
+<p> Notice revision #20110804 
+				  </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-742F5949-4A88-4170-9A20-425DD0CFB029.html">Finding Hotspots</a></div>
+</div>
+<div></div>
+</body>
+</html>

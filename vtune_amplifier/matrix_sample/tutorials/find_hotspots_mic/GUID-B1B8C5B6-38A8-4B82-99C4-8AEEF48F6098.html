@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Summary" />
+<meta name="DC.Relation" scheme="URI" content="GUID-3829260C-A250-4344-AB0A-1029CCAC9A16.html" />
+<meta name="DC.Relation" scheme="URI" content="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-B1B8C5B6-38A8-4B82-99C4-8AEEF48F6098" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Summary</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-B1B8C5B6-38A8-4B82-99C4-8AEEF48F6098">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Summary</h1>
+<div id="GUID-2EB11B4E-4D73-47E9-92DB-ED57F5F1774C"><p id="GUID-7DB360A4-1CDE-479D-808E-4626172163DD"></p>
+<p id="GUID-BE9AD884-ABDC-4E6C-B16F-9D90F0996F53"><img src="GUID-02914B5D-1A7D-4B4B-8A24-9534BDA714E4-low.gif" /> You have completed the Finding Hotspots on the Intel&reg; Xeon Phi&#8482;
+      Coprocessor tutorial. Here are some important things to remember when using the
+      
+      <span>Intel&reg; VTune&#8482; Amplifier</span>
+      to analyze your code for hotspots: 
+    </p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-CDE974EC-9E66-418D-90EF-ABE5480E4005" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" valign="top" width="21.231422505307858%" id="d2797e34">Step 
+            </th>
+<th class="cellrowborder" valign="top" width="33.970276008492576%" id="d2797e36">Tutorial Recap 
+            </th>
+<th class="cellrowborder" valign="top" width="44.79830148619957%" id="d2797e38">Key Tutorial Take-aways 
+            </th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="21.231422505307858%" headers="d2797e34 "><p><strong>1. Prepare for analysis</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.970276008492576%" headers="d2797e36 "><ul id="GUID-7782EFEA-E319-49BA-9C79-FDDD900B77E7"><li><p>You 
+                    <span>built and
+                      copied</span> the 
+                    <samp class="codeph">matrix</samp> application to the card after each
+                    recompilation. 
+                  </p>
+</li>
+<li><p>You built the target application with the Intel&reg; C++
+                    Compiler, ran it on the card via 
+                    <samp class="codeph">ssh</samp>, and recorded a performance
+                    baseline. 
+                  </p>
+</li>
+<li><p>You created a VTune Amplifier project, specified the 
+                    <samp class="codeph">ssh</samp> script
+                    as an application to launch<span> and specified
+                      the path to the application on the card as application parameters</span>. 
+                  </p>
+</li>
+<li><p>You configured search directories to resolve symbol
+                    information for 
+                    <span>Intel Xeon Phi
+                      coprocessor-based modules and 
+                    </span>application modules. 
+                  </p>
+</li>
+</ul>
+</td>
+<td class="cellrowborder" valign="top" width="44.79830148619957%" headers="d2797e38 "><ul id="GUID-8A58B52D-805B-4441-AED3-B4F7D5C8733D"><li id="GUID-6C107599-BD48-4910-AAAD-4550DC99CBB8"><p id="GUID-978162FC-AF63-439E-8094-8A8613163B28"> Create a
+                    VTune Amplifier project and use the 
+                    <strong id="GUID-0D136A25-0D60-4890-89F3-E9870759BBC9">Analysis
+                      Target</strong> tab to specify the target system and an application to analyze. 
+                  </p>
+</li>
+<li><p>VTune Amplifier starts target applications. It is not able to start an application directly on Intel
+                    Xeon Phi coprocessor architecture cards. 
+                  </p>
+</li>
+<li><p>To copy the target native application to the card, you may
+                    either add the copy action to the build script or mount the host directory so
+                    that the binary is visible on the Intel MIC architecture target. 
+                  </p>
+</li>
+<li>Use the 
+                  <strong id="GUID-92D53AF9-5B4C-4B7E-B12C-821C1A10086C">Analysis
+                    Type</strong> tab to choose, configure, and run the analysis. You may choose between
+                  a predefined analysis type like the Advanced Hotspots type used in this
+                  tutorial, or create a new custom analysis type and add events of your choice.
+                  For more details on the custom collection, see the 
+                  <em id="GUID-A6EF8103-1B90-412B-A694-91D52D38DB7C">Custom
+                    Analysis</em> topic in the product online help. 
+                </li>
+<li>See the 
+                  <strong id="GUID-DC5374A5-ABC1-4F05-BABD-33ED0FE02F11">Details</strong>
+                  section of an analysis configuration pane to get the list of processor events
+                  used for this analysis type. 
+                </li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.231422505307858%" headers="d2797e34 "><p><strong>2. Find hotspots</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.970276008492576%" headers="d2797e36 "><p>You launched Advanced Hotspots analysis that analyzes CPU time
+                spent in each program unit of your application and identified the following
+                hotspots: 
+              </p>
+<p><ul id="GUID-07C43171-676B-426F-98DF-A76E0235E60E"><li>Identified a function that took the most CPU time, the
+                  highest event count and CPI Rate. This function is a good candidate for
+                  algorithm tuning. 
+                </li>
+<li>Identified the code section that took the most CPU time to
+                  execute. 
+                </li>
+</ul>
+</p>
+</td>
+<td class="cellrowborder" valign="top" width="44.79830148619957%" headers="d2797e38 "><ul id="GUID-25899AD5-088C-4DDC-A420-ACAFC503F3AF"><li id="GUID-842E47B0-096A-4147-8E8E-31B651B7A891"><p id="GUID-0479B426-4698-4186-A790-AD0A7ECCAEFB">Start
+                    analyzing the performance of your application from the 
+                    <strong>Summary</strong> window to explore the event-based
+                    performance metrics for the whole application. Mouse over help icons to read
+                    metric descriptions. Use the Elapsed time value as your performance baseline. 
+                  </p>
+</li>
+<li id="GUID-C39CA2EB-BD30-4D25-B2E5-45E0E28A38CB"><p id="GUID-B1AB1156-D4B5-4A30-B7DE-02D95DF38313">Move to the
+                    
+                    <strong>Bottom-up</strong> window and analyze the performance per
+                    function. Focus on the 
+                    <em id="GUID-E496A06C-3794-4A01-BD11-C99E8477FDEB">hotspots</em> - functions that
+                    consumed the most CPU Time. In the initial sort, they are located at the top of
+                    the table. Use the CPU Rate metric to understand the efficiency of your code.
+                    If the metric value exceeds a threshold, the VTune Amplifier highlights it in
+                    pink as a performance issue. Mouse over a highlighted value to read the issue
+                    description and see the threshold formula. 
+                  </p>
+</li>
+<li id="GUID-B4785EA2-726E-4EA0-A0C7-67373C31EC12"><p id="GUID-4F7AF13F-BA98-43B1-8D0D-3E35428E43C9">Double-click the hotspot
+                    function in the 
+                    <strong>Bottom-up</strong> pane to open its source code and identify
+                    the code line that took the most CPU Time and accumulated events. 
+                  </p>
+</li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.231422505307858%" headers="d2797e34 "><p><strong>3. Eliminate hotspots</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.970276008492576%" headers="d2797e36 "><p id="GUID-D4F6458B-C299-45BD-98B8-EFDAEE9916EA">You solved the
+                memory access issue for the sample application by interchanging the loops and
+                sped up the execution time. You also used the Intel compiler to enable
+                instruction vectorization. 
+              </p>
+</td>
+<td class="cellrowborder" valign="top" width="44.79830148619957%" headers="d2797e38 "><p id="GUID-E578FBBD-6684-4716-A7B1-F3992FD0EF05">Consider using
+                the Intel compiler to vectorize instructions. Explore the compiler
+                documentation for more details. 
+              </p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="21.231422505307858%" headers="d2797e34 "><p><strong>4. Check your work</strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="33.970276008492576%" headers="d2797e36 "><p>You ran Advanced Hotspots analysis on the optimized code and
+                compared the results before and after optimization 
+              </p>
+</td>
+<td class="cellrowborder" valign="top" width="44.79830148619957%" headers="d2797e38 "><p>Perform regular regression testing by comparing analysis
+                results before and after optimization. From GUI, click the 
+                <img src="GUID-E632A67E-51CD-4676-B252-0F411DF5A068-low.gif" /><strong>Compare Results</strong> button on the VTune Amplifier toolbar.
+                From command line, use the 
+                <samp class="codeph">amplxe-cl</samp> command. 
+              </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="GUID-1D4EF8A1-2C53-46D3-B12A-59E8AEA9C735"><strong>Next step:</strong>
+      Prepare your own application(s) for analysis. Then use the VTune Amplifier to
+      find and eliminate hotspots. 
+    </div>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-9E42A2A6-3B9F-463C-82E5-06A409D4E52F" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d2797e180"><p id="d13e52">Optimization Notice 
+				  </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d2797e180 "><p>Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction sets and other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of any optimization on microprocessors not manufactured by Intel. Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more information regarding the specific instruction sets covered by this notice. 
+				  </p>
+<p> Notice revision #20110804 
+				  </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-3829260C-A250-4344-AB0A-1029CCAC9A16.html">Tutorial: Finding Hotspots on the Intel&reg; Xeon Phi&#8482; Coprocessor - C++ Sample Code</a></div>
+</div>
+<div class="See Also"><h2>See Also</h2>
+<div class="linklist">
+<div><a href="https://software.intel.com/en-us/articles/intel-vtune-amplifier-tutorials" target="_blank">Click here for more Getting Started
+          Tutorials 
+        </a></div></div></div>
+</body>
+</html>

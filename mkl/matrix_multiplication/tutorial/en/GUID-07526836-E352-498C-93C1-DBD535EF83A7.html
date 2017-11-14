@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Measuring Performance with Intel&reg; MKL Support Functions" />
+<meta name="DC.Relation" scheme="URI" content="GUID-6D82DCCE-D53F-4BEB-92A2-EE69A18803CA.html" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-math-kernel-library-documentation/" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-mkl-kb/all/1/" />
+<meta name="DC.Relation" scheme="URI" content="http://software.intel.com/en-us/articles/intel-software-product-tutorials/" />
+<meta name="prodname" content="Intel&reg; Math Kernel Library" />
+<meta name="version" content="327255-007" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-07526836-E352-498C-93C1-DBD535EF83A7" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Measuring Performance with Intel&reg; MKL Support Functions</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-07526836-E352-498C-93C1-DBD535EF83A7">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Using the Intel&reg; Math Kernel Library 2018 for Matrix Multiplication Tutorial</em></p>
+
+
+<h1 class="topictitle1">Measuring Performance with
+    Intel&reg; MKL Support Functions</h1>
+<div id="GUID-794A2F0A-A053-4AF9-96E5-D6419D77CBA9"><p></p>
+<p>Intel MKL provides functions to measure performance. This provides a way
+      of quantifying the performance improvement resulting from using Intel MKL
+      routines in this tutorial. 
+    </p>
+<div class="section" id="INTERPRET"><h2 class="sectiontitle">Measure Performance of dgemm</h2><p>Use the 
+        <samp class="codeph"><span class="keyword">dsecnd</span></samp> routine to return the
+        elapsed CPU time in seconds. 
+      </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>The quick execution of the 
+          <samp class="codeph"><span class="keyword">dgemm</span></samp> routine makes it difficult
+          to measure its speed, even for an operation on a large matrix. For this reason,
+          the exercises perform the multiplication multiple times. You should set the
+          value of the 
+          <samp class="codeph">LOOP_COUNT</samp> constant so that the total execution time
+          is about one second. 
+        </p>
+</div>
+<pre>/* C source code is found in dgemm_with_timing.c */
+
+    printf (" Making the first run of matrix product using Intel&reg; MKL dgemm function \n"
+            " via CBLAS interface to get stable run time measurements \n\n");
+    cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, 
+                m, n, k, alpha, A, k, B, n, beta, C, n);
+
+    printf (" Measuring performance of matrix product using Intel&reg; MKL dgemm function \n"
+            " via CBLAS interface \n\n");
+    s_initial = dsecnd();
+    for (r = 0; r &lt; LOOP_COUNT; r++) {
+        cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, 
+                    m, n, k, alpha, A, k, B, n, beta, C, n);
+    }
+    s_elapsed = (dsecnd() - s_initial) / LOOP_COUNT;
+
+    printf (" == Matrix multiplication using Intel&reg; MKL dgemm completed == \n"
+            " == at %.5f milliseconds == \n\n", (s_elapsed * 1000));
+</pre></div>
+<div class="section" id="CHOOSE_PROBLEM"><h2 class="sectiontitle">Measure Performance Without Using dgemm</h2><p>In order to show the improvement resulting from using 
+        <samp class="codeph"><span class="keyword">dgemm</span></samp>, perform the same
+        measurement, but use a triply-nested loop to multiply the matrices. 
+      </p>
+<pre>/* C source code is found in matrix_multiplication.c */
+
+    printf (" Making the first run of matrix product using triple nested loop\n"
+            " to get stable run time measurements \n\n");
+    for (i = 0; i &lt; m; i++) {
+        for (j = 0; j &lt; n; j++) {
+            sum = 0.0;
+            for (l = 0; l &lt; k; l++)
+                sum += A[k*i+l] * B[n*l+j];
+            C[n*i+j] = sum;
+        }
+    }
+
+    printf (" Measuring performance of matrix product using triple nested loop \n\n");
+    s_initial = dsecnd();
+    for (r = 0; r &lt; LOOP_COUNT; r++) {
+        for (i = 0; i &lt; m; i++) {
+            for (j = 0; j &lt; n; j++) {
+                sum = 0.0;
+                for (l = 0; l &lt; k; l++)
+                    sum += A[k*i+l] * B[n*l+j];
+                C[n*i+j] = sum;
+            }
+        }
+    }
+    s_elapsed = (dsecnd() - s_initial) / LOOP_COUNT;
+    
+    printf (" == Matrix multiplication using triple nested loop completed == \n"
+            " == at %.5f milliseconds == \n\n", (s_elapsed * 1000));
+</pre><p>Compare the results in the first exercise using 
+        <samp class="codeph"><span class="keyword">dgemm</span></samp> to the results of the second
+        exercise without using 
+        <samp class="codeph"><span class="keyword">dgemm</span></samp>. 
+      </p>
+<p>You can find more information about measuring Intel MKL performance
+        from the article "A simple example to measure the performance of an Intel MKL
+        function" in the Intel Math Kernel Library Knowledge Base. 
+      </p>
+<p>
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-454D52BD-178E-49A9-850D-83FB4612D615" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d444e77"><p id="d30e52">Optimization Notice 
+              </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d444e77 "><p>Intel's compilers may or may not optimize to the same degree
+                for non-Intel microprocessors for optimizations that are not unique to Intel
+                microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction
+                sets and other optimizations. Intel does not guarantee the availability,
+                functionality, or effectiveness of any optimization on microprocessors not
+                manufactured by Intel. Microprocessor-dependent optimizations in this product
+                are intended for use with Intel microprocessors. Certain optimizations not
+                specific to Intel microarchitecture are reserved for Intel microprocessors.
+                Please refer to the applicable product User and Reference Guides for more
+                information regarding the specific instruction sets covered by this notice. 
+              </p>
+<p> Notice revision #20110804 
+              </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+</div>
+<p><a href="GUID-36BFBCE9-EB0A-43B0-ADAF-2B65275726EA.html#GUID-36BFBCE9-EB0A-43B0-ADAF-2B65275726EA"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="Previous" /></a><a href="GUID-8DB79DF7-B853-46C9-8F46-C3782E0CA401.html#GUID-8DB79DF7-B853-46C9-8F46-C3782E0CA401"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="Next" /></a></p>
+</div>
+<div><h2>See Also</h2>
+<div class="linklist">
+<div><a href="http://software.intel.com/en-us/articles/intel-math-kernel-library-documentation/" target="_blank">Intel MKL Documentation 
+        </a> for additional Intel MKL documentation, including the 
+          Intel MKL Developer Reference and the 
+          Intel MKL Developer Guide. 
+        </div>
+<div><a href="http://software.intel.com/en-us/articles/intel-mkl-kb/all/1/" target="_blank">Intel Math Kernel Library Knowledge Base 
+        </a> for articles describing usage of Intel MKL functionality. 
+        </div>
+<div><a href="http://software.intel.com/en-us/articles/intel-software-product-tutorials/" target="_blank">Click here for more Getting Started
+          Tutorials 
+        </a></div></div></div>
+</body>
+</html>

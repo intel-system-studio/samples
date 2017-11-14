@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Create Project and Configure Target" />
+<meta name="DC.Relation" scheme="URI" content="GUID-4A555FCA-2EAD-4D6B-9AAB-62C99BD9EE1C.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-5C2B4F86-B210-4693-AA73-1CE6E45A44FA" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Create Project and Configure Target</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-5C2B4F86-B210-4693-AA73-1CE6E45A44FA">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Create Project and Configure Target</h1>
+<div><p id="GUID-4AB28665-0BBE-4108-8050-DE9F375D5A72"><img id="IMAGE_7F624705098C4D36AE3A414D6EC4C238" src="GUID-02914B5D-1A7D-4B4B-8A24-9534BDA714E4-low.gif" /> To start performance analysis for an application on the Intel&reg;
+		Xeon Phi&#8482; coprocessor, do the following: 
+	 </p>
+<ol id="GUID-13BE7FFE-6AE6-4534-B548-C9375BE9A9FB"><li><p><a href="#CREATE_PROJECT">Create
+				a VTune Amplifier project</a>. 
+		  </p>
+</li>
+<li><p><a href="#GUID-F0D7470D-A057-4767-9D6F-3CA6C5F773EA">Specify
+				an analysis target</a>. 
+		  </p>
+</li>
+<li><p><a href="#GUID-DD9B6124-DF7F-461E-A7A3-81EFEDA4BE28">Configure
+				search directories for symbol resolution</a>. 
+		  </p>
+</li>
+</ol>
+<div class="section" id="CREATE_PROJECT"><h2 class="sectiontitle">Create a VTune Amplifier Project</h2><p><ol id="GUID-92B46797-0784-4641-966F-96909DDE5CB0"><li id="GUID-23828820-29B7-4E22-BEBC-C44E9690ACCD"><p>Type 
+				<samp class="codeph" id="GUID-46E57A0A-9C16-4005-821E-C46F6B68CBAC">amplxe-gui</samp> to launch
+				the VTune Amplifier GUI. 
+			 </p>
+</li>
+<li id="GUID-F10798C6-2DBE-40C3-9927-57BBC2392917"><p id="GUID-A731E63E-D013-458D-8F3E-2D2D39732140">Create a new
+				project via 
+				<strong id="GUID-750D2C7A-BECA-4064-9F2D-944477586BBD"> New &gt;
+				  Project...</strong> menu. 
+			 </p>
+<p id="GUID-384ADD54-3597-47D6-BF25-4111F1FC0DA4">The 
+				<strong id="GUID-B00F13E1-8734-4E40-A33E-BF687AF117D7">Create a
+				  Project</strong> dialog box opens. 
+			 </p>
+</li>
+<li id="GUID-190592CE-1629-4DE9-87B4-1083FF4B6590"><p id="GUID-8D40EC26-59BA-4BC1-8C4A-53A7639EBF99">Specify the project
+				name 
+				<samp class="codeph" id="GUID-254778AE-18BF-41B4-8AE3-F637951396BF">matrix</samp> that will be
+				used as the project directory name and click the 
+				<strong id="GUID-C2D3A6F6-E329-4459-A30C-7E50DADBBA87">Create
+				  Project</strong> button. 
+			 </p>
+<p id="GUID-8F9EFD25-3C4F-4119-AABB-C6511CD5D5D8">By default, the
+				VTune Amplifier creates a project directory under the 
+				<span><samp class="codeph">$HOME/intel/amplxe/projects</samp>
+				  (for VTune Amplifier XE) or 
+				  <samp class="codeph">$HOME/intel/amplsys/projects</samp> (for VTune
+				  Amplifier for Systems) 
+				</span> directory and opens the 
+				<strong id="GUID-C1E62171-F237-4ED2-99A4-1BF78E6B580A">Choose Target and
+				  Analysis Type</strong> window with the 
+				<strong>Analysis Target</strong> tab active. 
+			 </p>
+</li>
+</ol>
+</p>
+</div>
+<div class="section" id="GUID-F0D7470D-A057-4767-9D6F-3CA6C5F773EA"><h2 class="sectiontitle">Specify an Analysis Target</h2><div class="Note"><h3 class="NoteTipHead">Note</h3> <p>This tutorial focuses on analyzing a native Intel Xeon Phi
+			 coprocessor application that is copied and run on the card. To configure an
+			 analysis for an offload application target, make sure to select the<strong> Intel
+				Xeon Phi coprocessor (host launch) 
+			 </strong>type of the target system and specify the application name with
+			 the full path on the host in the 
+			 <strong>Application</strong> field in the 
+			 <strong>Analysis Target</strong> tab. See VTune Amplifier Help for more
+			 details. 
+		  </p>
+</div>
+<ol id="GUID-DA1B8DF9-E6B1-411F-9B22-0063E0BE7A9E"><li><p>In the 
+				<strong>Analysis Target</strong> tab, select the 
+				<strong>Intel Xeon Phi coprocessor (<span>native</span>)</strong> type from the left pane. 
+			 </p>
+<p>The configuration pane on the right is updated with the options
+				applicable to the selected target system type. 
+			 </p>
+</li>
+<li id="GUID-197CF80B-5565-46F8-80DF-567814852BFB"><p id="GUID-A7FC65E0-B165-45EF-9C9B-683213AA2AA1">Make sure the 
+				<strong>Launch Application</strong> target type is selected in the drop-down
+				menu on the right. 
+			 </p>
+</li>
+<li><p>Specify the Intel Xeon Phi coprocessor card where your application
+				is located. By default, 
+				<strong>0(mic0)</strong> card is pre-selected. 
+			 </p>
+</li>
+<li><p>In the 
+				<strong>Application</strong> field, specify a full path to the 
+				<span>matrix
+				  application on the card: 
+				  <samp class="codeph">/tmp/matrix.mic</samp></span> as an application to
+				launch. 
+			 </p>
+<p><img id="IMAGE_DED31EF4E8A840AA87AF0D59B85C288A" src="GUID-202922FB-DDC4-4BB6-8F7C-82728CA60058-low.gif" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-DD9B6124-DF7F-461E-A7A3-81EFEDA4BE28"><h2 class="sectiontitle">Configure Search Directories</h2><p>VTune Amplifier resolves symbols for
+		  Intel Xeon Phi coprocessor-based modules on the host during collection
+		  post-processing. For proper symbol resolution, you need to specify host search
+		  paths for the application and for Intel Xeon Phi coprocessor modules before the
+		  collection: 
+		</p>
+<ol id="GUID-CB02081C-CFEC-4B9D-975F-8BEA1F015F07"><li><p>In the 
+				<strong>Choose Target and Analysis Type</strong> window, click the 
+				<strong>Binary/Symbol Search</strong> button on the right. 
+			 </p>
+<p>The<strong> Binary/Symbol Search</strong> dialog box opens. 
+			 </p>
+</li>
+<li><p>In the 
+				<strong>Search Directories</strong> field, click the 
+				<strong>Browse</strong> button to add the application directory on the host 
+				<span> and OpenMP* directory</span>. 
+			 </p>
+</li>
+<li><p>Click 
+				<strong>OK</strong> to save your changes. 
+			 </p>
+<p><img id="IMAGE_D411304033B349348F8DADDEAF403D48" src="GUID-EEC6102E-C68E-4E70-9244-A2782BA03CDD-low.gif" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="GUID-2F6ACADF-6121-413E-A07F-FC70A85EC2DA"><h2 class="sectiontitle">Key Terms </h2><ul id="GUID-63CD3E9E-7D60-4EE1-9653-06C62A8FA1F2"><li><p><a href="GUID-936F0115-97D4-484C-8778-CFDEC6096945.html#TARGET">Target</a></p>
+</li>
+<li><p><a href="GUID-936F0115-97D4-484C-8778-CFDEC6096945.html#PROJECT">Project</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="GUID-797E25B7-6155-4C22-9C96-A7FD494B5D6C"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-5B3C22AA-7B9F-4601-9F77-0C05F3181F7B.html">Run Hotspots
+			 Analysis</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-4A555FCA-2EAD-4D6B-9AAB-62C99BD9EE1C.html">Finding Hotspots</a></div>
+</div>
+<div></div>
+</body>
+</html>

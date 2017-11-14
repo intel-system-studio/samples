@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Run Advanced Hotspots Analysis" />
+<meta name="DC.Relation" scheme="URI" content="GUID-4A555FCA-2EAD-4D6B-9AAB-62C99BD9EE1C.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-5B3C22AA-7B9F-4601-9F77-0C05F3181F7B" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Run Advanced Hotspots Analysis</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-5B3C22AA-7B9F-4601-9F77-0C05F3181F7B">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Run Advanced Hotspots Analysis</h1>
+<div id="GUID-CDAE0E78-3F97-49DB-B5E1-966DDEF3DC11"><p id="GUID-054CD6A2-D265-442A-B4B5-3E5366025510"></p>
+<p id="GUID-1B49C4FD-53A2-41CF-8EB3-1F95D3F4AA24"><img src="GUID-02914B5D-1A7D-4B4B-8A24-9534BDA714E4-low.gif" /> After building the sample application and collecting baseline performance data for it, rerun it under the scrutiny of 
+		<span>Intel&reg; VTune&#8482; Amplifier</span> to discover what parts of the code are being most used. Advanced Hotspots analysis collects event and IP (Instruction Pointer) information to reveal evidence of a basic set of hardware issues induced by the application code that may be affecting its performance. 
+	 </p>
+<p><strong>Prerequisites:</strong> You created a project and specified your sample application as an 
+		<strong>Intel Xeon Phi coprocessor (native)</strong> target in the 
+		<strong>Analysis Target</strong> tab. 
+	 </p>
+<p id="GUID-4848ED90-8CDA-4054-B69A-D8F52555BBA2"><strong id="GUID-DD565BB2-E4EF-4EF9-87EB-84D932CC0D6B">To run the analysis:</strong></p>
+<ol id="GUID-6D59C3B1-7C3B-4FDD-AA68-90A0ADD7A922"><li id="GUID-A8094463-CE13-4162-93BC-D34744E0390D"><p id="GUID-477B1293-3E75-4829-B8FE-3963243514C5">Click the 
+			 <strong>Choose Analysis</strong> button on the right, or switch to the 
+			 <strong>Analysis Type</strong> tab. 
+		  </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>VTune Amplifier automatically detects your target system configuration and displays analysis types applicable to the Intel&reg; Xeon Phi&#8482; coprocessor. 
+			 </p>
+</div>
+</li>
+<li id="GUID-E442C366-9507-4298-89FE-E685893901D3"><p id="GUID-75DD77BD-1E83-4C1F-B8C9-C4B6053E4A10">From the analysis tree on the left, select the 
+			 <strong id="GUID-525F4F4D-2474-4A88-8718-7BD128FE423C">Algorithm Analysis &gt; Advanced Hotspots</strong> analysis type. 
+		  </p>
+<p>The Advanced Hotspots predefined configuration opens on the right. 
+		  </p>
+<p id="GUID-967C59DE-258B-406C-84E2-5B6B9E125448"><img src="GUID-B865F6FD-3453-4752-BCA6-EADEB64F6437-low.gif" /></p>
+</li>
+<li id="GUID-B5913821-DE0C-4432-B8C0-6F4BC310F845"><p id="GUID-8ACF2CBF-CEDE-4C5E-B7FD-F15D2FC366BF">Click the 
+			 <strong id="GUID-07543512-81CE-4E1C-89B1-53B764FC9366">Start</strong> button on the right to run the analysis. 
+		  </p>
+</li>
+</ol>
+<p id="GUID-437A5911-7D4B-455A-A879-88747A23A794">VTune Amplifier starts the 
+		<samp class="codeph">matrix.mic</samp> application on the Intel Xeon Phi coprocessor card<span> via SSH connection</span>. The application calculates a large matrix multiply before exiting. When the application exits or after a predefined interval, depending on how the collection run was configured, collection is completed and the VTune Amplifier enters its 
+		<em>finalization</em> process, where data are coalesced, symbols are reconnected to their addresses, and certain data are cached to speed the display of results. 
+	 </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p id="GUID-1A75B92B-14C8-4B34-B2F9-90DB52EE7A56">To make sure the performance of the application is repeatable, go through the entire tuning process on the same system with a minimal amount of other software executing. 
+		</p>
+</div>
+<div class="section" id="GUID-89709FCE-B289-4727-81E6-B63AA9E6CF55"><h2 class="sectiontitle">Key Terms </h2><p id="GUID-44C1B398-4D84-42D7-835F-5FAF0C53146B"><ul id="GUID-ED722FF9-3E03-4B3F-A6FE-109642CF32CD"><li id="GUID-D9B75E49-5AFF-4683-AF92-3CAC19924207"><p id="GUID-E6E413E4-E2E9-4B62-A3B7-1F61D9DAB0D0"><a href="GUID-936F0115-97D4-484C-8778-CFDEC6096945.html#FINALIZATION">Finalization</a></p>
+</li>
+<li id="GUID-E21F306A-E707-4675-BB84-41DDF13B906B"><p id="GUID-4666F7D4-D988-4C06-B9CF-79D6C923B8F7"><a href="GUID-936F0115-97D4-484C-8778-CFDEC6096945.html#VIEWPOINT">Viewpoint</a></p>
+</li>
+</ul>
+</p>
+</div>
+<div class="section" id="GUID-79F92D04-C1D0-4F39-8A79-149E9B9EDA5C"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-6160D350-9E07-44E2-8C42-C0E9802FB77B.html">Interpret Results</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-4A555FCA-2EAD-4D6B-9AAB-62C99BD9EE1C.html">Finding Hotspots</a></div>
+</div>
+<div></div>
+</body>
+</html>

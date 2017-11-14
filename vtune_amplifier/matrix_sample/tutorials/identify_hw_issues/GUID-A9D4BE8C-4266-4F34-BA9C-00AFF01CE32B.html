@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Identifying Hardware Issues" />
+<meta name="DC.Relation" scheme="URI" content="GUID-703EC099-0C5C-4505-83DC-BF1854BFED41.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-1873EBEA-908B-4EFE-BCCD-CDC588A6265B.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-663034C4-7C73-4A6A-BFFA-A81413F18019.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-D77E4125-C797-4949-9418-AA630B67A72F.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-6FC48780-2172-4763-947F-59F5BAC37DD0.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-53AE2D51-3318-4D2E-A746-8DDF537D917C.html" />
+<meta name="DC.Relation" scheme="URI" content="GUID-9D64DB39-15AE-4B8D-A2E7-D4ED8C6DD42A.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-A9D4BE8C-4266-4F34-BA9C-00AFF01CE32B" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Identifying Hardware Issues</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body class="no-rel-links" id="GUID-A9D4BE8C-4266-4F34-BA9C-00AFF01CE32B">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier </em></p>
+
+
+<h1 class="topictitle1">Identifying Hardware Issues</h1>
+<div><p></p>
+<p><img id="IMAGE_1C9D3B3601BC4222AF50AB0576811B06" height="32" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" width="32" /><span>Intel&reg; VTune&#8482; Amplifier</span>
+		embodies powerful event-based sampling methods that enable you to identify
+		hardware issues that have a significant impact on the performance of your
+		application. This tutorial guides you through workflow steps running General
+		Exploration analysis type on a sample application, 
+		<samp class="codeph">matrix</samp>. 
+	 </p>
+<p></p>
+<p><img id="IMAGE_C1A10B7A2A72449981B73D133F5AE965" src="GUID-0C7C9098-EE62-464E-A3DA-505F467F7A8A-low.gif" alt="Workflow steps to find hardware issues" /></p>
+<p>
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-0035E778-FCDF-4E5C-9946-87E2BEEA70A1" width="100%" frame="border" border="1" cellspacing="0" rules="all"><tbody><tr><td class="cellrowborder" valign="top" width="20%"><p><strong>Step 1: Prepare for analysis 
+					 </strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="80%"><p><a href="GUID-1873EBEA-908B-4EFE-BCCD-CDC588A6265B.html">Build an application with full
+						optimizations.</a></p>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20%"><p><strong>Step 2: Find hardware issues 
+					 </strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="80%"><ul id="GUID-9ADAFDE9-14C1-4001-8F44-619612DA59F6"><li><p><a href="GUID-663034C4-7C73-4A6A-BFFA-A81413F18019.html#GUID-663034C4-7C73-4A6A-BFFA-A81413F18019">Configure a VTune Amplifier project
+							 and run General Exploration analysis.</a></p>
+</li>
+<li><p><a href="GUID-D77E4125-C797-4949-9418-AA630B67A72F.html#GUID-D77E4125-C797-4949-9418-AA630B67A72F">Explore event-based hardware metrics,
+							 identify a performance baseline, and interpret the result data.</a></p>
+</li>
+<li><p><a href="GUID-6FC48780-2172-4763-947F-59F5BAC37DD0.html#GUID-6FC48780-2172-4763-947F-59F5BAC37DD0">View and analyze code of the
+							 performance-critical function.</a></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="20%"><p><strong>Step 3: Resolve detected issues 
+					 </strong></p>
+</td>
+<td class="cellrowborder" valign="top" width="80%"><ul id="GUID-04A23112-AC57-46DE-9EC3-9C7735D9A378"><li><p><a href="GUID-53AE2D51-3318-4D2E-A746-8DDF537D917C.html#GUID-53AE2D51-3318-4D2E-A746-8DDF537D917C">Modify the code to resolve the
+							 detected performance issues and rebuild the code enabling the vectorization
+							 option of the Intel compiler. 
+						  </a></p>
+</li>
+<li><p><a href="GUID-9D64DB39-15AE-4B8D-A2E7-D4ED8C6DD42A.html">Use
+							 more advanced algorithms to optimize the performance and verify
+							 optimization.</a></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-B685D72D-A5BB-48FC-BE53-129C721A87ED" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d2597e97"><p id="d10e52">Optimization Notice 
+				  </p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d2597e97 "><p>Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction sets and other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of any optimization on microprocessors not manufactured by Intel. Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more information regarding the specific instruction sets covered by this notice. 
+				  </p>
+<p> Notice revision #20110804 
+				  </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div></div>
+</body>
+</html>

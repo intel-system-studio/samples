@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Build Application and Create New Project" />
+<meta name="DC.Relation" scheme="URI" content="GUID-FC1CA445-3400-447E-AD79-5A37D0D1D22B.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-EE38AD95-A509-4506-9232-13367F5C2495" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Build Application and Create New Project</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-EE38AD95-A509-4506-9232-13367F5C2495">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier 2017</em></p>
+
+
+<h1 class="topictitle1">Build Application and Create New Project</h1>
+<div id="GUID-A974257F-7963-46DF-8318-C600A0188091"><p id="GUID-B09D44E4-26EC-4F41-A71D-6EEF23042F7F"></p>
+<p id="GUID-94B661D0-5D2E-4FF9-9169-8ED2A0857E96"><img id="IMAGE_58F44F4CCC004E3B89FE4C7B7EFD1FE5" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" /> Before you start analyzing
+		your application for locks and waits, do the following: 
+	 </p>
+<ol id="GUID-E9DCE8EB-A3FB-48E0-8DB2-30D6C5D591CB"><li id="LI_134B273B958A4244BADA73C06F6E647B"><p><a href="#GET_SOFT_TOOLS">Get
+				software tools</a>. 
+		  </p>
+</li>
+<li id="LI_D36901731539419EB56FB8740C881768"><p><span><a href="#BUILD_MODE">Build
+				  application with full optimizations</a>.</span></p>
+</li>
+<li id="LI_173CF880A84044A1AE370041F0685FE5"><p><a href="#BASELINE">Create
+				a performance baseline</a>. 
+		  </p>
+</li>
+<li id="LI_94E0E93A49EE49CEA8B232E097CC3A6B"><p><a href="#CREATE_PROJECT">Create
+				a VTune Amplifier project</a>. 
+		  </p>
+</li>
+</ol>
+<div class="section" id="GET_SOFT_TOOLS"><h2 class="sectiontitle">Get Software Tools</h2><p>You need the following tools to try tutorial steps yourself using the 
+		  <samp class="codeph">tachyon</samp> sample application: 
+		</p>
+<p><ul id="GUID-1E9D5DC1-C300-45E8-BD81-9CCF4E217905"><li id="LI_B6FB3A96EC4E4BB2BEA134D0C47A5DB5"><span>Intel&reg; VTune&#8482; Amplifier</span>,
+			 including sample applications 
+		  </li>
+<li id="LI_F9520410AF8F45868729397400329DA7"><samp class="codeph">tar</samp> file extraction utility 
+		  </li>
+<li id="LI_4A06ED5BAA7B47128C4A38AF0B1558C3">Supported compiler (see
+			 Release Notes for more information) 
+		  </li>
+</ul>
+</p>
+<p><strong>Acquire Intel VTune Amplifier</strong></p>
+<p>If you do not already have access to the VTune Amplifier, you can
+		  download an evaluation copy from 
+		  <a href="HTTP://SOFTWARE.INTEL.COM/EN-US/ARTICLES/INTEL-SOFTWARE-EVALUATION-CENTER/" target="_blank">http://software.intel.com/en-us/articles/intel-software-evaluation-center/</a>.
+		  
+		</p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p> This document focuses on using the 
+		<span>VTune&#8482; Amplifier</span> 
+		 in Intel&reg; Parallel Studio XE Professional Edition. You may see minor differences if you installed a different Intel product. For more information on product capabilities in your installed product, see the product-specific supplemental documentation in 
+		<samp class="codeph">&lt;install-dir&gt;/&lt;Intel_product&gt;/documentation/</samp>.
+	 </p>
+</div>
+<p><strong> Install and Set Up VTune Amplifier Sample Applications 
+		  </strong></p>
+<p><ol id="GUID-31ED23B9-995D-4B7F-81C6-001CBA03BF52"><li id="LI_6A211D6F8A9A40B3BB0091D59EDD1BC4">Copy the 
+			 <samp class="codeph">tachyon_vtune_amp_xe.<span>tgz</span></samp> file from the 
+			 <samp class="codeph">&lt;<em>install-dir</em>&gt;/samples/&lt;<em>locale</em>&gt;/C++/</samp>
+			 directory to a writable directory or share on your system. 
+			 <div class="Note"><h3 class="NoteTipHead">Note</h3> <p>The default installation path for the VTune Amplifier
+        XE is 
+        <samp class="codeph">/opt/intel/vtune_amplifier_xe_<em>version</em></samp>.
+        For the VTune Amplifier for Systems, the default 
+        <samp class="codeph">&lt;<em>install_dir</em>&gt;</samp> is<span>:</span><ul id="d24e98"><li>For super-users: 
+          <samp class="codeph">/opt/intel/system_studio_<em>version</em>/vtune_amplifier_for_systems</samp></li>
+<li>For ordinary users: 
+          <samp class="codeph">$HOME/intel/system_studio_<em>version</em>/vtune_amplifier_for_systems</samp></li>
+</ul>
+</p>
+</div>
+</li>
+<li id="LI_8523771AB35F4FECA863758835D4A560">Extract the sample from
+			 the 
+			 <samp class="codeph">.tgz</samp> file. 
+		  </li>
+</ol>
+</p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <ul id="GUID-1E95CD3F-9A7F-481C-92DB-41C03EF2D97C"><li id="LI_405ECB147F74444090335DC268F62816">Samples are
+				non-deterministic. Your screens may vary from the screen captures shown
+				throughout this tutorial. 
+			 </li>
+<li id="LI_BDE1D0D539174182A1A8B7AAD8960674">Samples are designed
+				only to illustrate the VTune Amplifier features; they do not represent best
+				practices for creating code. 
+			 </li>
+</ul>
+</div>
+</div>
+<div class="section" id="BUILD_MODE"><h2 class="sectiontitle">Build the Target in
+		  the Release Mode</h2><p> Build the target in the Release mode with full optimizations, which
+		  is recommended for performance analysis. 
+		</p>
+<ol id="GUID-86689FAD-1FF3-46A4-996A-32B61758C521"><li id="GUID-D3AFFE43-A443-478C-8889-662AE8DEF1C7"><p id="GUID-83DC9E6E-842D-4DB8-99B1-7EF20D7A891B">Browse to the
+				directory where you extracted the sample code (for example, 
+				<span class="filepath" id="GUID-BDE4F681-1713-441D-AC5A-3920A84EC009">/home/samples/tachyon</span>).
+				Make sure this directory contains 
+				<samp class="codeph" id="GUID-5766C618-7849-419D-ADE5-3968656E60EA">Makefile</samp>. 
+			 </p>
+</li>
+<li id="GUID-C24FFEAB-FA05-4E50-B84A-5E286D1B606C"><p id="GUID-D8C76637-9125-47F2-9288-18C37E5B2682">Clean up all the
+				previous builds using the following command: 
+			 </p>
+<p id="GUID-DEE91EC3-A1B1-496C-AE0E-B3A7FD7E8BFE"><samp class="codeph" id="GUID-61672C59-876B-49BE-A2BF-EF4510777B8A">$ make
+				  clean</samp></p>
+</li>
+<li id="GUID-1DA3DCA1-B397-4AC5-9B32-69757AE110A0"><p id="GUID-3212B275-846C-4A2C-88A5-951A3FA72F2A">Build your target: 
+			 </p>
+<p id="GUID-0AA8847A-6250-4F7C-BFF0-955BA63F7DC6"><samp class="codeph" id="GUID-08F03C33-6C3A-40BC-93AC-E62A074DD768">$ make 
+				</samp></p>
+<p id="GUID-E21E7D17-7EC5-496B-B71F-702B6222C139"> The 
+				<samp class="codeph" id="GUID-E2E155E1-8977-4990-8C3A-3EE9BFDB8574">tachyon_analyze_locks</samp>
+				application is built and stored in the 
+				<span class="filepath" id="GUID-7BE2134B-D3F9-433F-9177-E653A76BA424">tachyon</span> directory. 
+			 </p>
+</li>
+</ol>
+</div>
+<div class="section" id="BASELINE"><h2 class="sectiontitle">Create a
+		  Performance Baseline</h2><ol id="GUID-5F3F31B0-9183-4BAF-B794-0407E4405F27"><li id="GUID-D5C01849-E0FC-4C96-895A-1428787B03E9"><p id="GUID-73EF6857-D722-4DCC-8849-B2977772F29F"><span id="GUID-0B668AEC-5358-4259-ABF5-D797312A80F4">Run 
+				  <samp class="codeph" id="GUID-19F8CBC1-0EB4-4734-A75F-6274D8E5B0B9">tachyon_analyze_locks</samp>
+				  with 
+				  <samp class="codeph" id="GUID-ECD1BE77-0A21-4FE8-BA9E-AF4FD90864C9">dat/balls.dat</samp> as an
+				  input parameter. For example:</span></p>
+<p id="GUID-31FE67D8-B382-4316-9BC1-2E0B8ECD375C"><samp class="codeph" id="GUID-C201E97F-4914-410D-8DD1-29695E1DD7B7">./tachyon_analyze_locks
+				  dat/balls.dat</samp></p>
+<p id="GUID-42E338C0-F960-4029-9732-43CAABF003F2">The 
+				<samp class="codeph" id="GUID-30C04811-21FF-4E7E-88CE-4992167A407A"><span>tachyon_</span>analyze_locks</samp> application
+				runs in multiple sections (depending on the number of CPUs in your system). 
+				<div class="Note"><h3 class="NoteTipHead">Note</h3> <p id="GUID-D32BC104-D76E-498F-A9F9-39BC3819CE13">Before you
+					 start the application, minimize the amount of other software running on your
+					 computer to get more accurate results. 
+				  </p>
+</div>
+<img id="IMAGE_4DF681E0118A451EAFAA5DCDA9A374D5" src="GUID-C3CB3FC0-37C8-49D9-9EF2-8BBBA81D23FC-low.gif" /></p>
+</li>
+<li id="GUID-2CE937B1-F965-4A80-BFEF-A8630AD6034B"><p id="GUID-6ABA4F0E-8409-4B07-93B0-5C577475A607">Note the execution
+				time displayed in the window caption<span id="GUID-D762230E-0395-4ADB-BCCF-EFA6C1B8081E"> and in the shell window</span>.
+				For the 
+				<samp class="codeph" id="GUID-2E828ECB-0821-46C8-A5B5-F28C2859F3D3">tachyon_analyze_locks</samp>
+				executable in the figure above, the execution time is 
+				<span id="GUID-200C3F5D-1D18-4F22-8A31-B722CA607FE3">11.632</span> seconds. The total
+				execution time is the baseline against which you will compare subsequent runs
+				of the application. 
+			 </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p id="GUID-4A71C8AE-98EE-4290-B5B6-4E7BECD57F96">Run the
+				  application several times, note the execution time for each run, and use the
+				  average number. This helps to minimize skewed results due to transient system
+				  activity. 
+				</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="CREATE_PROJECT"><h2 class="sectiontitle">Create a Project</h2><p><ol id="GUID-F1E1D8DC-1726-4858-9A0D-C9EC538F0F43"><li id="GUID-A3A76FAE-2B12-40A5-BB4A-5113F94BDEF5"><p id="GUID-92C96949-394E-49CA-906A-D160855CD581">If working in a
+				bash shell, set the 
+				<samp class="codeph" id="GUID-B472B563-9C6F-4FFE-BBBB-EE398AFE3A7D">EDITOR</samp> or 
+				<samp class="codeph" id="GUID-9821B5CF-4832-4888-81BC-6B5CC2F83ACA">VISUAL</samp> environment
+				variable to associate your source files with the code editor (like emacs, vi,
+				vim, gedit, and so on). For example: 
+			 </p>
+<p id="GUID-C8CA6183-840D-455D-ACB1-B99B7BE96AFA"><samp class="codeph" id="GUID-DE987088-B386-4974-9F47-57AF3C7E607C"><samp class="codeph" id="GUID-38E3AF4C-40B6-4F05-AB4B-A227DE70AB13">$ export
+					 EDITOR=gedit</samp></samp></p>
+</li>
+<li id="GUID-A13595D1-11B2-455D-A272-AE7CF9212990"><p id="GUID-974D0914-8F3E-4D6C-87AE-9C5C57A4A76E"><span>Run the 
+				  <samp class="codeph" id="GUID-B2198BC7-DC03-4E01-AFE8-646B4F9BD62D">amplxe-gui</samp> script
+				  launching the VTune Amplifier.</span></p>
+</li>
+<li id="GUID-D2B6B2E1-88DB-41A4-AE96-4733F9A2669D"><p id="GUID-309A99A4-A6F0-4003-9246-B517DBFD63B8">Click the 
+				<img id="IMAGE_32F59EA73B8E4F76857AEA679B0816B1" src="GUID-0464249E-D696-4E21-91E9-8265017B3DAC-low.gif" /> menu button and select 
+				<strong id="GUID-97ACBDC5-E6DB-4F14-ACF3-BA2F59A648E2">New &gt;
+				  Project...</strong> to create a new project. 
+			 </p>
+<p>The 
+				<strong id="GUID-97AE76A0-B644-43D4-B6E9-E0ACD74E615A">Create a
+				  Project</strong> dialog box opens. 
+			 </p>
+</li>
+<li id="GUID-E0A8E6FC-447D-46F7-934C-7370BE10FD75"><p id="GUID-773BEAA2-826C-4EAC-81FD-9CFC4C348CBF">Specify the project
+				name 
+				<samp class="codeph" id="GUID-CC5D7873-771B-496B-BC73-C473052A5651">tachyon</samp> that will be
+				used as the project directory name. 
+			 </p>
+<p id="GUID-AA8928D3-AA9B-4598-8D2E-D14CE843BDC8">VTune Amplifier
+				creates a project directory under the 
+				<span><samp class="codeph" id="GUID-2F2A90CF-8661-4E6D-9CDD-AEDB4F3E1E2C">$HOME/intel/amplxe/projects</samp>
+				  (for VTune Amplifier XE) or 
+				  <samp class="codeph">$HOME/intel/amplsys/projects</samp> (for VTune
+				  Amplifier for Systems) 
+				</span> directory and opens the 
+				<strong id="GUID-36B16146-58C2-4EDF-B902-FCD0E9E836AC">Choose Target and
+				  Analysis Type</strong> window with the 
+				<strong>Analysis Target</strong> tab active. 
+			 </p>
+</li>
+<li id="LI_57C8018159BD43A18AADCCBFFE5772BE"><p>From the left pane, select the 
+				<strong>local</strong> target system from the 
+				<strong>Accessible Targets</strong> group. From the right pane select the 
+				<strong>Launch Application</strong> target type. 
+			 </p>
+<p>The configuration pane is updated with the settings specific to
+				the selected target type. 
+			 </p>
+</li>
+<li id="GUID-AE78ACAA-2762-41B4-BB38-D0D4DA2B7563"><p id="GUID-05D7CE79-AE9A-4FDE-8040-ABF88AC8BCE3">Specify and
+				configure your target as follows: 
+			 </p>
+<ul id="GUID-77E02807-9FC0-4C8F-B867-69F430F747E2"><li id="GUID-72316659-2A5C-4CBF-AEC7-3B75E01A4034"><p id="GUID-D93DF5F2-4B9D-4C20-8D58-CED5AD4CAA6D">For the 
+					 <b class="uicontrol" id="GUID-B21E2A67-81C0-4B88-80D8-6E67E71721D8">Application</b> field,
+					 browse to: 
+					 <span class="filepath">&lt;<var>tachyon_dir</var>&gt;/tachyon_analyze_locks</span><span>(for example, 
+						<span class="filepath" id="GUID-F7EB19BB-4F1E-4D9C-9033-D56D843C796D">/home/samples/tachyon/tachyon_analyze_locks</span>)</span>.
+					 
+				  </p>
+</li>
+<li id="GUID-873CDA9B-2380-4FD0-8C23-363562E7271E"><p id="GUID-6A21C0CC-296C-46CF-8D61-65F0A07F877F">For the 
+					 <b class="uicontrol" id="GUID-3AF37054-8FD0-4D81-9ED9-0950D8FB1BEF">Application
+						parameters</b> field, specify 
+					 <samp class="codeph" id="GUID-8168C8B6-2121-4F81-9FC5-7B745087401F">dat/balls.dat</samp>. 
+				  </p>
+</li>
+</ul>
+<img id="IMAGE_95A1883552274957A10775B829607D57" src="GUID-58ED1C15-3C22-4A7F-B368-45798329E8DE-low.png" /></li>
+<li id="GUID-1BFF0641-D1F2-44E8-94E0-5BC9FF712E15"><p id="GUID-28969B7A-8BE6-4369-81B6-2E59551CF0F6">Click the 
+				<strong id="GUID-6C426FEF-857F-4544-B894-71E47623F253">Choose
+				  Analysis</strong> button on the right to switch to the analysis type configuration. 
+			 </p>
+</li>
+</ol>
+</p>
+</div>
+<div class="section" id="GUID-3D5835B1-B521-4DF2-9EF0-695BD0BB097B"><h2 class="sectiontitle">Key Terms </h2><p id="GUID-FB912C73-8078-4A1A-A389-BF0F75DCA081"><ul id="GUID-4A02B386-44F2-43AA-B732-D4305223AB54"><li id="LI_DFE6F4FD63244EFD8B6FCA2568F71AF7"><p><a href="GUID-59EDEE56-7657-472E-BB86-5A57FBBE4968.html">Baseline</a></p>
+</li>
+<li id="GUID-E699EC96-3F16-46E9-8803-A225E1B7E427"><p id="GUID-832D9855-6A9A-42E6-BA5B-F4CCBF55B1CB"><a href="GUID-59EDEE56-7657-472E-BB86-5A57FBBE4968.html#GUID-5EAB21BB-5400-4754-A1A7-51D99CDB8A94">Target</a></p>
+</li>
+</ul>
+</p>
+</div>
+<div class="section" id="GUID-E8ABC0B0-7783-4FE7-91A1-77D9058FD1FB"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-02125CD7-F858-4C84-B56F-FB8C89316580.html">Run Locks and
+			 Waits Analysis</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-FC1CA445-3400-447E-AD79-5A37D0D1D22B.html">Analyzing Locks and Waits</a></div>
+</div>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Building the Serial Version" />
+<meta name="DC.Relation" scheme="URI" content="GUID-9AD30AA8-98FF-4D12-AC12-7AB9888AF2CF.html" />
+<meta name="DC.Relation" scheme="URI" content="http://www.intel.com/software/products/softwaredocs_feedback" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-581BAB3F-45A2-4CBE-999B-6D338E111CF2" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Building the Serial Version</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-581BAB3F-45A2-4CBE-999B-6D338E111CF2">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+<h1 class="topictitle1">Building the Serial Version</h1>
+<div id="GUID-F0F51325-0475-4F40-8CB7-C36725B61634"><p>To build the serial version, you will compile the sample which is the serial version. You will then run the sample application and note the time to run the application. This time will be your baseline performance time. 
+	 </p>
+<ol id="GUID-9D1B7878-DFDD-494D-9A69-8B517F2C74A5"><li id="GUID-D6FD0467-412C-4079-85ED-BB00BF0400BF"><p id="GUID-0601A128-898E-474F-A4B4-F14A413F37B2">Set the 
+			 <samp class="codeph" id="GUID-23A3793D-5FF7-437F-8E09-5258137F1C52">build_serial</samp> project as the startup project (<b class="uicontrol" id="GUID-8B7EEB66-D866-4088-B2E0-41ED898A1289">Project &gt; Set as StartUp Project</b>). 
+		  </p>
+</li>
+<li id="GUID-65A1FD53-1167-4381-9143-CDAFAC6CF8F8"><p id="GUID-84F8B48E-963E-4ED7-8ED2-FB27AE781E9D">Set the configuration to release mode: 
+			 <b class="uicontrol" id="GUID-2E229D45-3C3C-4B5E-B962-1A713E5132E5">Build &gt; Configuration Manager &gt; Active solution configuration: &gt; Release</b>, then build the 
+			 <samp class="codeph" id="GUID-0F76CEA1-726B-49C5-AA28-A5BED865FEC7">build_serial</samp> project. 
+		  </p>
+</li>
+<li id="GUID-2706C5C1-38B8-49C4-800C-FAB1B47561A3"><p id="GUID-E76A1A6D-5E78-4C25-9E5F-A02F06DF96A4">Execute the application 
+			 <span class="filepath">build_serial.exe</span> with 
+			 <b class="uicontrol" id="GUID-BC8251EA-C769-4056-A2E6-1CA5D273F183">Debug &gt; Start without Debugging</b>. Take a note of the time in seconds displayed in the window title. This time to render the image is the baseline for parallelization with the Microsoft Visual C++ Compiler. 
+		  </p>
+</li>
+<li id="GUID-085BD229-2F62-479B-AAEA-1EC75B09FF1A"><p id="GUID-B190D158-B65C-419D-966B-3FE4C706EC27">For projects 
+			 <samp class="codeph" id="GUID-B59C52D6-7850-466C-9943-D31917569A29">build_serial</samp> and 
+			 <samp class="codeph">tachyon.common</samp>, change compiler to the Intel&reg; C++ Compiler (<b class="uicontrol" id="GUID-61B36BC7-792B-40DB-B0AE-54904618C25C">Project &gt; Intel Compiler &gt; Use Intel C++</b>). 
+		  </p>
+</li>
+<li id="GUID-D3E6DF2B-D75C-4630-8B35-7DF3809F9932"><p id="GUID-CF40F525-05F3-4F0A-B116-F42C4FE7C5B6">Rebuild 
+			 <samp class="codeph" id="GUID-9839442B-56A5-418C-B401-6E9CA35863BE">build_serial</samp> in release mode (now with the Intel&reg; C++ compiler). 
+		  </p>
+</li>
+</ol>
+<p>The makefile automatically runs the sample after it is built. 
+	 </p>
+<p>Note the time to render the image. This time is your performance baseline time. 
+	 </p>
+<p><a href="GUID-6A4C2FB1-9999-4FC5-B38A-0B867C4829F8.html#GUID-6A4C2FB1-9999-4FC5-B38A-0B867C4829F8"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="Open the Building the OpenMP Version topic" /></a></p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-9AD30AA8-98FF-4D12-AC12-7AB9888AF2CF.html">Tutorial: Windows* Version</a></div>
+</div>
+<div></div>
+</body>
+</html>

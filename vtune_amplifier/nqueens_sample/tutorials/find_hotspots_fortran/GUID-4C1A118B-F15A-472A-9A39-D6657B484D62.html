@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Interpret Results" />
+<meta name="DC.Relation" scheme="URI" content="GUID-742F5949-4A88-4170-9A20-425DD0CFB029.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2016" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-4C1A118B-F15A-472A-9A39-D6657B484D62" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Interpret Results</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-4C1A118B-F15A-472A-9A39-D6657B484D62">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier</em></p>
+
+
+<h1 class="topictitle1">Interpret Results</h1>
+<div><p id="GUID-62665B94-7D2B-4673-8CBC-3B07DB216DC1"><img id="IMAGE_0A658AE808724EAA84263C3C76DEEC76" src="GUID-02914B5D-1A7D-4B4B-8A24-9534BDA714E4-low.gif" /> When the sample application exits, the Intel&reg; VTune&#8482; Amplifier
+		finalizes the results and opens the 
+		<b class="uicontrol" id="GUID-8987B3D5-3946-4892-B838-322A66BFDE9E">Hotspots by CPU
+		  Usage</b> viewpoint where each window or pane is configured to display
+		code regions that consumed a lot of CPU time. To interpret the data on the
+		sample code performance, do the following: 
+	 </p>
+<ol id="GUID-7EB7CB0B-EF38-4E30-8255-AD98C778A879"><li id="GUID-4443BB6B-65B1-4044-A671-081FCFA01DF2"><p id="GUID-F4FEA8C4-2B35-4100-A9B1-3AE98F7AA0EA"><a href="#BASIC_METRICS">Explore
+				application-level performance.</a></p>
+</li>
+<li id="GUID-3329D57E-2813-45CC-B7A6-3E6FB15F7D0E"><p id="GUID-5CF1ED89-4CF3-4869-953A-31E3196387E0"><a href="#ANALYZE_HOTSPOTS">Analyze
+				the most time-consuming functions.</a></p>
+</li>
+<li id="GUID-543441BF-5DCA-48F5-A4B7-00C28DACC90C"><p id="GUID-126AC875-D331-4DED-9289-829724BF5D47"><a href="#CPU_USAGE">Identify
+				the hotspot code region.</a></p>
+</li>
+</ol>
+<p id="GUID-F845D207-A601-4F75-A36C-F5938A1FCC6F"><div class="Note"><h3 class="NoteTipHead">Note</h3> <p id="GUID-6E7E60F3-4A88-4577-90E3-96EE180104BD">The screenshots and
+			 execution time data provided in this tutorial are created on a system with 4
+			 CPU cores. Your data may vary depending on the number and type of CPU cores on
+			 your system. 
+		  </p>
+</div>
+</p>
+<div class="section" id="BASIC_METRICS"><h2 class="sectiontitle">Explore Application-level
+		  Performance</h2><p>Start analysis with the 
+		  <strong>Summary</strong> window that opens by default when data collection
+		  completes. To interpret the data, hover over the question mark icons 
+		  <img id="IMAGE_0BCFF970F69F4B9ABB0AC8C4898DF7E7" src="GUID-08AABA1E-7FDD-4ACF-8B4E-FA82F6AE7773-low.gif" /> to read the pop-up help and
+		  better understand what each performance metric means. 
+		</p>
+<p id="GUID-BB10AEDA-F0FD-4163-B0D6-A14E507A0529"><img id="IMAGE_01C96DE39B514AD18468F12A055BB698" src="GUID-4E0F6345-0DDA-4673-A244-B1FA09EA4621-low.gif" /></p>
+<p id="GUID-BE5E783D-B0F4-47DF-BE74-2D97A3AE8B84">The 
+		  <strong>Elapsed Time</strong> metric shows the duration of the collection
+		  including Paused Time. You may use this metric as one of the basic performance
+		  indicators. 
+		</p>
+<p> Note that 
+		  <strong id="GUID-E888E65F-0D86-46AF-B942-5FE06BBE8F5A">CPU Time</strong> for the
+		  sample application is equal to 
+		  <span id="GUID-6BC9014D-A014-45BA-8C5B-110A7DB3AD11">614.510</span> seconds. It is the
+		  sum of CPU time for all application threads. 
+		  <strong id="GUID-EDF6A58C-2777-48C3-A86D-A6D25633BFEB">Total Thread
+			 Count</strong> is 16, so the sample application is multi-threaded. 
+		</p>
+<p>The 
+		  <samp class="codeph">nqueens_parallel</samp> application uses the OpenMP*
+		  threading model. VTune Amplifier analyzes performance in OpenMP parallel
+		  regions as well as serial code performance. The 
+		  <strong>OpenMP Analysis</strong> section provides metrics based on the 
+		  <strong>Collection Time</strong>, which is the wall time from the beginning to
+		  the end of collection, excluding Paused Time. The 
+		  <samp class="codeph">nqueens_parallel</samp> application ran serially
+		  only 
+		  <span>0.464</span> seconds, which is 
+		  <span>0.6</span>% of Collection Time. According to the
+		  provided estimates, you can improve the efficiency of your code in parallel
+		  regions and get 
+		  <span>40.422</span> seconds of performance gain
+		  (maximum estimate), which is 
+		  <span>50.3</span>% of Collection Time. 
+		</p>
+<p><img id="IMAGE_55EF08C79A774D00B2C62B541438473E" src="GUID-9BD72179-3DAD-42B3-A246-56BFAA362AC7-low.gif" /></p>
+<p>The 
+		  <strong>Top OpenMP Regions by Potential Gain</strong> section displays the
+		  parallel region in the 
+		  <samp class="codeph">nqueens_parallel</samp> application that should be
+		  optimized. 
+		</p>
+<p><img id="IMAGE_C5FAFF0B2054466F8E7FF5F4ACDB6E98" src="GUID-3E44D037-6A6E-42A4-B459-39CD23CCA415-low.png" /></p>
+<p>Clicking this region opens the 
+		  <strong>Bottom-up</strong> window with the data grouped by 
+		  <strong>OpenMP Region</strong> and detailed statistics for the hot regions. 
+		</p>
+</div>
+<div class="section" id="ANALYZE_HOTSPOTS"><h2 class="sectiontitle">Analyze the Most
+		  Time-consuming Functions</h2><p> Click the 
+		  <strong> Bottom-up</strong> tab to explore the 
+		  <strong>Bottom-up</strong> pane. By default, the data in the grid is sorted by
+		  Function. You may change the grouping level using the 
+		  <strong>Grouping</strong> drop-down menu at the top of the grid. 
+		</p>
+<p>Click the 
+		  <strong>Effective Time bu Utilization</strong> to sort the hotspots functions by
+		  effective time. 
+		</p>
+<p id="GUID-82C70941-F90A-4DD1-B3B4-4A67636F97A7"> The
+		  
+		  <samp class="codeph">nqueens_IP_setqueen</samp> function took 
+		  <span id="GUID-1F9CCE2A-66E6-4EEB-B149-F0C7CE075533">159.288</span> seconds to execute,
+		  ineffectively using CPU resources during all this time. 
+		</p>
+<p id="GUID-35EA8C8E-9D58-4B98-9ABB-E68DECBA892C"><span id="GUID-5CA8A2C9-6841-4542-A77A-3A2B61911EA6"></span><br /><img id="IMAGE_090F24076FCE49CDA7AADEFEBB9EDAAB" src="GUID-BD79EE38-F6E2-4314-8A83-D55AAD25581A-low.gif" /></p>
+<p>Double-click the hotspot function to open the source and identify the
+		  most time-critical code lines. 
+		</p>
+</div>
+<div class="section" id="CPU_USAGE"><h2 class="sectiontitle">Identify the
+		  Hotspot Code Region</h2><p id="GUID-F93D4CE7-314B-40EC-87A7-D669EF4BE824"><img id="IMAGE_FF3B953870144C61A8FD355B5EB3FDF3" src="GUID-1112953F-C6C7-4278-A09E-D9CF366386DB-low.gif" /></p>
+<p id="GUID-EBF5F785-4CED-4260-A600-5E8F629ED497"> The table below
+		  explains some of the features available in the 
+		  <strong>Source</strong> window when viewing the Basic Hotspots analysis data. 
+		
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-1C693975-D8FE-4039-A789-FE3428448D69" width="100%" frame="void" border="1" rules="none" cellspacing="2"><tbody><tr><td class="noborder" valign="top" width="7.262164124909224%"><p id="GUID-46B320A2-46E4-47DA-ADDA-1BF3686EE827"><img id="IMAGE_A07B55FCB4014326BBCFE43E85C460BC" height="22" src="GUID-A4AF9F6D-C2F3-4CC2-BC62-4EF73CA76B7B-low.jpg" width="22" alt="1" /></p>
+</td>
+<td class="noborder" valign="top" width="92.73783587509078%"><p id="GUID-25A5FF94-BE25-4895-B6D9-4C442D94EBE9"><strong>Source</strong> pane displaying
+						the source code of the application if the function symbol information is
+						available. The hottest code line is highlighted. The source code in the 
+						<strong>Source</strong> pane is not editable. 
+					 </p>
+<p id="GUID-2AC7588B-9152-4034-9777-D1912C560DEE">If the function symbol
+						information is not available, the 
+						<strong>Assembly</strong> pane opens displaying assembler instructions
+						for the selected hotspot function. To enable the 
+						<strong>Source</strong> pane, make sure to build the target properly. 
+					 </p>
+</td>
+</tr>
+<tr><td class="noborder" valign="top" width="7.262164124909224%"><p id="GUID-1DE15FF1-DE34-4C25-948E-1942336D6755"><img id="IMAGE_89B97B0F53104DF497AD8305CC992C2C" height="22" src="GUID-D8DBA40B-558C-4899-B9B6-9068F1CAE124-low.jpg" width="22" alt="2" /></p>
+</td>
+<td class="noborder" valign="top" width="92.73783587509078%"><p id="GUID-9556A181-47EA-4DFB-AC3C-EE05789CBB3F">Processor
+						time attributed to a particular code line. If the hotspot is a system function,
+						its time, by default, is attributed to the user function that called this
+						system function. 
+					 </p>
+</td>
+</tr>
+<tr><td class="noborder" valign="top" width="7.262164124909224%"><p id="GUID-D1E00998-5679-4B94-8D97-42906FB8FDCD"><img id="IMAGE_C40E683A00C74F6A94A43736DCE96B75" height="22" src="GUID-EC89F6F7-1D37-4D59-82B5-710853E15391-low.jpg" width="22" alt="3" /></p>
+</td>
+<td class="noborder" valign="top" width="92.73783587509078%"><p id="GUID-195640EF-EFB1-4400-9DF1-C96AB2736EB5"><strong>Source</strong>
+						window toolbar. Use the hotspot navigation buttons to switch between most
+						performance-critical code lines. Hotspot navigation is based on the metric
+						column selected as a Data of Interest. For the Basic Hotspots analysis, this is
+						
+						<strong id="GUID-1421938A-2F0B-463E-9553-115C4466CC95">CPU
+						  Time</strong>. Use the 
+						<strong id="GUID-F6F43C5A-4754-432F-B1BD-ACE59C1C0277">Source</strong>/<strong id="GUID-77E35E9D-D4B9-4C10-9164-AE49B5EF1C96">Assembly</strong> buttons to toggle
+						the 
+						<strong>Source</strong>/<strong>Assembly</strong> panes (if both of them are
+						available) on/off. 
+					 </p>
+</td>
+</tr>
+<tr><td class="noborder" valign="top" width="7.262164124909224%"><p id="GUID-AE1B923B-A4C5-48BE-BE1E-0B5C878AE0CF"><img id="IMAGE_823B1A025A754AA4B3A9183C9C286D6F" height="22" src="GUID-C65E00A6-6283-46D0-AE5E-99DBE68C9379-low.jpg" width="22" alt="4" /></p>
+</td>
+<td class="noborder" valign="top" width="92.73783587509078%"><p id="GUID-12C679E9-66E9-44C2-9CFD-6C88095C9165">Heat map
+						markers to quickly identify performance-critical code lines (<em>hotspots</em>).
+						The bright blue markers indicate hot lines for the function you selected for
+						analysis. Light blue markers indicate hot lines for other functions. Scroll to
+						a marker to locate the hot code line it identifies. 
+					 </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</p>
+<p id="GUID-1ACC2B41-025A-42F6-9851-6F0EEEF49A0B">By default, when you
+		  double-click the hotspot in the<strong> Bottom-up</strong> pane, the VTune Amplifier
+		  opens the source file related to this function with the hottest code line
+		  highlighted. For the 
+		  <samp class="codeph">nqueens_IP_setqueen</samp> function, this is
+		  the code line that is used to create a local copy of the 
+		  <samp class="codeph">queens</samp> array to avoid a data race. Click the 
+		  <img id="IMAGE_94903E9F743F4A0DB4624ACDD768BA69" src="GUID-66F5A54E-83EC-4E60-AD9A-83481F49715D-low.jpg" /><strong>Source Editor</strong> button on the 
+		  <strong>Source</strong> window toolbar to open the default code editor and work
+		  on optimizing the code. 
+		</p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p>Depending on the sample code version, your source line numbers may
+			 slightly differ from the numbers provided in this tutorial. 
+		  </p>
+</div>
+</div>
+<div class="section" id="GUID-F32C84F6-D38D-406B-8E84-B4A4949E2759"><h2 class="sectiontitle">Key Terms </h2><ul id="GUID-CF1720F3-BF52-414D-BABA-E02EC0A397B9"><li id="LI_127E8BC8C7A24BFCBDEA284A2847DF9D"><p><a href="GUID-E9306A17-2C65-46CD-BE42-D8D94D0E336E.html#CPU_TIME">CPU
+				  time</a></p>
+</li>
+<li id="LI_DFAEB7AA918747988FB76FF8740D1846"><p><a href="GUID-E9306A17-2C65-46CD-BE42-D8D94D0E336E.html#VIEWPOINT">Viewpoint</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="GUID-CB3D6353-0B87-4468-A5F6-BAED6D5D8B3F"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-8DF87690-C9D0-464E-852B-C839266C97C7.html">Resolve
+			 Issue</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-742F5949-4A88-4170-9A20-425DD0CFB029.html">Finding Hotspots</a></div>
+</div>
+<div></div>
+</body>
+</html>

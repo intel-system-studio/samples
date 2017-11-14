@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="インテル&reg; Cilk&#8482; Plus バージョンをビルドする" />
+<meta name="DC.Relation" scheme="URI" content="GUID-4E518E06-60DC-4CA0-9398-5B15062EFC66.html" />
+<meta name="DC.Relation" scheme="URI" content="http://www.intel.com/software/products/softwaredocs_feedback" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-9E565F71-D5F4-47E7-96E3-8ED17764274F" />
+<meta name="DC.Language" content="ja-JP" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>インテル&reg; Cilk&#8482; Plus バージョンをビルドする</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-9E565F71-D5F4-47E7-96E3-8ED17764274F">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+
+
+<h1 class="topictitle1">インテル&reg; Cilk&#8482; Plus バージョンをビルドする</h1>
+<div id="GUID-F0F51325-0475-4F40-8CB7-C36725B61634"><p>インテル&reg; Cilk&#8482; Plus バージョンをビルドするには、インテル&reg; Cilk&#8482; Plus を使用するようにサンプル・アプリケーションを変更してから、変更したコードをコンパイルします。次に、アプリケーションを実行して、実行時間とベースラインを比較します。</p>
+<ol id="GUID-3F0FFA43-FB36-4AA4-A90B-9382743FD089"><li id="GUID-34DFCFED-3680-4736-A8E8-A95F04009719"><p>次のコマンドを実行して、シリアルバージョンのビルド時に作成されたファイルをすべて削除します。</p>
+<p><span class="filepath">%make clean</span></p>
+</li>
+<li id="GUID-5F5A522F-34A0-4426-A825-A036F02E2293"><p id="GUID-F64602BE-0EEB-4140-B8EB-6F246F92E4C3">ソースファイル <span class="filepath">src/build_with_cilk/build_with_cilk.cpp</span> を開きます。</p>
+</li>
+<li id="GUID-A83028F1-55B8-4588-AF1B-2C4E8FE40B2C"><p id="GUID-7B01DDC0-B271-43A7-A9D1-C56C2B1B88E0">インテル&reg; Cilk&#8482; Plus ヘッダーファイルのコメントを外して、インテル&reg; Cilk&#8482; Plus キーワードを使用するようにします。</p>
+</li>
+<li id="GUID-ABB0A7E6-079E-4C2E-9C7B-1B22354318D3"><p id="GUID-4E0D1487-7EC6-485F-B258-45022F5752E1">インテル&reg; Cilk&#8482; Plus の実装に関連する <samp class="codeph" id="GUID-7AD5047F-B9C5-45DD-B584-ACD3D93EA6DF">parallel_thread()</samp> 関数のコメントを外します。この関数とシリアルバージョンの <samp class="codeph" id="GUID-AF01688F-A5B1-46EA-9F64-68F0E047F62A">parallel_thread()</samp> 関数の違いに注意してください。for ループを並列化するため、<span class="keyword">for</span> キーワードは <span class="keyword">cilk_for</span> キーワードに置換されます。ループの残りの部分を変更する必要はありません。<samp class="codeph">video-&gt;next_frame</samp> の有効性チェックは行われなくなりました。並列ループの途中でループを出ることは許可されていません。このチェックで保存した反復は、結果に影響することなく配布されます。</p>
+</li>
+<li id="GUID-8CEDA0C7-F4D8-4012-A47C-A6543E4AC3E7"><p id="GUID-906E8E9D-9294-476B-82F7-7AE305D5A665">シリアル <samp class="codeph">parallel_thread()</samp> 関数をコメントアウトします。この関数はインテル&reg; Cilk&#8482; Plus バージョンの <samp class="codeph">parallel_thread()</samp> 関数に置換されます。</p>
+</li>
+<li id="GUID-366F8E08-F05C-4E13-AFC9-A95088F49C72"><p>次のコマンドを実行してサンプルをビルドします。</p>
+<p><span class="filepath">%make cilk</span></p>
+</li>
+<li id="GUID-9F34404F-44BC-4027-B70A-583186C3CF24"><p id="GUID-10380FC5-0417-4AC3-9AAC-8D82FB12033D">サンプル・アプリケーションを実行します。</p>
+</li>
+</ol>
+<p>イメージのレンダリングにかかった時間とパフォーマンスのベースラインを比較します。</p>
+<p>インテル&reg; Cilk&#8482; Plus で利用可能なスレッド数を変更する場合は、環境変数 <span class="keyword">CILK_NWORKERS</span> にスレッド数を設定します。または、ランタイム関数 <samp class="codeph">__cilkrts_set_param("nworkers", "N")</samp> を使用します (<samp class="codeph">N</samp> はスレッド数)。このランタイム関数は、<samp class="codeph">cilk_spawn ()</samp> または <samp class="codeph">cilk_for ()</samp> 関数の最初の呼び出しの前に呼び出す必要があります。この設定により、インテル&reg; Cilk&#8482; Plus コードを並列に実行する最大スレッド数が設定されますが、インテル&reg; Cilk&#8482; Plus ランタイムはスチールが発生するスレッドのみ使用するように設計されていることに注意してください。ワークロードが非常に少ない場合、1 つのスレッドのみ使用されることもあります。</p>
+<p>これで、このチュートリアルは終了です。</p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a href="GUID-4E518E06-60DC-4CA0-9398-5B15062EFC66.html">チュートリアル: macOS* 版</a></div>
+</div>
+<div></div>
+</body>
+</html>

@@ -5,7 +5,7 @@
 # SAMPLE SOURCE CODE - SUBJECT TO THE TERMS OF SAMPLE CODE LICENSE AGREEMENT,
 # http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
 # 
-# Copyright (C) Intel Corporation
+# Copyright 2017 Intel Corporation
 # 
 # THIS FILE IS PROVIDED "AS IS" WITH NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT
 # NOT LIMITED TO ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -291,7 +291,7 @@ fi
 #!/bin/sh
 #
 #
-# Copyright (C) Intel Corporation.  All Rights Reserved. 
+# Copyright 2017 Intel Corporation.  All Rights Reserved. 
 #
 # The source code contained or described herein and all documents related
 # to the source code ("Material") are owned by Intel Corporation or its

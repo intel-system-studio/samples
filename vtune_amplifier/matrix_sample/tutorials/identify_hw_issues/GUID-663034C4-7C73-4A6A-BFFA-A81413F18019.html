@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Configure and Run Analysis" />
+<meta name="DC.Relation" scheme="URI" content="GUID-A9D4BE8C-4266-4F34-BA9C-00AFF01CE32B.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2017" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-663034C4-7C73-4A6A-BFFA-A81413F18019" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Configure and Run Analysis</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-663034C4-7C73-4A6A-BFFA-A81413F18019">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier </em></p>
+
+
+<h1 class="topictitle1">Configure and Run
+	 Analysis</h1>
+<div id="GUID-CDAE0E78-3F97-49DB-B5E1-966DDEF3DC11"><p id="GUID-054CD6A2-D265-442A-B4B5-3E5366025510"></p>
+<p id="GUID-1B49C4FD-53A2-41CF-8EB3-1F95D3F4AA24"><img id="IMAGE_0761D636157A42759B1C4BABBE145359" height="32" src="GUID-C2B5D55A-E9BE-48F2-BFAA-B91DE7D1BBBF-low.png" width="32" /> After building the sample application, configure the Intel VTune
+		Amplifier for the General Exploration analysis as follows: 
+	 </p>
+<ol id="GUID-8764ACD9-1AD1-432E-A166-82D1C4A8EC47"><li id="LI_E6F99B2E43404B5E9F37E07B8C824129"><p><a href="#CREATE_PROJECT">Create
+				a VTune Amplifier 
+				<em>project</em></a>, which is a container for an analysis target
+			 and analysis type configuration and data collection results. 
+		  </p>
+</li>
+<li id="LI_4812BB7909374690A64838A5A11FDDCA"><p><a href="#TARGET">Specify
+				your target application for analysis</a>. 
+		  </p>
+</li>
+<li id="LI_FF85E8EF6688463AA071D760E47BDF94"><p><a href="#ANALYSIS">Select
+				and run the General Exploration analysis</a> to discover what parts of the
+			 application code are being most used and see what hardware resources are being
+			 used there. 
+		  </p>
+</li>
+</ol>
+<div class="section" id="CREATE_PROJECT"><h2 class="sectiontitle">Create a Project 
+		  </h2><p><ol id="GUID-92B46797-0784-4641-966F-96909DDE5CB0"><li id="GUID-CDC3EFBF-E46E-4D6B-90D0-4FE73DC9C246"><p id="GUID-16BC1EC8-273A-4108-A94F-DE5EE52C99AE">Set the 
+				<samp class="codeph" id="GUID-96C78A42-2639-4B0E-B0CE-2D36602B858D">EDITOR</samp> or 
+				<samp class="codeph" id="GUID-B7E113C0-8259-4884-9172-75FBDCC15233">VISUAL</samp> environment
+				variable to associate your source files with the code editor (like emacs, vi,
+				vim, gedit, and so on). For example: 
+			 </p>
+<p id="GUID-24D015EE-F423-4941-8A6B-6E1924A388E7"><samp class="codeph" id="GUID-39B8D18F-F929-4D67-B53C-A8FA28EFED14">$ export
+				  EDITOR=gedit</samp></p>
+</li>
+<li id="LI_7C818E0435284F76B43A07BEF4204986"><p>Execute the 
+				<samp class="codeph">amplxe-vars</samp> script, located in the product
+				installation directory, to set up the environment. 
+			 </p>
+</li>
+<li id="GUID-23828820-29B7-4E22-BEBC-C44E9690ACCD"><p><span>Run the 
+				  <samp class="codeph" id="GUID-46E57A0A-9C16-4005-821E-C46F6B68CBAC">amplxe-gui
+					 
+				  </samp>script launching VTune Amplifier GUI.</span></p>
+</li>
+<li id="GUID-F10798C6-2DBE-40C3-9927-57BBC2392917"><p id="GUID-A731E63E-D013-458D-8F3E-2D2D39732140">Click the 
+				<img id="IMAGE_9078A260F3CA48FCB2A6D5659197C37A" src="GUID-0464249E-D696-4E21-91E9-8265017B3DAC-low.gif" /> menu button and select 
+				<strong>New &gt; Project...</strong> to create a new project. 
+			 </p>
+<p id="GUID-384ADD54-3597-47D6-BF25-4111F1FC0DA4">The 
+				<strong id="GUID-B00F13E1-8734-4E40-A33E-BF687AF117D7">Create a
+				  Project</strong> dialog box opens. 
+			 </p>
+</li>
+<li id="GUID-190592CE-1629-4DE9-87B4-1083FF4B6590"><p id="GUID-8D40EC26-59BA-4BC1-8C4A-53A7639EBF99">Specify the project
+				name 
+				<samp class="codeph" id="GUID-254778AE-18BF-41B4-8AE3-F637951396BF">matrix</samp> that will be
+				used as the project directory name and click the 
+				<strong id="GUID-C2D3A6F6-E329-4459-A30C-7E50DADBBA87">Create
+				  Project</strong> button. 
+			 </p>
+<p id="GUID-8F9EFD25-3C4F-4119-AABB-C6511CD5D5D8">By default, the
+				VTune Amplifier creates a project directory under the 
+				<span><samp class="codeph">$HOME/intel/amplxe/projects</samp>
+				  (for VTune Amplifier XE) or 
+				  <samp class="codeph">$HOME/intel/amplsys/projects</samp> (for VTune
+				  Amplifier for Systems) 
+				</span> directory and opens the 
+				<strong id="GUID-C1E62171-F237-4ED2-99A4-1BF78E6B580A">New Amplifier
+				  Result</strong> tab with the 
+				<strong>Analysis Target</strong> sub-tab active. 
+			 </p>
+</li>
+</ol>
+</p>
+</div>
+<div class="section" id="TARGET"><h2 class="sectiontitle">Specify Analysis Target</h2><p>To specify your application as analysis target,
+		  configure the 
+		  <strong>Analysis Target</strong> tab: 
+		</p>
+<p><ol id="GUID-0B0A05C8-44F8-43A1-B881-45BEFCEC1D31"><li id="LI_5384D9EA969F4F61AF724195E650F94B"><p>From the left pane, select the 
+				<strong>local</strong> target system from the 
+				<strong>Accessible Targets</strong> group. 
+			 </p>
+</li>
+<li id="LI_A4D0592A27FD49EBAC6C69198E331F43"><p>From the right pane, select the 
+				<strong>Launch Application</strong> type of the analysis target drop-down
+				menu. 
+			 </p>
+</li>
+<li id="LI_8E33E262A511411AB1B74BBC538A31FD"><p>In the 
+				<strong>Application</strong> field, click the 
+				<strong>Browse</strong> button and navigate to the 
+				<samp class="codeph">matrix.icc</samp> application. 
+			 </p>
+</li>
+<li id="LI_A13F077F64E34602ACDFF766AF148EBA"><p>Click the 
+				<strong>Choose Analysis</strong> button on the right to switch to the 
+				<strong>Analysis Type</strong> tab. 
+			 </p>
+</li>
+</ol>
+</p>
+<p><img id="IMAGE_6D45E28AC3304751BD489658AEC85F5F" src="GUID-9DAFC48E-64E6-48DC-9BEC-5BB51479B059-low.gif" /></p>
+</div>
+<div class="section" id="ANALYSIS"><h2 class="sectiontitle">Configure and Run Analysis Type</h2><ol id="GUID-6D59C3B1-7C3B-4FDD-AA68-90A0ADD7A922"><li id="GUID-E442C366-9507-4298-89FE-E685893901D3"><p id="GUID-75DD77BD-1E83-4C1F-B8C9-C4B6053E4A10">In the 
+				<strong>Analysis Type</strong> tab, select the 
+				<strong id="GUID-525F4F4D-2474-4A88-8718-7BD128FE423C">Microarchitecture
+				  Analysis &gt; General Exploration</strong> analysis type from the analysis tree on
+				the left. 
+			 </p>
+</li>
+<li id="GUID-B5913821-DE0C-4432-B8C0-6F4BC310F845"><p id="GUID-8ACF2CBF-CEDE-4C5E-B7FD-F15D2FC366BF">Click the 
+				<strong id="GUID-07543512-81CE-4E1C-89B1-53B764FC9366">Start</strong> button
+				on the right to run the analysis. 
+			 </p>
+</li>
+</ol>
+<p id="GUID-967C59DE-258B-406C-84E2-5B6B9E125448"><img id="IMAGE_0A319029A99547B1A0E25EE7EF5F21AF" src="GUID-59346720-4806-45D0-875C-E354176B53DD-low.gif" /></p>
+<p>General Exploration analysis collects event and IP
+		  information over a wide net of hardware issues that might affect application
+		  performance. 
+		</p>
+<p id="GUID-437A5911-7D4B-455A-A879-88747A23A794">VTune Amplifier
+		  launches the 
+		  <samp class="codeph" id="GUID-0E4D940C-8F1C-4412-A869-771641587DDA">matrix</samp>
+		  application that calculates matrix transformations before exiting. When the
+		  application exits or after a predefined interval, depending on how the
+		  collection run was configured, collection is completed and the VTune Amplifier
+		  enters the 
+		  <em>finalization</em> process, where data are coalesced, symbols are
+		  reconnected to their addresses, and certain data are cached to speed the
+		  display of results. 
+		</p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <p id="GUID-1A75B92B-14C8-4B34-B2F9-90DB52EE7A56">To make sure the
+			 performance of the application is repeatable, go through the entire tuning
+			 process on the same system with a minimal amount of other software executing. 
+		  </p>
+</div>
+</div>
+<div class="section" id="GUID-89709FCE-B289-4727-81E6-B63AA9E6CF55"><h2 class="sectiontitle">Key Terms </h2><p id="GUID-44C1B398-4D84-42D7-835F-5FAF0C53146B"><ul id="GUID-ED722FF9-3E03-4B3F-A6FE-109642CF32CD"><li id="GUID-D9B75E49-5AFF-4683-AF92-3CAC19924207"><p id="GUID-E6E413E4-E2E9-4B62-A3B7-1F61D9DAB0D0"><a href="GUID-2BEA8D3A-AF3A-46FE-8A4E-39F889F59C58.html#FINALIZATION">Finalization</a></p>
+</li>
+<li id="GUID-E21F306A-E707-4675-BB84-41DDF13B906B"><p id="GUID-4666F7D4-D988-4C06-B9CF-79D6C923B8F7"><a href="GUID-2BEA8D3A-AF3A-46FE-8A4E-39F889F59C58.html#VIEWPOINT">Viewpoint</a></p>
+</li>
+</ul>
+</p>
+</div>
+<div class="section" id="GUID-79F92D04-C1D0-4F39-8A79-149E9B9EDA5C"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-D77E4125-C797-4949-9418-AA630B67A72F.html">Interpret
+			 Results</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-A9D4BE8C-4266-4F34-BA9C-00AFF01CE32B.html">Identifying Hardware Issues</a></div>
+</div>
+<div></div>
+</body>
+</html>

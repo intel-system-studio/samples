@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Run Locks and Waits Analysis" />
+<meta name="DC.Relation" scheme="URI" content="GUID-742F5949-4A88-4170-9A20-425DD0CFB029.html" />
+<meta name="prodname" content="VTune Amplifier" />
+<meta name="version" content="2016" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-B245A744-74DE-484F-8F8B-F02E4797E4F8" />
+<meta name="DC.Language" content="en-US" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>Run Locks and Waits Analysis</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-B245A744-74DE-484F-8F8B-F02E4797E4F8">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Intel&reg; VTune&#8482; Amplifier</em></p>
+
+
+<h1 class="topictitle1">Run Locks and Waits Analysis</h1>
+<div><p><img id="IMAGE_6E556E460D6441569E16510EC73338C5" src="GUID-02914B5D-1A7D-4B4B-8A24-9534BDA714E4-low.gif" /> Run the Locks and Waits analysis to identify synchronization
+		objects that caused contention and fix the problem in the source. 
+	 </p>
+<p><strong>To run an analysis:</strong></p>
+<p><ol id="GUID-75FC8774-5B33-4D32-A2D1-2ABFAD1EC732"><li id="LI_61383B2F52E64820B4FAFC95D864CC97"><p>From the VTune Amplifier toolbar, click the 
+			 <strong>New Analysis</strong> button. 
+		  </p>
+<p>VTune Amplifier result tab opens with the 
+			 <strong>Choose Analysis Type</strong> window active. 
+		  </p>
+</li>
+<li id="LI_A125582F0D4841EFA0DA7FCB2BE5E624"><p>From the analysis tree on the left, select 
+			 <strong>Algorithm Analysis &gt; Locks and Waits</strong>. 
+		  </p>
+<p>The right pane is updated with the default options for the Locks and
+			 Waits analysis. 
+		  </p>
+</li>
+<li id="LI_4A2CA90F63B848DF9EAB908CCA4FB0EA">Select the 
+		  <b class="uicontrol">Analyze Intel runtimes and user synchronization</b>
+		  checkbox. 
+		</li>
+<li id="LI_7496ABFF4D504447AF6D7EDDF15A1B47">Click the 
+		  <strong>Start</strong> button on the right command bar. 
+		</li>
+</ol>
+</p>
+<p><img id="IMAGE_7B1BDE1291704A18848FA246526B7A6E" src="GUID-2FF255B6-052C-4303-ACA5-1A150B783E0A-low.gif" /></p>
+<p>VTune Amplifier launches the 
+		<samp class="codeph">nqueens_parallel</samp> executable that makes calculations,
+		displays the execution time, and exits. VTune Amplifier finalizes the collected
+		data and opens the results in the 
+		<b class="uicontrol">Locks and Waits</b> viewpoint. 
+	 </p>
+<div class="Note"><h3 class="NoteTipHead">Note</h3> <ul id="GUID-CD27B64D-9F80-4FFE-8D87-E0010CE6A7D6"><li id="LI_D9E5D5139D4645CC98F184E4E9457B29"><p>To make sure the performance of the application is repeatable, go
+				through the entire tuning process on the same system with a minimal amount of
+				other software executing. 
+			 </p>
+</li>
+<li id="LI_C6F5BEF00F9C4129804CABDBB2669C53"><p>This tutorial explains how to run an analysis from the VTune
+				Amplifier graphical user interface (GUI). You can also use the VTune Amplifier
+				command-line interface (<samp class="codeph">amplxe-cl</samp> command) to run an analysis.
+				For more details, check the 
+				<em>Command-line Interface Support</em> section of the VTune
+				Amplifier Help. 
+			 </p>
+</li>
+</ul>
+</div>
+<div class="section" id="GUID-D68F2A07-BE80-45FB-9EE5-0BCD5F55D548"><h2 class="sectiontitle">Key Terms</h2><ul id="GUID-58ECD77A-D83A-457F-BE3D-FE163E2090CD"><li id="LI_F786DDD4FD434D50B0741D9B96655EBB"><p><a href="GUID-E9306A17-2C65-46CD-BE42-D8D94D0E336E.html#FINALIZATION">Finalization</a></p>
+</li>
+<li id="LI_2BDCD2FD374F489C99CCC046411305DC"><p><a href="GUID-E9306A17-2C65-46CD-BE42-D8D94D0E336E.html#VIEWPOINT">Viewpoint</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="GUID-1CF4C06A-3B76-4CF4-B3AE-F7A9A24D8190"><h2 class="sectiontitle">Next Step</h2><p><a href="GUID-10E76965-CBA4-43A9-B0F6-F438EA885E59.html">Interpret Locks
+			 and Waits Results</a></p>
+</div>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-742F5949-4A88-4170-9A20-425DD0CFB029.html">Finding Hotspots</a></div>
+</div>
+<div></div>
+</body>
+</html>

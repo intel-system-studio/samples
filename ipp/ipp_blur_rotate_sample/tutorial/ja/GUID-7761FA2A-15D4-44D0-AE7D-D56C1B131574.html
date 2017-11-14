@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="インテル&reg; IPP 画像処理の基本" />
+<meta name="DC.subject" content="画像の表現, ROI の処理, 関数データの初期化, 基本的な概念, 境界処理" />
+<meta name="keywords" content="画像の表現, ROI の処理, 関数データの初期化, 基本的な概念, 境界処理" />
+<meta name="DC.Relation" scheme="URI" content="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html" />
+<meta name="prodname" content="" />
+<meta name="version" content="9.0" />
+<meta name="series" content="" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574" />
+<meta name="DC.Language" content="ja-JP" />
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<title>インテル&reg; IPP 画像処理の基本</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet" />
+</head>
+<body id="GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt">チュートリアル: インテル® IPP 2018 (Beta) による画像の回転とブラー</p>
+
+
+<h1 class="topictitle1">インテル&reg; IPP 画像処理の基本</h1>
+<div><p>このセクションでは、インテル&reg; IPP の画像処理で使用される基本的な概念について説明します。</p>
+<p><ul id="GUID-49A7115A-8DA7-41CD-AE69-4F7932CA7C2D"><li><a href="#GUID-5D5EB778-11EC-4BBA-898A-88C1E326E70E">画像の表現</a></li>
+<li><a href="#GUID-FB746FC1-E884-4000-A0B9-FE50F647ACD4">対象領域 (ROI) の処理</a></li>
+<li><a href="#GUID-2F89D6DF-93F8-46DC-9C80-52705609E047">関数データの初期化</a></li>
+<li><a href="#GUID-38181A15-DB1D-4526-AAD1-FAE2985E41A3">画像境界タイプの設定</a></li>
+</ul>
+</p>
+<div class="section" id="GUID-5D5EB778-11EC-4BBA-898A-88C1E326E70E"><h2 class="sectiontitle">画像の表現</h2><p>画像はピクセルのラインとして表現できます。画像形式に応じて、1 つのピクセルで 1 つ以上の整数値または浮動小数点値を保持できます。画像の各行には同じ数のピクセルが含まれます。画像ステップは、画像の連続するラインの始点間の距離に等しい値 (バイト単位) です。</p>
+</div>
+<div class="section" id="GUID-FB746FC1-E884-4000-A0B9-FE50F647ACD4"><h2 class="sectiontitle">対象領域 (ROI) の処理</h2><p>ほとんどのインテル&reg; IPP 画像処理関数は、画像全体だけでなく、画像内の領域も操作できます。画像の対象領域 (ROI) は、画像の一部または画像全体の矩形領域です。ROI 処理をサポートするインテル&reg; IPP 関数には、名前に <span class="keyword">R</span> 記述子が含まれています。</p>
+<p>以下の図に示すように、画像の ROI は、サイズと画像の原点からのオフセットにより定義されます。画像の原点は左上隅で、<span class="keyword">x</span> 値は右向き (左から右) に増加し、<span class="keyword">y</span> 値は下向き (上から下) に増加します。</p>
+<p><img src="GUID-B0681CB6-3A3C-4844-B1A6-062C7FE514D6-low.png" width="500" /></p>
+</div>
+<div class="section" id="GUID-2F89D6DF-93F8-46DC-9C80-52705609E047"><h2 class="sectiontitle">関数データの初期化</h2><p>ほとんどのインテル&reg; IPP 関数は、メモリー割り当てを実行しません。また、アルゴリズム実行のために事前に計算された値を保存する (または一時データを保持する) 外部メモリーバッファーは必要ありません。必要なバッファーのサイズを取得するには、次の補助関数を使用します。</p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-35F31098-FF6D-4840-8143-6AFE56576840" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" valign="top" width="NaN%" id="d600e90">関数</th>
+<th class="cellrowborder" valign="top" width="NaN%" id="d600e92">説明</th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="NaN%" headers="d600e90 ">&lt;処理関数&gt;<span class="option">GetSize</span></td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d600e92 ">&lt;処理関数&gt;<span class="option">Init</span> によって初期化される事前に計算したデータ構造のバッファーサイズを取得します。</td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d600e90 ">&lt;処理関数&gt;<span class="option">GetBufferSize</span></td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d600e92 ">処理関数に渡される一時バッファーのサイズを取得します。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="GUID-38181A15-DB1D-4526-AAD1-FAE2985E41A3"><h2 class="sectiontitle">画像境界タイプの設定</h2><p>多くの画像処理アルゴリズムは、浮動小数点 (<var>x</var>, <var>y</var>) 座標でピクセルをサンプリングして、中間画像または出力画像を計算します。画質を向上するには、隣接ピクセルを使用してサンプリングしたピクセル値を計算するフィルターを適用します。つまり、以下の図に示すように、3x3 フィルターカーネルを使用して (8 つの隣接ピクセルを使用して) サイズ 6x6 の画像を取得するには、サイズ 8x8 の画像が必要になります。</p>
+<p><img src="GUID-A0949E83-9304-44EF-9427-32C94AA994CA-low.png" width="400" /></p>
+<p>フィルター操作は画像サイズを縮小します。画像サイズを保持して画像の境界ピクセルを処理するには、画像を拡張する必要があります。インテル&reg; IPP には、さまざまなタイプの境界処理が用意されています。</p>
+<dl id="GUID-838C1F6C-A276-4ED0-B8DA-49B0DB1E5CD5"><dt class="dlterm"><strong>複製された境界</strong></dt>
+
+<dd>境界ピクセルはソース画像のエッジピクセルから複製されます。</dd>
+<dt class="dlterm"><strong>定数の境界</strong></dt>
+
+<dd>すべての境界ピクセルの値は定数に設定されます。</dd>
+<dt class="dlterm"><strong>透明な境界</strong></dt>
+
+<dd>ソース画像から逆変換された場所を含むデスティネーション・ピクセルは処理されません。</dd>
+<dt class="dlterm"><strong>メモリーの境界</strong></dt>
+
+<dd>ソース画像の境界ピクセルはメモリーのソース画像ピクセルから取得されます。</dd>
+<dt class="dlterm"><strong>組み合わせ境界</strong></dt>
+
+<dd>透明な境界とメモリーの境界の組み合わせが適用されます。</dd>
+</dl>
+<p>インテル&reg; IPP 関数の境界処理手法を設定するには、<span class="parmname">borderType</span> (または <span class="parmname">border</span>) パラメーターと <span class="parmname">borderValue</span> パラメーターを使用します。特定の関数でサポートしている境界タイプのリストは、『インテル&reg; IPP デベロッパー・リファレンス』を参照してください。</p>
+</div>
+<p><a href="GUID-ED24D992-DF63-4712-9B28-B89FF4BEEBD7.html#GUID-ED24D992-DF63-4712-9B28-B89FF4BEEBD7"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="戻る" /></a><a href="GUID-87A54D90-C8A5-440C-8E18-AF52D47E519F.html#GUID-87A54D90-C8A5-440C-8E18-AF52D47E519F"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="次へ" /></a></p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a href="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html">チュートリアル: インテル&reg; IPP 2018 (Beta) による画像の回転とブラー</a></div>
+</div>
+<div></div>
+</body>
+</html>
