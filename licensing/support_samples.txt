@@ -1,4 +1,4 @@
-Package ID: l_iss_samples_b_2018.0.001
+Package ID: l_iss_samples_p_2018.0.002
 
 Package Contents:
    Samples and Tutorials for Intel® System Studio
