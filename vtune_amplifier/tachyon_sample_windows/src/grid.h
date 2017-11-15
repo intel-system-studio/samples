@@ -42,7 +42,6 @@
 
 /*
  * grid.h - spatial subdivision efficiency structures
- * 
  */
 
 int engrid_scene(object ** list);

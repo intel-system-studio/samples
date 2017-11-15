@@ -37,8 +37,8 @@ struct RunOptions{
     // number of time to repeat calculation
     NumberType repeatNumber;
 
-    RunOptions(utility::thread_number_range threads, NumberType grainSize, NumberType n, bool silentFlag, NumberType repeatNumber)
-        : threads(threads), grainSize(grainSize), n(n), silentFlag(silentFlag), repeatNumber(repeatNumber)
+    RunOptions(utility::thread_number_range threads_, NumberType grainSize_, NumberType n_, bool silentFlag_, NumberType repeatNumber_)
+        : threads(threads_), silentFlag(silentFlag_), n(n_), grainSize(grainSize_), repeatNumber(repeatNumber_)
     {}
 };
 

@@ -172,7 +172,7 @@ bool video::init_window(int xsize, int ysize)
     XMapRaised(dpy, win);
     XFlush(dpy);
 #ifdef X_FULLSYNC
-	XSynchronize(dpy, true);
+    XSynchronize(dpy, true);
 #endif
     XSetErrorHandler(xerr_handler);
 
@@ -300,7 +300,7 @@ void video::main_loop()
 //! Check for pending events once
 bool video::next_frame()
 {
-	if(!running) return false;
+    if(!running) return false;
     //! try acquire mutex if threaded code, returns on failure
     if(vidtype == 3 || threaded && pthread_mutex_trylock(&g_mutex))
         return running;
@@ -336,8 +336,8 @@ bool video::next_frame()
 #ifndef X_FULLSYNC
         XSync(dpy, false); // It is often better then using XSynchronize(dpy, true)
 #endif//X_FULLSYNC
-  	}
-  	if(threaded) pthread_mutex_unlock(&g_mutex);
+    }
+    if(threaded) pthread_mutex_unlock(&g_mutex);
     return true;
 }
 
@@ -349,8 +349,8 @@ void video::show_title()
 }
 
 drawing_area::drawing_area(int x, int y, int sizex, int sizey)
-    : start_x(x), start_y(y), size_x(sizex), size_y(sizey), pixel_depth(dispdepth),
-    base_index(y*g_sizex + x), max_index(g_sizex*g_sizey), index_stride(g_sizex), ptr32(g_pImg)
+    : base_index(y*g_sizex + x), max_index(g_sizex*g_sizey), index_stride(g_sizex),
+    pixel_depth(dispdepth), ptr32(g_pImg), start_x(x), start_y(y), size_x(sizex), size_y(sizey)
 {
     assert(x < g_sizex); assert(y < g_sizey);
     assert(x+sizex <= g_sizex); assert(y+sizey <= g_sizey);

@@ -129,11 +129,7 @@ endif
 endif
 endif
 	
-ifeq ($(UI),mac)
-	export DYLD_LIBRARY_PATH="$(DYLD_LIBRARY_PATH):$(TBBLIBSPATH)"; ./$(EXE) $(ARGS) dat/$(DATASET).dat
-else
 	./$(EXE) $(ARGS) dat/$(DATASET).dat
-endif
 
 $(EXE): $(SOURCE)
 	$(CXX) $(MYCXXFLAGS) -o $@ $(SOURCE) $(LIBS)
@@ -142,6 +138,3 @@ $(EXE): $(SOURCE)
 clean: VERSION = *
 clean:
 	$(RM) $(EXE) *.o *.d
-ifeq ($(UI),mac)
-	rm -rf $(NAME).*
-endif

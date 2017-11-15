@@ -42,7 +42,7 @@
 
 /*
  * grid.c - spatial subdivision efficiency structures
- * 
+ *
  */
 
 #include "machine.h"

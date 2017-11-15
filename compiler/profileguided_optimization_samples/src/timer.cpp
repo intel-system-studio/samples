@@ -40,7 +40,7 @@ void CUtilTimer::start() {
 #else
 
 	// Clock ticks
-	// On Linux, rdtsc instruction is used since we don't have intrinsic equivalent of __rdtsc()
+	// On Linux*, rdtsc instruction is used since we don't have intrinsic equivalent of __rdtsc()
 	unsigned lower, higher;
 	// rdtsc instruction returns a 64 bit clock tick 
 	// whose lower 32 bits is stored in EAX and higher 32 bits are stored in EDX register

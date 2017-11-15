@@ -4,7 +4,7 @@
 # SAMPLE SOURCE CODE - SUBJECT TO THE TERMS OF SAMPLE CODE LICENSE AGREEMENT,
 # http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
 #
-# Copyright 2017 Intel Corporation
+# Copyright (C) Intel Corporation
 #
 # THIS FILE IS PROVIDED "AS IS" WITH NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT
 # NOT LIMITED TO ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -24,13 +24,6 @@
 #  export CLASSPATH=/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-common-2.5.1.jar:/usr/local/hadoop/share/hadoop/common/hadoop-common-2.5.1.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.5.1.jar:/usr/local/spark/core/target/spark-core_2.10-1.1.0.jar:/usr/local/spark/mllib/target/spark-mllib_2.10-1.1.0.jar:${DAALROOT}/lib/daal.jar
 #  export SCALA_JARS=/tmp/scala-library-2.10.4.jar
 #
-# macOS*:
-#  export JAVA_HOME=$(/usr/libexec/java_home)
-#  export PATH=/usr/local/hadoop/bin:/usr/local/spark-1.1.1/bin:$PATH
-#  export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop/
-#  export DAALROOT=${PWD}/../../../daal
-#  export CLASSPATH=/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-common-2.7.0.jar:/usr/local/hadoop/share/hadoop/common/hadoop-common-2.7.0.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.7.0.jar:/usr/local/spark-1.1.1/core/target/spark-core_2.10-1.1.1.jar:/usr/local/spark-1.1.1/mllib/target/spark-mllib_2.10-1.1.1.jar:${DAALROOT}/lib/daal.jar
-#  export SCALA_JARS=/usr/local/scala-2.10.4/lib/scala-library.jar
 
 help_message() {
     echo "Usage: launcher.sh {arch|help}"

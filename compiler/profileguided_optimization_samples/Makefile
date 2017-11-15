@@ -14,7 +14,7 @@
 CXX := icpc
 SRCDIR := src
 BUILDDIR := release
-CFLAGS := -O2 -ipo -fast -std=c++11 
+CFLAGS := -fast -std=c++11 
 PGOFLAGS := 
 EXTRA_CFLAGS := 
 LIBFLAGS := 

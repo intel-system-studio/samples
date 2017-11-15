@@ -2,7 +2,7 @@ C Optimize Sample
 
 License Information Follows
 ---------------------------
-* int_sin.c 
+* src\int_sin.c 
 * Makefile, build.bat, readme.html
 
 Copyright (C) Intel Corporation

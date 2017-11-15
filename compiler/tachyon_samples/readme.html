@@ -226,8 +226,9 @@
         Tachyon is a 2-D raytracer/renderer that visually shows different parallel scheduling
         methods and their resulting speedup.  The code was parallelized by speculating
         that each pixel could be rendered in parallel.  Minimal synchronization was
-        inserted into the parallel code.  The resulting parallel code, using Intel&reg;
-        Threading Building Blocks (Intel&reg; TBB) exhibits good speedup.
+        inserted into the parallel code.  The resulting parallel code, using either
+        OpenMP*, or Intel&reg; Threading Building Blocks
+        (Intel&reg; TBB) exhibits good speedup.
     </P>
 
 <div class="changes">
@@ -286,14 +287,14 @@
             For Microsoft* Windows*:
             <ul>
                 <li>Microsoft Visual Studio 2013*, 2015* or 2017* Professional Edition or above</li>
-                <li>Intel&reg; Parallel Studio XE 2017 Composer Edition for C++ Windows* or newer<br> or <br>Intel® System Studio 2017 for Windows* Composer Edition or newer</li>
+                <li>Intel&reg; Parallel Studio XE 2018 Composer Edition for C++ Windows* or newer<br> or <br>Intel® System Studio 2018 for Windows* Composer Edition or newer</li>
             </ul>
         </li>
         <li>
             For Linux*:
             <ul>
                 <li>GNU* GCC 4.5 or newer</li>
-                <li>Intel&reg; Parallel Studio XE 2017 Composer Edition for C++ Linux* or newer<br> or <br>Intel® System Studio 2017 Composer Edition or newer</li>
+                <li>Intel&reg; Parallel Studio XE 2018 Composer Edition for C++ Linux* or newer<br> or <br>Intel® System Studio 2018 Composer Edition or newer</li>
             </ul>
         </li>
     </ul>
@@ -365,7 +366,8 @@
 		</ul>
 	</div>
 
-<h4><a href="./tutorial/index.htm">Go To Threading Your Application tutorial</a></h4>
+<h4><a href="./tutorial/en/index.htm">Go To Threading Your Application tutorial (English language)</a></h4>
+<h4><a href="./tutorial/ja/index.htm">Go To Threading Your Application tutorial (Japanese language)</a></h4>
 <p>
     <I>        
         This example includes software developed by John E. Stone.  See
@@ -375,7 +377,7 @@
 
 <div id="footer">
     <p>
-        Intel, Intel logo, Intel386, Intel486, Atom, Core, Itanium, MMX, Pentium, VTune,
+        Intel, Intel logo, Intel386, Intel486, Atom, Core, Itanium, MMX, Pentium, VTune, 
         Xeon Phi, and Xeon are trademarks of Intel Corporation in the U.S. and/or other countries<br>
         * Other names and brands may be claimed as the property of others <br>
         Copyright &copy; Intel Corporation. All Rights Reserved<br>

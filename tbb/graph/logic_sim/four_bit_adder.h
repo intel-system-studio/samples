@@ -24,6 +24,7 @@ typedef composite_node< tuple< signal_t, signal_t, signal_t, signal_t, signal_t,
 class four_bit_adder : public fba_base_type {
     graph& my_graph;
     std::vector<one_bit_adder> four_adders; 
+
 public:
     four_bit_adder(graph& g) : fba_base_type(g), my_graph(g), four_adders(4, one_bit_adder(g)) {
         make_connections();

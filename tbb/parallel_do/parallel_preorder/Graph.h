@@ -55,7 +55,7 @@ public:
     //! Update the Cell's value.
     void update();
 
-    //! Default construtor
+    //! Default constructor
     Cell() {}
 };
 

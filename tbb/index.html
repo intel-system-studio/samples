@@ -370,7 +370,7 @@
 				to the command prompt environment/window normally used on your system:
 				<ul>
 					<li>cmd.exe command prompt window for Windows* systems
-					<li>sh, bash, csh, ksh, etc. (or compatible) shell window for Windows*, or Linux* systems
+					<li>sh, bash, csh, ksh, etc. (or compatible) shell window for Windows* or Linux* systems
 				</ul>
 			</div>
 			<p>
@@ -397,9 +397,9 @@
 					<li><i>(arch)</i> argument represents target architecture. Its possible values are 'ia32' or 'intel64'.
 					<li><i>[vs]</i> argument represents target version of Microsoft* Visual Studio*. Its possible values are:
 					<ul class='circ'>
-					<li><i>'vs&lt;msvs_version&gt;'</i> - to use TBB with Microsoft* Visual Studio* <i>&lt;msvs_version&gt;</i> runtime DLLs, e.g.: <code>tbbvars&nbsp;intel64&nbsp;vs2015</code>
+					<li><i>'vs&lt;msvs_version&gt;'</i> - to use Intel TBB library with Microsoft* Visual Studio* <i>&lt;msvs_version&gt;</i> runtime DLLs, e.g.: <code>tbbvars&nbsp;intel64&nbsp;vs2015</code>
 						<br><i>Note:</i> for the most up to date supported versions of Microsoft* Visual Studio*, see the <a href="http://software.intel.com/en-us/articles/intel-threading-building-blocks-release-notes">release notes.</a>
-					<li><i>'all'</i> - to use TBB statically linked with Microsoft Visual C++ runtime.
+					<li><i>'all'</i> - to use Intel TBB binaries statically linked with Microsoft Visual C++ runtime.
 						<br>If <i>[vs]</i> is not set the <i>'all'</i> value will be used by default.
 					</ul>
 				</dl>
@@ -453,7 +453,7 @@ source &lt;<i>installdir</i>&gt;/bin/tbbvars.csh (arch) [platform [TBBROOT_detec
 			</ol>
 			</div>
 			<br>
-			<div class="h4-alike">To build by using a Makefile (Windows*, or Linux* systems):</div>
+			<div class="h4-alike">To build by using a Makefile (Windows* or Linux* systems):</div>
 			<input type="checkbox">
 			<div class="show-hide">
 			<ol>
@@ -463,7 +463,7 @@ source &lt;<i>installdir</i>&gt;/bin/tbbvars.csh (arch) [platform [TBBROOT_detec
 					defined for use with Microsoft* Visual Studio*. Such shell can be invoked from the Start menu, under Microsoft* Visual Studio*, Microsoft* Visual Studio Tools*, Microsoft* Visual Studio* Command Prompt.</li>
 				</ul>
 			<li>Set up the environment in this shell window for use with Intel TBB.
-				<BR>See above for how to set up the environment for Windows*, or Linux* systems.
+				<br>See above for how to set up the environment for Windows* or Linux* systems.
 			<li>Unless you installed Intel TBB yourself, you may not have write permissions to the directory
 				containing the example. In this case, make a copy of the example, and use the copy for the following steps.
 			<li>In the shell window, navigate to the directory for the example
@@ -498,7 +498,7 @@ source &lt;<i>installdir</i>&gt;/bin/tbbvars.csh (arch) [platform [TBBROOT_detec
 	</div>
 	
 	<br>
-	<a href="../index.html">Up to parent directory</a>
+	<a href="../index.html">Up to parent directory</a> (available only in the Intel&reg; Parallel Studio and Intel&reg; System Studio Online Samples packages and the open-source version of Intel TBB)
 	<hr>
 	<div class="changes">
 	<div class="h3-alike">Legal Information:</div>
@@ -544,7 +544,7 @@ source &lt;<i>installdir</i>&gt;/bin/tbbvars.csh (arch) [platform [TBBROOT_detec
 			<p>
 				Intel and the Intel logo are trademarks of Intel Corporation in the U.S. and/or other countries.
 				<br>* Other names and brands may be claimed as the property of others. 
-				<br>&copy; 2016, Intel Corporation
+				<br>&copy; Intel Corporation
 			</p>
 		</div>
 	</div>	

@@ -124,6 +124,27 @@ static color_t render_one_pixel (int x, int y, unsigned int *local_mbox, unsigne
 //// Without affecting the result.
 //// Then we just add a #pragma omp parallel for to the outermost for loop
 //// To maximize the work done per thread.
+//todo: uncomment following routine for the OpenMP* implementation
+/*
+static void parallel_thread(void)
+{
+    unsigned int mboxsize = sizeof(unsigned int)*(max_objectid() + 20);
+#pragma omp parallel for
+    for ( int y = starty; y < stopy; y++ )
+    {
+        unsigned int serial = 1;
+        unsigned int local_mbox[mboxsize];
+        memset(local_mbox, 0, mboxsize);
+        drawing_area drawing(startx, totaly - y, stopx - startx, 1);
+        for ( int x = startx; x < stopx; x++ ) {
+            color_t c = render_one_pixel(x, y, local_mbox, serial, startx, stopx, starty, stopy);
+            drawing.put_pixel(c);
+        }
+        video->next_frame();
+    }
+}
+*/
+
 //todo: comment out following routine for the OpenMP* implementation
 ///*
 static void parallel_thread(void)

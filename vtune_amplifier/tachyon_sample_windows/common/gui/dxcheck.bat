@@ -1,23 +1,17 @@
 @echo off
-REM
-REM Copyright (C) Intel Corporation.  All Rights Reserved.
-REM
-REM The source code contained or described herein and all documents related
-REM to the source code ("Material") are owned by Intel Corporation or its
-REM suppliers or licensors.  Title to the Material remains with Intel
-REM Corporation or its suppliers and licensors.  The Material is protected
-REM by worldwide copyright laws and treaty provisions.  No part of the
-REM Material may be used, copied, reproduced, modified, published, uploaded,
-REM posted, transmitted, distributed, or disclosed in any way without
-REM Intel's prior express written permission.
-REM
-REM No license under any patent, copyright, trade secret or other
-REM intellectual property right is granted to or conferred upon you by
-REM disclosure or delivery of the Materials, either expressly, by
-REM implication, inducement, estoppel or otherwise.  Any license under such
-REM intellectual property rights must be express and approved by Intel in
-REM writing.
-REM
+REM ==============================================================
+REM 
+REM SAMPLE SOURCE CODE - SUBJECT TO THE TERMS OF SAMPLE CODE LICENSE AGREEMENT,
+REM http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
+REM 
+REM Copyright (C) Intel Corporation
+REM 
+REM THIS FILE IS PROVIDED "AS IS" WITH NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT
+REM NOT LIMITED TO ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+REM PURPOSE, NON-INFRINGEMENT OF INTELLECTUAL PROPERTY RIGHTS.
+REM 
+REM =============================================================
+
 if "%DXSDK_DIR%"=="" goto error_no_DXSDK
 goto end
 

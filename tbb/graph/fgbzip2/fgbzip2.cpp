@@ -484,7 +484,7 @@ int main(int argc, char* argv[]) {
 
         return 0;
     } catch (std::exception& e) {
-        std::cerr << "Error occured. Error text is : \"" << e.what() << "\"\n";
+        std::cerr << "Error occurred. Error text is : \"" << e.what() << "\"\n";
         return -1;
     }
 }

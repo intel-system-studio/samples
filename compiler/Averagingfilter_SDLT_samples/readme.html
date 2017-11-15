@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 <head>
 	<meta charset="UTF-8">
@@ -217,7 +217,7 @@
 	</div>
 
 	<p>An Averaging filter is a commonly used filter in the field of image processing and is mainly used for removing any noise in a given image. A noise in an image is any presence of pixel values which doesn’t blend well with the	actual content of photo like salt-pepper grains on an image. Averaging filter makes use of the concept that any given pixel value will not change drastically from its immediate neighbors. In other words, the current value of a pixel depends more on its immediate neighbors. Averaging filter size decides how many immediate neighbors are considered for the computation of the current pixel values. Most commonly used filter size 3x3.</p>
-	<p>This sample demonstrates how to increase the performance of Averaging filter using Intel(R) SDLT. Intel(R) SDLT library provides an Array of Structure interface to the user but stores the data in Structure of Array format in memory.</p>
+	<p>This sample demonstrates how to increase the performance of Averaging filter using Intel(R) SIMD Data Layout Templates (Intel(R) SDLT). Intel(R) SDLT library provides an Array of Structure interface to the user but stores the data in Structure of Array format in memory.</p>
 	
 	<div class="changes">
 		<div class="h3-alike">System Requirements:</div><input type="checkbox">
@@ -231,13 +231,13 @@
 			<li>For Microsoft* Windows*:
 				<ul>
 					<li>Microsoft Visual Studio 2013*, 2015*, or 2017* Professional Edition or above</li>
-					<li>Intel® Parallel Studio XE 2017 Composer Edition for C++ Windows* or newer<br>or<br>Intel&reg; System Studio 2017 Composer Edition for Windows* or newer</li>
+					<li>Intel® Parallel Studio XE 2018 Composer Edition for C++ Windows* or newer<br>or<br>Intel&reg; System Studio 2018 Composer Edition for Windows* or newer</li>
 				</ul>
 			</li>
 			<li>For Linux*:
 				<ul>
 					<li>GNU* GCC 4.8 or newer</li>
-					<li>Intel® Parallel Studio XE 2017 Composer Edition for C++ Linux* or newer<br>or<br>Intel&reg; System Studio 2017 Composer Edition for Linux* or newer</li>
+					<li>Intel® Parallel Studio XE 2018 Composer Edition for C++ Linux* or newer<br>or<br>Intel&reg; System Studio 2018 Composer Edition for Linux* or newer</li>
 				</ul>
 			</li>
 		</ul>
@@ -253,7 +253,7 @@
 		</tr>
 		<tr>
 			<td>SDLT version: 3.3x</td>
-			<td>Intel&reg;  Parallel Studio XE 2017 Composer Edition for C++ Windows*</td>
+			<td>Intel&reg;  Parallel Studio XE 2018 Composer Edition for C++ Windows*</td>
 			<td>/Qrestrict /QxCORE-AVX2 /O2 /Qstd=c++11</td>
 			<td>
 				<table>
@@ -263,7 +263,7 @@
 				</table></td>
 		</tr>
 			<td>SDLT version: 2.9x</td>
-			<td>Intel&reg; Parallel Studio XE 2017 Composer Edition for C++ Linux*</td>
+			<td>Intel&reg; Parallel Studio XE 2018 Composer Edition for C++ Linux*</td>
 			<td>-restrict -xCORE-AVX2 -O2 -std=c++11</td>
 			<td>
 				<table>

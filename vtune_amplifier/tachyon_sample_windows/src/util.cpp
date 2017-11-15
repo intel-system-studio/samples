@@ -43,7 +43,7 @@
 /*
  * util.c - Contains all of the timing functions for various platforms.
  *
- *  $Id: util.cpp,v 1.6 2007-02-22 18:17:51 amalakho Exp $ 
+ 
  */
 
 #include "machine.h"

@@ -74,7 +74,9 @@
     <p>Execute <code>make</code>. This will build two binaries: <code>build_find_hotspots</code> and <code>build_analyze_locks</code>
 		</p>
 <div class="note" id="GUID-353BFD33-2068-40FD-8CA2-EA23FC3BF7BA"><a name="GUID-353BFD33-2068-40FD-8CA2-EA23FC3BF7BA"><!-- --></a>
-<span class="notetitle">Note:</span> <p> Detailed build instructions are available in the tutorials listed
+<span class="notetitle">Note:</span> 
+<p>In case you encounter the following issue: <code>make: tbbforexamples/linux/4.0.1/set_tbb_symlinks.sh: Permission denied</code>, navigate to the folder where <code>set_tbb_symlinks.sh</code> is located and issue <code>chmod +x set_tbb_symlinks.sh</code></p>
+<p> Detailed build instructions are available in the tutorials listed
 			 below.
 		  </p>
 </div>
@@ -86,8 +88,13 @@
 		  following tutorials: 
 		</p>
 <div class="p"><a name="GUID-C6AC400B-1C5D-41AC-9AB6-C7858CB8CA53"><!-- --></a>
-<ul id="GUID-C6AC400B-1C5D-41AC-9AB6-C7858CB8CA53">
-<li><p><a href="./tutorials/find_hotspots_linux/index.htm" target="_blank">Enabling Performance Collection on an Embedded Linux* System</a>: Discover how to set up an embedded device for performance analysis and run a remote analysis on a sample application. This tutorial focuses on embedded platforms with Yocto Project*. 
+<ul id="GUID-C6AC400B-1C5D-41AC-9AB6-C7858CB8CA53"><li><p><a href="./tutorials/analyze_locks/index.htm" target="_blank">Analyze Locks and Waits</a>: Identify locks and waits
+				preventing parallelization. 
+			 </p>
+</li>
+<li><p><a href="./tutorials/find_hotspots_cpp/index.htm" target="_blank">Finding Hotspots</a>: Identify where your application is
+				spending time, detect the most time-consuming program units and how they were
+				called. 
 			 </p>
 </li>
 </ul>
@@ -107,7 +114,7 @@
 <p>OpenCL and the OpenCL logo are trademarks of Apple Inc. used by
 		  permission from Khronos. 
 		</p>
-<p>© 2016, Intel Corporation 
+<p>&copy; Intel Corporation 
 		</p>
 <p><span/></p>
 <p><em>The original source for this example is Copyright (c) 1994-2008 John

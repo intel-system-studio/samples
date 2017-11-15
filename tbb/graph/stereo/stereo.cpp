@@ -92,25 +92,29 @@ void fillOpenclBuffer(tbb::flow::opencl_buffer<cl_uchar>& openclBuffer, const st
     std::copy(sourceBuffer.begin(), sourceBuffer.end(), openclBuffer.begin());
 }
 
-void chooseTargetDevice(tbb::flow::opencl_graph& g) {
-    // Set your GPU device if available to execute kernel on
-    const tbb::flow::opencl_device_list &devices = g.available_devices();
-    tbb::flow::opencl_device_list::const_iterator it = std::find_if(
-        devices.cbegin(), devices.cend(),
-        [](const tbb::flow::opencl_device &d) {
+class gpu_device_selector {
+public:
+    template <typename DeviceFilter>
+    tbb::flow::opencl_device operator()(tbb::flow::opencl_factory<DeviceFilter>& f) {
+        // Set your GPU device if available to execute kernel on
+        const tbb::flow::opencl_device_list &devices = f.devices();
+        tbb::flow::opencl_device_list::const_iterator it = std::find_if(
+            devices.cbegin(), devices.cend(),
+            [](const tbb::flow::opencl_device &d) {
             cl_device_type type;
             d.info(CL_DEVICE_TYPE, type);
             return CL_DEVICE_TYPE_GPU == type;
         });
 
-    if (it == devices.cend()) {
-        std::cout << "Info: could not find any GPU devices. Choosing the first availiable device (default behaviour)." << std::endl;
-    } else {
-        // Init factory with GPU device
-        g.opencl_factory().init({ *it });
+        if (it == devices.cend()) {
+            std::cout << "Info: could not find any GPU devices. Choosing the first available device (default behaviour)." << std::endl;
+            return *(f.devices().begin());
+        } else {
+            // Return GPU device from factory
+            return *it;
+        }
     }
-}
-
+};
 
 // Image processing function that is executed on CPU only
 void hostFunction(const std::string& firstFile, const std::string& secondFile, const std::string& outputFile) {
@@ -185,15 +189,15 @@ void openclFunctionGPU(const std::string& firstFile, const std::string& secondFi
     typedef tuple< OpenclImageBuffer, OpenclImageBuffer, cl_uint, NDRange > OpenclImagesMergeTuple;
     typedef tuple< OpenclImageBuffer, NDRange > WriteImageBufferTuple;
 
-    opencl_graph g;
+    graph g;
 
-    chooseTargetDevice(g);
+    gpu_device_selector gpu_selector;
 
     function_node< std::string, OpenclImageTuple > fileReaderOne(g, serial, [&g](const std::string& fileToRead) -> OpenclImageTuple {
         utils::image_buffer src = utils::getOrGenerateImage(fileToRead);
 
         // Create and initialize opencl_buffer in order to pass it to kernel
-        OpenclImageBuffer oclImage(g, src.buffer->size());
+        OpenclImageBuffer oclImage(src.buffer->size());
         fillOpenclBuffer(oclImage, *src.buffer);
 
         NDRange rangeList = { src.width, src.height };
@@ -205,15 +209,15 @@ void openclFunctionGPU(const std::string& firstFile, const std::string& secondFi
     split_node< OpenclImageTuple > splitArgumentsLeftNode(g);
 
     // Kernel should be in the current folder
-    opencl_program<> program(g, "imageEffects.cl");
+    opencl_program<> program("imageEffects.cl");
 
-    opencl_node< OpenclImageTuple > leftImageEffect(g, program.get_kernel("applyLeftImageEffect"));
+    opencl_node< OpenclImageTuple > leftImageEffect(g, program.get_kernel("applyLeftImageEffect"), gpu_selector);
 
     split_node< OpenclImageTuple > splitArgumentsRightNode(g);
 
-    opencl_node< OpenclImageTuple > rightImageEffect(g, program.get_kernel("applyRightImageEffect"));
+    opencl_node< OpenclImageTuple > rightImageEffect(g, program.get_kernel("applyRightImageEffect"), gpu_selector);
 
-    opencl_node< OpenclImagesMergeTuple > mergeImages(g, program.get_kernel("mergeImages"));
+    opencl_node< OpenclImagesMergeTuple > mergeImages(g, program.get_kernel("mergeImages"), gpu_selector);
 
     join_node< WriteImageBufferTuple > joinTupleNode(g);
 
@@ -277,7 +281,7 @@ void openclFunctionGPU(const std::string& firstFile, const std::string& secondFi
 
 // Second image processing function using OpenCL
 /** Reading and writing image to file is executed on CPU, while some buffers manipulation are executed on GPU
-    and others runs on CPU device. This case should have the best performance amoung others. */
+    and others runs on CPU device. This case should have the best performance among others. */
 void openclFunctionGPUPlusCPU(const std::string& firstFile, const std::string& secondFile, const std::string& outputFile) {
     using namespace tbb::flow;
     typedef opencl_buffer<cl_uchar> OpenclImageBuffer;
@@ -286,15 +290,15 @@ void openclFunctionGPUPlusCPU(const std::string& firstFile, const std::string& s
     typedef tuple< OpenclImageBuffer, OpenclImageBuffer, cl_uint, NDRange > OpenclImagesMergeTuple;
     typedef tuple< OpenclImageBuffer, NDRange > WriteImageBufferTuple;
 
-    opencl_graph g;
+    graph g;
 
-    chooseTargetDevice(g);
+    gpu_device_selector gpu_selector;
 
     function_node< std::string, OpenclImageTuple > fileReaderOne(g, serial, [&g](const std::string& fileToRead) -> OpenclImageTuple {
         utils::image_buffer src = utils::getOrGenerateImage(fileToRead);
 
         // Create and initialize opencl_buffer in order to pass it to mergeImages kernel
-        OpenclImageBuffer oclImage(g, src.buffer->size());
+        OpenclImageBuffer oclImage(src.buffer->size());
         fillOpenclBuffer(oclImage, *src.buffer);
 
         NDRange rangeList = { src.width, src.height };
@@ -308,21 +312,21 @@ void openclFunctionGPUPlusCPU(const std::string& firstFile, const std::string& s
     split_node< OpenclImageTuple > splitArgumentsLeftNode(g);
 
     // Kernel should be in the current folder
-    opencl_program<> program(g, "imageEffects.cl");
+    opencl_program<> program("imageEffects.cl");
 
-    opencl_node< OpenclImageTuple > leftImageEffect(g, program.get_kernel("applyLeftImageEffect"));
+    opencl_node< OpenclImageTuple > leftImageEffect(g, program.get_kernel("applyLeftImageEffect"), gpu_selector);
 
     function_node< utils::image_buffer, OpenclImageBuffer > rightImageEffect(g, unlimited, [&g](utils::image_buffer image) -> OpenclImageBuffer {
         applyRightImageEffect(image);
 
         // Create and initialize opencl_buffer in order to pass it to kernel
-        OpenclImageBuffer oclImage(g, image.buffer->size());
+        OpenclImageBuffer oclImage(image.buffer->size());
         fillOpenclBuffer(oclImage, *image.buffer);
 
         return oclImage;
     });
 
-    opencl_node< OpenclImagesMergeTuple > mergeImages(g, program.get_kernel("mergeImages"));
+    opencl_node< OpenclImagesMergeTuple > mergeImages(g, program.get_kernel("mergeImages"), gpu_selector);
 
     join_node< WriteImageBufferTuple > joinTupleNode(g);
 

@@ -930,7 +930,7 @@ h3 .keyword{
 a KDB database in a C++ application.</p>
   <p>Unzip the archive with Intel® DAAL samples to your working directory (<span class="filepath"><var>&lt;sample_dir&gt;</var></span>).
 <h2><a name="System_Requirements">System Requirements</a></h2>
-<p>You can use Intel® DAAL KDB samples on Linux*, Windows*, and macOS* operating systems. 
+<p>You can use Intel® DAAL KDB samples on Linux*, and Windows* operating systems. 
 For a list of Intel® DAAL hardware and software requirements, refer to release notes 
 for the version of Intel® DAAL you are using. </p>  
 	<h3>KDB implementations against which Intel® DAAL has been validated:</h3>
@@ -957,10 +957,6 @@ Also, make sure to set the environment variables <samp class="codeph">KDB_HEADER
         </li>
         <li>On Linux*, you can find the <span class="filepath">daalvars.sh|daalvars.csh</span> shell script at <span class="filepath">&lt;install-dir&gt;\compilers_and_libraries_xxxx.x.xxx\linux\daal\bin:</span><samp class="codeph"><br />
             source daalvars.sh|csh {ia32|intel64}
-            </samp>
-        </li>
-        <li>On macOS*, you can find the <span class="filepath">daalvars.sh|daalvars.csh</span> shell script at <span class="filepath">&lt;install-dir&gt;\compilers_and_libraries_xxxx.x.xxx\mac\daal\bin:</span><samp class="codeph"><br />
-            source daalvars.sh|csh&nbsp;
             </samp>
         </li>
     </ul>
@@ -1033,55 +1029,6 @@ the <samp class="codeph">build</samp> parameter.</p>
 	  Intel® 64 architecture and runs the executable. 
       </p>
 
-<h3>On macOS*</h3>
-      <p>To build Intel® DAAL KDB C++ samples, go to the C++ KDB samples directory and execute the 
-        <span class="keyword">make</span> command: 
-      </p>
- 
-      <p><samp class="codeph">cd 
-          <span class="filepath"><var>&lt;sample_dir&gt;</var></span><span class="filepath">/cpp/kdb</span></samp> 
-      </p>
- 
-      <p><samp class="codeph">make {libia32|dylibia32|libintel64|dylibintel64}</samp> 
-       <p><samp class="codeph">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compiler={intel|gnu|clang} 
-        </samp> 
-      </p>
-      <p><samp class="codeph">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mode=build</samp> 
-      </p>
- 
-      <p> From the 
-        <samp class="codeph">{libia32|dylibia32|libintel64|dylibintel64}</samp> parameters, 
-	  select the one that matches the architecture parameter you provided to the 
-        <span class="filepath">daalvars</span><span class="filepath">.sh</span> script and 
-	  that has the prefix that matches the type of executables you want to build: 
-        <samp class="codeph">lib</samp> for static and 
-          <samp class="codeph">dylib</samp> for dynamic executables. 
-      </p>
- 
- 
-      <p>The command creates a directory for the chosen compiler, architecture, and library extension (<span class="filepath">a</span> or 
-        <span class="filepath">dylib</span>). For example: 
-        <span class="filepath">_results/intel_intel64_a</span>. 
-      </p>
- 
-      <p>To run Intel® DAAL KDB C++ samples, go to the C++ KDB samples directory and execute the 
-        <span class="keyword">make</span> command in the run mode. For example, if you run the 
-        <span class="filepath">daalvars</span> script with the 
-        <span class="keyword">intel64</span> target: 
-      </p>
- 
-      <p><samp class="codeph">cd 
-          <span class="filepath"><var>&lt;sample_dir&gt;</var></span><span class="filepath">/cpp/kdb</span></samp> 
-      </p>
- 
-      <p><samp class="codeph">make libintel64 mode=run</samp> 
-      </p>
- 
-      <p>The 
-        <span class="keyword">make</span> command builds a static library for the 
-	  Intel® 64 architecture and runs the executable. 
-      </p>
- 
     </div>
 	<h2 class="sectiontitle">Legal Information</h2>
       <p>Intel, and the Intel logo are trademarks of Intel Corporation in the 
@@ -1090,7 +1037,7 @@ the <samp class="codeph">build</samp> parameter.</p>
  
       <p>*Other names and brands may be claimed as the property of others. 
       </p>
-       <p>© Copyright 2017, Intel Corporation 
+       <p>Copyright &copy; Intel Corporation 
       </p>
  
     </div>

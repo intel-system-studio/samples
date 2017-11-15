@@ -2,19 +2,12 @@ Tachyon Sample
 
 License Information Follows
 ---------------------------
-* api.cpp apigeom.cpp api.h apitrigeom.cpp apitrigeom.h bndbox.cpp bndbox.h box.cpp
-* box.h camera.cpp camera.h common coordsys.cpp coordsys.h cylinder.cpp cylinder.h
-* extvol.cpp extvol.h global.cpp global.h grid.cpp grid.h imageio.cpp imageio.h
-* imap.cpp imap.h intersect.cpp intersect.h jpeg.cpp jpeg.h light.cpp light.h
-* machine.h macros.h main.cpp main.cpp.org objbound.cpp objbound.h parse.cpp
-* parse.h plane.cpp plane.h ppm.cpp ppm.h pthread.cpp pthread_w.h quadric.cpp quadric.h
-* render.cpp render.h ring.cpp ring.h shade.cpp shade.h sphere.cpp sphere.h tachyon_video.cpp
-* tachyon_video.h texture.cpp texture.h tgafile.cpp tgafile.h trace.h trace_rest.cpp
-* triangle.cpp triangle.h types.h ui.cpp ui.h util.cpp util.h vector.cpp vector.h
-* vol.cpp vol.h utility.h fast_random.h xvideo.cpp winvideo.h video.h
-* gdivideo.cpp d2dvideo.cpp convideo.cpp build_with_tbb_solution.cpp build_with_tbb.cpp
-* trace.serial.cpp build_with_serial.cpp build_with_openmp_solution.cpp build_with_openmp.cpp
-* Makefile Makefile.gmake
+* src\*.cpp, src\*.h
+* src\common\gui\*.cpp, src\common\gui\*.h, src\common\utility\*.h, src\common\index.html
+* src\build_with_openmp\*.cpp, src\build_with_serial\*.cpp, src\build_with_tbb\*.cpp
+* scripts\Makefile.gmake
+* dat\*.dat
+* Makefile, readme.html
 
 Copyright (C) Intel Corporation
 

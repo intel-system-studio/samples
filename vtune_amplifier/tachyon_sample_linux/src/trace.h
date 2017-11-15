@@ -42,6 +42,7 @@
 
 /* 
  * trace.h - This file contains the declarations and defines for the trace module
+ *
  */
 
 extern char *global_buffer;

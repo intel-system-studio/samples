@@ -11,42 +11,57 @@
 #
 # =============================================================
 
-# Common Makefile that builds and runs example.
-
-# Just specify your program basename
+# GNU Makefile that builds and runs example.
+run_cmd=
 PROG=stereo
 ARGS=
 PERF_RUN_ARGS=
 
-# Trying to find if icl.exe is set
-CXX1 = $(TBB_CXX)-
-CXX2 = $(CXX1:icl.exe-=icl.exe)
-CXX  = $(CXX2:-=cl.exe)
+# icpc by default
+ifneq (,$(shell which icc 2>/dev/null))
+CXX=icpc
+endif
+
+# autodetect C++11 support
+include ../../common/examples-common.inc
 
 # TBB libs
-TBBLIB=tbb.lib
-TBBLIB_DEBUG=tbb_debug.lib
+TBBLIB=-ltbb
+TBBLIB_DEBUG=-ltbb_debug
 
 # OpenCL lib
-OPENCL_LIB=OpenCL.lib
+OPENCL_LIB=-lOpenCL
 
-# The C++ compiler options
-MYCXXFLAGS=/TP /EHsc /W3 /nologo /D _CONSOLE /D _MBCS /D WIN32 /D _CRT_SECURE_NO_DEPRECATE /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS $(CXXFLAGS)
-MYLDFLAGS=/INCREMENTAL:NO /NOLOGO /DEBUG $(LDFLAGS)
+ifeq ($(shell uname), Linux)
+ifeq ($(target), android)
+LIBS+= --sysroot=$(SYSROOT)
+run_cmd=../../common/android.linux.launcher.sh
+else
+LIBS+= -lrt
+endif
+else
+ifeq ($(shell uname),Darwin)
+override CXXFLAGS += -Wl,-rpath,$(TBBROOT)/lib
+override OPENCL_LIB=-framework OpenCL
+endif
+endif
 
 all: release test
-release:
-	$(CXX) *.cpp /MD /O2 /D NDEBUG $(MYCXXFLAGS) /link $(TBBLIB) $(OPENCL_LIB) $(MYLDFLAGS) /OUT:$(PROG).exe
-debug:
-	$(CXX) *.cpp /MDd /Od /Zi /D TBB_USE_DEBUG /D _DEBUG $(MYCXXFLAGS) /link $(TBBLIB_DEBUG) $(OPENCL_LIB) $(MYLDFLAGS) /OUT:$(PROG).exe
+
+release: *.cpp
+	$(CXX) -O2 -DNDEBUG $(CXXFLAGS) -o $(PROG) $^ $(TBBLIB) $(OPENCL_LIB) $(LIBS) $(CXX0XFLAGS)
+
+debug: *.cpp
+	$(CXX) -O0 -g -DTBB_USE_DEBUG $(CXXFLAGS) -o $(PROG) $^ $(TBBLIB_DEBUG) $(OPENCL_LIB) $(LIBS) $(CXX0XFLAGS)
+
 clean:
-	@cmd.exe /C del $(PROG).exe *.obj *.?db *.manifest
+	$(RM) $(PROG) *.o *.d
+
 test:
-	$(PROG) $(ARGS)
-compiler_check:
-	@$(CXX) >nul 2>&1 || echo "$(CXX) command not found. Check if CXX=$(CXX) is set properly"
+	$(run_cmd) ./$(PROG) $(ARGS)
 
 perf_build: release
 
 perf_run:
-	$(PROG) $(PERF_RUN_ARGS)
+	$(run_cmd) ./$(PROG) $(PERF_RUN_ARGS)
+

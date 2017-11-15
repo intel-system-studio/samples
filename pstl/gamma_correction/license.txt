@@ -3,9 +3,8 @@ Parallel STL. Gamma_correction sample
 License Information Follows
 ---------------------------
 * msvs/*.*
-* xcode/*.*
 * *.*
 
-Copyright 2017 Intel Corporation
+Copyright (C) Intel Corporation
 
 * license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/

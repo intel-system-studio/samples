@@ -146,14 +146,14 @@ static bool RedirectIOToConsole(void)
 
 
 video::video()
-    : red_mask(0xff0000), red_shift(16), green_mask(0xff00),
-      green_shift(8), blue_mask(0xff), blue_shift(0), depth(24)
+    : depth(24), red_shift(16), green_shift(8), blue_shift(0),
+      red_mask(0xff0000), green_mask(0xff00), blue_mask(0xff)
 {
     assert(g_video == 0);
     g_video = this; title = "Video"; running = threaded = calc_fps = false; updating = true;
 }
 
-//! optionally call it just before init() to set own 
+//! optionally call it just before init() to set own
 void video::win_set_class(WNDCLASSEX &wcex)
 {
     gWndClass = &wcex;

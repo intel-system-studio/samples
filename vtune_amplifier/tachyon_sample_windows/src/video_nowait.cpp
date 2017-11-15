@@ -43,7 +43,7 @@
 /*
  * video.c - routines for putting pixels on a screen if one is available.
  *
- *  $Id: video.cpp,v 1.20 2007-02-28 18:35:22 amalakho Exp $
+
  */
 
 #include <stdio.h>

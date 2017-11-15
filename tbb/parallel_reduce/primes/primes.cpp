@@ -268,8 +268,8 @@ public:
     }
     void join( Sieve& other ) {
         count += other.count;
-        // Final value of multiples needs to final value of other.mulitiples,
-        // so that *this can correcty process next window to right.
+        // Final value of multiples needs to final value of other multiples,
+        // so that *this can correctly process next window to right.
         multiples.move( other.multiples );
     }
     Sieve( Sieve& other, tbb::split ) :

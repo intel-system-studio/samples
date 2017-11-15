@@ -44,7 +44,7 @@
  * vol.c - Volume rendering helper routines etc.
  *
  *
- *  $Id: vol.cpp,v 1.3 2007-02-22 18:17:51 amalakho Exp $
+
  */
 
 #include<stdio.h>

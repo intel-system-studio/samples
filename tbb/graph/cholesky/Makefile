@@ -11,35 +11,41 @@
 #
 # =============================================================
 
-# Common Makefile that builds and runs example.
-
-# Just specify your program basename
-PROG=Cholesky
+# GNU Makefile that builds and runs example.
+run_cmd=
+PROG=cholesky
 ARGS=4 2
 
-# Trying to find if icl.exe is set
-CXX1 = $(TBB_CXX)-
-CXX2 = $(CXX1:icl.exe-=icl.exe)
-CXX  = $(CXX2:-=cl.exe)
+# The C++ compiler
+ifneq (,$(shell which icpc 2>/dev/null))
+CXX=icpc
+endif # which icpc
 
-
-# The C++ compiler options
-MYCXXFLAGS = /TP /EHsc /W3 /nologo /D _CONSOLE /D _MBCS /D WIN32 /D _WIN32_WINNT=0x0501 $(CXXFLAGS)
-MYLDFLAGS = /INCREMENTAL:NO /NOLOGO /DEBUG /FIXED:NO $(LDFLAGS)
+ifeq ($(shell uname), Darwin)
+override CXXFLAGS += -Wl,-rpath,$(TBBROOT)/lib  -Wl,-rpath,$(MKLROOT)/lib
 # MKL support
-MKL_LIBS1 = $(TBB_TARGET_ARCH)
-MKL_LIBS2 = $(MKL_LIBS1:ia32=mkl_core.lib mkl_sequential.lib mkl_intel_c.lib)
-MKL_LIBS  = $(MKL_LIBS2:intel64=mkl_core.lib mkl_sequential.lib mkl_intel_lp64.lib)
+override MKL_LIBS += -lmkl_core -lmkl_sequential -lmkl_intel
+else
+ifeq ($(shell uname), Linux)
+LIBS+= -lrt 
+endif
+# MKL support
+override MKL_LIBS += -lmkl_rt
+endif
 
-all: release test
-release: compiler_check
-	$(CXX) *.cpp /MD /O2 /D NDEBUG $(MYCXXFLAGS) /link tbb.lib $(MKL_LIBS) $(LIBS) $(MYLDFLAGS) /OUT:$(PROG).exe
-debug: compiler_check
-	$(CXX) *.cpp /MDd /Od /Zi /D TBB_USE_DEBUG /D _DEBUG $(MYCXXFLAGS) /link tbb_debug.lib $(MKL_LIBS) $(LIBS) $(MYLDFLAGS) /OUT:$(PROG).exe
+# C++0x support
+override CXXFLAGS += -std=c++0x
+
+all:	release test
+
+release: *.cpp
+	$(CXX) -O2  -DNDEBUG $(CXXFLAGS) -o $(PROG) $^ -ltbb $(MKL_LIBS) $(LIBS)
+
+debug: *.cpp
+	$(CXX) -O0 -g -DTBB_USE_DEBUG $(CXXFLAGS) -o $(PROG) $^ -ltbb_debug $(MKL_LIBS) $(LIBS)
+
 clean:
-	@cmd.exe /C del $(PROG).exe *.obj *.?db *.manifest
+	$(RM) $(PROG) *.o *.d
+
 test:
-	$(PROG) $(ARGS)
-compiler_check:
-	@echo compiler_test>compiler_test && @$(CXX) /E compiler_test >nul 2>&1  || echo "$(CXX) command not found. Check if CXX=$(CXX) is set properly"
-	@cmd.exe /C del compiler_test
+	$(run_cmd) ./$(PROG) $(ARGS)

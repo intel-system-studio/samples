@@ -11,38 +11,42 @@
 #
 # =============================================================
 
-# Common Makefile that builds and runs example.
+# GNU Makefile that builds and runs example.
+run_cmd=
 PROG=test_all
 ARGS=4
 PERF_RUN_ARGS=auto silent
 
-# Try to find icl.exe
-CXX1 = $(TBB_CXX)-
-CXX2 = $(CXX1:icl.exe-=icl.exe)
-CXX  = $(CXX2:-=cl.exe)
+# The C++ compiler
+ifneq (,$(shell which icc 2>/dev/null))
+CXX=icc
+endif # which icc
 
-# The C++ compiler options
-MYCXXFLAGS = /TP /EHsc /W3 /nologo /D _CONSOLE /D _MBCS /D WIN32 /D _CRT_SECURE_NO_DEPRECATE $(CXXFLAGS)
-MYLDFLAGS =/INCREMENTAL:NO /NOLOGO /DEBUG /FIXED:NO $(LDFLAGS)
+ifeq ($(shell uname), Linux)
+ifeq ($(target), android)
+LIBS+= --sysroot=$(SYSROOT)
+run_cmd=../../common/android.linux.launcher.sh
+else
+LIBS+= -lrt 
+endif
+else ifeq ($(shell uname), Darwin)
+override CXXFLAGS += -Wl,-rpath,$(TBBROOT)/lib
+endif
 
-all:	release test
+all:    release test
 
 release: *.cpp
-	$(CXX) $(PROG).cpp /MD /O2 /D NDEBUG $(MYCXXFLAGS) /link tbb.lib $(LIBS) $(MYLDFLAGS) /OUT:$(PROG).exe
+	$(CXX) -O2 -DNDEBUG $(CXXFLAGS) -o $(PROG) $(PROG).cpp -std=c++0x -ltbb $(LIBS) 
 
 debug: *.cpp
-	$(CXX) $(PROG).cpp /MDd /Od /Zi /D TBB_USE_DEBUG /D _DEBUG $(MYCXXFLAGS) /link tbb_debug.lib $(LIBS) $(MYLDFLAGS) /OUT:$(PROG).exe
-
+	$(CXX) -O0 -g -DTBB_USE_DEBUG $(CXXFLAGS) -o $(PROG) $(PROG).cpp -std=c++0x -ltbb_debug $(LIBS) 
 clean:
-	@cmd.exe /C del $(PROG).exe *.obj *.?db *.manifest
+	$(RM) $(PROG) *.o *.d
 
 test:
-	$(PROG) $(ARGS)
-
-compiler_check:
-	@$(CXX) >nul 2>&1 || echo "$(CXX) command not found. Check if CXX=$(CXX) is set properly"
+	$(run_cmd) ./$(PROG) $(ARGS)
 
 perf_build: release
 
 perf_run:
-	$(PROG) $(PERF_RUN_ARGS)
+	$(run_cmd) ./$(PROG) $(PERF_RUN_ARGS)

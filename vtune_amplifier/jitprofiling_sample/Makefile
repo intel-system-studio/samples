@@ -19,21 +19,22 @@
 
 SHELL = /bin/sh
 srcdir = src
-# Set the path where Intel VTune Amplifier XE has been installed
-VTUNE_AMPLIFIER_XE_DIR = /opt/intel/vtune_amplifier_xe
+
+# Set the path where Intel(R) VTune(TM) Amplifier has been installed
+VTUNE_AMPLIFIER_DIR = /opt/intel/vtune_amplifier
 
 ifeq ($(shell uname -m),x86_64)
 ARCHITECTURE=intel64
 CFLAGS +=-m64 
-LDFLAGS +=-L$(VTUNE_AMPLIFIER_XE_DIR)/lib64 
+LDFLAGS +=-L$(VTUNE_AMPLIFIER_DIR)/lib64 
 else
 ARCHITECTURE=x86
 CFLAGS +=-m32
-LDFLAGS +=-L$(VTUNE_AMPLIFIER_XE_DIR)/lib32
+LDFLAGS +=-L$(VTUNE_AMPLIFIER_DIR)/lib32
 endif
 
 GCC      = gcc
-CFLAGS  += -g -O3 -I$(VTUNE_AMPLIFIER_XE_DIR)/include
+CFLAGS  += -g -O3 -I$(VTUNE_AMPLIFIER_DIR)/include
 LDFLAGS += -lpthread -ljitprofiling -ldl
 
 EXE = jitprofiling
@@ -47,6 +48,7 @@ jitprofiling: $(OBJS)
 
 clean:
 	$(RM) $(OBJS)
+	$(RM) $(EXE)
 
 .PHONE: all clean
 

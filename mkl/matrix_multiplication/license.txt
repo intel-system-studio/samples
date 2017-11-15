@@ -3,7 +3,7 @@ Matrix Multiplication Sample
 License Information Follows
 ---------------------------
 * dgemm_example.c, dgemm_threading_effect_example.c, dgemm_with_timing.c, matrix_multiplication.c
-* readme.htm, Makefile, build.bat, build.sh
+* readme.html, Makefile, build.bat, build.sh
 
 Copyright (C) Intel Corporation
 

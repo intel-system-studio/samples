@@ -38,46 +38,35 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 
-# Common Makefile that builds and runs example.
+# GNU Makefile that builds and runs example.
+NAME:=tachyon
 
-# Trying to find if icl.exe is set
-CXX1 = $(TBB_CXX)-
-CXX2 = $(CXX1:icl.exe-=icl.exe)
-CXX  = $(CXX2:-=cl.exe)
-
-# Uncomment one of next lines to choose user interface type (console, gdiplus, direct draw)
-#UI = con
-UI = gdi
-#UI = dd
-
-# Machine architecture, auto-detected from TBB_TARGET_ARCH by default
-# Use XARCH variable to change it. See index.html for more information
-ARCH0 = $(TBB_TARGET_ARCH)-
-ARCH1 = $(ARCH0:ia32-=x86)
-ARCH2 = $(ARCH1:intel64-=AMD64)
-XARCH = $(ARCH2:-=x86)
+# The C++ compiler
+ifneq (,$(shell which icc 2>/dev/null))
+CXX=icc
+endif # icc
 
 # The default runtime arguments
-ARGS = dat\balls.dat
-PERF_RUN_ARGS = silent dat\balls3.dat
-LIGHT_ARGS=dat\model2.dat
+export ARGS = dat/balls.dat
+export PERF_RUN_ARGS = silent dat/balls3.dat
+export LIGHT_ARGS= dat/model2.dat
 
-# Add these for tbb/tbb1d release builds
-# /GL is a workaround to prevent run-time crash when built by VS2010
-CXXFLAGS_TBB_NDEBUG = $(CXXFLAGS) /GL
-LIBS_TBB_NDEBUG = tbb.lib $(LIBS)
+# define name suffix
+SUFFIX = .$(VERSION)
 
-# Add these for tbb/tbb1d debug builds
-CXXFLAGS_TBB_DEBUG = $(CXXFLAGS) /D TBB_USE_DEBUG
-LIBS_TBB_DEBUG =  tbb_debug.lib $(LIBS)
+LIBS ?= -lm
 
+include ../../common/gui/Makefile.gmake
 
-MAKEINC = ../../common/gui/Makefile.win
-# scr/main.cpp src/tachyon_video.cpp cannot be included to the SOURCE_COMMON list since it depends on UI and /subsystem which is not specified for common SOURCE build
-SOURCE = src/main.cpp src/tachyon_video.cpp
-SOURCE_COMMON = src/pthread.cpp  src/api.cpp src/apigeom.cpp src/apitrigeom.cpp src/bndbox.cpp src/box.cpp src/camera.cpp src/coordsys.cpp src/cylinder.cpp src/extvol.cpp src/global.cpp src/grid.cpp src/imageio.cpp src/imap.cpp src/intersect.cpp src/jpeg.cpp src/light.cpp src/objbound.cpp src/parse.cpp src/plane.cpp src/ppm.cpp src/quadric.cpp src/render.cpp src/ring.cpp src/shade.cpp src/sphere.cpp src/texture.cpp src/tgafile.cpp src/trace_rest.cpp src/triangle.cpp src/ui.cpp src/util.cpp src/vector.cpp src/vol.cpp
+ifeq ($(UI),x)
+UI_CXXFLAGS += -DX_FULLSYNC 
+ifneq (,$(findstring -lXext,$(LIBS)))
+UI_CXXFLAGS += -DX_NOSHMPIX
+endif
+endif # X
 
-# Targets
+MYCXXFLAGS = $(CXXFLAGS) $(UI_CXXFLAGS)
+
 all: build run
 release: build
 debug: build_debug
@@ -94,52 +83,81 @@ tbb_debug: build_tbb_debug run_tbb
 tbb1d: build_tbb1d run_tbb1d
 tbb1d_debug: build_tbb1d_debug run_tbb1d
 
-CXXFLAGS_COMMON = /c /nologo /EHsc /Zc:forScope /D WIN32 /D _MBCS /D _CRT_SECURE_NO_DEPRECATE /Foobj/ /MP $(CXXFLAGS)
-CXXFLAGS_NDEBUG = /MD /O2 /Ot /Gy /D NDEBUG
-CXXFLAGS_DEBUG = /MDd /Od /Zi /D _DEBUG
-LIB_LINK_FLAGS = /nologo /machine:$(XARCH)
-
-tachyon_common.lib:
-	@cmd.exe /C if not exist obj mkdir obj
-	$(CXX) $(CXXFLAGS_NDEBUG) $(CXXFLAGS_COMMON) $(SOURCE_COMMON)
-	LIB $(LIB_LINK_FLAGS) obj/*.obj /OUT:$@
-	@cmd.exe /C if exist obj rmdir /S /Q obj
-
-tachyon_common_debug.lib:
-	@cmd.exe /C if not exist obj mkdir obj
-	$(CXX) $(CXXFLAGS_DEBUG) $(CXXFLAGS_COMMON) $(SOURCE_COMMON)
-	LIB $(LIB_LINK_FLAGS) obj/*.obj /OUT:$@
-	@cmd.exe /C if exist obj rmdir /S /Q obj
-
-build_serial: tachyon_common.lib
-	@$(MAKE) -f $(MAKEINC) SOURCE="src/trace.serial.cpp $(SOURCE) tachyon_common.lib" EXE=tachyon.serial.exe RCNAME=gui UI=$(UI) CXX="$(CXX)" CXXFLAGS="/GL $(CXXFLAGS)" XARCH=$(XARCH) build_one
-build_serial_debug: tachyon_common_debug.lib
-	@$(MAKE) -f $(MAKEINC) SOURCE="src/trace.serial.cpp $(SOURCE) tachyon_common_debug.lib" EXE=tachyon.serial.exe RCNAME=gui UI=$(UI) DEBUG=_debug CXX="$(CXX)" CXXFLAGS=$(CXXFLAGS) XARCH=$(XARCH) build_one
+build_serial:
+	$(MAKE) VERSION=serial build_one
+build_serial_debug:
+	$(MAKE) VERSION=serial ADD_DEBUG=1 build_one
 run_serial:
-	-.\tachyon.serial.exe $(ARGS)
+	$(MAKE) VERSION=serial run_one
 
-build_tbb: tachyon_common.lib
-	@$(MAKE) -f $(MAKEINC) SOURCE="src/trace.tbb.cpp $(SOURCE) tachyon_common.lib" EXE=tachyon.tbb.exe RCNAME=gui UI=$(UI) CXX="$(CXX)" CXXFLAGS="$(CXXFLAGS_TBB_NDEBUG)" LFLAGS="$(LIBS_TBB_NDEBUG)" XARCH=$(XARCH) build_one
-build_tbb_debug: tachyon_common_debug.lib
-	@$(MAKE) -f $(MAKEINC) SOURCE="src/trace.tbb.cpp $(SOURCE) tachyon_common_debug.lib" EXE=tachyon.tbb.exe RCNAME=gui UI=$(UI) DEBUG=_debug CXX="$(CXX)" CXXFLAGS="$(CXXFLAGS_TBB_DEBUG)" LFLAGS="$(LIBS_TBB_DEBUG)" XARCH=$(XARCH) build_one
+build_tbb:
+	$(MAKE) VERSION=tbb ADD_TBB=1 build_one
+build_tbb_debug:
+	$(MAKE) VERSION=tbb ADD_TBB=1 ADD_DEBUG=1 build_one
 run_tbb:
-	-.\tachyon.tbb.exe $(ARGS)
+	$(MAKE) VERSION=tbb run_one
 
-build_tbb1d: tachyon_common.lib
-	@$(MAKE) -f $(MAKEINC) SOURCE="src/trace.tbb1d.cpp $(SOURCE) tachyon_common.lib" EXE=tachyon.tbb1d.exe RCNAME=gui UI=$(UI) CXX="$(CXX)" CXXFLAGS="$(CXXFLAGS_TBB_NDEBUG)" LFLAGS="$(LIBS_TBB_NDEBUG)" XARCH=$(XARCH) build_one
-build_tbb1d_debug: tachyon_common_debug.lib
-	@$(MAKE) -f $(MAKEINC) SOURCE="src/trace.tbb1d.cpp $(SOURCE) tachyon_common_debug.lib" EXE=tachyon.tbb1d.exe RCNAME=gui UI=$(UI) DEBUG=_debug CXX="$(CXX)" CXXFLAGS="$(CXXFLAGS_TBB_DEBUG)" LFLAGS="$(LIBS_TBB_DEBUG)" XARCH=$(XARCH) build_one
+build_tbb1d:
+	$(MAKE) VERSION=tbb1d ADD_TBB=1 build_one
+build_tbb1d_debug:
+	$(MAKE) VERSION=tbb1d ADD_TBB=1 ADD_DEBUG=1 build_one
 run_tbb1d:
-	-.\tachyon.tbb1d.exe $(ARGS)
+	$(MAKE) VERSION=tbb1d run_one
 
 
-clean:
-	@cmd.exe /C del tachyon.* *.manifest *.obj *.lib msvs\gui.res *.?db
-
-perf_build: tachyon_common.lib
-	@$(MAKE) -f $(MAKEINC) SOURCE="src/trace.tbb.cpp $(SOURCE) tachyon_common.lib" EXE=tachyon.tbb.exe RCNAME=gui UI=con CXX="$(CXX)" CXXFLAGS="$(CXXFLAGS_TBB_NDEBUG)" LFLAGS="$(LIBS_TBB_NDEBUG)" XARCH=$(XARCH) build_one
+perf_build:
+	$(MAKE) UI=con VERSION=tbb ADD_TBB=1 build_one
 perf_run:
-	-.\tachyon.tbb.exe $(PERF_RUN_ARGS)
+	$(MAKE) UI=con VERSION=tbb run_perf_one
 
 light_test:
-	-.\tachyon.tbb.exe $(LIGHT_ARGS)
+	$(MAKE) UI=con VERSION=tbb light_test_one
+
+
+#
+# Per-build Makefile rules (for recursive $(MAKE) calls from above)
+#
+
+SVERSION = $(VERSION)
+
+ifeq ($(ADD_DEBUG),1)
+MYCXXFLAGS += -O0 -g -D_DEBUG
+else
+MYCXXFLAGS += -O2 -DNDEBUG
+endif
+
+
+ifeq ($(ADD_TBB),1)
+MYCXXFLAGS +=
+ifeq ($(ADD_DEBUG),1)
+MYCXXFLAGS += -DTBB_USE_DEBUG
+LIBS += -ltbb_debug
+else
+LIBS += -ltbb
+endif
+endif
+
+ifeq ($(shell uname), Linux)
+LIBS += -lrt 
+endif
+
+SOURCE = ../../common/gui/$(UI)video.cpp src/trace.$(SVERSION).cpp src/main.cpp src/pthread.cpp src/tachyon_video.cpp src/api.cpp src/apigeom.cpp src/apitrigeom.cpp src/bndbox.cpp src/box.cpp src/camera.cpp src/coordsys.cpp src/cylinder.cpp src/extvol.cpp src/global.cpp src/grid.cpp src/imageio.cpp src/imap.cpp src/intersect.cpp src/jpeg.cpp src/light.cpp src/objbound.cpp src/parse.cpp src/plane.cpp src/ppm.cpp src/quadric.cpp src/render.cpp src/ring.cpp src/shade.cpp src/sphere.cpp src/texture.cpp src/tgafile.cpp src/trace_rest.cpp src/triangle.cpp src/ui.cpp src/util.cpp src/vector.cpp src/vol.cpp
+
+build_one:	$(EXE)
+
+run_one:
+	$(run_cmd) ./$(EXE) $(ARGS)
+
+run_perf_one:
+	$(run_cmd) ./$(EXE) $(PERF_RUN_ARGS)
+
+light_test_one:
+	$(run_cmd) ./$(EXE) $(LIGHT_ARGS)
+
+$(EXE): $(SOURCE)
+	$(CXX) $(MYCXXFLAGS) -o $@ $(SOURCE) $(MACUIOBJS) $(LIBS)
+	$(RM) *.o
+
+clean: VERSION = *
+clean:
+	$(RM) $(EXE) *.o *.d
