@@ -2,7 +2,7 @@ Vectorization Sample
 
 License Information Follows
 ---------------------------
-* Multiply.h, Multiply.c, Driver.c
+* src/*.c, src/*.h
 * readme.html, Makefile, build.bat
 
 Copyright (C) Intel Corporation

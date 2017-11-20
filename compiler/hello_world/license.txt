@@ -1,10 +1,10 @@
-Intel® C++ Compiler - Hello World 
+Intel(R) C++ Compiler - Hello World 
 
 License Information Follows 
 --------------------------- 
-* src\*.* 
+* src/*.c
 * readme.html 
 
-Copyright 2017 Intel Corporation 
+Copyright (C) Intel Corporation 
 
 * license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/ 

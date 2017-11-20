@@ -2,10 +2,9 @@ Averaging Filter Sample
 
 License Information Follows
 ---------------------------
-* src\AverageFilter.cpp, src\AveragingFilter.h
-* src\timer.cpp, src\timer.h
+* src/*.cpp, src/*.h
 * readme.html, Makefile, Build.bat
-* res\nahelam.bmp, res\silverfalls.bmp
+* res/*.bmp
 
 Copyright (C) Intel Corporation
 

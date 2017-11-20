@@ -2,8 +2,8 @@ FluidAnimate Sample for Profile Guided Optimization
 
 License Information Follows
 ---------------------------
-* src\*.h, src\*.cpp
-* data\in_15k.fluid
+* src/*.h, src/*.cpp
+* data/in_15K.fluid
 * readme.html, Makefile, Build.bat, Build.sh
 
 Copyright (C) Intel Corporation
