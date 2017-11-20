@@ -1,0 +1,10 @@
+Intel(R) VTune(TM) Amplifier Disk I/O Sample
+
+License Information Follows
+---------------------------
+* *.cpp
+* readme.htm, Makefile
+
+Copyright (C) Intel Corporation
+
+* license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/ 
