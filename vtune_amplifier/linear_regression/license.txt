@@ -3,7 +3,7 @@ Linear Regression Sample
 License Information Follows
 ---------------------------
 * linear_regression_pthread.c Makefile key_file.txt stddefines.h
-* tutorials\*.* resources\*.* readme.html
+* tutorials/*.* resources/*.* readme.html
 
 Copyright (C) Intel Corporation
 

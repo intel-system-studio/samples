@@ -2,7 +2,8 @@ Jitprofiling Sample
 
 License Information Follows
 ---------------------------
-* dyncode_intel64.S dyncode_x86.S jitprofiling.c Makefile 
+* src/linux/*.S src/*.c 
+* readme.html Makefile
 
 Copyright (C) Intel Corporation
 

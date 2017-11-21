@@ -2,18 +2,11 @@ Tachyon Sample
 
 License Information Follows
 ---------------------------
-* api.cpp intersect.h sphere.cpp api.h jpeg.cpp sphere.h apigeom.cpp jpeg.h
-* tachyon_video.cpp apitrigeom.cpp light.cpp tachyon_video.h apitrigeom.h 
-* light.h texture.cpp bndbox.cpp machine.h texture.h bndbox.h macros.h
-* tgafile.cpp box.cpp main.cpp tgafile.h box.h objbound.cpp trace.h camera.cpp
-* objbound.h trace.serial.cpp camera.h parse.cpp trace.simple.cpp coordsys.cpp
-* parse.h trace.tbb.cpp coordsys.h plane.cpp trace.tbb1d.cpp cylinder.cpp plane.h 
-* trace_rest.cpp cylinder.h ppm.cpp triangle.cpp extvol.cpp ppm.h triangle.h
-* extvol.h pthread.cpp types.h global.cpp pthread_w.h ui.cpp global.h quadric.cpp
-* ui.h grid.cpp quadric.h util.cpp grid.h render.cpp util.h imageio.cpp render.h
-* vector.cpp imageio.h ring.cpp vector.h imap.cpp ring.h vol.cpp imap.h shade.cpp vol.h
-* jni-engine.cpp resource.h pch.h tbbTachyonRenderer.cpp tbbTachyonRenderer.h Makefile 
-* Makefile.windows
+* src/tachyon_src/*.cpp src/tachyon_src/*.h src/tachyon_src/gui/*.*
+* src/tachyon_src/tbb/*.* src/*.*
+* res/*.*
+* tutorials/*.* resources/*.*
+* readme.htm
 
 Copyright (C) Intel Corporation
 

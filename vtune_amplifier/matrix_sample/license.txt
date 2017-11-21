@@ -2,7 +2,8 @@ Matrix Sample
 
 License Information Follows
 ---------------------------
-* matrix.c multiply.c multiply.h thrmodel.c util.c Makefile 
+* src/*.c src/*.h
+* readme.html Makefile
 
 Copyright (C) Intel Corporation
 
