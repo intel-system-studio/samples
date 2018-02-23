@@ -1,0 +1,9 @@
+{
+  "name": "Optimize Sample",
+  "category": "Intel\u00AE Compiler",
+  "description": "This sample is designed to illustrate specific compiler optimizations such as O1, O2 and O3.",
+  "author": "Intel Corporation",
+  "date": "2018-02-23",
+  "tag": "system"
+}
+
