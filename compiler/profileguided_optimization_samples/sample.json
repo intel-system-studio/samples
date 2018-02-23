@@ -1,0 +1,9 @@
+{
+  "name": "Profile-Guided Optimization",
+  "category": "Intel\u00AE Compiler",
+  "description": "Fluid animate is one of a class of algorithms for calculating fluid flow. This sample is an implementation using Intel\u00AE Cilk\u2122 Plus technology to demonstrate the use of Intel Profile Guided Optimization (PGO).",
+  "author": "Intel Corporation",
+  "date": "2018-02-23",
+  "tag": "system"
+}
+

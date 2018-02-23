@@ -1,5 +1,5 @@
 {
-  "name": "Interprocedural Optimization (IPO)",
+  "name": "Interprocedural Optimization",
   "category": "Intel\u00AE Compiler",
   "description": "The example demonstrates using the Multi-file Interprocedural Optimization (IPO) feature of the Intel\u00AE C++ Compiler.",
   "author": "Intel Corporation",
