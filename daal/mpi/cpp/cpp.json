@@ -3,9 +3,11 @@
     "makefile-native" 
   ],
   "environmentVariables": {
-    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/mpi/intel64/include"
+    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/daal/include"
   },
   "makeVariables": {
-    "CC": "${ISS_ROOT}/compilers_and_libraries/linux/mpi/intel64/bin/mpicc"
+    "DAALROOT": "${ISS_ROOT}/compilers_and_libraries/linux/daal",
+    "TBBROOT": "${ISS_ROOT}/compilers_and_libraries/linux/tbb",
+    "CC": "${ISS_ROOT}/compilers_and_libraries/linux/mpi/intel64/bin/mpicc sointel64"
   }
 }
