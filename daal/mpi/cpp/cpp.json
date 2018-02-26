@@ -1,0 +1,11 @@
+{
+  "projectTypes": [ 
+    "makefile-native" 
+  ],
+  "environmentVariables": {
+    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/mpi/intel64/include"
+  },
+  "makeVariables": {
+    "CC": "${ISS_ROOT}/compilers_and_libraries/linux/mpi/intel64/bin/mpicc"
+  }
+}
