@@ -1,0 +1,8 @@
+{
+  "projectTypes": [ 
+    "makefile-native" 
+  ],
+  "makeVariables": {
+    "VERSION": "create_and_use_suppressions"
+  }
+}
