@@ -1,0 +1,9 @@
+{
+  "name": "Dot Product",
+  "category": "Intel\u00AE Parallel STL",
+  "description": "This example demonstrates computing the dot product of two vectors.",
+  "author": "Intel Corporation",
+  "date": "2018-02-26",
+  "tag": "system"
+}
+
