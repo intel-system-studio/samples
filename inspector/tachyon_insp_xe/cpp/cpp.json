@@ -2,6 +2,8 @@
   "projectTypes": [ 
     "makefile-native" 
   ],
+  "environmentVariables": {
+  },
   "makeVariables": {
     "VERSION": "create_and_use_suppressions"
   }
