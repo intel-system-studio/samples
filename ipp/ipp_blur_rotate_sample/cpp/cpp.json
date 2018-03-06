@@ -3,9 +3,10 @@
     "makefile-native" 
   ],
   "environmentVariables": {
-    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/include"
+    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/ipp/include"
   },
   "makeVariables": {
+    "UI": "x",
     "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icc -f Makefile_lin"
   }
 }
