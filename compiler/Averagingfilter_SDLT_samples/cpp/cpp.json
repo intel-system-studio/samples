@@ -6,6 +6,6 @@
     "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/include"
   },
   "makeVariables": {
-    "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icpc run"
+    "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icpc"
   }
 }
