@@ -5,7 +5,5 @@
   "environmentVariables": {
     "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/include",
     "PATH": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64:${PATH}"
-  },
-  "makeVariables": {
   }
 }

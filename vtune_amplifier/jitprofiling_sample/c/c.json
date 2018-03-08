@@ -2,8 +2,6 @@
   "projectTypes": [ 
     "makefile-native" 
   ],
-  "environmentVariables": {
-  },
   "makeVariables": {
     "VTUNE_AMPLIFIER_DIR": "${ISS_ROOT}/vtune_amplifier"
   }
