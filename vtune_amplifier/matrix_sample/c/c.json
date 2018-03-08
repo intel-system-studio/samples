@@ -1,0 +1,9 @@
+{
+  "projectTypes": [ 
+    "makefile-native" 
+  ],
+  "environmentVariables": {
+  },
+  "makeVariables": {
+  }
+}

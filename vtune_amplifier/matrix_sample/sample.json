@@ -1,0 +1,9 @@
+{
+  "name": "Matrix",
+  "category": "Intel\u00AE VTune\u2122 Amplifier",
+  "description": "The matrix sample allows you to explore the various capabilities of the Intel\u00AE VTune\u2122 Amplifier for analyzing threaded applications.",
+  "author": "Intel Corporation",
+  "date": "2018-03-08",
+  "tag": "system"
+}
+
