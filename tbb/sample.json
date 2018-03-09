@@ -1,0 +1,9 @@
+{
+  "name": "Averaging Filter - SDLT",
+  "category": "Intel\u00AE Threading Building Blocks",
+  "description": "This project includes example usages of Intel\u00AE Threading Building Blocks (Intel\u00AE TBB).",
+  "author": "Intel Corporation",
+  "date": "2018-03-09",
+  "tag": "system"
+}
+

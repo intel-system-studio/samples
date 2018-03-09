@@ -1,0 +1,13 @@
+{
+  "projectTypes": [ 
+    "makefile-native" 
+  ],
+  "environmentVariables": {
+    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/tbb/include",
+    "LIBRARY_PATH": "${ISS_ROOT}/compilers_and_libraries/linux/tbb/lib/intel64_lin/gcc4.7",
+    "LD_LIBRARY_PATH": "${ISS_ROOT}/compilers_and_libraries/linux/tbb/lib/intel64_lin/gcc4.7"
+  },
+  "makeVariables": {
+    "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icc -f GettingStarted/sub_string_finder/Makefile"
+  }
+}
