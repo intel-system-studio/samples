@@ -3,11 +3,11 @@
     "makefile-native" 
   ],
   "environmentVariables": {
-    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/tbb/include",
-    "LIBRARY_PATH": "${ISS_ROOT}/compilers_and_libraries/linux/tbb/lib/intel64_lin/gcc4.7",
-    "LD_LIBRARY_PATH": "${ISS_ROOT}/compilers_and_libraries/linux/tbb/lib/intel64_lin/gcc4.7"
+    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/tbb/include:${ISS_ROOT}/compilers_and_libraries/linux/mkl/include",
+    "LIBRARY_PATH": "${ISS_ROOT}/compilers_and_libraries/linux/tbb/lib/intel64_lin/gcc4.7:${ISS_ROOT}/compilers_and_libraries/linux/mkl/lib/intel64",
+    "LD_LIBRARY_PATH": "${ISS_ROOT}/compilers_and_libraries/linux/tbb/lib/intel64_lin/gcc4.7:${ISS_ROOT}/compilers_and_libraries/linux/mkl/lib/intel64"
   },
   "makeVariables": {
-    "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icc -C GettingStarted/sub_string_finder"
+    "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icc -C task_group/sudoku"
   }
 }
