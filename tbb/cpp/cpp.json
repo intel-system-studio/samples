@@ -8,6 +8,6 @@
     "LD_LIBRARY_PATH": "${ISS_ROOT}/compilers_and_libraries/linux/tbb/lib/intel64_lin/gcc4.7:${ISS_ROOT}/compilers_and_libraries/linux/mkl/lib/intel64"
   },
   "makeVariables": {
-    "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icc -C task_group/sudoku"
+    "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icc -C GettingStarted/sub_string_finder"
   }
 }
