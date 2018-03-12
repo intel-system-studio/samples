@@ -3,7 +3,7 @@
     "makefile-native" 
   ],
   "environmentVariables": {
-    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/daal/include"
+    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/daal/include:${ISS_ROOT}/compilers_and_libraries/linux/mpi/intel64/include"
   },
   "makeVariables": {
     "DAALROOT": "${ISS_ROOT}/compilers_and_libraries/linux/daal",
