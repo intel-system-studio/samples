@@ -4,5 +4,8 @@
   ],
   "makeVariables": {
     "VTUNE_AMPLIFIER_DIR": "${ISS_ROOT}/vtune_amplifier"
+  },
+  "environmentVariables": {
+    "CPATH": "${ISS_ROOT}/vtune_amplifier/include"
   }
 }
