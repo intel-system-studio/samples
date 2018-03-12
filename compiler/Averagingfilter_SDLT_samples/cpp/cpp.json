@@ -3,7 +3,7 @@
     "makefile-native" 
   ],
   "environmentVariables": {
-    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/include"
+    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/include:${ISS_ROOT}/compilers_and_libraries/linux/include/sdlt"
   },
   "makeVariables": {
     "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icpc"
