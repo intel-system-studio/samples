@@ -9,5 +9,8 @@
   },
   "makeVariables": {
     "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icc"
+  },
+  "indexerVariables": {
+    "FLAGS": "-std=c++11"
   }
 }
