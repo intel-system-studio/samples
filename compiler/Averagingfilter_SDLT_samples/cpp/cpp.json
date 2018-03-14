@@ -10,6 +10,6 @@
   },
   "indexerVariables": {
     "COMMAND": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icpc",
-    "FLAGS": "-sdt=c++11"
+    "FLAGS": "-std=c++11"
   }
 }
