@@ -1,4 +1,10 @@
 {
+  "projectOptions": [ 
+    {
+      "projectType": "makefile",
+      "dockerEnabled": "false"
+    } 
+  ],
   "projectTypes": [ 
     "makefile-native" 
   ]
