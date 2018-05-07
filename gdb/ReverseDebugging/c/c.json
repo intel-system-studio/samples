@@ -2,7 +2,7 @@
   "projectOptions": [ 
     {
       "projectType": "makefile",
-      "dockerEnabled": "false"
+      "dockerSupported": "false"
     } 
   ],
   "projectTypes": [ 
