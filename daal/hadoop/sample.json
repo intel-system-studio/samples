@@ -1,9 +1,0 @@
-{
-  "name": "Hadoop",
-  "category": "Intel\u00AE Data Analytics Acceleration Library",
-  "description": "Hadoop samples for the Intel\u00AE Data Analytics Acceleration Library (Intel\u00AE DAAL) are designed to show how to use this library on the Hadoop cluster in a Java application.",
-  "author": "Intel Corporation",
-  "date": "2018-02-26",
-  "tag": "system"
-}
-
