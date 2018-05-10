@@ -5,9 +5,6 @@
       "dockerSupported": "false"
     } 
   ],
-  "projectTypes": [ 
-    "makefile-native" 
-  ],
   "makeVariables": {
     "VTUNE_AMPLIFIER_DIR": "${ISS_ROOT}/vtune_amplifier"
   },

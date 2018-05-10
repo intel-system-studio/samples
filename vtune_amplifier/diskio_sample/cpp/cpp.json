@@ -4,8 +4,5 @@
       "projectType": "makefile",
       "dockerSupported": "false"
     } 
-  ],
-  "projectTypes": [ 
-    "makefile-native" 
   ]
 }

@@ -5,9 +5,6 @@
       "dockerSupported": "false"
     } 
   ],
-  "projectTypes": [ 
-    "makefile-native" 
-  ],
   "environmentVariables": {
     "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/include"
   },

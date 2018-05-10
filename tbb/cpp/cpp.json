@@ -5,9 +5,6 @@
       "dockerSupported": "false"
     } 
   ],
-  "projectTypes": [ 
-    "makefile-native" 
-  ],
   "environmentVariables": {
     "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/tbb/include:${ISS_ROOT}/compilers_and_libraries/linux/mkl/include",
     "LIBRARY_PATH": "${ISS_ROOT}/compilers_and_libraries/linux/tbb/lib/intel64_lin/gcc4.7:${ISS_ROOT}/compilers_and_libraries/linux/mkl/lib/intel64",
