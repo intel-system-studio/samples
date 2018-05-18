@@ -1,0 +1,8 @@
+.*\.bmp
+.*\.dll
+.*\.jpg
+.*\.jpeg
+.*\.gif
+.*\.png
+.*\.so
+.gitignore
