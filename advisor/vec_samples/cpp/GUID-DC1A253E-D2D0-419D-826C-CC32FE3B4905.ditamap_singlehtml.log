@@ -1,0 +1,251 @@
+
+init:
+
+start-process:
+
+init-logger:
+
+init-URIResolver:
+
+use-init.envhhcdir:
+
+use-init.hhcdir:
+
+use-init.envfardir:
+
+use-init.fardir:
+
+use-init.envhxconvdir:
+
+use-init.hxconvdir:
+
+use-init.envmshcdir:
+
+use-init.mshcdir:
+
+use-init.pdfFormatter:
+
+use-init:
+
+check-arg:
+     [echo] root.map.RevUpdate = NoRevUpdate - using blank.ditaval
+     [echo] args.input = D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset/GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905.ditamap
+     [echo] dita.map.filename.root.orig = GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905
+     [echo] dita.topic.filename.root.orig = GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905.ditamap
+     [echo] dita.input.filename = GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905.ditamap
+     [echo] dita.map.filename.root = advixe_readme
+     [echo] dita.topic.filename.root = advixe_readme
+     [echo] root.map.props = advixe_readme
+     [echo] dita.input.valfile: C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG\ditaval\blank.ditaval
+    [mkdir] Created dir: D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp
+     [echo] *****************************************************************
+     [echo] * basedir = C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG
+     [echo] * dita.dir = C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG
+     [echo] * input = D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset/GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905.ditamap
+     [echo] * transtype = singlehtml
+     [echo] * tempdir = D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset/temp
+     [echo] * outputdir = D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\out
+     [echo] * extname = .xml
+     [echo] * clean.temp = no
+     [echo] * xslt.parser = SAXON
+     [echo] * HTMLHelpCompiler = C:\Program Files (x86)\HTML Help Workshop\hhc.exe
+     [echo] * pdf.formatter = ah
+     [echo] *****************************************************************
+
+output-deprecated-msg:
+
+output-css-warn-message:
+
+output-msg:
+
+build-init:
+
+start-preprocess:
+
+gen-list-flag-check:
+
+gen-list-without-flagging:
+
+gen-list-with-flagging:
+ [pipeline] Using XERCES.
+ [pipeline] Using Xerces grammar pool for DTD and schema caching.
+
+gen-list:
+
+debug-filter-flag-check:
+
+debug:
+
+debug-and-filter:
+ [pipeline] Using Xerces grammar pool for DTD and schema caching.
+ [pipeline] Using Xerces grammar pool for DTD and schema caching.
+
+debug-filter:
+
+copy-image-check:
+
+copy-image:
+
+copy-html-check:
+
+copy-html:
+
+copy-flag-check:
+
+copy-flag:
+     [copy] Copying 2 files to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\out
+
+copy-subsidiary-check:
+
+copy-subsidiary:
+
+copy-generated-files:
+     [copy] Copying 2 files to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\out
+
+copy-files:
+
+conrefpush-check:
+
+conrefpush:
+
+conref-check:
+
+conref:
+     [xslt] Transforming into D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-4AE2CDC8-50DD-4A6E-B2DE-1B24733685C8.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-4AE2CDC8-50DD-4A6E-B2DE-1B24733685C8.xml.cnrf
+     [xslt] Loading stylesheet C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG\xsl\preprocess\conref.xsl
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-82A12E1F-2B0A-46A6-8E8E-D322EC90844C.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-82A12E1F-2B0A-46A6-8E8E-D322EC90844C.xml.cnrf
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-9E18144B-76B2-44FC-8480-36311B6FD990.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-9E18144B-76B2-44FC-8480-36311B6FD990.xml.cnrf
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-9F5CEF38-C0EC-4EC5-8336-E5DDC2345FB1.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-9F5CEF38-C0EC-4EC5-8336-E5DDC2345FB1.xml.cnrf
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-ABFF903E-8882-4C5D-BDA7-39EA0551D4A9.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-ABFF903E-8882-4C5D-BDA7-39EA0551D4A9.xml.cnrf
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-D22B8B11-DF4D-4E61-9BF8-1E5F26CF555B.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-D22B8B11-DF4D-4E61-9BF8-1E5F26CF555B.xml.cnrf
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-DF2D6213-D346-446E-9DFB-2F9790A70DCA.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-DF2D6213-D346-446E-9DFB-2F9790A70DCA.xml.cnrf
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-E3FE9BFA-0494-433C-B717-EF1239F95FE6.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-E3FE9BFA-0494-433C-B717-EF1239F95FE6.xml.cnrf
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-E5F8F14F-0467-4115-A6BA-C3649B751DE9.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-E5F8F14F-0467-4115-A6BA-C3649B751DE9.xml.cnrf
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-FBBC2ABE-9EA5-4350-BC1F-20C999BDA24E.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-FBBC2ABE-9EA5-4350-BC1F-20C999BDA24E.xml.cnrf
+     [move] Moving 10 files to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp
+
+move-meta-entries-check:
+
+move-meta-entries:
+
+keyref-check:
+
+keyref:
+
+coderef-check:
+
+coderef:
+
+mapref-check:
+
+mapref:
+     [xslt] Transforming into D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905.ditamap to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905.ditamap.ref
+     [xslt] Loading stylesheet C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG\xsl\preprocess\mapref.xsl
+     [move] Moving 1 file to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp
+
+mappull-check:
+
+mappull:
+     [xslt] Transforming into D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905.ditamap to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905.ditamap.pull
+     [xslt] Loading stylesheet C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG\xsl\preprocess\mappull.xsl
+     [move] Moving 1 file to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp
+
+chunk-check:
+
+chunk:
+
+maplink-check:
+
+maplink:
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905.ditamap to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\maplinks.unordered
+     [xslt] Loading stylesheet C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG\xsl\preprocess\maplink.xsl
+
+move-links-check:
+
+move-links:
+
+topicpull-check:
+
+topicpull:
+     [xslt] Transforming into D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-4AE2CDC8-50DD-4A6E-B2DE-1B24733685C8.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-4AE2CDC8-50DD-4A6E-B2DE-1B24733685C8.xml.pull
+     [xslt] Loading stylesheet C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG\xsl\preprocess\topicpull.xsl
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-82A12E1F-2B0A-46A6-8E8E-D322EC90844C.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-82A12E1F-2B0A-46A6-8E8E-D322EC90844C.xml.pull
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-9E18144B-76B2-44FC-8480-36311B6FD990.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-9E18144B-76B2-44FC-8480-36311B6FD990.xml.pull
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-9F5CEF38-C0EC-4EC5-8336-E5DDC2345FB1.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-9F5CEF38-C0EC-4EC5-8336-E5DDC2345FB1.xml.pull
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-ABFF903E-8882-4C5D-BDA7-39EA0551D4A9.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-ABFF903E-8882-4C5D-BDA7-39EA0551D4A9.xml.pull
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-D22B8B11-DF4D-4E61-9BF8-1E5F26CF555B.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-D22B8B11-DF4D-4E61-9BF8-1E5F26CF555B.xml.pull
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-E3FE9BFA-0494-433C-B717-EF1239F95FE6.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-E3FE9BFA-0494-433C-B717-EF1239F95FE6.xml.pull
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-E5F8F14F-0467-4115-A6BA-C3649B751DE9.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-E5F8F14F-0467-4115-A6BA-C3649B751DE9.xml.pull
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-FBBC2ABE-9EA5-4350-BC1F-20C999BDA24E.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-FBBC2ABE-9EA5-4350-BC1F-20C999BDA24E.xml.pull
+     [move] Moving 9 files to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp
+
+preprocess:
+
+process.MathML.content:
+     [echo] Running process.MathML.content
+     [echo] Comment out NL Processing instuctions
+     [echo] Running RunMFDocComposer.pl
+     [echo] RunMFDocComposer.pl D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset/GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905.ditamap
+     [exec] $temp_path: D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp
+     [exec] $eq_temp_path: D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\equations
+     [exec] Filename: export.xml
+     [exec] Filename: GUID-06146A70-542B-4A0C-BC53-999CFB43619B.xml
+     [exec] Filename: GUID-4AE2CDC8-50DD-4A6E-B2DE-1B24733685C8.xml
+     [exec] Filename: GUID-7C32F0AC-425A-454E-93F4-351F891F1625.xml
+     [exec] Filename: GUID-82A12E1F-2B0A-46A6-8E8E-D322EC90844C.xml
+     [exec] Filename: GUID-9E18144B-76B2-44FC-8480-36311B6FD990.xml
+     [exec] Filename: GUID-9F5CEF38-C0EC-4EC5-8336-E5DDC2345FB1.xml
+     [exec] Filename: GUID-ABFF903E-8882-4C5D-BDA7-39EA0551D4A9.xml
+     [exec] Filename: GUID-D22B8B11-DF4D-4E61-9BF8-1E5F26CF555B.xml
+     [exec] Filename: GUID-DF2D6213-D346-446E-9DFB-2F9790A70DCA.xml
+     [exec] Filename: GUID-E3FE9BFA-0494-433C-B717-EF1239F95FE6.xml
+     [exec] Filename: GUID-E5F8F14F-0467-4115-A6BA-C3649B751DE9.xml
+     [exec] Filename: GUID-FBBC2ABE-9EA5-4350-BC1F-20C999BDA24E.xml
+     [exec] Filename: keydef.xml
+     [exec] Filename: schemekeydef.xml
+     [exec] Can't stat D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\equations: No such file or directory
+     [exec]  at RunMFDocComposer.pl line 34
+     [echo] Copy MathML images to output directory - D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\out\equations
+     [echo] Uncomment NL Processing instuctions
+     [echo] process.MathML completed
+
+copy-css:
+     [copy] Copying 2 files to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\out
+
+copy-css-user:
+
+dita-preprocess:
+
+i-map2singlehtml:
+
+i-dita.map.singlehtml:
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905.ditamap to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\advixe_readme_MERGED.xml
+     [xslt] Loading stylesheet C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG\xsl\topicmerge.xsl
+     [xslt] Processing D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\workset\temp\advixe_readme_MERGED.xml to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\out\advixe_readme.htm
+     [xslt] Loading stylesheet C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG\plugins\intel.ssg.infodev.singlehtml\xsl\dita2singlexhtml.xsl
+
+copy.ssg.css:
+     [echo] Copying platform-specific SSG CSS File to intel_css_styles.css
+   [delete] Deleting: C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG\resource\Intel\intel_css_styles.css
+     [echo] Copying styles.css to intel_css_styles.css
+     [copy] Copying 1 file to C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG\resource\Intel
+     [copy] Copying 1 file to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\out
+     [copy] Copying 2 files to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\out\resources
+     [copy] Copying 1 file to D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\out\resources
+
+copy.ssg.delta:
+     [echo] Copy delta.gif and deltaend.gif files to output directory
+   [delete] Deleting: C:\InfoShare\App\Utilities\DITA-OT\InfoShare_SSG\xsl\var_RevUpdateStatus.xml
+
+AddBodyCSSStyle:
+     [echo] Adding .titlepage style to HTML body tag in GUID-4AE2CDC8-50DD-4A6E-B2DE-1B24733685C8.xml
+     [echo] root.topicref.htm: GUID-4AE2CDC8-50DD-4A6E-B2DE-1B24733685C8.htm
+[replaceregexp] The following file is missing: 'D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\out\GUID-4AE2CDC8-50DD-4A6E-B2DE-1B24733685C8.htm'
+[replaceregexp] The following file is missing: 'D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\out\GUID-4AE2CDC8-50DD-4A6E-B2DE-1B24733685C8.htm'
+
+dita2singlehtml:
+      [zip] Building zip: D:\Data\InfoShare\Data\PublishingService\Data\DataExports\GUID-C9502AA8-14FB-46E0-8E52-39E69E9E6E52.2162749.20160408060733418\1\en-US\out\GUID-DC1A253E-D2D0-419D-826C-CC32FE3B4905.zip
