@@ -4,5 +4,10 @@
 .*\.jpeg
 .*\.gif
 .*\.png
+.*\.sln
 .*\.so
+.*\.suo
+.*\.vcxproj
+.*\.vcxproj.filters
 .gitignore
+readme.html
