@@ -1,5 +1,5 @@
 #======================================================================= 
- # Copyright (C) 2010-2017 Intel Corporation. All Rights Reserved.
+ # Copyright (C) 2010-2018 Intel Corporation. All Rights Reserved.
  #
  # The source code, information and material ("Material") 
  # contained herein is owned by Intel Corporation or its 
@@ -35,7 +35,7 @@ endif #
 
 CXX = g++
 #CXX = icpc
-ADV_DIR = $(ADVISOR_2018_DIR)
+ADV_DIR = $(ADVISOR_2019_DIR)
 
 all: build
 release: build
@@ -45,20 +45,20 @@ build: 1_mmult_serial 2_mmult_annotated 3_mmult_omp
 build_debug: 1_mmult_serial_debug 2_mmult_annotated_debug 3_mmult_omp_debug
 
 #ADVISOR COMMENT: If you add annotations to the serial version, you should uncomment the -I $(ADV_DIR)/include/ addition
-# at the end of the 2 build lines below. Also, ensure the ADVISOR_2018_DIR environment variable is defined.
+# at the end of the 2 build lines below. Also, ensure the ADVISOR_2019_DIR environment variable is defined.
 1_mmult_serial: mmult_serial.cpp
 	$(CXX) $(CXXFLAGS) mmult_serial.cpp -o 1_mmult_serial -O2 -g #-I $(ADV_DIR)/include/
 1_mmult_serial_debug: mmult_serial.cpp
 	$(CXX) $(CXXFLAGS) mmult_serial.cpp -o 1_mmult_serial_debug -O0 -g -D_DEBUG #-I $(ADV_DIR)/include/ 
 2_mmult_annotated: mmult_annotated.cpp
 ifeq ($(ADV_DIR),)
-	@echo ADVISOR_2018_DIR environment variable not defined. Required to build annotated sample.
+	@echo ADVISOR_2019_DIR environment variable not defined. Required to build annotated sample.
 else
 	$(CXX) $(CXXFLAGS) mmult_annotated.cpp -I $(ADV_DIR)/include/ -o 2_mmult_annotated -O2 -g -ldl
 endif
 2_mmult_annotated_debug: mmult_annotated.cpp
 ifeq ($(ADV_DIR),)
-	@echo ADVISOR_2018_DIR environment variable not defined. Required to build annotated sample.
+	@echo ADVISOR_2019_DIR environment variable not defined. Required to build annotated sample.
 else
 	$(CXX) $(CXXFLAGS) mmult_annotated.cpp -I $(ADV_DIR)/include/ -o 2_mmult_annotated_debug -O0 -g -D_DEBUG -ldl
 endif
