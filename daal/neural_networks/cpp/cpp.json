@@ -13,6 +13,6 @@
   "makeVariables": {
     "DAALROOT": "${ISS_ROOT}/compilers_and_libraries/linux/daal",
     "TBBROOT": "${ISS_ROOT}/compilers_and_libraries/linux/tbb",
-    "CC": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icc sointel64"
+    "CC": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icc sointel64 mode=build"
   }
 }
