@@ -2,6 +2,8 @@
 #include <random>
 #include <time.h>
 #include <math.h>
+#include <cstdlib>
+
 using namespace std;
 
 void setup();

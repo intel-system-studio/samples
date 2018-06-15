@@ -1,5 +1,7 @@
 #include <iostream>			// See Legal Information at the bottom of the file.
 #include <random>
+#include <cstdlib>
+
 using namespace std;
 
 long function (int slowDown[], long i);

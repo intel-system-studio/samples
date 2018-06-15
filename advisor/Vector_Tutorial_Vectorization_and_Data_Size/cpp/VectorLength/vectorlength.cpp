@@ -1,6 +1,9 @@
 #include <random>			// See Legal Information at the bottom of the file.
 #include <iostream>
 #include <time.h>
+#include <cmath>
+#include <cstdlib>
+
 using namespace std;
 
 void setup();
