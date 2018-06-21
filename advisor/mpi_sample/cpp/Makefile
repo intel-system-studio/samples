@@ -37,7 +37,7 @@ endif #
 
 #CXX = g++
 CXX = mpiicpc
-ADV_DIR = $(ADVISOR_2018_DIR)
+ADV_DIR = $(ADVISOR_2019_DIR)
 
 all: build
 release: build
@@ -47,20 +47,20 @@ build: 1_mpi_sample_serial 2_mpi_sample_annotated 3_mpi_sample_omp
 build_debug: 1_mpi_sample_serial_debug 2_mpi_sample_annotated_debug 3_mpi_sample_omp_debug
 
 #ADVISOR COMMENT: If you add annotations to the serial version, you should uncomment the -I $(ADV_DIR)/include/ addition
-# at the end of the 2 build lines below. Also, ensure the ADVISOR_2018_DIR environment variable is defined.
+# at the end of the 2 build lines below. Also, ensure the ADVISOR_2019_DIR environment variable is defined.
 1_mpi_sample_serial: mpi_sample_serial.cpp
 	$(CXX) $(CXXFLAGS) mpi_sample_serial.cpp -o 1_mpi_sample_serial -O2 -g #-I $(ADV_DIR)/include/
 1_mpi_sample_serial_debug: mpi_sample_serial.cpp
 	$(CXX) $(CXXFLAGS) mpi_sample_serial.cpp -o 1_mpi_sample_serial_debug -O0 -g -D_DEBUG #-I $(ADV_DIR)/include/ 
 2_mpi_sample_annotated: mpi_sample_annotated.cpp
 ifeq ($(ADV_DIR),)
-	@echo ADVISOR_2018_DIR environment variable not defined. Required to build annotated sample.
+	@echo ADVISOR_2019_DIR environment variable not defined. Required to build annotated sample.
 else
 	$(CXX) $(CXXFLAGS) mpi_sample_annotated.cpp -I $(ADV_DIR)/include/ -o 2_mpi_sample_annotated -O2 -g -ldl
 endif
 2_mpi_sample_annotated_debug: mpi_sample_annotated.cpp
 ifeq ($(ADV_DIR),)
-	@echo ADVISOR_2018_DIR environment variable not defined. Required to build annotated sample.
+	@echo ADVISOR_2019_DIR environment variable not defined. Required to build annotated sample.
 else
 	$(CXX) $(CXXFLAGS) mpi_sample_annotated.cpp -I $(ADV_DIR)/include/ -o 2_mpi_sample_annotated_debug -O0 -g -D_DEBUG -ldl
 endif

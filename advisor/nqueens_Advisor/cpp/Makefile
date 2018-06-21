@@ -38,7 +38,7 @@ endif #
 CXX = g++
 #CXX = icpc
 TBB_DIR = $(TBBROOT)
-ADV_DIR = $(ADVISOR_2018_DIR)
+ADV_DIR = $(ADVISOR_2019_DIR)
 
 all: build
 release: build

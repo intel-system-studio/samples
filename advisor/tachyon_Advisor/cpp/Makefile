@@ -55,7 +55,7 @@
 #NAME=tachyon
 NAME = $(VERSION)
 TBB_FOR_EXAMPLES_INSTALL_DIR=tbbforexamples
-ADV_DIR = $(ADVISOR_2018_DIR)
+ADV_DIR = $(ADVISOR_2019_DIR)
 
 ifeq ($(shell uname -m),x86_64)
 Arch=intel64
@@ -130,13 +130,13 @@ build_1_tachyon_serial_debug:
 	$(MAKE) VERSION=1_tachyon_serial ADD_DEBUG=1 build_one
 build_2_tachyon_annotated:
 ifeq ($(ADV_DIR),)
-	@echo ADVISOR_2018_DIR environment variable not defined. Required to build annotated sample.
+	@echo ADVISOR_2019_DIR environment variable not defined. Required to build annotated sample.
 else	
 	$(MAKE) VERSION=2_tachyon_annotated ANNOTATE=1 build_one
 endif
 build_2_tachyon_annotated_debug:
 ifeq ($(ADV_DIR),)
-	@echo ADVISOR_2018_DIR environment variable not defined. Required to build annotated sample.
+	@echo ADVISOR_2019_DIR environment variable not defined. Required to build annotated sample.
 else	
 	$(MAKE) VERSION=2_tachyon_annotated ANNOTATE=1 ADD_DEBUG=1 build_one
 endif
