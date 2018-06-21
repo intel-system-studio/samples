@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+
 using namespace std;
 
 const long int SIZE = 3500000;

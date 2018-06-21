@@ -1,5 +1,5 @@
 These files (trickyStride.cpp and contiguity.cpp) are meant to be used with the "Memory 
-Access" tutorial for Intel® Advisor XE 2016. They are intended to be compiled with the Intel
+Access" tutorial for IntelÂ® Advisor XE 2016. They are intended to be compiled with the Intel
 C++ Compiler in Microsoft* Visual Studio 2010. The process may be slightly different using 
 other compilers or in other environments.
 
@@ -42,8 +42,17 @@ select "Use Intel C++", and perform the following steps.
 
 See the online video https://software.intel.com/en-us/videos/memory-access-101
 
-Legal Information
 ------------------------------------------
+build instructions for Intel System Studio
+
+When you create a new Eclipse project from this sample, the Contiguity project is selected by default. To build the other project do the following:
+
+Open Project/properties, select "C/C++ Build"; Click on "Manage Configurations" > New > Call it Stride (copy from Default); 
+Swtich the Configuration to Stride, Select Behavior Tab, change Build to: --directory=StrideTrickiness; Apply and Close
+On the main Toolbar, click on drop down next to build (hammer icon), select the Stride configuration to build it.
+
+------------------------------------------
+Legal Information
 
 INFORMATION IN THIS DOCUMENT IS PROVIDED IN CONNECTION WITH INTEL PRODUCTS. NO LICENSE, EXPRESS OR IMPLIED, BY ESTOPPEL OR OTHERWISE, TO ANY INTELLECTUAL PROPERTY RIGHTS IS GRANTED BY THIS DOCUMENT. EXCEPT AS PROVIDED IN INTEL'S TERMS AND CONDITIONS OF SALE FOR SUCH PRODUCTS, INTEL ASSUMES NO LIABILITY WHATSOEVER, AND INTEL DISCLAIMS ANY EXPRESS OR IMPLIED WARRANTY, RELATING TO SALE AND/OR USE OF INTEL PRODUCTS INCLUDING LIABILITY OR WARRANTIES RELATING TO FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR INFRINGEMENT OF ANY PATENT, COPYRIGHT OR OTHER INTELLECTUAL PROPERTY RIGHT. 
 

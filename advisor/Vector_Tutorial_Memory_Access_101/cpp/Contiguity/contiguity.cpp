@@ -1,5 +1,7 @@
 #include <iostream>				// See Legal Information at the bottom of the file.
 #include <time.h>
+#include <cstdlib>
+
 using namespace std;
 
 const int LOOPS = 1500000;
