@@ -28,6 +28,8 @@
 
 #include <iostream>			
 #include <random>
+#include <cstdlib>
+#include <stdint.h>
 using namespace std;
 
 /******* Controls *******/
