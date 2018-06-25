@@ -1,0 +1,16 @@
+{
+  "projectOptions": [ 
+    {
+      "projectType": "makefile",
+      "dockerSupported": "false"
+    } 
+  ],
+  "makeVariables": {
+    ".DEFAULT_GOAL": "default",
+    "--directory":"Contiguity"
+  },
+  "indexerVariables": {
+    "COMMAND": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icpc",
+    "FLAGS": "-I ${ISS_ROOT}/advisor_2019/include/"
+  }
+}

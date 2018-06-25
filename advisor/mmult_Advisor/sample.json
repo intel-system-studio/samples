@@ -1,0 +1,8 @@
+{
+  "name": "mmult_Advisor",
+  "category": "Intel\u00AE Advisor",
+  "description": "mmult sample application written using the C++ programming language. It explains how to open, build, and run this sample application using the Intel(R) Advisor XE.",
+  "author": "Intel Corporation",
+  "date": "2018-06-05",
+  "tag": "system"
+}

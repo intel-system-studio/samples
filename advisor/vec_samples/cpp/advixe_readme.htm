@@ -1,0 +1,1618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:MSHelp="http://www.microsoft.com/MSHelp/" lang="en-us" xml:lang="en-us">
+<head>
+<meta name="DC.Language" content="en-US"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css"/>
+<title>Intel Advisor ReadMe</title>
+</head>
+<body>
+
+		
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+<div class="no-rel-links" xml:lang="en-US" id="d3e4a1310"><a name="d3e4a1310"><!-- --></a><h1 class="topictitle1">Vectorization Sample for the 
+		Intel® Advisor
+	 - 
+	 Linux* OS</h1>
+<!--Intel Advisor 
+	 offers 
+	 Vectorization Advisor,
+	 a vectorization optimization tool, and 
+	 Threading Advisor,
+	 a threading design and prototyping tool, to help ensure your Fortran, C and C++
+	 
+	  applications
+	 realize full performance potential on modern processors, such as Intel® Xeon
+	 Phi™ processors. 
+	 --><div id="d3e53a1310"><a name="d3e53a1310"><!-- --></a><p class="italic"><strong>Intel Advisor</strong>
+	 offers 
+	 Vectorization Advisor,
+	 a vectorization optimization tool, and 
+	 Threading Advisor,
+	 a threading design and prototyping tool, to help ensure your Fortran, C and C++
+	 
+	  applications
+	 realize full performance potential on modern processors, such as Intel® Xeon
+	 Phi™ processors. 
+	 </p>
+ 
+	 <p> 
+	 </p>
+ 
+	 <p>This ReadMe shows how to use the 
+		Intel® Advisor
+		to improve the performance of a C++ sample application. Follow these steps: 
+	 </p>
+ 
+	 <a name="d3e64a1310"><!-- --></a><ol id="d3e64a1310"> 
+		<li> 
+		  <p><a href="#d4e4a1310">Prepare the sample application</a>. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><a href="#d5e4a1310">Establish a performance baseline</a>. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><a href="#d6e4a1310">Disambiguate pointers</a>. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><a href="#d7e4a1310">Generate instructions for the highest instruction
+				set available</a>. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><a href="#d8e4a1310">Handle dependencies</a>. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><a href="#d9e4a1310">Analyze memory access patterns</a>. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><a href="#d10e4a1310">Align data</a>. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><a href="#d11e4a1310">Reorganize code</a>. 
+		  </p>
+ 
+		</li>
+ 
+	 </ol>
+ 
+  </div>
+</div>
+<div class="no-rel-links" xml:lang="en-US" id="d4e4a1310"><a name="d4e4a1310"><!-- --></a><h1 class="topictitle1"> Standalone GUI: 
+	 Prepare the Sample Application</h1>
+<div> 
+	 <p> 
+	 </p>
+ 
+	 <p> Follow these initial steps 
+		to use the 
+		Intel Advisor
+		standalone GUI to try out the 
+		<span class="filepath">vec_samples</span> sample application. 
+	 </p>
+ 
+	 <a name="d4e45a1310"><!-- --></a><ul id="d4e45a1310"> 
+		<li> 
+		  <p><a href="#d4e84a1310">Get software tools and unpack the sample
+				application.</a> 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><a href="#d4e197a1310">Prepare the sample
+				application.</a> 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><a href="#d4e297a1310">Launch the Intel Advisor.</a> 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><a href="#d4e399a1310">Prepare the project.</a> 
+		  </p>
+ 
+		</li>
+ 
+	 </ul>
+ 
+	 <div class="section" id="d4e84a1310"><a name="d4e84a1310"><!-- --></a><h2 class="sectiontitle">Get Software Tools and Unpack the Sample Application</h2> 
+		 
+		<p>You need the following tools: 
+		</p>
+ 
+		<a name="d4e92a1310"><!-- --></a><ul id="d4e92a1310"> 
+		  <li> 
+			 <p> 
+				Intel Advisor
+				installation package and license 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p> Version 15.x or higher of the Intel C++ compiler or a supported
+				compiler 
+			 </p>
+ 
+			 <p>Use an Intel compiler to get more benefit (and version 17.x to get
+				the most benefit) from the 
+				Vectorization Advisor
+				
+				<b class="uicontrol">Survey Report</b>. See the 
+				<em>Release Notes</em> for more information on supported compilers. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p><span class="filepath">.tgz</span> file
+				extraction utility 
+			 </p>
+ 
+		  </li>
+ 
+		</ul>
+ 
+		<p id="d4e130a1310"><a name="d4e130a1310"><!-- --></a>If you do not already have access to the 
+		  Intel Advisor
+		  or the Intel C++ compiler, download an evaluation copy from 
+		  <a href="http://software.intel.com/en-us/articles/intel-software-evaluation-center/" target="_blank">http://software.intel.com/en-us/articles/intel-software-evaluation-center/</a>.
+		  
+		</p>
+ 
+		<p id="d4e140a1310"><a name="d4e140a1310"><!-- --></a>To set up the 
+		  <span class="filepath">vec_samples</span> sample application: 
+		</p>
+ 
+		<a name="d4e147a1310"><!-- --></a><ol id="d4e147a1310"> 
+		  <li> 
+			 <p> Copy the 
+				<span class="filepath">vec_samples.tgz</span> file from the 
+				<span class="filepath">&lt;advisor-install-dir&gt;/samples/&lt;locale&gt;/C++/</span>
+				directory to a writable directory or share on your system. 
+			 </p>
+ 
+			 <p>The default installation path, 
+				<span class="filepath">&lt;advisor-install-dir&gt;</span>, is below: 
+			 <a name="d4e165a1310"><!-- --></a><ul id="d4e165a1310"> 
+				<li> 
+				  <p><span class="filepath">/opt/intel/</span> for root users 
+				  </p>
+ 
+				</li>
+ 
+				<li> 
+				  <p><span class="filepath">$HOME/intel/</span> for non-root users 
+				  </p>
+ 
+				</li>
+ 
+			 </ul>
+ 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p> Extract the sample from the 
+				<span class="filepath">.tgz</span> file. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+	 <div class="section" id="d4e197a1310"><a name="d4e197a1310"><!-- --></a><h2 class="sectiontitle">Prepare the Sample Application</h2> 
+		 
+		<p>To follow along with this 
+		  ReadMe,
+			 in a terminal session: 
+		</p>
+ 
+		<a name="d4e210a1310"><!-- --></a><ol id="d4e210a1310"> 
+		  <li> 
+			 <p>Set up the C++ compiler environment. For
+				example, in a terminal session, type one of the following: 
+			 </p>
+ 
+			 <a name="d4e217a1310"><!-- --></a><ul id="d4e217a1310"> 
+				<li> 
+				  <p><samp class="codeph">source
+						/&lt;compiler-install-dir&gt;/bin/compilervars.csh ia32</samp> or 
+					 <samp class="codeph">source
+						/&lt;compiler-install-dir&gt;/bin/compilervars.sh ia32</samp> 
+				  </p>
+ 
+				</li>
+ 
+				<li> 
+				  <p><samp class="codeph">source
+						/&lt;compiler-install-dir&gt;/bin/compilervars.csh intel64</samp> or 
+					 <samp class="codeph">source
+						/&lt;compiler-install-dir&gt;/bin/compilervars.sh intel64</samp> 
+				  </p>
+ 
+				  <p>See 
+					 <em>Specifying Location of Compiler Components with compilervars
+						File</em> in the 
+					 <em>Intel® C++ Compiler &lt;version&gt; User and Reference
+						Guide</em> for more information. 
+				  </p>
+ 
+				</li>
+ 
+			 </ul>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Change directory to the 
+				<span class="filepath">vec_samples/</span> directory in its unzipped
+				location. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Build the target sample application in release
+				mode using the 
+				<samp class="codeph">make baseline</samp> command, which contains these
+				compiler options: 
+		<span class="option">-O2 -g</span> 
+		</p>
+ 
+		</li>
+ 
+		</ol>
+ 
+		<div class="Note"><h3 class="NoteTipHead">Tip</h3> 
+		  <a name="d4e276a1310"><!-- --></a><ul id="d4e276a1310"> 
+			 <li> 
+				<p>For your convenience, there are also Instruction Set
+				  Architecture-related Release choices. 
+				</p>
+ 
+			 </li>
+ 
+			 <li> 
+				<p>Keep the 
+				  terminal session open. 
+				</p>
+ 
+			 </li>
+ 
+		  </ul>
+ 
+		</div> 
+		</div>
+ 
+	 <div class="section" id="d4e297a1310"><a name="d4e297a1310"><!-- --></a><h2 class="sectiontitle">Launch the 
+		  Intel Advisor</h2> 
+		
+		
+		<p>In the terminal session: 
+		<a name="d4e306a1310"><!-- --></a><ol id="d4e306a1310"> 
+		  <li> 
+			 <p>Do one of the following to set up the 
+				Intel Advisor
+				environment. 
+			 <a name="d4e315a1310"><!-- --></a><ul id="d4e315a1310"> 
+	 <li> 
+		<p>Run the 
+		  <span class="keyword">source &lt;advisor-install-dir&gt;/advixe-vars.csh</span>
+		  or 
+		  <span class="keyword">source &lt;advisor-install-dir&gt;/advixe-vars.sh</span>
+		  command 
+		</p>
+ 
+	 </li>
+ 
+	 <li> 
+		<p>Add 
+		  <span class="filepath">&lt;advisor-install-dir&gt;/bin32</span> or 
+		  <span class="filepath">&lt;advisor-install-dir&gt;/bin64</span> to your path. 
+		</p>
+ 
+	 </li>
+ 
+	 <li> 
+		<p>Run the 
+		  <span class="keyword">&lt;parallel-studio-install-dir&gt;/psxevars.csh</span> or 
+		  <span class="keyword">&lt;parallel-studio-install-dir&gt;/psxevars.sh</span>
+		  command 
+		</p>
+ 
+	 </li>
+ 
+  </ul>
+ 
+			 </p>
+ 
+			 <p>The default installation path for
+	 both 
+	 <span class="filepath">&lt;advisor-install-dir&gt;</span> and 
+	 <span class="filepath">&lt;parallel-studio-install-dir&gt;</span> is below: 
+  <a name="d4e363a1310"><!-- --></a><ul id="d4e363a1310"> 
+	 <li> 
+		<p><span class="filepath">/opt/intel/</span> for root users 
+		</p>
+ 
+	 </li>
+ 
+	 <li> 
+		<p><span class="filepath">$HOME/intel/</span> for non-root users 
+		</p>
+ 
+	 </li>
+ 
+  </ul>
+ 
+  </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Type 
+				<samp class="codeph">advixe-gui &amp;</samp> to run the 
+				Intel Advisor
+				standalone GUI in the background. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+		</p>
+ 
+	 </div>
+ 
+	 <div class="section" id="d4e399a1310"><a name="d4e399a1310"><!-- --></a><h2 class="sectiontitle">Prepare the Project</h2> 
+		 
+		<a name="d4e404a1310"><!-- --></a><ol id="d4e404a1310"> 
+		  <li> Choose 
+			 <b class="uicontrol">File</b> &gt; <b class="uicontrol">New</b> &gt; <b class="uicontrol">Project...</b>
+			 (or click 
+			 <strong><u>New Project...</u></strong> in the 
+			 <b class="uicontrol">Welcome</b> page) to display a 
+			 <b class="uicontrol">Create a Project</b> dialog box. 
+		  </li>
+ 
+		  <li> 
+			 <p> Type 
+				<samp class="codeph">vec_samples</samp> in the 
+				<b class="uicontrol">Project name</b> field, supply a location for
+				the sample application project, then click the <b class="uicontrol">Create
+				  Project</b> button to open the <b class="uicontrol">Project
+				  Properties</b> dialog box.</p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p> In the 
+				<b class="uicontrol">Analysis Target</b> tab, ensure the 
+				<b class="uicontrol">Survey Hotspots Analysis</b> type is selected. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Click the 
+				<b class="uicontrol">Browse...</b> button next to the 
+				<b class="uicontrol">Application</b> field and choose the
+				just-built<span class="filepath"> vec_samples</span> binary file. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p> For the 
+				<b class="uicontrol">Survey Trip Count Analysis</b>, 
+				<b class="uicontrol">Dependencies Analysis</b>, and 
+				<b class="uicontrol">Memory Access Patterns Analysis</b> types, make
+				sure the 
+				<b class="uicontrol">Inherit settings from Survey Hotspots Analysis
+				  Type</b> checkbox is selected. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p> Click the 
+				<b class="uicontrol">OK</b> button to close the 
+				<b class="uicontrol">Project Properties</b> dialog box. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>If an infotip displays, select the 
+				<b class="uicontrol">Do not show this window again</b> checkbox and
+				close the infotip. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+  </div>
+</div>
+<div class="no-rel-links" xml:lang="en-US" id="d5e4a1310"><a name="d5e4a1310"><!-- --></a><h1 class="topictitle1">Establish Performance
+	 Baseline</h1>
+<div id="d5e29a1310"><a name="d5e29a1310"><!-- --></a> 
+	 <p> 
+	 </p>
+ 
+	 <p>To set a performance baseline for the improvements that will follow, do
+		the following. 
+	 </p>
+ 
+	 <div class="section" id="d5e37a1310"><a name="d5e37a1310"><!-- --></a><h2 class="sectiontitle">Run a Survey Analysis</h2> 
+		 
+		<p>In 
+		   the 
+		  <b class="uicontrol">Vectorization Workflow</b> pane, click the 
+		  <img src="GUID-8DDEBACC-8D9B-4D68-BF8B-6348E4521B17-low.png" alt="Intel Advisor control: Run analysis"/> control under 
+		  <b class="uicontrol">Survey Target</b> to produce a 
+		  <b class="uicontrol">Survey Report</b>. 
+		</p>
+ 
+		</div>
+ 
+	 <div class="section" id="d5e62a1310"><a name="d5e62a1310"><!-- --></a><h2 class="sectiontitle">Save a Result Snapshot</h2> 
+		 
+		<p>Intel Advisor
+		  stores only the most recent analysis result. To save a result 
+		  <em>snapshot</em> you can view any time, do the following: 
+		</p>
+ 
+		<a name="d5e75a1310"><!-- --></a><ol id="d5e75a1310"> 
+		  <li> 
+			 <p>Click the 
+				<img src="GUID-07D59D72-4AA3-4AD1-904F-682FCA847C07-low.png" alt="Intel Advisor control: Snapshot"/> icon. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Type 
+				<samp class="codeph">snapshot_baseline</samp> in the 
+				<b class="uicontrol">Result</b> name field. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Select the 
+				<b class="uicontrol">Pack into archive</b> checkbox to enable the 
+				<b class="uicontrol">Result path</b> field. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Browse to a desired location, then click the 
+				<b class="uicontrol">OK</b> button to save a read-only snapshot of
+				the current result. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>If the 
+				<b class="uicontrol">Survey Report</b> remains grayed out after the
+				snapshot process is complete, click anywhere on the report. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+	 <div class="section" id="d5e132a1310"><a name="d5e132a1310"><!-- --></a><h2 class="sectiontitle">Assess Performance</h2> 
+		 
+		<a name="d5e137a1310"><!-- --></a><ol id="d5e137a1310"> 
+		  <li> 
+			 <p>In the 
+				<b class="uicontrol">Survey Report</b>, notice: 
+			 <a name="d5e146a1310"><!-- --></a><ul id="d5e146a1310"> 
+				<li> 
+				  <p>The 
+					 <b class="uicontrol">Elapsed time</b> value in the top left
+					 corner. This is the baseline against which subsequent improvements will be
+					 measured. 
+				  </p>
+ 
+				</li>
+ 
+				<li> 
+				  <p>In the 
+					 <b class="uicontrol">Type</b> column, all detected loops are
+					 scalar. 
+				  </p>
+ 
+				</li>
+ 
+				<li> 
+				  <p>In the 
+					 <b class="uicontrol">Why No Vectorization?</b> column, the
+					 compiler detected or assumed a vector dependence in most loops. 
+				  </p>
+ 
+				</li>
+ 
+			 </ul>
+ 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>For one of the loops where the compiler detected or assumed a
+				vector dependence, click the 
+				<img src="GUID-391E0E2E-BF03-481B-9427-F632721000B5-low.png" alt="Intel Advisor control: Compiler diagnostic details"/> control to display 
+				<em>how-can-I-fix-this-issue?</em> information in the 
+				<b class="uicontrol">Compiler Diagnostic Details</b> pane. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Click 
+				<b class="uicontrol">Summary</b> on the navigation toolbar to open
+				the 
+				<b class="uicontrol">Summary</b> window. Think of this window as a
+				dashboard to which the 
+				Intel Advisor
+				adds data each time you run 
+				Intel Advisor
+				tools. 
+				</p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+  </div>
+</div>
+<div class="no-rel-links" xml:lang="en-US" id="d6e4a1310"><a name="d6e4a1310"><!-- --></a><h1 class="topictitle1">Disambiguate Pointers</h1>
+<div id="d6e29a1310"><a name="d6e29a1310"><!-- --></a> 
+	 <p> 
+	 </p>
+ 
+	 <p>Two pointers are aliased if both point to the
+	 same memory location. Storing to memory using a pointer that might be aliased
+	 may prevent some optimizations. For example, it may create a dependency between
+	 loop iterations that would make vectorization unsafe. Sometimes the compiler
+	 can generate both a vectorized and a non-vectorized version of a loop and test
+	 for aliasing at runtime to select the appropriate code path. If you know
+	 pointers do not alias, and inform the compiler, it can avoid the runtime check
+	 and generate a single vectorized code path. 
+  </p>
+ 
+	 <p>In 
+		<span class="filepath">Multiply.c</span>, the compiler generates runtime checks to
+		determine if point 
+		<samp class="codeph">b</samp> in function 
+		<samp class="codeph">matvec(FTYPE a[][COLWIDTH], FTYPE b[], FTYPE x[])</samp> is
+		aliased to either 
+		<samp class="codeph">a</samp> or 
+		<samp class="codeph">x</samp>. If 
+		<span class="filepath">Multiply.c</span> is compiled with the 
+		<samp class="codeph">NOALIAS</samp> macro, the 
+		<samp class="codeph">restrict</samp> qualifier of argument 
+		<samp class="codeph">b</samp> informs the compiler the pointer does not alias with
+		any other pointer and array 
+		<samp class="codeph">b</samp> does not overlap with 
+		<samp class="codeph">a</samp> or 
+		<samp class="codeph">x</samp>. 
+	 </p>
+ 
+	 <p>To see if the 
+		<samp class="codeph">NOALIAS</samp> macro improves performance, do the following. 
+	 </p>
+ 
+	 <div class="section" id="d6e84a1310"><a name="d6e84a1310"><!-- --></a><h2 class="sectiontitle">Rebuild the Target With the NOALIAS Macro </h2> 
+		 
+		<p>In the terminal session, type 
+			 <samp class="codeph">make clean</samp>, then rebuild 
+		   the target using the 
+		  <samp class="codeph">make noalias</samp>
+		  command, which contains these compiler options: 
+		</p>
+ 
+		<a name="d6e100a1310"><!-- --></a><ul id="d6e100a1310"> 
+		  <li> 
+			 <p><span class="option">-O2
+		  -g</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-D NOALIAS</span> 
+		</p>
+ 
+		</li>
+ 
+		</ul>
+ 
+		</div>
+ 
+	 <div class="section" id="d6e121a1310"><a name="d6e121a1310"><!-- --></a><h2 class="sectiontitle">Re-run the Survey Analysis and Run a Trips Counts Analysis</h2> 
+		
+		
+		<a name="d6e126a1310"><!-- --></a><ol id="d6e126a1310"> 
+		  <li> 
+			 <p>In the 
+				<b class="uicontrol">Vectorization Workflow</b> pane, click the 
+				<img src="GUID-8DDEBACC-8D9B-4D68-BF8B-6348E4521B17-low.png" alt="Intel Advisor control: Run analysis"/> control under 
+				<b class="uicontrol">Survey Target</b>. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>In the 
+				<b class="uicontrol">Vectorization Workflow</b> pane, click the 
+				<img src="GUID-8DDEBACC-8D9B-4D68-BF8B-6348E4521B17-low.png" alt="Intel Advisor control: Run analysis"/> control under 
+				<b class="uicontrol">Find Trip Counts</b>. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>If the 
+				<b class="uicontrol">FLOPS profiler disabled</b> warning displays,
+				click the 
+				<b class="uicontrol">Continue</b> button. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Click the 
+				<img src="GUID-07D59D72-4AA3-4AD1-904F-682FCA847C07-low.png" alt="Intel Advisor control: Snapshot"/> icon and save a 
+				<b class="uicontrol">snapshot_noalias</b> result. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+	 <div class="section" id="d6e190a1310"><a name="d6e190a1310"><!-- --></a><h2 class="sectiontitle">Assess Impact on Performance</h2> 
+		 
+		<a name="d6e195a1310"><!-- --></a><ol id="d6e195a1310"> 
+		  <li> 
+			 <p>In the new 
+				<strong>Survey Report</strong>, notice: 
+			 <a name="d6e204a1310"><!-- --></a><ul id="d6e204a1310"> 
+				<li> 
+				  <p>The value in the 
+					 <b class="uicontrol">Vector Instruction Set</b> column in the top
+					 pane is probably 
+					 <b class="uicontrol">SSE2</b>, the default Vector Instruction Set
+					 Architecture (ISA). Also, there is probably a warning at the top of the 
+					 <strong>Survey Report</strong>: 
+					 <em><strong>Higher instruction set architecture (ISA) available</strong>;
+						consider recompiling your application using a higher ISA.</em> We will do this
+					 later. 
+				  </p>
+ 
+				</li>
+ 
+				<li> 
+				  <p>The compiler successfully vectorizes two loops: in 
+					 <samp class="codeph">matvec</samp> at 
+					 <span class="filepath">Multiply.c:69</span> and in 
+					 <samp class="codeph">matvec</samp> at 
+					 <span class="filepath">Multiply.c:60</span>. 
+				  </p>
+ 
+				</li>
+ 
+				<li> 
+				  <p>The 
+					 <b class="uicontrol">Elapsed time</b> improves substantially. 
+				  </p>
+ 
+				</li>
+ 
+			 </ul>
+ 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Click the 
+				<img src="GUID-64EB4548-DA4F-4C30-91D1-8EEFF959C9E5-low.png" alt="Intel Advisor control: Expand data row"/> icon next to the two vectorized loops. Notice both
+				loops have a remainder loop present. Click the 
+				<img src="GUID-49C1CF8A-3F8B-4CEC-98A6-7ED56F3D529D-low.png" alt="Intel Advisor control: Expand column set"/> icon in the 
+				<b class="uicontrol">Trips Counts</b> column set to expand it. The
+				remainder loops are present because the trip count values for the remainder
+				loops are not a multiple of the 
+				<b class="uicontrol">VL (Vector Length)</b> value. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Check the changes in the new 
+				<strong>Summary</strong>. 
+				</p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+  </div>
+</div>
+<div class="no-rel-links" xml:lang="en-US" id="d7e4a1310"><a name="d7e4a1310"><!-- --></a><h1 class="topictitle1">Generate Instructions for
+	 Highest Instruction Set Available</h1>
+<div id="d7e29a1310"><a name="d7e29a1310"><!-- --></a> 
+	 <p> 
+	 </p>
+ 
+	 <p>Generating code for different instruction sets
+	 available on your compilation host processor may improve performance. 
+  </p>
+ 
+	 <p>The 
+  <span class="option">xHost</span> option tells the compiler to
+  generate instructions for the highest instruction set available on the
+  compilation host processor. 
+  </p>
+ 
+  <p>To see if the 
+  <span class="option">xHost</span> option improves performance, do
+  the following. 
+  </p>
+ 
+  <div class="section" id="d7e49a1310"><a name="d7e49a1310"><!-- --></a><h2 class="sectiontitle">Rebuild the Target With the 
+	 <span class="option">xHost</span> Option</h2> 
+	  
+	 <p>In the terminal session, type 
+		  <samp class="codeph">make clean</samp>, then rebuild 
+		 the target using the 
+		<samp class="codeph">make xhost</samp> command, which contains these
+		compiler options: 
+	 </p>
+ 
+	 <a name="d7e68a1310"><!-- --></a><ul id="d7e68a1310"> 
+		<li> 
+		  <p><span class="option">-g</span> 
+	 </p>
+ 
+	 </li>
+ 
+	 <li> 
+		<p><span class="option">-D NOALIAS</span> 
+	 </p>
+ 
+	 </li>
+ 
+	 <li> 
+		<p><span class="option">-xHost</span> 
+	 </p>
+ 
+	 </li>
+ 
+	 </ul>
+ 
+	 </div>
+ 
+  <div class="section" id="d7e97a1310"><a name="d7e97a1310"><!-- --></a><h2 class="sectiontitle">Re-run the Survey Analysis</h2> 
+	  
+	 <a name="d7e102a1310"><!-- --></a><ol id="d7e102a1310"> 
+		<li> 
+		  <p>In the 
+			 <b class="uicontrol">Vectorization Workflow</b> pane, click the 
+			 <img src="GUID-8DDEBACC-8D9B-4D68-BF8B-6348E4521B17-low.png" alt="Intel Advisor control: Run analysis"/> control under 
+			 <b class="uicontrol">Survey Target</b>. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p>If the 
+			 <b class="uicontrol">Target binaries changed since the last Trip Counts
+				analysis run</b> warning displays, click the 
+			 <b class="uicontrol">Delete</b> button. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p>Click the 
+			 <img src="GUID-07D59D72-4AA3-4AD1-904F-682FCA847C07-low.png" alt="Intel Advisor control: Snapshot"/> icon and save a 
+			 <b class="uicontrol">snapshot_xhost</b> result. 
+		  </p>
+ 
+		</li>
+ 
+	 </ol>
+ 
+  </div>
+ 
+  <div class="section" id="d7e149a1310"><a name="d7e149a1310"><!-- --></a><h2 class="sectiontitle">Assess Impact on Performance</h2> 
+	  
+	 <a name="d7e154a1310"><!-- --></a><ol id="d7e154a1310"> 
+		<li> 
+		  <p>In the new 
+			 <strong>Survey Report</strong>, notice: 
+		  <a name="d7e163a1310"><!-- --></a><ul id="d7e163a1310"> 
+			 <li> 
+				<p>The 
+				  <b class="uicontrol">Elapsed time</b> improves. 
+				</p>
+ 
+			 </li>
+ 
+			 <li> 
+				<p>The values in the 
+				  <b class="uicontrol">Vector ISA</b> and 
+				  <b class="uicontrol">VL</b> columns in the top pane (probably)
+				  change. 
+				</p>
+ 
+			 </li>
+ 
+		  </ul>
+ 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p>Check the changes in the new 
+			 <strong>Summary</strong>. 
+		  </p>
+ 
+		</li>
+ 
+	 </ol>
+ 
+  </div>
+ 
+  </div>
+</div>
+<div class="no-rel-links" xml:lang="en-US" id="d8e4a1310"><a name="d8e4a1310"><!-- --></a><h1 class="topictitle1">Handle Dependencies</h1>
+<div id="d8e29a1310"><a name="d8e29a1310"><!-- --></a> 
+	 <p> 
+	 </p>
+ 
+	 <p>For safety purposes, the compiler is
+		often conservative when assuming data dependencies. Use a Dependencies-focused 
+		<b class="uicontrol">Refinement Report</b> to check for real data
+		dependencies in loops the compiler did not vectorize because of assumed
+		dependencies. If real dependencies are detected, the analysis can provide
+		additional details to help resolve the dependencies. Your objective: Identify
+		and better characterize real data dependencies that could make forced
+		vectorization unsafe. 
+	 
+		
+	 </p>
+ 
+	 <p> Notice the 
+		<b class="uicontrol">Vector Issue</b> for the loop in 
+		<samp class="codeph">matvec</samp> at 
+		<span class="filepath">Multiply.c:82</span>: 
+		<b class="uicontrol">Assumed dependency present</b>. Click the 
+		<img src="GUID-A621A751-08D1-49DF-B443-860DD8E51798-low.png" alt="Intel Advisor control: Recommendations"/> icon in the 
+		<b class="uicontrol">Vector Issues</b> column to display the associated
+		recommendation in the bottom pane: 
+		<em>Confirm dependency is real</em>. There may also be a recommendation to 
+		<em>Remove dependency</em> with a reduction example. 
+	 </p>
+ 
+	 <p>To identify, explore, and fix 
+		<em>real</em> loop-carried dependencies, do the following. 
+	 </p>
+ 
+	 <div class="section" id="d8e78a1310"><a name="d8e78a1310"><!-- --></a><h2 class="sectiontitle">Run a Dependencies Analysis</h2> 
+		 
+		<a name="d8e83a1310"><!-- --></a><ol id="d8e83a1310"> 
+		  <li> 
+			 <p>In the 
+				<img src="GUID-27815FB2-200A-4566-A52E-FA650E8E5092-low.png"/>
+				column in the 
+				<b class="uicontrol">Survey Report</b>, select the checkbox for the
+				loop in 
+				<samp class="codeph">matvec</samp> at 
+				<span class="filepath">Multiply.c:82</span>. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p> In the 
+				<b class="uicontrol">Vectorization Workflow</b> pane, click the 
+				<img src="GUID-8DDEBACC-8D9B-4D68-BF8B-6348E4521B17-low.png" alt="Intel Advisor control: Run analysis"/> control under 
+				<b class="uicontrol">Check Dependencies</b> to produce a 
+				<strong>Dependencies Report</strong>. 
+			 </p>
+ 
+			 <p>If analysis time during this exercise is a consideration: After
+				the 
+				<b class="uicontrol">Dependencies Report</b> tab displays a 
+				<b class="uicontrol">RAW</b> (Read after write) or a 
+				<b class="uicontrol">WAW</b> (Write after write) dependency, click
+				the 
+				<img src="GUID-E3FE4618-A5D4-4F39-85A3-683605F7B10D-low.png" alt="Intel Advisor control: Stop analysis and display result collected thus far"/> control under 
+				<b class="uicontrol">Check Dependencies</b> to stop the current
+				analysis and display the result collected thus far. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Click the 
+				<img src="GUID-07D59D72-4AA3-4AD1-904F-682FCA847C07-low.png" alt="Intel Advisor control: Snapshot"/> icon and save a 
+				<b class="uicontrol">snapshot_dependencies</b> result. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+	 <div class="section" id="d8e159a1310"><a name="d8e159a1310"><!-- --></a><h2 class="sectiontitle">Assess Dependencies</h2> 
+		 
+		<p>In the top pane of the 
+		  <b class="uicontrol">Refinement Reports</b> window, notice the 
+		  Intel Advisor
+		  reports a 
+		  <b class="uicontrol">RAW</b> and a 
+		  <b class="uicontrol">WAW</b> dependency in the loop in 
+		  <samp class="codeph">matvec</samp> at 
+		  <span class="filepath">Multiply.c:82</span>. The 
+		  <b class="uicontrol">Dependencies Report</b> tab in the bottom pane shows
+		  the source of the dependency: Addition in the 
+		  <samp class="codeph">sumx</samp> variable. 
+		</p>
+ 
+		<p>The 
+		  <samp class="codeph">REDUCTION</samp> define applies an 
+		<span class="option">omp simd</span> directive with a 
+		<samp class="codeph">reduction</samp> clause, so each SIMD lane computes its own
+		sum, and the results are combined at the end. (Applying an 
+		<span class="option">omp simd</span> directive without a 
+		<samp class="codeph">reduction</samp> clause will generate incorrect code.) 
+		</p>
+ 
+	 </div>
+ 
+	 <div class="section" id="d8e211a1310"><a name="d8e211a1310"><!-- --></a><h2 class="sectiontitle">Rebuild the Target With the REDUCTION Define</h2> 
+		 
+		<p>To see if the 
+		<span class="option">REDUCTION</span> define vectorizes the loop: In the terminal
+		session, type 
+		<samp class="codeph">make clean</samp>, then rebuild rebuild the target using the 
+		<samp class="codeph">make reduction</samp> command, which contains these compiler
+		options: 
+		<a name="d8e227a1310"><!-- --></a><ul id="d8e227a1310"> 
+		  <li> 
+			 <p><span class="option">-g -qopenmp</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-D NOALIAS</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-xHost</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-D REDUCTION</span> 
+		</p>
+ 
+		</li>
+ 
+		</ul>
+ 
+		</p>
+ 
+	 </div>
+ 
+	 <div class="section" id="d8e264a1310"><a name="d8e264a1310"><!-- --></a><h2 class="sectiontitle">Re-run the Survey Analysis</h2> 
+		 
+		<a name="d8e269a1310"><!-- --></a><ol id="d8e269a1310"> 
+		  <li> 
+			 <p>In the 
+				<b class="uicontrol">Vectorization Workflow</b> pane, click the 
+				<img src="GUID-8DDEBACC-8D9B-4D68-BF8B-6348E4521B17-low.png" alt="Intel Advisor control: Run analysis"/> control under 
+				<b class="uicontrol">Survey Target</b>. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Click the 
+				<img src="GUID-07D59D72-4AA3-4AD1-904F-682FCA847C07-low.png" alt="Intel Advisor control: Snapshot"/> icon and save a 
+				<b class="uicontrol">snapshot_reduction</b> result. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+	 <div class="section" id="d8e304a1310"><a name="d8e304a1310"><!-- --></a><h2 class="sectiontitle">Assess Impact on Dependencies</h2> 
+		 
+		<a name="d8e309a1310"><!-- --></a><ol id="d8e309a1310"> 
+		  <li> 
+			 <p>In the new 
+				<b class="uicontrol">Survey Report</b>, notice the assumed dependency
+				is gone and the loop in 
+				<samp class="codeph">matvec</samp> at 
+				<span class="filepath">Multiply.c:82</span> is now vectorized. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Check the changes in the new 
+				<b class="uicontrol">Summary</b>. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+  </div>
+</div>
+<div class="no-rel-links" xml:lang="en-US" id="d9e4a1310"><a name="d9e4a1310"><!-- --></a><h1 class="topictitle1">Analyze Memory Access
+	 Patterns</h1>
+<div id="d9e29a1310"><a name="d9e29a1310"><!-- --></a> 
+	 <p> 
+	 </p>
+ 
+	 <p>Use a MAP-focused 
+		<b class="uicontrol">Refinement Report</b> to check for various memory
+		issues, such as non-contiguous memory accesses and unit stride vs. non-unit
+		stride accesses. Your objective: Eliminate issues that could lead to
+		significant vector code execution slowdown or block automatic vectorization by
+		the compiler.
+		
+	 </p>
+ 
+	 <p>To identify and explore data structure layout in memory, do the
+		following. 
+	 </p>
+ 
+	 <div class="section" id="d9e45a1310"><a name="d9e45a1310"><!-- --></a><h2 class="sectiontitle">Run a Memory Access Patterns Analysis</h2> 
+		 
+		<a name="d9e50a1310"><!-- --></a><ol id="d9e50a1310"> 
+		  <li> 
+			 <p>In the 
+				<img src="GUID-27815FB2-200A-4566-A52E-FA650E8E5092-low.png"/>
+				column in the 
+				<b class="uicontrol">Survey Report</b>, select the checkbox for the
+				loop in: 
+			 <a name="d9e61a1310"><!-- --></a><ul id="d9e61a1310"> 
+				<li> 
+				  <p><samp class="codeph">matvec</samp> at 
+					 <span class="filepath">Multiply.c:69</span> 
+				  </p>
+ 
+				</li>
+ 
+				<li> 
+				  <p><samp class="codeph">matvec</samp> at 
+					 <span class="filepath">Multiply.c:60</span> 
+				  </p>
+ 
+				</li>
+ 
+			 </ul>
+ 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p> Notice the loop in 
+				<samp class="codeph">matvec</samp> at 
+				<span class="filepath">Multiply.c:60</span> has a better 
+				<b class="uicontrol">Efficiency</b> and 
+				<b class="uicontrol">Gain Estimate</b> than the loop in 
+				<samp class="codeph">matvec</samp> at 
+				<span class="filepath">Multiply.c:69</span>. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p> In the 
+				<b class="uicontrol">Vectorization Workflow</b> pane, click the 
+				<img src="GUID-8DDEBACC-8D9B-4D68-BF8B-6348E4521B17-low.png" alt="Intel Advisor control: Run analysis"/> control under 
+				<b class="uicontrol">Check Memory Access Patterns</b> to produce a 
+				<strong>Memory Access Patterns Report</strong>. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Click the 
+				<img src="GUID-07D59D72-4AA3-4AD1-904F-682FCA847C07-low.png" alt="Intel Advisor control: Snapshot"/> icon and save a 
+				<b class="uicontrol">snapshot_map</b> result. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+	 <div class="section" id="d9e149a1310"><a name="d9e149a1310"><!-- --></a><h2 class="sectiontitle">Assess Memory Issues</h2> 
+		 
+		<a name="d9e154a1310"><!-- --></a><ol id="d9e154a1310"> 
+		  <li> 
+			 <p>In the top pane of the 
+				<b class="uicontrol">Refinement Reports</b> window, hover your mouse
+				over the 
+				<b class="uicontrol">Strides Distribution</b> values to display
+				explanatory tooltips for the loops 
+				<samp class="codeph">matvec</samp> at 
+				<span class="filepath">Multiply.c:69</span> and 
+				<samp class="codeph">matvec</samp> at 
+				<span class="filepath">Multiply.c:60</span>. In the loop in 
+				<samp class="codeph">matvec</samp> at 
+				<span class="filepath">Multiply.c:60</span>, the percentage of memory
+				instructions with stride 1 (unit stride) or stride 0 (uniform) accesses is
+				100%, which contributes to the better 
+				<b class="uicontrol">Efficiency</b> and 
+				<b class="uicontrol">Gain Estimate</b>. 
+				</p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Return to the 
+				<b class="uicontrol">Survey Report</b>. Notice the content in 
+				<b class="uicontrol">Survey Report</b> has also changed: In the 
+				<b class="uicontrol">Vector Issue</b> column, the 
+				Intel Advisor
+				reports 
+				<b class="uicontrol">Inefficient memory patterns present</b> for the
+				loop in 
+				<samp class="codeph">matvec</samp> at 
+				<span class="filepath">Multiply.c:69</span>. Click the 
+				<img src="GUID-A621A751-08D1-49DF-B443-860DD8E51798-low.png" alt="Intel Advisor control: Recommendations"/> icon in the 
+				<b class="uicontrol">Vector Issues</b> column to display the
+				associated recommendations in the bottom pane. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Check the changes in the new 
+				<b class="uicontrol">Summary</b>. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+		<p>We will not fix the cause of this issue (the code is indexing the row
+		  of array 
+		  <samp class="codeph">a</samp> by 
+		  <samp class="codeph">l</samp>) in this 
+		  ReadMe. (In C/C++ applications, access
+		  the column index by the innermost loop; in this case, you could modify the code
+		  to access array 
+		  <samp class="codeph">a</samp> as follows: 
+		  <samp class="codeph">a[i][l]</samp>.) 
+		</p>
+ 
+	 </div>
+ 
+  </div>
+</div>
+<div class="no-rel-links" xml:lang="en-US" id="d10e4a1310"><a name="d10e4a1310"><!-- --></a><h1 class="topictitle1">Align Data</h1>
+<div id="d10e29a1310"><a name="d10e29a1310"><!-- --></a> 
+	 <p> 
+	 </p>
+ 
+	 <p>Sometimes data alignment can improve vectorization,
+	 and sometimes it is prerequisite to complete and effective vectorization. When
+	 data in a loop with potential for vectorization is not aligned, the compiler
+	 may generate a: 
+  <a name="d10e36a1310"><!-- --></a><ul id="d10e36a1310"> 
+	 <li> 
+		<p><strong>Peeled loop</strong> to align memory accesses inside the loop body and
+		  maximize loop efficiency 
+		</p>
+ 
+	 </li>
+ 
+	 <li> 
+		<p><strong>Remainder loop</strong> to clean up any remaining iterations that do not
+		  fit within the scope of the loop body 
+		</p>
+ 
+	 </li>
+ 
+  </ul>
+Bottom line: Aligned loads are faster than unaligned loads; however the
+  speed difference depends on the processor. 
+  </p>
+ 
+	 <p>The 
+		<samp class="codeph">ALIGNED</samp> macro: 
+	 <a name="d10e61a1310"><!-- --></a><ul id="d10e61a1310"> 
+		<li> 
+		  <p>Aligns arrays 
+			 <samp class="codeph">a</samp>, 
+			 <samp class="codeph">b</samp>, and 
+			 <samp class="codeph">x</samp> in 
+			 <span class="filepath">Driver.c</span> on a 16- or 32-byte boundary depending
+			 on the instruction set architecture. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p>Pads the row length of the matrix, 
+			 <samp class="codeph">a</samp>, to be a multiple of 16 or 32 bytes, so each
+			 individual row of 
+			 <samp class="codeph">a</samp> is 16- or 32-byte aligned. 
+		  </p>
+ 
+		</li>
+ 
+		<li> 
+		  <p>Tells the compiler it can safely assume the arrays in 
+			 <span class="filepath">Multiply.c</span> are aligned. 
+		  </p>
+ 
+		</li>
+ 
+	 </ul>
+ 
+	 </p>
+ 
+	 <p>To see if the 
+		<samp class="codeph">ALIGNED</samp> macro improves performance, do the following. 
+	 </p>
+ 
+	 <div class="section" id="d10e110a1310"><a name="d10e110a1310"><!-- --></a><h2 class="sectiontitle">Rebuild the Target With the ALIGNED Macro</h2> 
+		 
+		<p>In the terminal session, type 
+			 <samp class="codeph">make clean</samp>, then rebuild 
+		   the target using the 
+		  <samp class="codeph">make align</samp> command, which contains these
+		  compiler options: 
+		<a name="d10e125a1310"><!-- --></a><ul id="d10e125a1310"> 
+		  <li> 
+			 <p><span class="option">-g
+		  -qopenmp</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-D NOALIAS</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-xHost</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-D REDUCTION</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-D ALIGNED</span> 
+		</p>
+ 
+		</li>
+ 
+		</ul>
+ 
+		</p>
+ 
+		</div>
+ 
+	 <div class="section" id="d10e171a1310"><a name="d10e171a1310"><!-- --></a><h2 class="sectiontitle">Re-run the Survey Analysis</h2> 
+		 
+		<a name="d10e176a1310"><!-- --></a><ol id="d10e176a1310"> 
+		  <li> 
+			 <p> In the 
+				<b class="uicontrol">Vectorization Workflow</b> pane, click the 
+				<img src="GUID-8DDEBACC-8D9B-4D68-BF8B-6348E4521B17-low.png" alt="Intel Advisor control: Run analysis"/> control under 
+				<b class="uicontrol">Survey Target</b>. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li>Click the 
+			 <img src="GUID-07D59D72-4AA3-4AD1-904F-682FCA847C07-low.png" alt="Intel Advisor control: Snapshot"/> icon and save a 
+			 <b class="uicontrol">snapshot_align</b> result. 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+	 <div class="section" id="d10e208a1310"><a name="d10e208a1310"><!-- --></a><h2 class="sectiontitle">Assess Impact on Performance</h2> 
+		 
+		<a name="d10e213a1310"><!-- --></a><ol id="d10e213a1310"> 
+		  <li> 
+			 <p>In the new 
+				<strong>Survey Report</strong>, notice the peeled loop disappears and the 
+				<strong>Elapsed time</strong> improves. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Check the changes in the new 
+				<strong>Summary</strong>. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+  </div>
+</div>
+<div class="no-rel-links" xml:lang="en-US" id="d11e4a1310"><a name="d11e4a1310"><!-- --></a><h1 class="topictitle1">Reorganize Code</h1>
+<div id="d11e29a1310"><a name="d11e29a1310"><!-- --></a> 
+	 <p> 
+	 </p>
+ 
+	 <p>The compiler determines vectorization is unsafe
+	 when it cannot tell if a loop contains unique arrays. If you inline such a
+	 loop, the compiler can tell exactly which variables you want processed in the
+	 loop, and can therefore determine vectorization is safe. 
+  </p>
+ 
+	 <p>When you use the 
+		<samp class="codeph">matvec</samp> function in the sample application, the compiler
+		cannot tell if 
+		<samp class="codeph">a</samp> and 
+		<samp class="codeph">b</samp> are unique arrays. The 
+		<samp class="codeph">NOFUNCCALL</samp> macro removes the 
+		<samp class="codeph">matvec</samp> function and inlines the loop instead. 
+	 </p>
+ 
+	 <p>To see if the 
+		<samp class="codeph">NOFUNCCALL</samp> macro improves performance, do the following.
+		
+	 </p>
+ 
+	 <div class="section" id="d11e61a1310"><a name="d11e61a1310"><!-- --></a><h2 class="sectiontitle">Rebuild the Target With the NOFUNCCALL Macro</h2> 
+		 
+		<p>In the terminal session, type 
+			 <samp class="codeph">make clean</samp>, then rebuild 
+		   the target using the 
+		  <samp class="codeph">make nofunc</samp>
+		  command, which contains these compiler options: 
+		<a name="d11e76a1310"><!-- --></a><ul id="d11e76a1310"> 
+		  <li> 
+			 <p><span class="option">-g
+		  -qopenmp</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-D NOALIAS</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-xHost</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-D REDUCTION</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-D ALIGNED</span> 
+		</p>
+ 
+		</li>
+ 
+		<li> 
+		  <p><span class="option">-D NOFUNCCALL</span> 
+		</p>
+ 
+		</li>
+ 
+		</ul>
+ 
+		</p>
+ 
+		</div>
+ 
+	 <div class="section" id="d11e131a1310"><a name="d11e131a1310"><!-- --></a><h2 class="sectiontitle">Re-run the Survey Analysis</h2> 
+		 
+		<a name="d11e136a1310"><!-- --></a><ol id="d11e136a1310"> 
+		  <li> 
+			 <p> In the 
+				<b class="uicontrol">Vectorization Workflow</b> pane, click the 
+				<img src="GUID-8DDEBACC-8D9B-4D68-BF8B-6348E4521B17-low.png" alt="Intel Advisor control: Run analysis"/> control under 
+				<b class="uicontrol">Survey Target</b>. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Click the 
+				<img src="GUID-07D59D72-4AA3-4AD1-904F-682FCA847C07-low.png" alt="Intel Advisor control: Snapshot"/> icon and save a 
+				<b class="uicontrol">snapshot_nofunc</b> result. 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+	 <div class="section" id="d11e171a1310"><a name="d11e171a1310"><!-- --></a><h2 class="sectiontitle">Assess Impact on Performance</h2> 
+		 
+		<a name="d11e176a1310"><!-- --></a><ol id="d11e176a1310"> 
+		  <li> 
+			 <p>In the new 
+				<strong>Survey Report</strong>, notice the 
+				<strong>Elapsed time</strong> improves. 
+			 </p>
+ 
+		  </li>
+ 
+		  <li> 
+			 <p>Compare the new 
+				<b class="uicontrol">Summary</b> to the baseline 
+				<b class="uicontrol">Summary</b>. (This is easy to do if you took
+				snapshots during each 
+				ReadMe step. 
+				From the 
+				  <b class="uicontrol">File</b> menu, choose 
+				  <b class="uicontrol">Open</b> &gt; <b class="uicontrol">Result</b>
+				  and choose the saved snapshot. 
+				) 
+			 </p>
+ 
+		  </li>
+ 
+		</ol>
+ 
+	 </div>
+ 
+	 </div>
+</div>
+<div class="no-rel-links" xml:lang="en-US" id="d62e4a1310"><a name="d62e4a1310"><!-- --></a><h1 class="topictitle1">Legal Information</h1>
+<div> 
+	 <div class="section" id="d62e51a1310"><a name="d62e51a1310"><!-- --></a>
+      <p>No license (express or implied, by estoppel or otherwise) to any
+        intellectual property rights is granted by this document. 
+      </p>
+ 
+      <p>Intel disclaims all express and implied warranties, including without
+        limitation, the implied warranties of merchantability, fitness for a particular
+        purpose, and non-infringement, as well as any warranty arising from course of
+        performance, course of dealing, or usage in trade. 
+      </p>
+ 
+      <p>This document contains information on products, services and/or
+        processes in development. All information provided here is subject to change
+        without notice. Contact your Intel representative to obtain the latest
+        forecast, schedule, specifications and roadmaps. 
+      </p>
+ 
+      <p>The products and services described may contain defects or errors
+        which may cause deviations from published specifications. Current characterized
+        errata are available on request. 
+      </p>
+ 
+    </div>
+ 
+	 <div class="section" id="d62e66a1310"><a name="d62e66a1310"><!-- --></a> 
+      <p> Cilk, Intel, the Intel logo, Intel Atom, Intel Core, Intel Inside,
+        Intel NetBurst, Intel SpeedStep, Intel vPro, Intel Xeon Phi, Intel XScale,
+        Itanium, MMX, Pentium, Thunderbolt, Ultrabook, VTune and Xeon are trademarks of
+        Intel Corporation in the U.S. and/or other countries. 
+      </p>
+ 
+      <p>*Other names and brands may be claimed as the property of others. 
+      </p>
+ 
+    </div>
+ 
+	 <p> © Intel Corporation 
+	 </p>
+ 
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "projectOptions": [ 
+    {
+      "projectType": "makefile",
+      "dockerSupported": "false"
+    } 
+  ],
+  "makeVariables": {
+    ".DEFAULT_GOAL": "default"
+  }
+}

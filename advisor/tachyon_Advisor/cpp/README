@@ -1,0 +1,115 @@
+------------------------------------------
+Intel(R) Advisor XE
+tachyon Sample Application
+README
+------------------------------------------
+
+Introduction
+------------------------------------------
+
+This is the README file for the tachyon sample application written using the C++ programming language. It explains how to open, build, and run this sample application using the Intel(R) Advisor XE 2015.
+
+Acquiring the Sample Application
+------------------------------------------
+
+Copy the tachyon_Advisor.tgz from the <INSTALL_DIR>\samples\en\C++ directory to a writable directory or share on your system. Extract the sample.
+
+Running a Survey Analysis
+------------------------------------------
+
+Build the release version of the serial sample with the following command: make 1_tachyon_serial 
+
+Open the Intel Advisor XE GUI and create a new project for the 1_tachyon_serial executable. Choose File > New > Start Survey Analysis to start a new survey analysis of the application.
+
+Notice the majority of the time is spent in the parallel_thread function. Examine the code for possible sites to add annotations. The file 2_tachyon_annotated.cpp in the src/2_tachyon_annotated directory has annotations and comments added.
+
+Running a Suitability Analysis
+------------------------------------------
+
+Build the release version of the annotated sample with the following command: make 2_tachyon_annotated
+
+Note: The Makefile requires that the ADVISOR_XE_2015_DIR environment variable is set to the install directory of the Intel Advisor XE. This environment variable can be set by running the Intel Advisor XE setup script <install-dir>/advixe-vars.sh.
+
+Create a new project or modify the project properties to run the executable 2_tachyon_annotated.
+
+Choose File > New > Start Suitability Analysis to start a new suitability analysis of the application.
+ 
+Notice the annotated program gain and scalability.
+
+Running a Dependencies Analysis
+------------------------------------------
+
+Build the debug version of the annotated sample with the following command: make 2_tachyon_annotated_debug
+
+Note: The Makefile requires that the ADVISOR_XE_2015_DIR environment variable is set to the install directory of the Intel Advisor XE. This environment variable can be set by running the Intel Advisor XE setup script <install-dir>/advixe-vars.sh.
+
+Create a new project or modify the project properties to run the executable 2_tachyon_annotated_debug.
+
+Choose File > New > Start Dependencies Analysis to start a new Dependencies Analysis of the application.
+
+Follow the comments in the file src/2_tachyon_annotated/2_tachyon_annotated.cpp to fix the correctness issues. Once you have fixed the issues, rebuild the application and run the analysis again. 
+
+Adding Parallelism
+------------------------------------------
+
+Three parallel solutions are provided.
+
+1. Threading Building Blocks
+
+The file src/3_tachyon_tbb/3_tachyon_tbb.cpp has TBB in place of the annotations. Build debug or release versions of this application with the following commands:
+make 3_tachyon_tbb
+make 3_tachyon_tbb_debug
+
+Run these applications to see how the performance improves over the serial version.
+
+2. Intel(R) Cilk(TM) Plus
+
+The file src/4_tachyon_cilk/4_tachyon_cilk.cpp has Intel(R) Cilk(TM) Plus code in place of the annotations. Build debug or release versions of this application with the following commands:
+make 4_tachyon_cilk
+make 4_tachyon_cilk_debug
+
+Note: The Makefile requires that the Intel icpc compiler is in the path for this build.
+
+Run these applications to see how the performance improves over the serial version.
+
+3. OpenMP
+
+The file src/5_tachyon_omp/5_tachyon_omp.cpp has OpenMP in place of the annotations. Build debug or release versions of this application with the following commands:
+make 5_tachyon_omp
+make 5_tachyon_omp_debug
+
+Note: The Makefile requires that the Intel icpc compiler is in the path for this build.
+
+Run these applications to see how the performance improves over the serial version.
+
+Conclusion
+------------------------------------------
+
+You have successfully followed the Intel Advisor XE Workflow to parallelize a C++ program.
+
+Feel free to experiment with the tool using your own programs.
+
+Please contact us if you have any feedback or questions at http://software.intel.com/en-us/articles/intel-software-developer-support/
+
+
+Legal Information
+------------------------------------------
+
+INFORMATION IN THIS DOCUMENT IS PROVIDED IN CONNECTION WITH INTEL PRODUCTS. NO LICENSE, EXPRESS OR IMPLIED, BY ESTOPPEL OR OTHERWISE, TO ANY INTELLECTUAL PROPERTY RIGHTS IS GRANTED BY THIS DOCUMENT. EXCEPT AS PROVIDED IN INTEL'S TERMS AND CONDITIONS OF SALE FOR SUCH PRODUCTS, INTEL ASSUMES NO LIABILITY WHATSOEVER, AND INTEL DISCLAIMS ANY EXPRESS OR IMPLIED WARRANTY, RELATING TO SALE AND/OR USE OF INTEL PRODUCTS INCLUDING LIABILITY OR WARRANTIES RELATING TO FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR INFRINGEMENT OF ANY PATENT, COPYRIGHT OR OTHER INTELLECTUAL PROPERTY RIGHT. 
+
+UNLESS OTHERWISE AGREED IN WRITING BY INTEL, THE INTEL PRODUCTS ARE NOT DESIGNED NOR INTENDED FOR ANY APPLICATION IN WHICH THE FAILURE OF THE INTEL PRODUCT COULD CREATE A SITUATION WHERE PERSONAL INJURY OR DEATH MAY OCCUR. 
+
+Intel may make changes to specifications and product descriptions at any time, without notice. Designers must not rely on the absence or characteristics of any features or instructions marked "reserved" or "undefined." Intel reserves these for future definition and shall have no responsibility whatsoever for conflicts or incompatibilities arising from future changes to them. The information here is subject to change without notice. Do not finalize a design with this information. 
+
+The products described in this document may contain design defects or errors known as errata which may cause the product to deviate from published specifications. Current characterized errata are available on request. Contact your local Intel sales office or your distributor to obtain the latest specifications and before placing your product order. Copies of documents which have an order number and are referenced in this document, or other Intel literature, may be obtained by calling 1-800-548-4725, or go to: http://www.intel.com/design/literature.htm 
+
+Intel processor numbers are not a measure of performance. Processor numbers differentiate features within each processor family, not across different processor families. Go to: http://www.intel.com/products/processor_number/
+
+BlueMoon, BunnyPeople, Celeron, Celeron Inside, Centrino, Centrino Inside, Cilk, Core Inside, E-GOLD, i960, Intel, the Intel logo, Intel AppUp, Intel Atom, Intel Atom Inside, Intel Core, Intel Inside, Intel Insider, the Intel Inside logo, Intel NetBurst, Intel NetMerge, Intel NetStructure, Intel SingleDriver, Intel SpeedStep, Intel Sponsors of Tomorrow., the Intel Sponsors of Tomorrow. logo, Intel StrataFlash, Intel vPro, Intel XScale, InTru, the InTru logo, the InTru Inside logo, InTru soundmark, Itanium, Itanium Inside, MCS, MMX, Moblin, Pentium, Pentium Inside, Puma, skoool, the skoool logo, SMARTi, Sound Mark, The Creators Project, The Journey Inside, Thunderbolt, Ultrabook, vPro Inside, VTune, Xeon, Xeon Inside, X-GOLD, XMM, X-PMU and XPOSYS are trademarks of Intel Corporation in the U.S. and/or other countries.
+
+*Other names and brands may be claimed as the property of others.
+
+Microsoft, Windows, Visual Studio, Visual C++, and the Windows logo are trademarks, or registered trademarks of Microsoft Corporation in the United States and/or other countries. 
+
+Copyright (C) 2017, Intel Corporation. All rights reserved. 
+

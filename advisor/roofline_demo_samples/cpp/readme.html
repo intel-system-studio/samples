@@ -1,0 +1,266 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns:mso = "urn:schemas-microsoft-com:office:office" xmlns:msdt = 
+"uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><HEAD><META content="IE=7.0000" 
+http-equiv="X-UA-Compatible">
+<TITLE>Roofline Demo Samples Readme</TITLE>
+<META charset=UTF-8>
+<STYLE>:unknown {
+	BACKGROUND: #b7ffb7
+}
+:unknown {
+	BACKGROUND: #b7ffb7
+}
+BODY {
+	FONT-SIZE: 16px; FONT-FAMILY: Arial, Helvetica, sans-serif; WIDTH: 800px; MARGIN: 0px auto
+}
+#banner {
+	WIDTH: 100%; FLOAT: left; MARGIN: 0px 0px 10px; Z-INDEX: 0; BACKGROUND-COLOR: #0071c5
+}
+#banner .logo {
+	MARGIN-TOP: 15px; FLOAT: left; PADDING-BOTTOM: 5px; MARGIN-LEFT: 20px; MARGIN-RIGHT: 20px
+}
+H1 {
+	FONT-SIZE: 36px; TEXT-ALIGN: center
+}
+H1.title {
+	FONT-SIZE: 170%; FONT-FAMILY: "Intel Clear", Verdana, Arial, sans-serif; FONT-WEIGHT: normal; COLOR: #ffffff; MARGIN-LEFT: 40px; PADDING-RIGHT: 20px; PADDING-TOP: 15px; MARGIN-RIGHT: 40px; TEXT-INDENT: 20px
+}
+.h3-alike {
+	FONT-SIZE: 1.17em; FONT-WEIGHT: bold; COLOR: #0071c5; DISPLAY: inline
+}
+H3 {
+	FONT-SIZE: 1.17em; FONT-WEIGHT: bold; COLOR: #0071c5
+}
+PRE {
+	FONT-SIZE: small; FONT-FAMILY: "Consolas", Monaco, monospace; BACKGROUND: #fafafa; PADDING-LEFT: 20px; MARGIN: 0px
+}
+#footer {
+	FONT-SIZE: small
+}
+CODE {
+	FONT-FAMILY: "Consolas", Monaco, monospace
+}
+.code-block {
+	PADDING-LEFT: 20px
+}
+.changes {
+	MARGIN: 1em 0px
+}
+.changes INPUT:active {
+	POSITION: relative; TOP: 1px
+}
+.changes INPUT:hover:after {
+	FONT-SIZE: 10px; CONTENT: 'More'; PADDING-LEFT: 16px
+}
+.changes INPUT:hover:after {
+	CONTENT: 'Less'
+}
+.changes INPUT + .show-hide {
+	DISPLAY: none
+}
+.changes INPUT:unknown + .show-hide {
+	DISPLAY: block
+}
+UL {
+	PADDING-BOTTOM: 0.5em; PADDING-TOP: 0.5em; PADDING-LEFT: 2.5em; MARGIN: 0px; PADDING-RIGHT: 0px
+}
+UL LI {
+	MARGIN-BOTTOM: 3px
+}
+UL LI:unknown {
+	MARGIN-BOTTOM: 0px
+}
+.disc {
+	LIST-STYLE-TYPE: disc
+}
+.circ {
+	
+}
+.single {
+	PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0.5em; PADDING-RIGHT: 0.5em
+}
+.specs {
+	BORDER-COLLAPSE: collapse
+}
+.specs TD {
+	FONT-SIZE: 14px
+}
+.specs TH {
+	FONT-SIZE: 14px
+}
+.specs TD {
+	BORDER-TOP: black 1px solid; BORDER-RIGHT: black 1px solid; BORDER-BOTTOM: black 1px solid; BORDER-LEFT: black 1px solid
+}
+.specs TD TD {
+	BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none
+}
+.specs TD TH {
+	BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none
+}
+.specs TD {
+	PADDING-BOTTOM: 0.2em; TEXT-ALIGN: center; PADDING-TOP: 0px; PADDING-LEFT: 0.2em; PADDING-RIGHT: 0.2em
+}
+.specs TD TD {
+	PADDING-BOTTOM: 0.2em; TEXT-ALIGN: center; PADDING-TOP: 0px; PADDING-LEFT: 0.2em; PADDING-RIGHT: 0.2em
+}
+.specs TD TH {
+	PADDING-BOTTOM: 0.2em; TEXT-ALIGN: center; PADDING-TOP: 0px; PADDING-LEFT: 0.2em; PADDING-RIGHT: 0.2em
+}
+.specs TD TR:unknown TD {
+	PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0.2em; PADDING-RIGHT: 0.2em
+}
+.specs TD TR:unknown TH {
+	PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0.2em; PADDING-RIGHT: 0.2em
+}
+.serial-time {
+	
+}
+.modified-time {
+	WIDTH: 6.5em
+}
+.compiler {
+	
+}
+.comp-opt {
+	
+}
+.sys-specs {
+	WIDTH: 18em
+}
+</STYLE>
+<!--[if lte IE 8]>
+<STYLE>.changes INPUT + .show-hide {
+	DISPLAY: block
+}
+.changes INPUT {
+	DISPLAY: none
+}
+</STYLE>
+<![endif]--><!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:URL msdt:dt="string"></mso:URL>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<META name=GENERATOR content="MSHTML 11.00.10586.633"></HEAD>
+<BODY>
+<DIV id=banner><IMG class=logo src="images\intel_logo.png" style="width:50px;height:33px;"> 
+<H1 class=title>README: Intel® Advisor Roofline Demo Sample</H1></DIV>
+<P>The sample code in this package is intended for use with the “Roofline Analysis in Intel® Advisor 2017” tutorial video, available <a href="https://software.intel.com/en-us/videos/roofline-analysis-in-intel-advisor-2017">online at the Intel® Developer Zone</a>.</P>
+<P>This code is largely conceptual rather than functional in nature. It performs meaningless operations on meaningless data in various layouts, abstractly representing various types of scenarios and optimization problems (such as being memory bound or inefficiently vectorized) at different arithmetic intensities, for the purpose of demonstrating specific effects in the Roofline Analysis feature of Intel® Advisor.</P>
+<DIV class=changes>
+<h3>System Requirements:</h3>
+<UL class="disc">
+  <LI>Hardware: 
+  <UL>
+    <LI>Any Intel® processor with AVX2 instruction set support <span style="color:#0071c5">†</span> </LI></UL>
+  <LI>Software: 
+  <UL>
+    <LI>Linux* or Microsoft* Windows* operating system
+    <LI>Intel® Advisor 2017 Update 2 or later
+    <LI>Intel® C++ Compiler (version 17.0) <span style="color:#0071c5">‡</span>
+</LI></UL>
+<P><span style="color:#0071c5">†</span> Because Roofline Analysis is highly system-dependent, processors other than an Intel® Core™ i5-6300U processor may produce different results than those seen in the tutorial video.</P>
+<P><span style="color:#0071c5">‡</span> This sample code was designed and tested with this compiler. The build scripts included with this code do not include support for other compilers; manual compilation with other compilers (or earlier versions of the Intel® C++ compiler) may or may not produce the expected results.</P>
+</DIV>
+<H3>Build Instructions</H3>
+<DIV class=changes>
+<DIV><b>Microsoft* Visual Studio* 2015:</b> 
+<UL class="disc">
+  <LI>Open <i>roofline_demo_samples.sln</i> in Visual Studio*.
+  <LI>Change the configuration to Release using the dropdown on the toolbar.
+  <LI>Set the project to use the Intel® C++ Compiler.
+    <UL>
+    <LI>Project → Intel Compiler → Use Intel C++
+    </UL>
+  <LI>Set the project properties appropriately and click the OK button.
+    <UL>
+    <LI>Project → Properties → C/C++ 
+      <UL>
+      <LI>→ General → Debug Information Format = Program Database (/Zi)
+      <LI>→ Optimization → Optimization = Maximize Speed (/O2)
+      <LI>→ Code Generation → Enable Enhanced Instruction Set = Intel(R) Advanced Vector Extensions 2 (/arch:CORE-AVX2)
+      <LI>→ Optimization [Intel C++] → Parallelization = No
+      </UL>
+    </UL>
+  <LI>Select desired loops to run.
+    <UL>
+    <LI>Open <i>roofline.cpp</i> and comment/uncomment the <CODE>#define</CODE> lines for the desired loops and groups. 
+    </UL>
+  <LI>Compile the project.
+    <UL>
+    <LI>Build → Build roofline_demo_samples
+    </UL>
+</UL></DIV>
+<DIV><b>Microsoft* Windows* Command Line: </b>
+<UL class="disc">
+  <LI>Ensure that the Intel® C++ Compiler environment variables are set by using the Intel® C++ Compiler terminal, or by running the <i>compilervars.bat</i> file that comes with the compiler. By default it is located at <i>C:\Program Files (x86)\IntelSWTools\compilers_and_libraries\windows\bin\compilervars.bat</i>.
+  <LI>Select the desired loops to run.
+    <UL>
+    <LI>Edit <i>roofline.cpp</i> and comment/uncomment the <CODE>#define</CODE> lines for the desired loops and groups.
+    </UL>
+  <LI>Run the <i>build.bat</i> file that is included in this sample package.
+</UL></DIV>
+<DIV><b>Linux* Command Line: </b>
+<UL class="disc">
+  <LI>Ensure that the Intel® C++ Compiler environment variables are set by sourcing the <i>compilervars.sh</i> file that comes with the compiler. By default it is located at <i>/opt/intel/compilers_and_libraries/linux/bin/compilervars.sh</i>.
+  <LI>Select the desired loops to run.
+    <UL>
+    <LI>Edit <i>roofline.cpp</i> and comment/uncomment the <CODE>#define</CODE> lines for the desired loops and groups.
+    </UL>
+  <LI>Build the sample application with the <i>make</i> command.
+</UL></DIV>
+</DIV>
+<H3>Roofline Analysis Instructions</H3>
+<DIV class=changes>
+<DIV><b>Graphical Interface (Standalone or Integrated): </b>
+<UL class="disc">
+  <LI>Compile the project. The project must be compiled after every modification to the code in order to analyze the altered code.
+  <LI>Start Intel® Advisor. 
+	<UL>
+	<LI>In the standalone GUI, you will need to create a new project and set the path to the executable.</LI>
+	<LI>In the Microsoft* Visual Studio* integrated GUI, settings will be inherited automatically from the solution. Open the integrated Advisor with this button on the toolbar: <IMG src="images\advisorbutton.jpg"></LI>
+	</UL> 
+  <LI>Click the <IMG src="images\collect.jpg"> button under “Roofline” on the vectorization workflow panel <b>OR</b> collect a survey analysis, followed by a trip counts with FLOPs analysis.
+</UL></DIV>
+<DIV><b>Microsoft* Windows* Command Line: </b>
+<UL class="disc">
+  <LI>Ensure that Intel® Advisor’s variables are set up by running the <i>advixe-vars.bat</i> file that comes with the tool. By default, this is located at <i>C:\Program Files (x86)\IntelSWTools\Advisor 2017\advixe-vars.bat</i>.
+  <LI>Compile the project. The project must be compiled after every modification to the code in order to analyze the altered code.
+  <LI>Run a survey collection, followed by a trip counts collection. In the commands below, replace {YOURPATH} with the path to the <i>roofline_demo_samples</i> folder.
+    <UL>
+    <LI><CODE>advixe-cl --collect survey -no-auto-finalize --search-dir all:r={YOURPATH} --project-dir {YOURPATH}\release\results -- {YOURPATH}\release\roofline_demo.exe</CODE>
+    <LI><CODE>advixe-cl --collect tripcounts -flop -no-auto-finalize --search-dir all:r={YOURPATH} --project-dir {YOURPATH}\release\results -- {YOURPATH}\release\roofline_demo.exe</CODE>
+<br> Note that the <i>-flop</i> flag only exists in Advisor 2018 Update 1 and later. In older versions, <i>-flops-and-masks</i> must be used instead.
+    </UL>
+  <LI>Open the project, located at <i>{YOURPATH}\release\results\results.advixeproj</i>, in the Intel® Advisor GUI.
+  <LI>Before opening the analysis result, check that the source and binary searches are set correctly. If not, set them.
+    <UL>
+    <LI>File → Project Properties… → Binary/Symbol Search: should contain one entry, <i>{YOURPATH}</i>, and have the “Search recursively” checkbox checked.
+    <LI>File → Project Properties… → Source Search: should contain one entry, <i>{YOURPATH}</i>, and have the “Search recursively” checkbox checked.
+    </UL>
+  <LI>Open the result.
+</UL></DIV>
+<DIV><b>Linux* Command Line: </b>
+<UL class="disc">
+  <LI>Ensure that Intel® Advisor’s variables are set up by sourcing the <i>advixe-vars.sh</i> file that comes with the tool. By default, this is located at <i>/opt/intel/advisor_2017/advixe-vars.sh</i>.
+  <LI>Compile the project. The project must be compiled after every modification to the code in order to analyze the altered code.
+  <LI>Run a survey collection, followed by a trip counts collection. In the commands below, replace {YOURPATH} with the path to the <i>roofline_demo_samples</i> folder.
+    <UL>
+    <LI><CODE>advixe-cl --collect survey -no-auto-finalize --search-dir all:r={YOURPATH} --project-dir {YOURPATH}/release/results -- {YOURPATH}/release/roofline_demo</CODE>
+    <LI><CODE>advixe-cl --collect tripcounts -flops -no-auto-finalize --search-dir all:r={YOURPATH} --project-dir {YOURPATH}/release/results -- {YOURPATH}/release/roofline_demo</CODE>
+<br> Note that the <i>-flop</i> flag only exists in Advisor 2018 Update 1 and later. In older versions, <i>-flops-and-masks</i> must be used instead.
+    </UL>
+  <LI>Open the project, located at <i>{YOURPATH}/release/results/results.advixeproj</i>, in the Intel® Advisor GUI.
+  <LI>Before opening the analysis result, check that the source and binary searches are set correctly. If not, set them.
+    <UL>
+    <LI>File → Project Properties… → Binary/Symbol Search: should contain one entry, <i>{YOURPATH}</i>, and have the “Search recursively” checkbox checked.
+    <LI>File → Project Properties… → Source Search: should contain one entry, <i>{YOURPATH}</i>, and have the “Search recursively” checkbox checked.
+    </UL>
+  <LI>Open the result.
+</UL></DIV>
+</DIV>
+<DIV id=footer>
+<P>Intel, Intel logo, and Core are trademarks of Intel Corporation in the U.S. 
+and/or other countries<BR>* Other names and brands may be claimed as the 
+property of others <BR>Copyright © 2016-2018 Intel Corporation. All Rights 
+Reserved<BR></P></DIV></DIV></BODY></HTML>
