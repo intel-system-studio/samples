@@ -4,6 +4,7 @@
   "description": "This is an example that illustrates how to use a processors execution trace feature together with Intel-enhanced GDB integrated into Eclipse IDE. It will demonstrate how to find bugs, like stack corruptions, that are otherwise hard to root cause using reverse debugging and the Function Call History view. This sample will work from the Eclipse IDE.",
   "author": "Intel Corporation",
   "date": "2018-02-23",
-  "tag": "system"
+  "tag": "system",
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/gdb/ReverseDebugging/c/readme.html"
 }
 

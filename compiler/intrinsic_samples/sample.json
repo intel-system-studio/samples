@@ -4,6 +4,7 @@
   "description": "The intrinsic samples are designed to show how to utilize the intrinsics supported by the  Intel\u00AE C++ compiler in a variety of applications. The intrinsic samples require processors that support Intel\u00AE MMX\u2122 and Intel\u00AE Streaming SIMD Extensions 2 (Intel\u00AE SSE2) or higher. If not supported, the application will fail.",
   "author": "Intel Corporation",
   "date": "2018-02-23",
-  "tag": "system"
+  "tag": "system",
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/compiler/intrinsic_samples/c/readme.html"
 }
 

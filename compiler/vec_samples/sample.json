@@ -4,6 +4,7 @@
   "description": "This tutorial demonstrates how you can improve the performance of the matrix multiplication sample by using the Auto-Vectorization features of the Intel\u00AE compiler.",
   "author": "Intel Corporation",
   "date": "2018-02-23",
-  "tag": "system"
+  "tag": "system",
+  "sample_readme_uri": "https://github.com/intel-system-studio/samples/blob/$BRANCHNAME/compiler/vec_samples/c/readme.html"
 }
 

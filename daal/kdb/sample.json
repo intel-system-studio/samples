@@ -4,6 +4,7 @@
   "description": "KDB samples for the Intel\u00AE Data Analytics Acceleration Library (Intel\u00AE DAAL) are designed to show how to use this library with a KDB database in a C++ application. The sample needs KDB support. For instructions, see readme.html",
   "author": "Intel Corporation",
   "date": "2018-02-26",
-  "tag": "system"
+  "tag": "system",
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/daal/kdb/cpp/readme.html"
 }
 

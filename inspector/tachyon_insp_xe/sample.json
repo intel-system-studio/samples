@@ -4,6 +4,7 @@
   "description": "Tachyon is a parallel raytracer / renderer used in combination with the Intel® Inspector tutorial.",
   "author": "Intel Corporation",
   "date": "2018-03-05",
-  "tag": "system"
+  "tag": "system",
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/inspector/tachyon_insp_xe/cpp/readme.html"
 }
 

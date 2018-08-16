@@ -4,5 +4,6 @@
   "description": "TBD.",
   "author": "Intel Corporation",
   "date": "2018-06-05",
-  "tag": "system"
+  "tag": "system",
+  "sample_readme_uri": "https://github.com/intel-system-studio/samples/blob/$BRANCHNAME/advisor/Vector_Tutorial_Introduction/cpp/Vectorization_Advisor/readme.txt"
 }

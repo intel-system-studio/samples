@@ -4,6 +4,7 @@
   "description": "This sample demonstrates how to increase the performance of Averaging filter using Intel\u00AE SIMD Data Layout Templates (Intel\u00AE SDLT).",
   "author": "Intel Corporation",
   "date": "2018-02-23",
-  "tag": "system"
+  "tag": "system",
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/compiler/Averagingfilter_SDLT_samples/cpp/readme.html"
 }
 

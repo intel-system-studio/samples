@@ -4,6 +4,7 @@
   "description": "The example demonstrates using the Multi-file Interprocedural Optimization (IPO) feature of the Intel\u00AE C++ Compiler.",
   "author": "Intel Corporation",
   "date": "2018-02-23",
-  "tag": "system"
+  "tag": "system",
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/compiler/interprocedural_optimization_samples/c/readme.html"
 }
 

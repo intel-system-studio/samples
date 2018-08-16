@@ -4,5 +4,6 @@
   "description": "TBD.",
   "author": "Intel Corporation",
   "date": "2018-06-05",
-  "tag": "system"
+  "tag": "system",
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/advisor/vec_samples/cpp/advixe_readme.htm"
 }

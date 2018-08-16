@@ -4,6 +4,7 @@
   "description": "This sample is designed to illustrate specific compiler optimizations such as O1, O2 and O3.",
   "author": "Intel Corporation",
   "date": "2018-02-23",
-  "tag": "system"
+  "tag": "system",
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/compiler/optimize_samples/c/readme.html"
 }
 
