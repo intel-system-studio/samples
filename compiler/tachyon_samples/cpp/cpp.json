@@ -10,7 +10,9 @@
     "LD_LIBRARY_PATH": "${ISS_ROOT}/compilers_and_libraries/linux/lib/intel64:${ISS_ROOT}/compilers_and_libraries/linux/tbb/lib/intel64_lin/gcc4.7"
   },
   "makeVariables": {
-    "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icc"
+    "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icc",
+    ".DEFAULT_GOAL": "release"
+
   },
   "indexerVariables": {
     "FLAGS": "-std=c++11"
