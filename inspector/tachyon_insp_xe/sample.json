@@ -1,6 +1,7 @@
 {
   "name": "Tachyon",
   "category": "Intel\u00AE Inspector",
+  "categories": [ "Samples/Intel\u00AE Inspector" ],
   "description": "Tachyon is a parallel raytracer / renderer used in combination with the Intel® Inspector tutorial.",
   "author": "Intel Corporation",
   "date": "2018-03-05",

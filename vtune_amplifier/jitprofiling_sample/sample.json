@@ -1,6 +1,7 @@
 {
   "name": "JIT Profile",
   "category": "Intel\u00AE VTune\u2122 Amplifier",
+  "categories": [ "Samples/Intel\u00AE VTune\u2122 Amplifier" ],
   "description": "The JITprofile sample allows you to explore the capabilities of the JIT Profiling APIs in Intel\u00AE VTune\u2122 Amplifier.",
   "author": "Intel Corporation",
   "date": "2018-03-08",

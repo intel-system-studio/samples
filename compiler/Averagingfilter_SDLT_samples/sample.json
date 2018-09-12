@@ -1,6 +1,7 @@
 {
   "name": "Averaging Filter - SDLT",
   "category": "Intel\u00AE Compiler",
+  "categories": [ "Samples/Intel\u00AE Compiler" ],
   "description": "This sample demonstrates how to increase the performance of Averaging filter using Intel\u00AE SIMD Data Layout Templates (Intel\u00AE SDLT).",
   "author": "Intel Corporation",
   "date": "2018-02-23",

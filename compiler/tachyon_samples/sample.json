@@ -1,6 +1,7 @@
 {
   "name": "Tachyon",
   "category": "Intel\u00AE Compiler",
+  "categories": [ "Samples/Intel\u00AE Compiler" ],
   "description": "This sample shows how to thread an application step-by-step using the Tachyon parallel raytracer/renderer used in combination with the Intel\u00AE C++ Compiler Tutorial \"Threading Your Application\".",
   "author": "Intel Corporation",
   "date": "2018-02-23",

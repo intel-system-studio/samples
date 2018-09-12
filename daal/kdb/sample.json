@@ -1,6 +1,7 @@
 {
   "name": "KDB",
   "category": "Intel\u00AE Data Analytics Acceleration Library",
+  "categories": [ "Samples/Intel\u00AE Data Analytics Acceleration Library" ],
   "description": "KDB samples for the Intel\u00AE Data Analytics Acceleration Library (Intel\u00AE DAAL) are designed to show how to use this library with a KDB database in a C++ application. The sample needs KDB support. For instructions, see readme.html",
   "author": "Intel Corporation",
   "date": "2018-02-26",
