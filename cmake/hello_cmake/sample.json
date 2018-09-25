@@ -5,6 +5,5 @@
   "description": "A simple hello world for cmake",
   "author": "Intel Corporation",
   "date": "2018-09-24",
-  "tag": "system",
   "sample_readme_uri": "https://github.com/intel-system-studio/samples/blob/$BRANCHNAME/cmake/hello_cmake/cpp/README"
 }
