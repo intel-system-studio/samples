@@ -1,6 +1,6 @@
 {
   "name": "Neural Networks",
-  "category": "Intel\u00AE Data Analytics Acceleration Library",
+  "categories": [ "Code Samples/Software Optimization", "Tools Samples/Intel\u00AE Data Analytics Acceleration Library" ],
   "categories": [ "Samples/Intel\u00AE Data Analytics Acceleration Library" ],
   "description": "Neural networks samples for the Intel\u00AE Data Analytics Acceleration Library (Intel\u00AE DAAL) are designed to show how to use this library to create most common neural network topologies such as LeNet, AlexNet, GoogleNet in a C++ application.",
   "author": "Intel Corporation",

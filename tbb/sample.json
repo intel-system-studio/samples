@@ -1,7 +1,7 @@
 {
   "name": "TBB",
   "category": "Intel\u00AE Threading Building Blocks",
-  "categories": [ "Samples/Intel\u00AE Threading Building Blocks" ],
+  "categories": [ "Code Samples/Software Optimization", "Tools Samples/Intel\u00AE Threading Building Blocks" ],
   "description": "This project includes example usages of Intel\u00AE Threading Building Blocks (Intel\u00AE TBB).",
   "author": "Intel Corporation",
   "date": "2018-03-09",

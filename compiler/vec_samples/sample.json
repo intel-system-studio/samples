@@ -1,7 +1,7 @@
 {
   "name": "Auto-Vectorization",
   "category": "Intel\u00AE Compiler",
-  "categories": [ "Samples/Intel\u00AE Compiler" ],
+  "categories": [ "Code Samples/Software Optimization", "Tools Samples/Intel C++ Compiler" ],
   "description": "This tutorial demonstrates how you can improve the performance of the matrix multiplication sample by using the Auto-Vectorization features of the Intel\u00AE compiler.",
   "author": "Intel Corporation",
   "date": "2018-02-23",
