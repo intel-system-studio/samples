@@ -6,6 +6,7 @@
   "author": "Intel Corporation",
   "date": "2018-02-23",
   "tag": "system",
-  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/compiler/Averagingfilter_SDLT_samples/cpp/readme.html"
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/compiler/Averagingfilter_SDLT_samples/cpp/readme.html",
+  "dependencies": [ "ICC" ]
 }
 
