@@ -1,7 +1,7 @@
 {
   "name": "mmult_Advisor",
   "category": "Intel\u00AE Advisor",
-  "categories": [ "Tools Samples/Performance, Power, & Thermal Analysis" ],
+  "categories": [ "Tool Samples/Performance, Power, & Thermal Analysis" ],
   "description": "mmult sample application written using the C++ programming language. It explains how to open, build, and run this sample application using the Intel(R) Advisor XE.",
   "author": "Intel Corporation",
   "date": "2018-06-05",
