@@ -1,7 +1,7 @@
 {
   "name": "Optimizations",
   "category": "Intel\u00AE Compiler",
-  "categories": [ "Code Samples/Software Optimization", "Tools Samples/Intel C++ Compiler" ],
+  "categories": [ "Code Samples/Software Optimization", "Tool Samples/Intel C++ Compiler" ],
   "description": "This sample is designed to illustrate specific compiler optimizations such as O1, O2 and O3.",
   "author": "Intel Corporation",
   "date": "2018-02-23",
