@@ -1,7 +1,7 @@
 {
   "name": "roofline_demo_samples",
   "category": "Intel\u00AE Advisor",
-  "categories": [  "Tools Samples/Performance, Power, & Thermal Analysis" ],
+  "categories": [  "Tool Samples/Performance, Power, & Thermal Analysis" ],
   "description": "The sample code in this package is intended for use with the 'Roofline Analysis in Intel® Advisor 2017' tutorial video, available online at the Intel® Developer Zone. This code is largely conceptual rather than functional in nature. It performs meaningless operations on meaningless data in various layouts, abstractly representing various types of scenarios and optimization problems (such as being memory bound or inefficiently vectorized) at different arithmetic intensities, for the purpose of demonstrating specific effects in the Roofline Analysis feature of Intel® Advisor.",
   "author": "Intel Corporation",
   "date": "2018-06-05",

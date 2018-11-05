@@ -1,7 +1,7 @@
 {
   "name": "vec_samples",
   "category": "Intel\u00AE Advisor",
-  "categories": [ "Tools Samples/Performance, Power, & Thermal Analysis" ],
+  "categories": [ "Tool Samples/Performance, Power, & Thermal Analysis" ],
   "description": "TBD.",
   "author": "Intel Corporation",
   "date": "2018-06-05",

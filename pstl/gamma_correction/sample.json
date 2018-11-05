@@ -1,7 +1,7 @@
 {
   "name": "Gamma Correction",
   "category": "Intel\u00AE Parallel STL",
-  "categories": [ "Tools Samples/Intel\u00AE Parallel STL" ],
+  "categories": [ "Tool Samples/Intel\u00AE Parallel STL" ],
   "description": "This example demonstrates gamma correction — a nonlinear operation used to encode and decode the luminance of each image pixel.",
   "author": "Intel Corporation",
   "date": "2018-03-05",
