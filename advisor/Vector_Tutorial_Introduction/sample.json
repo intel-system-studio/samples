@@ -2,7 +2,7 @@
   "name": "Vector_Tutorial_Introduction",
   "category": "Intel\u00AE Advisor",
   "categories": [ "Tool Samples/Performance, Power, & Thermal Analysis" ],
-  "description": "TBD.",
+  "description": "This simple code demonstrates the basic functionality of each of the analyses and reports in the Vectorization Workflow. It is intended for use with the \"Intro to Intel(R) Advisor: Vectorization Workflow\" video walkthrough.\n\n https://software.intel.com/en-us/videos/introduction-to-intel-advisor-vectorization-workflow",
   "author": "Intel Corporation",
   "date": "2018-06-05",
   "tag": "system",
