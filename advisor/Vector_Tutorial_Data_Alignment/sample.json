@@ -2,7 +2,7 @@
   "name": "Vector_Tutorial_Data_Alignment",
   "category": "Intel\u00AE Advisor",
   "categories": [ "Tool Samples/Performance, Power, & Thermal Analysis" ],
-  "description": "TBD.",
+  "description": "This code demonstrates how aligning and padding your data structures can improve your vectorization. It is intended for use with the \"Data Alignment, Padding, and Peel/Remainder Loops\" video walkthrough.\n\n https://software.intel.com/en-us/videos/data-alignment-padding-and-peel-remainder-loops",
   "author": "Intel Corporation",
   "date": "2018-06-05",
   "tag": "system",

@@ -2,7 +2,7 @@
   "name": "Vector_Tutorial_Vectorization_and_Data_Size",
   "category": "Intel\u00AE Advisor",
   "categories": [ "Tool Samples/Performance, Power, & Thermal Analysis" ],
-  "description": "TBD",
+  "description": "This code demonstrates the effects of vectorization at different lengths by comparing unvectorized and vectorized loops operating on different data sizes. It is intended for use with the \"Advantages of Vectorization & the Effects of Data Size\" video walkthrough.\n\n https://software.intel.com/en-us/videos/advantages-of-vectorization-and-the-effects-of-data-size",
   "author": "Intel Corporation",
   "date": "2018-06-05",
   "tag": "system",
