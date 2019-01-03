@@ -7,6 +7,6 @@
   "date": "2018-02-26",
   "tag": "system",
   "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/daal/neural_networks/cpp/readme.html",
-  "dependencies": [ "daal", "tbb" ]
+  "dependencies": ["daal", "tbb"]
 }
 
