@@ -7,6 +7,6 @@
   "date": "2018-03-09",
   "tag": "system",
   "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/tbb/cpp/index.html",
-  "dependencies": [ "TBB" ]
+  "dependencies": [ "tbb" ]
 }
 

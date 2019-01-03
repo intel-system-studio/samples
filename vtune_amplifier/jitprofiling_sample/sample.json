@@ -7,6 +7,6 @@
   "date": "2018-03-08",
   "tag": "system",
   "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/vtune_amplifier/jitprofiling_sample/c/readme.html",
-  "dependencies": [ ]
+  "dependencies": [ "vtune"]
 }
 

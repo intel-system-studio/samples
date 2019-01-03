@@ -7,6 +7,6 @@
   "date": "2018-03-05",
   "tag": "system",
   "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/ipp/ipp_blur_rotate_sample/cpp/readme.html",
-  "dependencies": [ "IPP" ]
+  "dependencies": [ "ipp" ]
 }
 
