@@ -7,6 +7,6 @@
   "date": "2018-03-06",
   "tag": "system",
   "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/mkl/matrix_multiplication/c/readme.html",
-  "dependencies": [ "MKL" ]
+  "dependencies": ["mkl", "icc"]
 }
 
