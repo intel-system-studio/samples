@@ -1,6 +1,6 @@
 {
   "name": "Convex Hull",
-  "category": "Intel\u00AE Parallel STL",
+  "category": "Intel Parallel STL",
   "categories": [ "Tool Samples/Intel Parallel STL" ],
   "description": "This example demonstrates computing the convex_hull of a set of points on the plane based on the quickhull algorithm.",
   "author": "Intel Corporation",
