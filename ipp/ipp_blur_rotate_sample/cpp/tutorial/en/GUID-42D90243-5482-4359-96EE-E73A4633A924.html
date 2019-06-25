@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Building the Application"/>
+<meta name="DC.subject" content="building application, compile and link your application, set up environment"/>
+<meta name="keywords" content="building application, compile and link your application, set up environment"/>
+<meta name="DC.Relation" scheme="URI" content="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html"/>
+<meta name="prodname" content=""/>
+<meta name="version" content="9.0"/>
+<meta name="series" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="GUID-42D90243-5482-4359-96EE-E73A4633A924"/>
+<meta name="DC.Language" content="en-US"/>
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css"/>
+<title>Building the Application</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet"/>
+</head>
+<body id="GUID-42D90243-5482-4359-96EE-E73A4633A924">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Tutorial: Image Blurring and Rotation with Intel&reg; Integrated Performance Primitives 2019</em></p>
+
+
+<h1 class="topictitle1">Building the Application</h1>
+<div><p><div class="Note"><h3 class="NoteTipHead">Note</h3> The 
+        <span class="filepath">ipp_blur_rotate.cpp</span> sample code has been developed
+        for Intel&reg; IPP installed within Intel&reg; Parallel Studio XE. You can use the
+        provided code, except for the graphical rendering part, as a starting point for
+        your application that can be built within other product suites like Intel&reg;
+        System Studio. 
+      </div>
+</p>
+<div class="section" id="GUID-3BF9BEA4-2CC1-4211-ADD1-B42A8A76EC92"><h2 class="sectiontitle">Setting Up the Build Environment</h2><p>Before you invoke the compiler component of the suite that you
+        installed with Intel&reg; IPP, you must set certain environment variables that
+        define the location of compiler-related components. The Intel&reg; C++ Compiler
+        includes the 
+        <span class="filepath">compilervars</span> scripts that you can run to set
+        environment variables: 
+      <ul id="GUID-2FEE5E18-4507-402C-806D-F3C422B0D085"><li>On Windows*, you can find the 
+          <span class="filepath">compilervars.bat</span> batch file at 
+          
+        </li>
+<li>On Linux OS* and macOS*, you can find the 
+          <span class="filepath">compilervars.sh</span> shell script at 
+          
+        </li>
+</ul>
+</p>
+<p>For more information about setting environment variables for different
+        product suites, refer to 
+        <a href="https://software.intel.com/en-us/articles/setting-up-the-build-environment-for-using-intel-c-or-fortran-compilers" target="_blank">https://software.intel.com/en-us/articles/setting-up-the-build-environment-for-using-intel-c-or-fortran-compilers</a>.
+        
+      </p>
+</div>
+<div class="section" id="GUID-9DC911B2-235E-4ABE-80A2-02A57C598ED5"><h2 class="sectiontitle">Compile and Link Your Code</h2><p>To compile and link the code examples in this tutorial, do the
+        following: 
+      <ul id="GUID-744D3136-FABE-4ACF-B204-279F55B9B23A"><li>On Windows*: 
+          <ol id="GUID-DF0878F1-2D1F-4D1E-8C49-51E3D388B718"><li>Unzip the 
+              <span class="filepath">ipp_blur_rotate_sample.zip</span> archive
+              downloaded from the 
+              <a href="https://software.intel.com/en-us/product-code-samples" target="_blank">Intel&reg; Software Product Samples and Tutorials</a> website. 
+            </li>
+<li>Run the Microsoft* Visual Studio* command prompt and change the
+              directory to the 
+              <span class="filepath">Makefile</span> location. By default, 
+              <span class="filepath">Makefile</span> is located in the root of the 
+              <span class="filepath">ipp_blur_rotate_sample.zip</span> archive. 
+            </li>
+<li>Run the 
+              <samp class="codeph">nmake -f Makefile_win</samp> command. 
+            </li>
+</ol>
+</li>
+<li>On Linux* OS and macOS*: 
+          <ol id="GUID-2D104F0C-915A-4CAA-BC74-1E050665E5CA"><li>Unzip the 
+              <span class="filepath">ipp_blur_rotate_sample.tgz</span> archive
+              downloaded from the 
+              <a href="https://software.intel.com/en-us/product-code-samples" target="_blank">Intel&reg; Software Product Samples and Tutorials</a> website. 
+            </li>
+<li>Run the bash shell and change the directory to the 
+              <span class="filepath">Makefile</span> location. By default, 
+              <span class="filepath">Makefile</span> is located in the root of the 
+              <span class="filepath">ipp_blur_rotate_sample.tgz</span> archive. 
+            </li>
+<li>Run the 
+              <samp class="codeph">make -f Makefile_lin</samp> command on Linux* OS and 
+              <samp class="codeph">make -f Makefile_mac</samp> on macOS*. 
+            </li>
+</ol>
+</li>
+</ul>
+</p>
+<p>To run the application, run the following command from the directory
+        where 
+        <span class="filepath">Makefile</span> resides: 
+      <ul id="GUID-A3FAA51E-EC10-4CFA-88BE-AA504FE73E65"><li>On Windows*: 
+          <samp class="codeph">ipp_blur_rotate.exe</samp></li>
+<li>On Linux*: 
+          <samp class="codeph">./ipp_blur_rotate</samp></li>
+<li>On macOS*: 
+          <samp class="codeph">./ipp_blur_rotate.app/Contents/MacOS/ipp_blur_rotate</samp></li>
+</ul>
+</p>
+</div>
+<p><a href="GUID-0EE46F60-3F41-4AC2-B201-6F476094BE89.html#GUID-0EE46F60-3F41-4AC2-B201-6F476094BE89"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="Previous"/></a><a href="GUID-187975F1-948C-4DBE-9E1C-6EDFDDD59B65.html#GUID-187975F1-948C-4DBE-9E1C-6EDFDDD59B65"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="Next"/></a></p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html">Tutorial: Image Blurring and Rotation with Intel&reg; Integrated Performance Primitives 2019</a></div>
+</div>
+<div/>
+</body>
+</html>

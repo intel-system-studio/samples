@@ -4,7 +4,7 @@
 // SAMPLE SOURCE CODE - SUBJECT TO THE TERMS OF SAMPLE CODE LICENSE AGREEMENT,
 // http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
 //
-// Copyright (C) Intel Corporation
+// Copyright 2005-2018 Intel Corporation
 //
 // THIS FILE IS PROVIDED "AS IS" WITH NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT
 // NOT LIMITED TO ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -32,11 +32,17 @@ video *v;
 #define VK_RIGHT    XK_Right
 #define VK_DOWN     XK_Down
 #define VK_ESCAPE   XK_Escape
+#elif defined __APPLE__
+#define VK_LEFT     0xf702
+#define VK_UP       0xf700
+#define VK_RIGHT    0xf703
+#define VK_DOWN     0xf701
+#define VK_ESCAPE   0x1B
 #endif
 
 IppStatus warpAffine(Ipp8u* pSrc, IppiSize srcSize, int srcStep, Ipp8u* pDst, IppiSize dstSize, int dstStep, const double coeffs[2][3])
 {
-    /* IPP functions status */
+    /* Intel(R) IPP functions status */
     IppStatus status = ippStsNoErr;
 
     /* number of image channels */
@@ -174,6 +180,8 @@ void ipp_blur_rotate::process(const drawing_memory &dm)
         sprintf_s(titleBuffer, sizeof(titleBuffer)/sizeof(titleBuffer[0]), "Intel(R) IPP: blur + rotate tutorial : rotation angle %.0f : box filter mask size {%d, %d}", angle - 360.0 * floor(angle / 360.0), maskSize.width, maskSize.height);
     #elif (defined unix || defined UNIX)
         sprintf(titleBuffer, "Intel(R) IPP: blur + rotate tutorial : rotation angle %.0f : box filter mask size {%d, %d}", angle - 360.0 * floor(angle / 360.0), maskSize.width, maskSize.height);
+    #elif defined __APPLE__
+        sprintf(titleBuffer, "Intel(R) IPP: blur + rotate tutorial : rotation angle %.0f : box filter mask size {%d, %d}", angle - 360.0 * floor(angle / 360.0), maskSize.width, maskSize.height);
     #endif
         v->title = titleBuffer;
         v->show_title();
@@ -279,10 +287,11 @@ bool ipp_blur_rotate::loadFileBMP( const char* bmpImageFile )
 
 ipp_blur_rotate::ipp_blur_rotate()
     : angle(0.0), pSrc(NULL), pBlur(NULL), pBlurRot(NULL),
-      bFilterUpdate(false), bRotateUpdate(false), bRedraw(false)
+      bFilterUpdate(false), bRotateUpdate(false), bRedraw(false),
+      srcStep(0), blurStep(0), blurRotStep(0)
 {
-    dstSize.width  = srcSize.width  = 0;
-    dstSize.height = srcSize.height = 0;
+    dstSize.width  = srcSize.width  = maskSize.width = 0;
+    dstSize.height = srcSize.height = maskSize.height = 0;
 }
 
 ipp_blur_rotate::~ipp_blur_rotate()

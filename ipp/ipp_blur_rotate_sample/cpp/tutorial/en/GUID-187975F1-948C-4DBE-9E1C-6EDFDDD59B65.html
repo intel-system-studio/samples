@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Summary"/>
+<meta name="DC.subject" content="summary"/>
+<meta name="keywords" content="summary"/>
+<meta name="DC.Relation" scheme="URI" content="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html"/>
+<meta name="prodname" content=""/>
+<meta name="version" content="9.0"/>
+<meta name="series" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="GUID-187975F1-948C-4DBE-9E1C-6EDFDDD59B65"/>
+<meta name="DC.Language" content="en-US"/>
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css"/>
+<title>Summary</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet"/>
+</head>
+<body id="GUID-187975F1-948C-4DBE-9E1C-6EDFDDD59B65">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Tutorial: Image Blurring and Rotation with Intel&reg; Integrated Performance Primitives 2019</em></p>
+
+
+<h1 class="topictitle1">Summary</h1>
+<div><p>Here are some important things to remember when developing an image processing application with Intel IPP: 
+    <ul id="GUID-F3DCB794-A192-4C16-A697-1321DE09B67E"><li>Before calling the processing function, compute the size of required buffers using the &lt;<var>processing function</var>&gt;<span class="option">GetSize</span> or &lt;<var>processing function</var>&gt;<span class="option">GetBufferSize</span> auxiliary functions, and, if required, initialize the function data using &lt;<var>processing function</var>&gt;<span class="option">Init</span>. 
+  </li>
+<li>For the functions that perform neighborhood operations, set the appropriate border processing method in the 
+    <span class="parmname">borderType</span> (or 
+    <span class="parmname">border</span>) and 
+    <span class="parmname">borderValue</span> parameters. 
+  </li>
+<li> When you link to the 
+    <span class="keyword">ippi</span> domain library, you must also link to the libraries on which it depends: 
+    <span class="keyword">ippcore</span>, 
+    <span class="keyword">ipps</span>, and 
+    <span class="keyword">ippvm</span>. 
+  </li>
+</ul>
+</p>
+<p><a href="GUID-42D90243-5482-4359-96EE-E73A4633A924.html#GUID-42D90243-5482-4359-96EE-E73A4633A924"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="Previous"/></a></p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html">Tutorial: Image Blurring and Rotation with Intel&reg; Integrated Performance Primitives 2019</a></div>
+</div>
+<div/>
+</body>
+</html>

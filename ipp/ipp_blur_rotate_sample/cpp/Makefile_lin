@@ -4,7 +4,7 @@
 # SAMPLE SOURCE CODE - SUBJECT TO THE TERMS OF SAMPLE CODE LICENSE AGREEMENT,
 # http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
 #
-# Copyright (C) Intel Corporation
+# Copyright 2005-2018 Intel Corporation
 #
 # THIS FILE IS PROVIDED "AS IS" WITH NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT
 # NOT LIMITED TO ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -38,14 +38,31 @@ override CXXFLAGS += $(UI_CXXFLAGS)
 
 all:	release
 
-release: $(SOURCES)
+resources:
+ifeq ($(UI),mac)
+	mkdir -p $(APPRES)/en.lproj $(NAME).app/Contents/MacOS
+	cp $(GUIFOLDER)/xcode/guiExample/Info.plist $(NAME).app/Contents
+	cp $(GUIFOLDER)/xcode/guiExample/PkgInfo $(NAME).app/Contents
+	cp $(GUIFOLDER)/xcode/guiExample/en.lproj/* $(APPRES)/en.lproj
+endif # macOS*
+
+release: $(SOURCES) resources
+ifeq ($(UI),mac)
+	$(CXX_UI) -O2 -DNDEBUG $(CXXFLAGS) -c $(MACUISOURCES)
+endif # macOS*
 	$(CXX) -O2 -DNDEBUG $(CXXFLAGS) -o $(EXE) $(SOURCES) $(MACUIOBJS) -lippcore -lippvm -lippi -lipps $(LIBS)
 
-debug:
+debug: resources
+ifeq ($(UI),mac)
+	$(CXX_UI) -g -O0 $(CXXFLAGS) -c $(MACUISOURCES)
+endif # macOS*
 	$(CXX) -g -O0 $(CXXFLAGS) -o $(EXE) $(SOURCES) $(MACUIOBJS) -lippcore -lippvm -lippi -lipps $(LIBS)
 
 clean:
 	$(RM) $(EXE) *.o *.d
+ifeq ($(UI),mac)
+	rm -rf $(NAME).app
+endif
 
 run:
 	echo $(EXE) $(ARGS)
