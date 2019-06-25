@@ -3,7 +3,7 @@
 # SAMPLE SOURCE CODE - SUBJECT TO THE TERMS OF SAMPLE CODE LICENSE AGREEMENT,
 # http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
 #
-# Copyright (C) Intel Corporation
+# Copyright 2005-2018 Intel Corporation
 #
 # THIS FILE IS PROVIDED "AS IS" WITH NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT
 # NOT LIMITED TO ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -46,8 +46,12 @@ MULTIARCH = sparc64
 endif
 MULTIARCHTUPLE ?= $(MULTIARCH)-linux-gnu
 
-# detecting UI ("x" or "con")
-UI ?= $(shell sh -c "[ -f /usr/X11R6/lib$(x64)/libX11.so -o -f /usr/lib$(x64)/libX11.so -o -f /usr/lib/$(MULTIARCHTUPLE)/libX11.so ] && echo x")
+# detecting UI ("mac", "x" or "con")
+ifeq ($(shell uname),Darwin)
+  UI ?= mac
+else
+  UI ?= $(shell sh -c "[ -f /usr/X11R6/lib$(x64)/libX11.so -o -f /usr/lib$(x64)/libX11.so -o -f /usr/lib/$(MULTIARCHTUPLE)/libX11.so ] && echo x")
+endif
 
 ifeq ($(UI),x)
   EXE = $(NAME)$(SUFFIX)
@@ -61,10 +65,21 @@ ifeq ($(UI),x)
   endif # libXext
 
 else # ! X
-  EXE = $(NAME)$(SUFFIX)
-  ifeq (,$(strip $(UI)))
-     UI = con
-     $(warning Note: no graphics output capability detected, building for console output.)
-  endif
+  ifeq ($(UI),mac)
+    CXX_UI?=g++
+    LIBS += -framework OpenGL -framework Foundation -framework Cocoa
+    MACUISOURCES = $(GUIFOLDER)/xcode/guiExample/OpenGLView.m $(GUIFOLDER)/xcode/guiExample/main.m $(GUIFOLDER)/xcode/guiExample/guiAppDelegate.m 
+    MACUIOBJS = OpenGLView.o main.o guiAppDelegate.o
+    APPRES = $(NAME)$(SUFFIX).app/Contents/Resources
+    EXE = $(NAME)$(SUFFIX).app/Contents/MacOS/$(NAME)$(SUFFIX)
+
+  else # ! macOS*
+
+    EXE = $(NAME)$(SUFFIX)
+    ifeq (,$(strip $(UI)))
+       UI = con
+       $(warning Note: no graphics output capability detected, building for console output.)
+    endif
+  endif # macOS*
 endif # X
 endif # Windows vs. other

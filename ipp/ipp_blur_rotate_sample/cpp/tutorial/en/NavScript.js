@@ -16,7 +16,7 @@
 //*  11-July-2008: 1.01 RWC - Now detects if inside CHM Help file. IsInsideChm()
 //*  01-Dec-2015:  1.02 RWC - Added sessionStorage.setItem("hw_rightPath", location.href); Also added GetTopFNameAsSearchStr() 
 //*     Works with FAR build 806 Uncompressed help (webhelp) and above. Backward compatible. Helps get around Chrome local browser restrictions. 
-  
+
 
 function WriteOpenNavLink(navLink) {
   var ss = '<div style="font-family: Verdana; font-size: 80%;color: #333333; margin:0px 0px 0px 0px; padding:0px 0px 0px 0px;">'
@@ -77,10 +77,7 @@ function WriteNavLink(aDirLevel) {
   if (typeof(sessionStorage) !== "undefined") {  // works in HTML5 
     sessionStorage.setItem("hw_rightPath", location.href);  // remember content URL 
     if (sessionStorage.clickcount) sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1; else sessionStorage.clickcount = 1;
-  }  
-  
 }
 
-
-
+}
 

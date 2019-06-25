@@ -6,6 +6,7 @@ Version information:
 1.2.18.2015 - Minor changes after review. Change spacings in several elements.
 1.3.05.2015 - Removed web font declarations. Cleaned up formatting.
 1.3.11.2015 - Changed default margins for body content.
+1.5.24.2018 - Add support footer div that sticks to bottom.
 
 Colors used in definitions:
 Intel Blue: #0071C5 - heading level color, links in body, other common elements.
@@ -892,4 +893,19 @@ h1 .keyword, h2 .keyword, h3 .keyword{
 }
 .dropPara{
     float:left;
+}
+/* ------------------------------------------------- */
+/* Footer style */
+div.footer{
+    position: fixed;
+    text-align: right;
+    bottom: 0px;
+    right: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 3px;
+    background-color: white;
+}
+span.classification{
+    font-weight: bold;
 }

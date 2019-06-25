@@ -1,4 +1,4 @@
-﻿// Copyright © 2016, Rob Chandler.
+﻿// Copyright ﾂｩ 2016, Rob Chandler.
 // Please don't use this file without purchasing FAR 5. http://helpware.net/FAR/
 // This effectively licenses you to use my code.
 // Changes

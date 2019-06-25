@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Intel&reg; IPP Image Processing Basics"/>
+<meta name="DC.subject" content="represent an image, ROI processing, initialize function data, basic concepts, borders processing"/>
+<meta name="keywords" content="represent an image, ROI processing, initialize function data, basic concepts, borders processing"/>
+<meta name="DC.Relation" scheme="URI" content="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html"/>
+<meta name="prodname" content=""/>
+<meta name="version" content="9.0"/>
+<meta name="series" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574"/>
+<meta name="DC.Language" content="en-US"/>
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css"/>
+<title>Intel&reg; IPP Image Processing Basics</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet"/>
+</head>
+<body id="GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Tutorial: Image Blurring and Rotation with Intel&reg; Integrated Performance Primitives 2019</em></p>
+
+
+<h1 class="topictitle1">Intel&reg; IPP Image Processing Basics</h1>
+<div><p>This section explains some of the basic concepts used
+      in the image processing part of Intel&reg; IPP: 
+    </p>
+<p><ul id="GUID-49A7115A-8DA7-41CD-AE69-4F7932CA7C2D"><li><a href="#GUID-5D5EB778-11EC-4BBA-898A-88C1E326E70E">Representing
+          an image</a></li>
+<li><a href="#GUID-FB746FC1-E884-4000-A0B9-FE50F647ACD4">Processing
+          regions of interest (ROIs) 
+        </a></li>
+<li><a href="#GUID-2F89D6DF-93F8-46DC-9C80-52705609E047">Initializing
+          function data</a></li>
+<li><a href="#GUID-38181A15-DB1D-4526-AAD1-FAE2985E41A3">Setting
+          image border type</a></li>
+</ul>
+</p>
+<div class="section" id="GUID-5D5EB778-11EC-4BBA-898A-88C1E326E70E"><h2 class="sectiontitle">Representing an Image</h2><p>An image can be represented as lines of pixels. Depending on the image
+        format, one pixel can keep one or more integer or floating-point values. Each
+        image row contains the same number of pixels. An image step is a value that is
+        equal to distance, in bytes, between the starting points of consecutive lines
+        in the image. 
+      </p>
+</div>
+<div class="section" id="GUID-FB746FC1-E884-4000-A0B9-FE50F647ACD4"><h2 class="sectiontitle">Processing Regions of Interest (ROIs)</h2><p>Most Intel IPP image processing functions can operate not only on
+        entire images but also on image areas. Image region of interest (ROI) is a
+        rectangular area that can be either some part of the image or the whole image.
+        Intel IPP functions that support ROI processing have the 
+        <span class="keyword">R</span> descriptor in their names. 
+      </p>
+<p>ROI of an image is defined by the size and offset from the image
+        origin as shown in the figure below. The origin of the image is in the top left
+        corner, with 
+        <span class="keyword">x</span> values increasing from left to right and 
+        <span class="keyword">y</span> values increasing downwards. 
+      </p>
+<p><img src="GUID-B0681CB6-3A3C-4844-B1A6-062C7FE514D6-low.png" width="500"/></p>
+</div>
+<div class="section" id="GUID-2F89D6DF-93F8-46DC-9C80-52705609E047"><h2 class="sectiontitle">Initializing Function Data</h2><p>Most Intel IPP functions do not perform memory allocation and require
+        external memory buffers to contain pre-computed values or to keep temporary
+        data for algorithm execution. To get size of required buffers, use the
+        following auxiliary functions: 
+      </p>
+
+<div class="tablenoborder"><table cellpadding="4" summary="" id="GUID-35F31098-FF6D-4840-8143-6AFE56576840" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" valign="top" width="NaN%" id="d646e89">Use This 
+              </th>
+<th class="cellrowborder" valign="top" width="NaN%" id="d646e91">To Do This 
+              </th>
+</tr>
+</thead>
+<tbody><tr><td class="cellrowborder" valign="top" width="NaN%" headers="d646e89 ">&lt;<var>processing
+                  function</var>&gt;<span class="option">GetSize</span></td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d646e91 ">Get buffer size for precomputed data
+                structure that is initialized by &lt;<var>processing
+                  function</var>&gt;<span class="option">Init</span>. 
+              </td>
+</tr>
+<tr><td class="cellrowborder" valign="top" width="NaN%" headers="d646e89 ">&lt;<var>processing
+                  function</var>&gt;<span class="option">GetBufferSize</span></td>
+<td class="cellrowborder" valign="top" width="NaN%" headers="d646e91 ">Obtain size for temporary buffer that is
+                passed to the processing function. 
+              </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="GUID-38181A15-DB1D-4526-AAD1-FAE2985E41A3"><h2 class="sectiontitle">Setting Image Border Type</h2><p>Many image processing algorithms sample a pixel by floating point
+        (<var>x</var>, 
+        <var>y</var> ) coordinates to compute an intermediate or output
+        image. To improve the image quality, you can apply filters that use
+        neighborhood pixels to calculate the sampled pixel value. Thus, as shown in the
+        figure below, to obtain an image with size 6x6 by using 3x3 filter kernel (8
+        neighborhood pixels are used), the source image of size 8x8 is required. 
+      </p>
+<p><img src="GUID-A0949E83-9304-44EF-9427-32C94AA994CA-low.png" width="400"/></p>
+<p>Each filtering operation reduces image size. To keep the image size
+        and process image border pixels, it is required to extend the image
+        artificially. There are several types of border processing in Intel IPP: 
+      </p>
+<dl id="GUID-838C1F6C-A276-4ED0-B8DA-49B0DB1E5CD5"><dt class="dlterm"><strong>Replicated borders</strong></dt>
+
+<dd>Border pixels are replicated from the source image edge pixels 
+          </dd>
+<dt class="dlterm"><strong>Constant borders</strong></dt>
+
+<dd>Values of all border pixels are set to a constant. 
+          </dd>
+<dt class="dlterm"><strong>Transparent borders</strong></dt>
+
+<dd>Destination pixels that have inverse transformed location out of
+            the source image are not processed. 
+          </dd>
+<dt class="dlterm"><strong>Borders in memory</strong></dt>
+
+<dd>Source image border pixels are obtained from the source image
+            pixels in memory. 
+          </dd>
+<dt class="dlterm"><strong>Mixed borders</strong></dt>
+
+<dd>Combination of transparent borders and borders in memory is
+            applied. 
+          </dd>
+</dl>
+<p>To set border processing methods for Intel IPP functions, use the 
+        <span class="parmname">borderType</span> (or 
+        <span class="parmname">border</span>) and 
+        <span class="parmname">borderValue</span> parameters. To get information about
+        the list of supported border types for a particular function, refer to the 
+        <em>Intel IPP Developer Reference</em>. 
+      </p>
+</div>
+<p><a href="GUID-ED24D992-DF63-4712-9B28-B89FF4BEEBD7.html#GUID-ED24D992-DF63-4712-9B28-B89FF4BEEBD7"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="Previous"/></a><a href="GUID-87A54D90-C8A5-440C-8E18-AF52D47E519F.html#GUID-87A54D90-C8A5-440C-8E18-AF52D47E519F"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="Next"/></a></p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html">Tutorial: Image Blurring and Rotation with Intel&reg; Integrated Performance Primitives 2019</a></div>
+</div>
+<div/>
+</body>
+</html>

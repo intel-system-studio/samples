@@ -2,31 +2,34 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0016)http://localhost -->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-<meta name="DC.Type" content="topic" />
-<meta name="DC.Title" content="インテル&reg; IPP ライブラリーについて" />
-<meta name="DC.subject" content="インテル&reg; IPP について" />
-<meta name="keywords" content="インテル&reg; IPP について" />
-<meta name="DC.Relation" scheme="URI" content="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html" />
-<meta name="prodname" content="" />
-<meta name="version" content="9.0" />
-<meta name="series" content="" />
-<meta name="DC.Format" content="XHTML" />
-<meta name="DC.Identifier" content="GUID-ED24D992-DF63-4712-9B28-B89FF4BEEBD7" />
-<meta name="DC.Language" content="ja-JP" />
-<link rel="stylesheet" type="text/css" href="intel_css_styles.css" />
+<html xml:lang="ja-jp" lang="ja-jp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="インテル&reg; IPP ライブラリーについて"/>
+<meta name="DC.subject" content="インテル&reg; IPP について"/>
+<meta name="keywords" content="インテル&reg; IPP について"/>
+<meta name="DC.Relation" scheme="URI" content="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html"/>
+<meta name="prodname" content=""/>
+<meta name="prodname" content=""/>
+<meta name="version" content="9.0"/>
+<meta name="version" content="9.0"/>
+<meta name="series" content=""/>
+<meta name="series" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="GUID-ED24D992-DF63-4712-9B28-B89FF4BEEBD7"/>
+<meta name="DC.Language" content="ja-JP"/>
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css"/>
 <title>インテル&reg; IPP ライブラリーについて</title>
 <script src="resources/prism/prism.js"><!----></script>
-<link href="resources/prism/prism.css" rel="stylesheet" />
+<link href="resources/prism/prism.css" rel="stylesheet"/>
 </head>
 <body id="GUID-ED24D992-DF63-4712-9B28-B89FF4BEEBD7">
  <!-- ==============(Start:NavScript)================= -->
  <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
  <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
  <!-- ==============(End:NavScript)================= -->
-<p id="header_text" style="margin-bottom : 20pt">チュートリアル: インテル® IPP 2018 (Beta) による画像の回転とブラー</p>
+<p id="header_text" style="margin-bottom : 20pt">チュートリアル: インテル® IPP 2018 による画像の回転とブラー</p>
 
 
 <h1 class="topictitle1">インテル&reg; IPP ライブラリーについて</h1>
@@ -34,11 +37,11 @@
 <p>インテル&reg; IPP は、さまざまなインテル&reg; アーキテクチャー向けのアプリケーション開発をサポートしています。インテル&reg; IPP は、単一のクロスアーキテクチャー API を提供しているため、インテル&reg; プロセッサー・ベースのデスクトップ、サーバー、モバイル、およびハンドヘルド・プラットフォーム間で固有の機能を移植してソフトウェア・アプリケーションを再利用できます。インテル&reg; IPP のプリミティブ関数を使用すると、計算集約型のルーチン向けにプロセッサー固有のコードを記述する必要性がなくなるため、開発コストを大幅に削減し、市場投入までの時間を短縮できます。</p>
 <p>インテル&reg; IPP ライブラリーの主要分野の 1 つは、フィルタリング、幾何学的変換、カラー変換、モルフォロジー変換などの 2 次元信号のさまざまな操作を含む、画像処理です。</p>
 <p id="P_CF_12887774199350">
-<div class="tablenoborder"><table cellpadding="4" summary="" id="d27e56" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d1302e40"><p id="d27e67">最適化に関する注意事項</p>
+<div class="tablenoborder"><table cellpadding="4" summary="" id="d362e56" frame="border" border="1" cellspacing="0" rules="all"><thead align="left"><tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d1372e47"><p id="d362e67">最適化に関する注意事項</p>
 </th>
 </tr>
 </thead>
-<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d1302e40 "><p>インテル&reg; コンパイラーでは、インテル&reg; マイクロプロセッサーに限定されない最適化に関して、他社製マイクロプロセッサー用に同等の最適化を行えないことがあります。これには、インテル&reg; ストリーミング SIMD 拡張命令 2、インテル&reg; ストリーミング SIMD 拡張命令 3、インテル&reg; ストリーミング SIMD 拡張命令 3 補足命令などの最適化が該当します。インテルは、他社製マイクロプロセッサーに関して、いかなる最適化の利用、機能、または効果も保証いたしません。本製品のマイクロプロセッサー依存の最適化は、インテル&reg; マイクロプロセッサーでの使用を前提としています。インテル&reg; マイクロアーキテクチャーに限定されない最適化のなかにも、インテル&reg; マイクロプロセッサー用のものがあります。この注意事項で言及した命令セットの詳細については、該当する製品のユーザー・リファレンス・ガイドを参照してください。</p>
+<tbody><tr><td class="bgcolor(#f5f5f5)" bgcolor="#f5f5f5" valign="top" width="100%" headers="d1372e47 "><p>インテル&reg; コンパイラーでは、インテル&reg; マイクロプロセッサーに限定されない最適化に関して、他社製マイクロプロセッサー用に同等の最適化を行えないことがあります。これには、インテル&reg; ストリーミング SIMD 拡張命令 2、インテル&reg; ストリーミング SIMD 拡張命令 3、インテル&reg; ストリーミング SIMD 拡張命令 3 補足命令などの最適化が該当します。インテルは、他社製マイクロプロセッサーに関して、いかなる最適化の利用、機能、または効果も保証いたしません。本製品のマイクロプロセッサー依存の最適化は、インテル&reg; マイクロプロセッサーでの使用を前提としています。インテル&reg; マイクロアーキテクチャーに限定されない最適化のなかにも、インテル&reg; マイクロプロセッサー用のものがあります。この注意事項で言及した命令セットの詳細については、該当する製品のユーザー・リファレンス・ガイドを参照してください。</p>
 <p>注意事項の改訂 #20110804</p>
 </td>
 </tr>
@@ -46,12 +49,12 @@
 </table>
 </div>
 </p>
-<p><a href="GUID-CB5D50F4-28CC-492E-853B-D926678C0308.html#GUID-CB5D50F4-28CC-492E-853B-D926678C0308"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="戻る" /></a><a href="GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574.html#GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="次へ" /></a></p>
+<p><a href="GUID-CB5D50F4-28CC-492E-853B-D926678C0308.html#GUID-CB5D50F4-28CC-492E-853B-D926678C0308"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="戻る"/></a><a href="GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574.html#GUID-7761FA2A-15D4-44D0-AE7D-D56C1B131574"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="次へ"/></a></p>
 </div>
 
 <div class="familylinks">
-<div class="parentlink"><strong>親トピック:</strong> <a href="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html">チュートリアル: インテル&reg; IPP 2018 (Beta) による画像の回転とブラー</a></div>
+<div class="parentlink"><strong>親トピック:</strong> <a href="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html">チュートリアル: インテル&reg; IPP 2018 による画像の回転とブラー</a></div>
 </div>
-<div></div>
+<div/>
 </body>
 </html>
