@@ -1,9 +1,11 @@
 {
   "name": "Vector_Tutorial_Memory_Access_101",
   "category": "Intel\u00AE Advisor",
-  "description": "TBD",
+  "categories": [ "Tool Samples/Performance, Power, & Thermal Analysis" ],
+  "description": "Memory Access 101 This code is used in the \"Memory Access 101\" video walkthrough, a conceptual introduction explaining how memory access patterns can affect application efficiency. It is intended as a primer to prepare the user for the Stride and MAP walkthrough.\n\n https://software.intel.com/en-us/videos/memory-access-101",
   "author": "Intel Corporation",
   "date": "2018-06-05",
   "tag": "system",
-  "sample_readme_uri": "https://github.com/intel-system-studio/samples/blob/$BRANCHNAME/advisor/Vector_Tutorial_Memory_Access_101/cpp/readme.txt"
+  "sample_readme_uri": "https://github.com/intel-system-studio/samples/blob/$BRANCHNAME/advisor/Vector_Tutorial_Memory_Access_101/cpp/readme.txt",
+  "dependencies": ["icc", "advisor"]
 }

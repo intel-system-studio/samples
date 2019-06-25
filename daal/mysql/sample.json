@@ -1,10 +1,12 @@
 {
   "name": "MySQL",
   "category": "Intel\u00AE Data Analytics Acceleration Library",
+  "categories": [ "Code Samples/Software Optimization", "Tool Samples/Intel\u00AE Data Analytics Acceleration Library" ],
   "description": "MySQL samples for the Intel\u00AE Data Analytics Acceleration Library (Intel\u00AE DAAL) are designed to show how to use this library with a MySQL database in a C++ application.",
   "author": "Intel Corporation",
   "date": "2018-02-26",
   "tag": "system",
-  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/daal/mysql/cpp/readme.html"
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/daal/mysql/cpp/readme.html",
+  "dependencies": ["daal", "tbb"]
 }
 

@@ -1,9 +1,11 @@
 {
   "name": "tachyon_Advisor",
   "category": "Intel\u00AE Advisor",
+  "categories": [ "Tool Samples/Performance, Power, & Thermal Analysis" ],
   "description": "Tachyon sample application written using the C++ programming language. It explains how to open, build, and run this sample application using the Intel(R) Advisor.",
   "author": "Intel Corporation",
   "date": "2018-06-05",
   "tag": "system",
-  "sample_readme_uri": "https://github.com/intel-system-studio/samples/blob/$BRANCHNAME/advisor/tachyon_Advisor/cpp/README"
+  "sample_readme_uri": "https://github.com/intel-system-studio/samples/blob/$BRANCHNAME/advisor/tachyon_Advisor/cpp/README",
+  "dependencies": ["tbb", "advisor"]
 }

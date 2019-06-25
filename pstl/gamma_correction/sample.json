@@ -1,10 +1,11 @@
 {
   "name": "Gamma Correction",
-  "category": "Intel\u00AE Parallel STL",
+  "category": "Parallel STL",
+  "categories": [ "Tool Samples/Parallel STL" ],
   "description": "This example demonstrates gamma correction — a nonlinear operation used to encode and decode the luminance of each image pixel.",
   "author": "Intel Corporation",
   "date": "2018-03-05",
   "tag": "system",
-  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/pstl/gamma_correction/cpp/readme.html"
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/pstl/gamma_correction/cpp/readme.html",
+  "dependencies": ["icc", "tbb"]
 }
-

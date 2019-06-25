@@ -1,0 +1,8 @@
+{
+  "main": "launcher.py",
+  "projectOptions": [
+     {
+       "projectType": "python"
+     }
+  ]
+}

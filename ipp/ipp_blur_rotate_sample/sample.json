@@ -1,10 +1,12 @@
 {
   "name": "Image Blurring and Rotation",
   "category": "Intel\u00AE Integrated Performance Primitives",
+  "categories": [ "Code Samples/Software Optimization", "Tool Samples/Intel\u00AE Integrated Performance Primitives" ],
   "description": "The Image Blurring and Rotation sample is designed to illustrate how to use Intel\u00AE Integrated Performance Primitives (Intel\u00AE IPP) functions for image affine warping and filtering.",
   "author": "Intel Corporation",
   "date": "2018-03-05",
   "tag": "system",
-  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/ipp/ipp_blur_rotate_sample/cpp/readme.html"
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/ipp/ipp_blur_rotate_sample/cpp/readme.html",
+  "dependencies": ["ipp"]
 }
 

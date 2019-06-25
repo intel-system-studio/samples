@@ -1,10 +1,12 @@
 {
   "name": "Tachyon",
   "category": "Intel\u00AE Compiler",
+  "categories": [ "Code Samples/Software Optimization", "Tool Samples/Intel C++ Compiler" ],
   "description": "This sample shows how to thread an application step-by-step using the Tachyon parallel raytracer/renderer used in combination with the Intel\u00AE C++ Compiler Tutorial \"Threading Your Application\".",
   "author": "Intel Corporation",
   "date": "2018-02-23",
   "tag": "system",
-  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/compiler/tachyon_samples/cpp/readme.html"
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/compiler/tachyon_samples/cpp/readme.html",
+  "dependencies": ["icc", "tbb"]
 }
 
