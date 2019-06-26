@@ -55,6 +55,17 @@ void multiply2(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE
 // Add compile option for vectorization report Windows: /Qvec-report3 Linux -vec-report3
 	for(i=tidx; i<msize; i=i+numt) {
 		for(k=0; k<msize; k++) {
+            for(j=0; j<msize; j++) {
+                c[i][j] = c[i][j] + a[i][k] * b[k][j];
+            }
+        }
+    } 
+}
+void multiply3(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
+{
+    int i,j,k;
+    for(i=tidx; i<msize; i=i+numt) {
+        for(k=0; k<msize; k++) {
 #pragma ivdep
 			for(j=0; j<msize; j++) {
 				c[i][j] = c[i][j] + a[i][k] * b[k][j];
@@ -62,7 +73,7 @@ void multiply2(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE
 		}
 	} 
 }
-void multiply3(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
+void multiply4(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
 {
 	int i,j,k,i0,j0,k0,ibeg,ibound,istep,mblock;
 
@@ -93,7 +104,7 @@ void multiply3(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE
 	}
 }
 
-void multiply4(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
+void multiply5(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
 {
 	int i,j,k,istep,ibeg,ibound;
 //transpose b
