@@ -58,13 +58,11 @@ LDFLAGS = -lpthread -lm
 
 GCFLAGS = $(CFLAGS) $(PARAMODEL)
 ICFLAGS = $(CFLAGS) $(PARAMODEL)-DICC -debug inline-debug-info #-vec-report3 -qopt-report -qopt-report-phase=vec
-MCFLAGS = $(CFLAGS) $(PARAMODEL)-DICC -debug inline-debug-info -vec-report3 -qopt-report=3 -qopt-report-phase=vec
 MKFLAGS = $(CFLAGS) -DUSE_MKL   -DICC -mkl -debug inline-debug-info
 
 
 GCC_EXE = matrix.gcc
 ICC_EXE = matrix.icc
-MIC_EXE = matrix.mic
 MKL_EXE = matrix.mkl
 
 
@@ -72,9 +70,8 @@ srcdir = src
 
 gcc: $(GCC_EXE)
 icc: $(ICC_EXE)
-mic: $(MIC_EXE) mic-pushed
 mkl: $(MKL_EXE)
-all: $(GCC_EXE) $(ICC_EXE) $(MIC_EXE) $(MKL_EXE)
+all: $(GCC_EXE) $(ICC_EXE) $(MKL_EXE)
 
 
 OBJS = util.o thrmodel.o multiply.o matrix.o 
@@ -96,16 +93,7 @@ matrix.icc: $(srcdir)/matrix.c $(srcdir)/multiply.c $(srcdir)/multiply.h $(srcdi
 	$(ICC) $(ICFLAGS) $(OBJS) -o $@ $(LDFLAGS)
 
 
-matrix.mic: $(srcdir)/matrix.c $(srcdir)/multiply.c $(srcdir)/multiply.h $(srcdir)/util.c $(srcdir)/thrmodel.c
-	$(ICC) $(MCFLAGS) -mmic -c $(srcdir)/util.c -D_LINUX
-	$(ICC) $(MCFLAGS) -mmic -c $(srcdir)/thrmodel.c -D_LINUX
-	$(ICC) $(MCFLAGS) -mmic -c $(srcdir)/multiply.c -D_LINUX
-	$(ICC) $(MCFLAGS) -mmic -c $(srcdir)/matrix.c -D_LINUX
-	$(ICC) $(MCFLAGS) -mmic $(OBJS) -o $@ $(LDFLAGS)
 
-mic-pushed:	matrix.mic
-	scp matrix.mic mic0:/tmp
-	touch $@
 
 matrix.mkl:     $(srcdir)/matrix.c $(srcdir)/multiply.c $(srcdir)/multiply.h $(srcdir)/util.c $(srcdir)/thrmodel.c
 	$(ICC) $(MKFLAGS) -c $(srcdir)/util.c -D_LINUX
@@ -115,6 +103,6 @@ matrix.mkl:     $(srcdir)/matrix.c $(srcdir)/multiply.c $(srcdir)/multiply.h $(s
 	$(ICC) $(MKFLAGS) $(OBJS) -o $@ $(LDFLAGS)
 
 clean:
-	@rm -rf $(OBJS) $(GCC_EXE) $(ICC_EXE) $(MKL_EXE) $(MIC_EXE) *.o mic-pushed
+	@rm -rf $(OBJS) $(GCC_EXE) $(ICC_EXE) $(MKL_EXE) *.o
 
 # * Other names and brands may be claimed as the property of others.
