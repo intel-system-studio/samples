@@ -105,6 +105,7 @@ SOURCE = common/gui/$(UI)video.cpp src/linux/$(SVERSION)/$(SVERSION).cpp src/vid
 build_one:	$(EXE)
 
 run_one:
+ifeq ($(strip $(have_libX11_4)),)
 ifeq ($(strip $(have_libX11_3)),)
 ifeq ($(strip $(have_libX11_2)),)
 ifeq ($(strip $(have_libX11_1)),)
@@ -116,7 +117,9 @@ ifeq ($(strip $(have_libX11_1)),)
 endif
 endif
 endif
+endif
 	
+ifeq ($(strip $(have_libXext_4)),)	
 ifeq ($(strip $(have_libXext_3)),)
 ifeq ($(strip $(have_libXext_2)),)
 ifeq ($(strip $(have_libXext_1)),)
@@ -125,6 +128,7 @@ ifeq ($(strip $(have_libXext_1)),)
 	@ echo "Please, install the X11 dev tools. Or if it is installed then make symlink  in /usr/X11R6/lib$(x64)/ or /usr/lib$(x64)/for libXext.so"
 	@ echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	@ echo ""
+endif
 endif
 endif
 endif
