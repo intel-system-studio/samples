@@ -1,10 +1,12 @@
 {
   "name": "Convex Hull",
-  "category": "Intel\u00AE Parallel STL",
+  "category": "Parallel STL",
+  "categories": [ "Tool Samples/Parallel STL" ],
   "description": "This example demonstrates computing the convex_hull of a set of points on the plane based on the quickhull algorithm.",
   "author": "Intel Corporation",
   "date": "2018-02-26",
   "tag": "system",
-  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/pstl/convex_hull/cpp/readme.html"
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/pstl/convex_hull/cpp/readme.html",
+  "dependencies": ["icc", "tbb"]
 }
 

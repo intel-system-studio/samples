@@ -1,10 +1,12 @@
 {
   "name": "TBB",
   "category": "Intel\u00AE Threading Building Blocks",
+  "categories": [ "Code Samples/Software Optimization", "Tool Samples/Intel\u00AE Threading Building Blocks" ],
   "description": "This project includes example usages of Intel\u00AE Threading Building Blocks (Intel\u00AE TBB).",
   "author": "Intel Corporation",
   "date": "2018-03-09",
   "tag": "system",
-  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/tbb/cpp/index.html"
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/tbb/cpp/index.html",
+  "dependencies": ["tbb"]
 }
 

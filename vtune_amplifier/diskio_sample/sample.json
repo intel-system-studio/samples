@@ -1,10 +1,12 @@
 {
-  "name": "Disk I/O",
+  "name": "Disk I/O [Deprecated]",
   "category": "Intel\u00AE VTune\u2122 Amplifier",
-  "description": "The diskio sample works with the I/O device using the system file cache and user buffer. Use this sample with the Disk Input and Output analysis of the VTune\u2122 Amplifier to analyze such typical performance issues of the I/O bound application as I/O Waits on a user thread and long I/O queues.",
+  "categories": [ "Code Samples/Performance, Power, & Thermal Analysis","Tool Samples/Intel\u00AE VTune\u2122 Amplifier" ],
+  "description": "The diskio sample works with the I/O device using the system file cache and user buffer. Use this sample with the Disk Input and Output analysis of the VTune\u2122 Amplifier to analyze such typical performance issues of the I/O bound application as I/O Waits on a user thread and long I/O queues. Deprecation Notice : This sample will be removed from future releases. It will be available on previous release branches on https://github.com/intel-system-studio/samples.",
   "author": "Intel Corporation",
   "date": "2018-03-08",
   "tag": "system",
-  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/vtune_amplifier/diskio_sample/cpp/readme.htm"
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/vtune_amplifier/diskio_sample/cpp/readme.htm",
+  "dependencies": ["vtune"]
 }
 

@@ -1,10 +1,12 @@
 {
-  "name": "Linear Regression",
+  "name": "Linear Regression [Deprecated]",
   "category": "Intel\u00AE VTune\u2122 Amplifier",
-  "description": "The Linear Regression sample generates the summary statistics of points to give the linear approximation of all of the points.",
+  "categories": [ "Code Samples/Performance, Power, & Thermal Analysis","Tool Samples/Intel\u00AE VTune\u2122 Amplifier" ],
+  "description": "The Linear Regression sample generates the summary statistics of points to give the linear approximation of all of the points. Deprecation Notice : This sample will be removed from future releases. It will be available on previous release branches on https://github.com/intel-system-studio/samples.",
   "author": "Intel Corporation",
   "date": "2018-03-08",
   "tag": "system",
-  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/vtune_amplifier/linear_regression/c/readme.html"
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/vtune_amplifier/linear_regression/c/readme.html",
+  "dependencies": ["vtune"]
 }
 

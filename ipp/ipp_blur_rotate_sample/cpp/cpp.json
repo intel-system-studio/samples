@@ -6,7 +6,9 @@
     } 
   ],
   "environmentVariables": {
-    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/ipp/include"
+    "CPATH": "${ISS_ROOT}/compilers_and_libraries/linux/ipp/include",
+    "LIBRARY_PATH": "${ISS_ROOT}/compilers_and_libraries/linux/ipp/lib/intel64_lin",
+    "LD_LIBRARY_PATH": "${ISS_ROOT}/compilers_and_libraries/linux/ipp/lib/intel64_lin"
   },
   "makeVariables": {
     "UI": "x",

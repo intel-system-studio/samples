@@ -4,5 +4,8 @@
       "projectType": "makefile",
       "dockerSupported": "false"
     } 
-  ]
+  ],
+  "makeVariables": {
+    ".DEFAULT_GOAL": "release"
+  }
 }

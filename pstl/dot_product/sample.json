@@ -1,10 +1,12 @@
 {
   "name": "Dot Product",
-  "category": "Intel\u00AE Parallel STL",
+  "category": "Parallel STL",
+  "categories": [ "Tool Samples/Parallel STL" ],
   "description": "This example demonstrates computing the dot product of two vectors.",
   "author": "Intel Corporation",
   "date": "2018-03-05",
   "tag": "system",
-  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/pstl/dot_product/cpp/readme.html"
+  "sample_readme_uri": "https://cdn.rawgit.com/intel-system-studio/samples/$BRANCHNAME/pstl/dot_product/cpp/readme.html",
+  "dependencies": ["icc", "tbb"]
 }
 
