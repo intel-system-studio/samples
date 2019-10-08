@@ -1,3 +1,0 @@
-
-BLOCKED FILE ALERTA file has been blocked due to the 'Intel Email File Filtering Policy' rule.Context: 'hide-show.js'Disallowed due to filenameTicket Number: '096c-576d-52ae-0001'
-See your system administrator for further information. Copyright 1999-2011 McAfee, Inc.All Rights Reserved.http://www.mcafee.com

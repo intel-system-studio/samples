@@ -1,8 +1,0 @@
-{
-  "projectOptions": [ 
-    {
-      "projectType": "makefile",
-      "dockerSupported": "false"
-    } 
-  ]
-}

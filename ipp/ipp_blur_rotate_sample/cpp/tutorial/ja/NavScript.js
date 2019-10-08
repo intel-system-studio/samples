@@ -1,5 +1,5 @@
 //*==============================================================================
-//*    Helpware NavScript.js 1.01
+//*    Helpware NavScript.js 1.02
 //*      Copyright (c) 2008, Robert Chandler, The Helpware Group
 //*      http://helpware.net/FAR/
 //*      support@helpware.net

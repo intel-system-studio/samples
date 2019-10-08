@@ -4,7 +4,7 @@ Third Party Attributions
 
 The following are licenses for third party software that was used in and/or to develop the Intel software development tools and/or associated documentation ["SOFTWARE"] that you installed. These licenses are listed due to attribution requirements in these license agreements. For the avoidance of doubt, the SOFTWARE is solely governed by the terms and conditions of the Intel license that accompanies the SOFTWARE that you installed.
 
-For avoidance of doubt, "SOFTWARE" means Intel VTune Amplifier and the Intel license means End User License Agreement for the Intel® Software Development Products.
+For avoidance of doubt, "SOFTWARE" means Intel VTune Amplifier 2016 and the Intel license means End User License Agreement for the Intel(R) Software Development Products.
 _____________________________________________________________________________________
 Prism
 prismjs.com

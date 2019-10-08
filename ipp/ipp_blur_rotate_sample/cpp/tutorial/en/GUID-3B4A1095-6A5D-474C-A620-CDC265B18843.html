@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Rotating an Image Using Intel IPP Warp Functions"/>
+<meta name="DC.subject" content="rotate an image, using ippiWarpAffine&lt;Interpolation&gt;"/>
+<meta name="keywords" content="rotate an image, using ippiWarpAffine&lt;Interpolation&gt;"/>
+<meta name="DC.Relation" scheme="URI" content="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html"/>
+<meta name="prodname" content=""/>
+<meta name="version" content="9.0"/>
+<meta name="series" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="GUID-3B4A1095-6A5D-474C-A620-CDC265B18843"/>
+<meta name="DC.Language" content="en-US"/>
+<link rel="stylesheet" type="text/css" href="intel_css_styles.css"/>
+<title>Rotating an Image Using Intel IPP Warp Functions</title>
+<script src="resources/prism/prism.js"><!----></script>
+<link href="resources/prism/prism.css" rel="stylesheet"/>
+</head>
+<body id="GUID-3B4A1095-6A5D-474C-A620-CDC265B18843">
+ <!-- ==============(Start:NavScript)================= -->
+ <script src="NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+ <script language="JavaScript1.2" type="text/javascript">WriteNavLink(0);</script>
+ <!-- ==============(End:NavScript)================= -->
+<p id="header_text" style="margin-bottom : 20pt"><em>Tutorial: Image Blurring and Rotation with Intel&reg; Integrated Performance Primitives 2019</em></p>
+
+
+<h1 class="topictitle1">Rotating an Image Using Intel IPP Warp
+    Functions</h1>
+<div><p>Starting with the 9.0 version, Intel IPP enables you
+      to use the 
+  <span class="option">ippiWarpAffine&lt;Interpolation&gt;</span> functions to implement
+  rotation of an image using pre-calculated affine coefficients based on rotation
+  parameters (angle, 
+  <span class="keyword">x</span>-, 
+  <span class="keyword">y</span>-shifts ). To obtain affine coefficients for the
+  specified rotation parameters, you can apply the 
+  <span class="option">ippiGetRotateTransform</span> function. This function computes the
+  affine coefficients for the transform that rotates an image by the specified
+  angle around (0, 0) and shifts the image by the specified 
+  <span class="keyword">x-</span> and 
+  <span class="keyword">y-</span> shift values. 
+  </p>
+<p>You can apply the computed bounding box to change the 
+    <span class="keyword">x</span>-, 
+    <span class="keyword">y</span>-shifts of the rotated image to fit the transformed
+    image to the destination ROI. To compute the bounding box for the affine
+    transform, use the 
+  <span class="option">ippiGetAffineBound</span> function. 
+  </p>
+<p>Before calling the warp affine processing function, you need to: 
+  <ul id="GUID-F6F6C0AC-F900-4528-9972-2F58726BEDF0"><li>Compute the size of the specification structure for affine warping with
+      the specified interpolation method using the 
+  <span class="option">ippiWarpAffineGetSize</span> function 
+  </li>
+<li>Initialize the specification structure using the 
+  <span class="option">ippiWarpAffine&lt;Interpolation&gt;Init</span> function 
+  </li>
+<li>Compute the size of the temporary work buffer required for warping using 
+  <span class="option">ippiWarpAffineGetSize</span> and pass pointer to the buffer to the
+  processing function 
+  </li>
+</ul>
+</p>
+<p>The code example below demonstrates how to perform image rotation using
+    the Intel IPP affine warping functions: 
+    <pre><code class="language-clike">
+IppStatus warpAffine(Ipp8u* pSrc, IppiSize srcSize, int srcStep, Ipp8u* pDst, IppiSize dstSize, int dstStep, const double coeffs[2][3])
+{
+    int specSize = 0, initSize = 0, bufSize = 0;
+    Ipp8u* pBuffer  = NULL;
+    const Ipp32u numChannels = 3;
+    IppiPoint dstOffset = {0, 0};
+    IppiBorderType borderType = ippBorderConst;
+    IppiWarpDirection direction = ippWarpForward;
+    Ipp64f pBorderValue[numChannels];
+    IppiWarpSpec* pSpec = NULL;
+    IppStatus status = ippStsNoErr;
+
+    for (int i = 0; i &lt; numChannels; ++i) pBorderValue[i] = 255.0;
+
+    /* Spec and init buffer sizes */
+    status = ippiWarpAffineGetSize(srcSize, dstSize, ipp8u, coeffs, ippLinear, direction, borderType,
+        &amp;specSize, &amp;initSize);
+
+    /* Allocate memory */
+    pSpec = (IppiWarpSpec*)ippsMalloc_8u(specSize);
+
+    /* Affine transform data initialization */
+    if (status &gt;= ippStsNoErr) status = ippiWarpAffineLinearInit(srcSize, dstSize, ipp8u, coeffs, direction, numChannels, borderType, pBorderValue, 0, pSpec);
+
+    /* Get work buffer size */
+    if (status &gt;= ippStsNoErr) status = ippiWarpGetBufferSize(pSpec, dstSize, &amp;bufSize);
+
+    pBuffer = ippsMalloc_8u(bufSize);
+
+    /* Affine transform processing */
+    if (status &gt;= ippStsNoErr) status = ippiWarpAffineLinear_8u_C3R(pSrc, srcStep, pDst, dstStep, dstOffset, dstSize, pSpec, pBuffer);
+
+    /* Free memory */
+    ippsFree(pSpec);
+    ippsFree(pBuffer);
+
+    return status;
+}</code></pre></p>
+<p>For more information about the Intel IPP Warp functions, refer to the 
+    <em>Intel IPP Developer Reference</em>. 
+  </p>
+<p><a href="GUID-87A54D90-C8A5-440C-8E18-AF52D47E519F.html#GUID-87A54D90-C8A5-440C-8E18-AF52D47E519F"><img class="border(0)" style="border-style: none" src="GUID-D75A142A-47DA-472F-95AC-13C885724B7D-low.jpg" alt="Previous"/></a><a href="GUID-0EE46F60-3F41-4AC2-B201-6F476094BE89.html#GUID-0EE46F60-3F41-4AC2-B201-6F476094BE89"><img class="border(0)" style="border-style: none" src="GUID-16FD5A1C-2BAC-489D-A70A-A3A4FCC6569B-low.jpg" alt="Next"/></a></p>
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="GUID-61FF812F-5C13-43BF-9B30-B89DB263D942.html">Tutorial: Image Blurring and Rotation with Intel&reg; Integrated Performance Primitives 2019</a></div>
+</div>
+<div/>
+</body>
+</html>

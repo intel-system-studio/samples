@@ -4,7 +4,7 @@
 // SAMPLE SOURCE CODE - SUBJECT TO THE TERMS OF SAMPLE CODE LICENSE AGREEMENT,
 // http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
 //
-// Copyright (C) Intel Corporation
+// Copyright 2005-2018 Intel Corporation
 //
 // THIS FILE IS PROVIDED "AS IS" WITH NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT
 // NOT LIMITED TO ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -101,7 +101,7 @@ const char* GetBaseStatusString(Status status)
 #define __USE_LARGEFILE
 #endif
 
-#if defined (INTEL64) || defined(__USE_LARGEFILE64)
+#if defined __APPLE__ || defined (INTEL64) || defined(__USE_LARGEFILE64)
 /* native fopen is 64-bits */
 #define file_fopen fopen
 #else
@@ -113,13 +113,13 @@ const char* GetBaseStatusString(Status status)
 /* binary file IO */
 #define file_fread  fread
 
-#if defined unix || defined UNIX
+#if defined unix || defined UNIX || defined __APPLE__
 unsigned long long file_fseek(FILE *fd, long long position, int mode)
 {
 #if defined ANDROID
     return fseek(fd, (size_t)position, mode);
 #else
-#if defined INTEL64
+#if defined __APPLE__ || defined INTEL64
     return fseeko(fd, (off_t)position, mode);
 #else
     return fseeko64(fd, (__off64_t)position, mode);
@@ -215,6 +215,8 @@ Status BmpReadData(FILE *pFile, Ipp8u **pImg, IppiSize &imgSize, int &imgStep, i
 
     imgSize.width   = IPP_ABS(header.biWidth);
     imgSize.height  = IPP_ABS(header.biHeight);
+    if(imgSize.width > MAX_WIDTH || imgSize.height > MAX_HEIGHT)
+        return STS_ERR_UNSUPPORTED;
     numChannels     = header.biBitCount >> 3;
     imgStep         = alignSize(imgSize.width * numChannels, 32);
 
