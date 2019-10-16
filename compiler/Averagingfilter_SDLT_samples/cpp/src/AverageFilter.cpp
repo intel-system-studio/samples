@@ -3,7 +3,7 @@
 // SAMPLE SOURCE CODE - SUBJECT TO THE TERMS OF SAMPLE CODE LICENSE AGREEMENT,
 // http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
 //
-// Copyright (C) Intel Corporation
+// Copyright Intel Corporation
 //
 // THIS FILE IS PROVIDED "AS IS" WITH NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT
 // NOT LIMITED TO ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -101,7 +101,7 @@ SDLT_NOINLINE ALIGN  void process_image_sdlt(Container::accessor<> indataset, Co
 		for (int i = 1; i < (h - 1); i++)
 		{
 			int x = ((w * i) + 1);
-			#pragma simd
+			#pragma omp simd
 			for (int j = x; j < (x + reduced_width); j++)
 			{
 				const rgb16 p00(unproxy(indataset[j - w - 1]));
@@ -136,7 +136,11 @@ ALIGN int read_process_write(char* input, char *output, int choice)
 	long long avg_ticks = 0;
 
     //Instantiating a file handle to open a input BMP file in binary mode
-    fp = fopen(input, "rb");
+#ifdef _WIN32
+	fopen_s(&fp, input, "rb");
+#else
+	fp = fopen(input, "rb");
+#endif
     if(fp==NULL){
         cout<<"The file could not be opened. Program will be exiting\n";
 	return 0;
@@ -171,7 +175,11 @@ ALIGN int read_process_write(char* input, char *output, int choice)
     fseek(fp,sizeof(char)*hp->fileheader.dataoffset,SEEK_SET);
 
     // Opening an output file to which the processed result will be written
-    out = fopen(output, "wb");
+#ifdef _WIN32
+	fopen_s(&out, output, "wb");
+#else
+	out = fopen(output, "wb");
+#endif
     if(out==NULL){
         cout<<"The file could not be opened. Program will be exiting\n";
         return 0;
@@ -353,8 +361,3 @@ int main(int argc, char *argv[]){
         read_process_write(argv[1], argv[2], choice);
         return 0;
 }
-
-
-
-
-

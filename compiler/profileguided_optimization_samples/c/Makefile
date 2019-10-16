@@ -3,7 +3,7 @@
 # SAMPLE SOURCE CODE - SUBJECT TO THE TERMS OF SAMPLE CODE LICENSE AGREEMENT,
 # http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
 #
-# Copyright (C) Intel Corporation
+# Copyright Intel Corporation
 #
 # THIS FILE IS PROVIDED "AS IS" WITH NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT
 # NOT LIMITED TO ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -14,7 +14,7 @@
 CXX := icpc
 SRCDIR := src
 BUILDDIR := release
-CFLAGS := -fast -std=c++11 
+CFLAGS := -std=c++11
 PGOFLAGS := 
 EXTRA_CFLAGS := 
 LIBFLAGS := 
@@ -23,11 +23,11 @@ EXECUTABLE := FluidAnimate
 TARGET := $(BUILDDIR)/$(EXECUTABLE)  
 
 ifdef pgo
-  PGOFLAGS := -prof-dir ./intel-release -prof-gen 
+  PGOFLAGS := -prof-dir ./intel-release -prof-gen -O3 -no-prec-div -static -fp-model fast=2 -xHost
 endif
 
 ifdef pgouse
-  PGOFLAGS := -prof-dir ./intel-release -prof-use 
+  PGOFLAGS := -prof-dir ./intel-release -prof-use -fast
   TARGET := $(BUILDDIR)/FluidAnimatePGO 
 endif
 

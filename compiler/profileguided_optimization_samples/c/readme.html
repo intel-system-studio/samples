@@ -217,8 +217,7 @@
 	</div>
 
 	<p>Fluid animate is one of a class of algorithms for 
-	calculating fluid flow. There is one implementation using Intel&reg; Cilk&#8482; Plus 
-	technology. This sample uses the same serial implementation to demonstrate 
+	calculating fluid flow. This sample uses the serial implementation to demonstrate 
 	the use of Intel Profile Guided Optimization (PGO) without any code 
 	change.The PGO of Intel&reg; C++ Compiler improves application performance by 
 	reorganizing code layout to reduce instruction-cache problems and branch 
@@ -240,13 +239,13 @@
 			<li>For Microsoft* Windows*:
 				<ul>
 					<li>Microsoft Visual Studio 2013*, 2015* or 2017* Professional Edition or above</li>
-					<li>Intel&reg; Parallel Studio XE 2018 Composer Edition for C++ Windows* or newer<br>or<br>Intel&reg; System Studio 2018 Composer Edition for Windows* or newer</li>
+					<li>Intel&reg; Parallel Studio XE 2019 Composer Edition for C++ Windows* or newer<br>or<br>Intel&reg; System Studio 2019 Composer Edition for Windows* or newer</li>
 				</ul>
 			</li>
 			<li>For Linux*:
 				<ul>
 					<li>GNU* GCC 4.5 or newer</li>
-					<li>Intel&reg; Parallel Studio XE 2018 Composer Edition for C++ Linux* or newer<br>or<br>Intel&reg; System Studio 2018 Composer Edition for Linux* or newer</li>
+					<li>Intel&reg; Parallel Studio XE 2019 Composer Edition for C++ Linux* or newer<br>or<br>Intel&reg; System Studio 2018 Composer Edition for Linux* or newer</li>
 				</ul>
 			</li>
 		</ul>
@@ -262,7 +261,7 @@
 		</tr>
 		<tr>
 			<td>Scalar 14%<p>AN 7%</td>			
-			<td>Intel&reg;  Parallel Studio XE 2018 Composer Edition for C++ Windows*</td>
+			<td>Intel&reg;  Parallel Studio XE 2019 Composer Edition for C++ Windows*</td>
 			<td>/O2 /Qipo /fp:fast /Oi /MD /EHsc /Qprof-dir "Intel-Release\" </td>
 			<td>
 				Windows 7 Enterprise SP1<br>
@@ -270,14 +269,14 @@
 		</tr>
 		<tr>
 			<td>Scalar 4%<p>AN 4%</td>			
-			<td>Intel&reg;  Parallel Studio XE 2018 Composer Edition for C++ macOS*</td>
+			<td>Intel&reg;  Parallel Studio XE 2019 Composer Edition for C++ macOS*</td>
 			<td>-O2 -ipo -fast -prof-dir ./intel-release</td>
 			<td>
 				OS X* 10.11.3<br>3nd Gen Intel&reg; Core&#8482; i7-2635QM CPU @ 2GHZ + 8GB memory</td>
 		</tr>
 		<tr>
 			<td>Scalar 5% <p>AN 9% </td>			
-			<td>Intel&reg; Parallel Studio XE 2018 Composer Edition for C++ Linux*</td>
+			<td>Intel&reg; Parallel Studio XE 2019 Composer Edition for C++ Linux*</td>
 			<td>-O2 -ipo -fast -prof-dir ./intel-release</td>
 			<td>
 				Red Hat Enterprise Linux Server release 7.1<br>
@@ -305,7 +304,7 @@
 			</li>
 			<li>Build with Intel C++ compiler PGO:
 				<ul class="circ">
-					<li>In the Solution Explorer window right click on FluidAnimate project name, select "Intel Compiler 18.0 > Profile Guided Optimization". It brings up "Profile Guided Optimization Dialog.  </li>
+					<li>In the Solution Explorer window right click on FluidAnimate project name, select "Intel Compiler -> Profile Guided Optimization". It brings up "Profile Guided Optimization Dialog.  </li>
                     <li>Without changing any default setting, click [Run] button. This step will start the following: 
                     <ul> 
                     <li>Build the FluidAnimate with /Qprof-gen option</li>
