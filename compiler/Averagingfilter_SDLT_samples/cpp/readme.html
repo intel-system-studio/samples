@@ -231,13 +231,13 @@
 			<li>For Microsoft* Windows*:
 				<ul>
 					<li>Microsoft Visual Studio 2013*, 2015*, or 2017* Professional Edition or above</li>
-					<li>Intel® Parallel Studio XE 2018 Composer Edition for C++ Windows* or newer<br>or<br>Intel&reg; System Studio 2018 Composer Edition for Windows* or newer</li>
+					<li>Intel® Parallel Studio XE 2019 Composer Edition for C++ Windows* or newer<br>or<br>Intel&reg; System Studio 2019 Composer Edition for Windows* or newer</li>
 				</ul>
 			</li>
 			<li>For Linux*:
 				<ul>
 					<li>GNU* GCC 4.8 or newer</li>
-					<li>Intel® Parallel Studio XE 2018 Composer Edition for C++ Linux* or newer<br>or<br>Intel&reg; System Studio 2018 Composer Edition for Linux* or newer</li>
+					<li>Intel® Parallel Studio XE 2019 Composer Edition for C++ Linux* or newer<br>or<br>Intel&reg; System Studio 2018 Composer Edition for Linux* or newer</li>
 				</ul>
 			</li>
 		</ul>
@@ -253,7 +253,7 @@
 		</tr>
 		<tr>
 			<td>SDLT version: 3.3x</td>
-			<td>Intel&reg;  Parallel Studio XE 2018 Composer Edition for C++ Windows*</td>
+			<td>Intel&reg;  Parallel Studio XE 2019 Composer Edition for C++ Windows*</td>
 			<td>/Qrestrict /QxCORE-AVX2 /O2 /Qstd=c++11</td>
 			<td>
 				<table>
@@ -263,7 +263,7 @@
 				</table></td>
 		</tr>
 			<td>SDLT version: 2.9x</td>
-			<td>Intel&reg; Parallel Studio XE 2018 Composer Edition for C++ Linux*</td>
+			<td>Intel&reg; Parallel Studio XE 2019 Composer Edition for C++ Linux*</td>
 			<td>-restrict -xCORE-AVX2 -O2 -std=c++11</td>
 			<td>
 				<table>
@@ -320,18 +320,7 @@
 							<li><code>perf_num=1</code>: collect performance numbers (will run example 5 times and take average time)</li>
 						</ul>
 					</li>
-					<li>To run: <code>make run </code></li></ul>
-					<li>For GCC:
-						<ul class="circ">
-							<li>Add include path to Intel(R) SDLT (-I&#60;compiler_installation_directory&#62;/linux/compiler/include) to CFLAGS corresponding to gcc target in the Makefile</li>
-							<li>Compile with <code>make gcc [perf_num=1]</code>
-								<ul>
-									<li><code>perf_num=1</code>: collect performance numbers (will run example 5 times and take average time)</li>
-								</ul>
-							</li>
-							<li>To run: <code>make run</code></li>
-						</ul>
-					</li>					
+					<li>To run: <code>make run </code></li></ul>									
 				</ul>
 			</li>
 		</ul>

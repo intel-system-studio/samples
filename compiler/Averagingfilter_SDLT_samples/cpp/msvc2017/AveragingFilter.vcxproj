@@ -26,26 +26,26 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Intel Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>Intel C++ Compiler 18.0</PlatformToolset>
+    <PlatformToolset>Intel C++ Compiler 19.0</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <InterproceduralOptimization>true</InterproceduralOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Intel Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>Intel C++ Compiler 18.0</PlatformToolset>
+    <PlatformToolset>Intel C++ Compiler 19.0</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <InterproceduralOptimization>true</InterproceduralOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Intel Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>Intel C++ Compiler 18.0</PlatformToolset>
+    <PlatformToolset>Intel C++ Compiler 19.0</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Intel Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>Intel C++ Compiler 18.0</PlatformToolset>
+    <PlatformToolset>Intel C++ Compiler 19.0</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -93,6 +93,8 @@
       <AdditionalOptions>/Qstd=c++11 %(AdditionalOptions)</AdditionalOptions>
       <Cpp0xSupport>true</Cpp0xSupport>
       <SuppressStartupBanner>false</SuppressStartupBanner>
+      <CCppSupport>Cpp11Support</CCppSupport>
+      <OpenMP>GenerateParallelCode</OpenMP>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -112,6 +114,7 @@
       <RecognizeRestrictKeyword>true</RecognizeRestrictKeyword>
       <Cpp0xSupport>true</Cpp0xSupport>
       <SuppressStartupBanner>false</SuppressStartupBanner>
+      <CCppSupport>Cpp11Support</CCppSupport>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -135,6 +138,7 @@
       <AdditionalOptions>/Qstd=c++11 %(AdditionalOptions)</AdditionalOptions>
       <Cpp0xSupport>true</Cpp0xSupport>
       <OptimizationDiagnosticLevel>Level2</OptimizationDiagnosticLevel>
+      <CCppSupport>Cpp11Support</CCppSupport>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -160,6 +164,7 @@
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <Cpp0xSupport>true</Cpp0xSupport>
       <OptimizationDiagnosticLevel>Level2</OptimizationDiagnosticLevel>
+      <CCppSupport>Cpp11Support</CCppSupport>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
