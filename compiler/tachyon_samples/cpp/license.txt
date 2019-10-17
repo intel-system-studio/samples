@@ -7,9 +7,9 @@ License Information Follows
 * src/build_with_openmp/*.cpp, src/build_with_serial/*.cpp, src/build_with_tbb/*.cpp
 * scripts/Makefile.gmake
 * dat/*.dat
-* readme.html, Makefile
+* Makefile, readme.html
 
-Copyright (C) Intel Corporation
+Copyright 2017 Intel Corporation
 
 * license: http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/  
 

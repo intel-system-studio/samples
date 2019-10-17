@@ -35,9 +35,9 @@ int_sin.exe
 goto eof
 :clean
 echo removing files...
-del *.exe
-del *.pdb
-del *.ilk
+if exist "*.exe" del *.exe
+if exist "*.pdb" del *.pdb
+if exist "*.ilk" del *.ilk
 rmdir /Q /S %DESTDIR_DEBUG% %DESTDIR_RELEASE% 2>nul
 
 :eof

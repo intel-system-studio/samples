@@ -3,7 +3,7 @@
 // SAMPLE SOURCE CODE - SUBJECT TO THE TERMS OF SAMPLE CODE LICENSE AGREEMENT,
 // http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
 //
-// Copyright (C) Intel Corporation
+// Copyright Intel Corporation
 //
 // THIS FILE IS PROVIDED "AS IS" WITH NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT
 // NOT LIMITED TO ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
@@ -40,7 +40,7 @@ void CUtilTimer::start() {
 #else
 
 	// Clock ticks
-	// On Linux*, rdtsc instruction is used since we don't have intrinsic equivalent of __rdtsc()
+	// On Linux, rdtsc instruction is used since we don't have intrinsic equivalent of __rdtsc()
 	unsigned lower, higher;
 	// rdtsc instruction returns a 64 bit clock tick 
 	// whose lower 32 bits is stored in EAX and higher 32 bits are stored in EDX register

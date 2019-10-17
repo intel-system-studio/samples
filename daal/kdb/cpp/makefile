@@ -1,15 +1,18 @@
-#==============================================================
+#===============================================================================
+# Copyright 2017-2019 Intel Corporation
 #
-# SAMPLE SOURCE CODE - SUBJECT TO THE TERMS OF SAMPLE CODE LICENSE AGREEMENT,
-# http://software.intel.com/en-us/articles/intel-sample-source-code-license-agreement/
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 #
-# Copyright (C) Intel Corporation
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
-# THIS FILE IS PROVIDED "AS IS" WITH NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT
-# NOT LIMITED TO ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
-# PURPOSE, NON-INFRINGEMENT OF INTELLECTUAL PROPERTY RIGHTS.
-#
-# =============================================================
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#===============================================================================
 
 ##  Content:
 ##     Intel(R) Data Analytics Acceleration Library samples creation and run
@@ -53,7 +56,7 @@ endif
 ifndef TBBROOT
     TBBROOT = ./../../../tbb
 endif
-TBB_PATH = "$(TBBROOT)/lib/$(_IA)_lin/gcc4.4"
+TBB_PATH = "$(TBBROOT)/lib/$(_IA)_lin/gcc4.4" "$(TBBROOT)/lib/$(_IA)_lin/gcc4.8"
 
 ifndef sample
     sample = $(KDB)
@@ -66,7 +69,7 @@ ifneq ($(mode),build)
     override mode = run
 endif
 
-EXT_LIB := -L$(TBB_PATH) -ltbb -ltbbmalloc -lpthread -ldl $(KDB_LIBRARY_PATH)/c.o
+EXT_LIB := $(addprefix -L,$(TBB_PATH)) -ltbb -ltbbmalloc -lpthread -ldl $(KDB_LIBRARY_PATH)/c.o
 
 COPTS := -Wall -w -DDAAL_CHECK_PARAMETER -I$(KDB_HEADER_PATH)
 LOPTS := -Wl,--start-group $(DAAL_LIB) $(EXT_LIB) -Wl,--end-group
