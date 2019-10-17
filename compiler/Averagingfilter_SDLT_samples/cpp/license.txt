@@ -5,7 +5,7 @@ License Information Follows
 * src\AverageFilter.cpp, src\AveragingFilter.h
 * src\timer.cpp, src\timer.h
 * readme.html, Makefile, Build.bat
-* res\nahelam.bmp, res\silverfalls.bmp
+* res/*.bmp
 
 Copyright Intel Corporation
 
