@@ -6,6 +6,7 @@
     } 
   ],
   "makeVariables": {
-    ".DEFAULT_GOAL": "default"
+    ".DEFAULT_GOAL": "default",
+    "CXX": "-parallel"
   }
 }
