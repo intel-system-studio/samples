@@ -7,6 +7,7 @@
   ],
   "makeVariables": {
     ".DEFAULT_GOAL": "default",
-    "CXX": "-parallel"
+    "CXXFLAGS": "-parallel",
+    "CXX": "${ISS_ROOT}/compilers_and_libraries/linux/bin/intel64/icpc"
   }
 }
