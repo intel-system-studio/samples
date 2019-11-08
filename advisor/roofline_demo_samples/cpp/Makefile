@@ -8,7 +8,7 @@ PROGS=$(OUTDIR)roofline_demo
 
 .PHONY: default
 default: $(OUTDIR)roofline.o
-	$(CXX) $(OUTDIR)roofline.o -o $(OUTDIR)roofline_demo $(LIBS)
+	$(CXX) $(CXXFLAGS) $(OUTDIR)roofline.o -o $(OUTDIR)roofline_demo $(LIBS)
 
 $(OUTDIR)roofline.o: $(OUTDIR) $(SOURCEDIR)roofline.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $(SOURCEDIR)roofline.cpp
