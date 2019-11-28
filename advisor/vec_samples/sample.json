@@ -2,7 +2,7 @@
   "name": "vec_samples",
   "category": "Intel\u00AE Advisor",
   "categories": [ "Tool Samples/Performance, Power, & Thermal Analysis" ],
-  "description": "TBD.",
+  "description": "Intel Advisor offers Vectorization Advisor, a vectorization optimization tool, and Threading Advisor, a threading design and prototyping tool, to help ensure your Fortran, C and C++ applications realize full performance potential on modern processors, such as Intel® Xeon Phi™ processors.",
   "author": "Intel Corporation",
   "date": "2018-06-05",
   "tag": "system",
